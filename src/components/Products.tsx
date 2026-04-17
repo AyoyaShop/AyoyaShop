@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ExternalLink, CheckCircle2, Play, X, Volume2, VolumeX } from 'lucide-react';
+import { ExternalLink, CheckCircle2, Play, X, Volume2, VolumeX, ArrowRight } from 'lucide-react';
 import { PRODUCTS } from '../data';
 
 interface ProductMediaProps {
@@ -188,6 +188,38 @@ export default function Products() {
             </div>
           ))}
         </div>
+        import { ArrowRight } from 'lucide-react';
+import { motion } from 'motion/react';
+
+// ... Chèn đoạn này vào dưới phần danh sách sản phẩm ...
+
+<motion.a
+  href="https://vn.shp.ee/GA43KvdT"
+  target="_blank"
+  rel="noopener noreferrer"
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  whileHover={{ y: -5 }}
+  className="relative mt-12 block w-full aspect-[21/9] md:aspect-[3/1] rounded-[32px] overflow-hidden group cursor-pointer shadow-xl"
+>
+  {/* Hình nền - Bạn hãy thay link ảnh Cloudinary của bạn vào đây */}
+  <img 
+    src="https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776451812/c%C3%A1c_sp_kh%C3%A1c_ky8zby.png" 
+    alt="Các sản phẩm khác của Ayoya"
+    className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+  />
+  
+  {/* Lớp phủ mờ giúp nội dung nổi bật */}
+  <div className="absolute inset-0 bg-ayoya-brown/40 group-hover:bg-ayoya-brown/50 transition-colors flex flex-col items-center justify-center text-white text-center p-6">
+    <h3 className="text-2xl md:text-4xl font-bold mb-2 tracking-tight">Các sản phẩm khác</h3>
+    <p className="text-[10px] md:text-xs opacity-90 mb-6 font-medium uppercase tracking-[0.2em]">Khám phá trọn bộ sưu tập Thảo mộc & Phong thủy</p>
+    
+    <div className="flex items-center gap-2 px-8 py-3 bg-ayoya-cream text-ayoya-brown rounded-full text-[10px] font-bold uppercase tracking-widest group-hover:bg-white transition-all shadow-lg">
+      Xem đầy đủ tại Shopee <ArrowRight size={14} />
+    </div>
+  </div>
+</motion.a>
       </div>
     </section>
   );
