@@ -19,7 +19,7 @@ export const PRODUCTS = [
     title: 'Thảo Dược Xông Nhà Như Ý - Cát Tường',
     subtitle: 'Thanh tẩy uế khí - Khởi sinh cát tường',
     description: 'Gói thảo dược 38 vị quý hiếm (Trầm hương, Quế chi, Đại hồi, Thảo quả...). Năng lượng sạch từ thiên nhiên.',
-    benefits: 'Không gian thơm ngát, ngủ ngon, đón nhận năng lượng tích cực và an tâm.',
+    benefits: 'Không gian thơm ngát, ngủ ngon, đón nhận năng lượng tích cực và tài lộc.',
     image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&q=80&w=800',
     video: 'https://assets.mixkit.co/videos/preview/mixkit-incense-smoke-rising-in-slow-motion-44163-large.mp4',
     cta: 'Thanh tẩy không gian',
