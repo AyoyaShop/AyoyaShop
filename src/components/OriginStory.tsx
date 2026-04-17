@@ -22,10 +22,10 @@ export default function OriginStory() {
               
               <div className="prose prose-ayoya text-ayoya-brown/70 leading-relaxed space-y-6 max-w-lg">
                 <p className="font-medium text-ayoya-brown italic border-l-2 border-ayoya-amber pl-6 py-2">
-                  Tại sao lại là Dầu Võ Bình Định? 
+                  Tại sao lại là Rượu xoa bóp võ thuật cổ truyền Bình Định? 
                 </p>
                 <p>
-                  Câu chuyện bắt nguồn từ những lò võ truyền thống tại Binh Định. Sau những giờ luyện tập cường độ cao, các võ sư dùng loại "dầu cốt rượu" bí truyền để phục hồi thể lực, thông kinh lạc và đánh tan các vết bầm.
+                  Câu chuyện bắt nguồn từ những lò võ truyền thống tại Binh Định. Sau những giờ luyện tập cường độ cao, các võ sư dùng loại "rượu mã tiền - thuốc võ" bí truyền để phục hồi thể lực, thông kinh lạc và đánh tan các vết bầm.
                 </p>
                 <p>
                   Chúng tôi kế thừa công thức ấy, kết hợp cùng quy trình "Tận tâm": từ việc trực tiếp chọn lựa từng vị thảo dược phơi khô dưới nắng giòn, đến khâu đóng gói tỉ mỉ như một món quà từ đất mẹ. Đó là bằng chứng thép cho giá trị "Chất lượng" mà AYOYA cam kết.
@@ -54,14 +54,14 @@ export default function OriginStory() {
             >
               <div className="organic-border overflow-hidden aspect-[3/4] modern-zen-shadow bg-white p-2">
                 <img 
-                  src="https://images.unsplash.com/photo-1544161515-4af6b1d8e1c6?auto=format&fit=crop&q=80&w=800" 
-                  alt="Traditional Herbs" 
+                  src="https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776444400/%C4%91%C3%B4ng_y_codzsc.jpg?auto=format&fit=crop&q=80&w=800" 
+                  alt=" " 
                   className="w-full h-full object-cover rounded-[35px] 5px [35px] 5px"
                   referrerPolicy="no-referrer"
                 />
               </div>
               <div className="px-4">
-                <h4 className="font-serif italic text-ayoya-brown">Thảo thảo mộc tuyển chọn</h4>
+                <h4 className="font-serif italic text-ayoya-brown">Thảo mộc tuyển chọn</h4>
                 <p className="text-[10px] uppercase text-ayoya-brown/40 mt-1">Nguồn dược liệu sạch</p>
               </div>
             </motion.div>
@@ -75,8 +75,8 @@ export default function OriginStory() {
             >
               <div className="organic-border overflow-hidden aspect-[3/4] modern-zen-shadow bg-white p-2">
                 <img 
-                  src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&q=80&w=800" 
-                  alt="Detailed Packaging" 
+                  src="https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776444643/%C4%91%C3%B3ng_g%C3%B3i_f1mam2.png?auto=format&fit=crop&q=80&w=800" 
+                  alt=" " 
                   className="w-full h-full object-cover rounded-[35px] 5px [35px] 5px"
                   referrerPolicy="no-referrer"
                 />
@@ -92,7 +92,7 @@ export default function OriginStory() {
                <div className="w-full h-full rounded-full bg-ayoya-brick/10 flex flex-col items-center justify-center text-ayoya-brick leading-none">
                   <span className="text-[10px] font-bold tracking-tighter">AYOYA</span>
                   <span className="text-[16px] font-serif italic">100%</span>
-                  <span className="text-[10px] font-bold tracking-tighter">PURE</span>
+                  <span className="text-[10px] font-bold tracking-tighter">THIÊN NHIÊN</span>
                </div>
             </div>
           </div>
