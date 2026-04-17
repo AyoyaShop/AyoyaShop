@@ -20,11 +20,11 @@ export const PRODUCTS = [
     subtitle: 'Thanh tẩy uế khí - Khởi sinh cát tường',
     description: 'Gói thảo dược 38 vị quý hiếm (Trầm hương, Quế chi, Đại hồi, Thảo quả...). Năng lượng sạch từ thiên nhiên.',
     benefits: 'Không gian thơm ngát, ngủ ngon, đón nhận năng lượng tích cực và tài lộc.',
-    image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&q=80&w=800',
-    video: 'https://assets.mixkit.co/videos/preview/mixkit-incense-smoke-rising-in-slow-motion-44163-large.mp4',
+    image: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776440289/%C3%B4ng_l%C3%A3o_phong_th%E1%BB%A7y_vtmurx.png?auto=format&fit=crop&q=80&w=800',
+    video: 'https://res.cloudinary.com/dfb8mvzhc/video/upload/v1776440319/7736771989880_f9ltno.mp4',
     cta: 'Thanh tẩy không gian',
     link: 'https://vt.tiktok.com/ZS9LbvTHMTVWL-nDl6P/',
-    badges: ['38 vị thảo mộc', 'Xông nhà như ý cát tường']
+    badges: ['38 vị thảo mộc', 'Xông nhà Như Ý - Cát Tường']
   },
   {
     id: 'nuoc-lau-ban-tho',
