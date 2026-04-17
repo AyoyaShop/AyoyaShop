@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Be Vietnam Pro", sans-serif;
+  
+  --color-ayoya-cream: #F5F5DC;
+  --color-ayoya-brown: #4B3621;
+  --color-ayoya-green: #2E473B;
+  --color-ayoya-amber: #FFBF00;
+  --color-ayoya-brick: #A52A2A;
+}
+
+@layer base {
+  body {
+    @apply font-sans bg-ayoya-cream text-ayoya-brown antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+.modern-zen-shadow {
+  box-shadow: 0 10px 30px -15px rgba(75, 54, 33, 0.1);
+}
+
+.organic-border {
+  border-radius: 40px 10px 40px 10px;
+}
+
+.bg-paper {
+  background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+}
+
+.bg-wood {
+  background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
+}
+
