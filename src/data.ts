@@ -5,7 +5,7 @@ export const PRODUCTS = [
   {
     id: 'dau-vo',
     title: 'Dầu Xoa Bóp Võ Thuật Cổ Truyền Bình Định',
-    subtitle: 'Báu vật đất Võ - Thông kinh lạc, nhẹ thân tâm',
+    subtitle: 'Tinh hoa miền đất Võ - Thông kinh lạc, nhẹ thân tâm',
     description: 'Sản phẩm mang tính di sản, kế thừa tinh hoa võ học Bình Định. Kết hợp công thức bí truyền và cốt rượu lâu năm.',
     benefits: 'Phục hồi thần tốc cơ xương khớp, cảm giác ấm nồng lan tỏa, đánh tan đau nhức.',
     image: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776438151/XOA_B%C3%93P_6_lfilv2.png?auto=format&fit=crop&q=80&w=800',
@@ -18,13 +18,13 @@ export const PRODUCTS = [
     id: 'thao-moc-xong-nha',
     title: 'Thảo Dược Xông Nhà Như Ý - Cát Tường',
     subtitle: 'Thanh tẩy uế khí - Khởi sinh cát tường',
-    description: 'Gói thảo dược 38 vị quý hiếm (Hoắc hương, Quế chi, Hồi, Te...). Năng lượng sạch từ thiên nhiên.',
+    description: 'Gói thảo dược 38 vị quý hiếm (Trầm hương, Quế chi, Đại hồi, Thảo quả...). Năng lượng sạch từ thiên nhiên.',
     benefits: 'Không gian thơm ngát, ngủ ngon, đón nhận năng lượng tích cực và an tâm.',
     image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&q=80&w=800',
     video: 'https://assets.mixkit.co/videos/preview/mixkit-incense-smoke-rising-in-slow-motion-44163-large.mp4',
     cta: 'Thanh tẩy không gian',
     link: https://vt.tiktok.com/ZS9LbvTHMTVWL-nDl6P/,
-    badges: ['38 vị thảo mộc', 'Xông nhà cát tường']
+    badges: ['38 vị thảo mộc', 'Xông nhà như ý cát tường']
   },
   {
     id: 'nuoc-lau-ban-tho',
