@@ -189,10 +189,8 @@ export default function Products() {
           ))}
         </div>
 
-// ... Chèn đoạn này vào dưới phần danh sách sản phẩm ...
-
 <motion.a
-  href="https://vn.shp.ee/GA43KvdT"
+  href="https://vn.shp.ee/dKiXxDRN"
   target="_blank"
   rel="noopener noreferrer"
   initial={{ opacity: 0, y: 20 }}
