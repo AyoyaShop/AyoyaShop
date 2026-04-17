@@ -236,11 +236,11 @@ export default function Products() {
   
   {/* Lớp phủ mờ giúp nội dung nổi bật */}
   <div className="absolute inset-0 bg-ayoya-brown/40 group-hover:bg-ayoya-brown/50 transition-colors flex flex-col items-center justify-center text-white text-center p-6">
-    <h3 className="text-2xl md:text-4xl font-bold mb-2 tracking-tight">Các sản phẩm khác</h3>
-    <p className="text-[10px] md:text-xs opacity-90 mb-6 font-medium uppercase tracking-[0.2em]">Khám phá trọn bộ sưu tập Thảo mộc & Phong thủy</p>
+    <h3 className="text-2xl md:text-4xl font-bold mb-2 tracking-tight">Thế Giới Thảo Mộc</h3>
+    <p className="text-[10px] md:text-xs opacity-90 mb-6 font-medium uppercase tracking-[0.2em]">Xem video thực tế & chốt đơn liền tay</p>
     
     <div className="flex items-center gap-2 px-8 py-3 bg-ayoya-cream text-ayoya-brown rounded-full text-[10px] font-bold uppercase tracking-widest group-hover:bg-white transition-all shadow-lg">
-      Xem đầy đủ tại Tiktok Shop <ArrowRight size={14} />
+      Vào ngay TikTok Shop <ArrowRight size={14} />
     </div>
   </div>
 </motion.a>
