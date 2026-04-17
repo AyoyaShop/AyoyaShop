@@ -87,7 +87,7 @@ export const TESTIMONIALS = [
     name: 'Chị Lan Hương',
     role: 'Người sống xanh',
     content: 'Combo xông nhà Như Ý thực sự mang lại luồng gió mới cho căn chung cư của mình. Mùi thơm thảo mộc tự nhiên rất dễ chịu.',
-    videoThumbnail: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=400'
+    videoThumbnail: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776436949/ch%C3%A2n_dung_1_202604172142_kvhhgy.jpg?auto=format&fit=crop&q=80&w=400'
   }
 ];
 
