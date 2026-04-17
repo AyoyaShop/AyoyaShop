@@ -17,9 +17,14 @@ export default function Footer() {
               <a href="https://www.facebook.com/ayoyashop" className="w-10 h-10 rounded-full border border-ayoya-cream/20 flex items-center justify-center hover:bg-ayoya-cream hover:text-ayoya-brown transition-all">
                 <Facebook size={18} />
               </a>
-              <a href="www.instagram.com/kiandli777" className="w-10 h-10 rounded-full border border-ayoya-cream/20 flex items-center justify-center hover:bg-ayoya-cream hover:text-ayoya-brown transition-all">
-                <Instagram size={18} />
-              </a>
+              <a 
+  href="https://www.instagram.com/kiandli777" 
+  target="_blank" 
+  rel="noopener noreferrer" 
+  className="w-10 h-10 rounded-full border border-ayoya-cream/20 flex items-center justify-center hover:bg-ayoya-cream hover:text-ayoya-brown transition-all"
+>
+  <Instagram size={18} />
+</a>
               <a href={TIKTOK_LINK} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-ayoya-cream/20 flex items-center justify-center hover:bg-ayoya-cream hover:text-ayoya-brown transition-all">
                 <span className="text-[10px] font-black italic">TT</span>
               </a>
