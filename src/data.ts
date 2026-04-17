@@ -8,7 +8,7 @@ export const PRODUCTS = [
     subtitle: 'Báu vật đất Võ - Thông kinh lạc, nhẹ thân tâm',
     description: 'Sản phẩm mang tính di sản, kế thừa tinh hoa võ học Bình Định. Kết hợp công thức bí truyền và cốt rượu lâu năm.',
     benefits: 'Phục hồi thần tốc cơ xương khớp, cảm giác ấm nồng lan tỏa, đánh tan đau nhức.',
-    image: 'https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&q=80&w=800',
+    image: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776438151/XOA_B%C3%93P_6_lfilv2.png?auto=format&fit=crop&q=80&w=800',
     video: 'https://res.cloudinary.com/dfb8mvzhc/video/upload/v1776437376/xoabop_leoaaz.mp4',
     cta: 'Trải nghiệm sự an yên',
     link: https://vn.shp.ee/GA43KvdT,
@@ -23,7 +23,7 @@ export const PRODUCTS = [
     image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&q=80&w=800',
     video: 'https://assets.mixkit.co/videos/preview/mixkit-incense-smoke-rising-in-slow-motion-44163-large.mp4',
     cta: 'Thanh tẩy không gian',
-    link: SHOPEE_LINK,
+    link: https://vt.tiktok.com/ZS9LbvTHMTVWL-nDl6P/,
     badges: ['38 vị thảo mộc', 'Xông nhà cát tường']
   },
   {
