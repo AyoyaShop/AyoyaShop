@@ -216,6 +216,34 @@ export default function Products() {
     </div>
   </div>
 </motion.a>
+
+        <motion.a
+  href="https://www.tiktok.com/@ayoyashop?_r=1&_t=ZS-95c3k6dwdyH"
+  target="_blank"
+  rel="noopener noreferrer"
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  whileHover={{ y: -5 }}
+  className="relative mt-12 block w-full aspect-[21/9] md:aspect-[3/1] rounded-[32px] overflow-hidden group cursor-pointer shadow-xl"
+>
+  {/* Hình nền - Bạn hãy thay link ảnh Cloudinary của bạn vào đây */}
+  <img 
+    src="https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776453450/c%C3%A1c_sp_kh%C3%A1c_2_zrnefx.png" 
+    alt="Các sản phẩm khác của Ayoya"
+    className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+  />
+  
+  {/* Lớp phủ mờ giúp nội dung nổi bật */}
+  <div className="absolute inset-0 bg-ayoya-brown/40 group-hover:bg-ayoya-brown/50 transition-colors flex flex-col items-center justify-center text-white text-center p-6">
+    <h3 className="text-2xl md:text-4xl font-bold mb-2 tracking-tight">Các sản phẩm khác</h3>
+    <p className="text-[10px] md:text-xs opacity-90 mb-6 font-medium uppercase tracking-[0.2em]">Khám phá trọn bộ sưu tập Thảo mộc & Phong thủy</p>
+    
+    <div className="flex items-center gap-2 px-8 py-3 bg-ayoya-cream text-ayoya-brown rounded-full text-[10px] font-bold uppercase tracking-widest group-hover:bg-white transition-all shadow-lg">
+      Xem đầy đủ tại Tiktok Shop <ArrowRight size={14} />
+    </div>
+  </div>
+</motion.a>
       </div>
     </section>
   );
