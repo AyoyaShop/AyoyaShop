@@ -14,10 +14,10 @@ export default function Footer() {
               cho không gian sống của bạn.
             </p>
             <div className="flex flex-wrap gap-4">
-              <a href="#" className="w-10 h-10 rounded-full border border-ayoya-cream/20 flex items-center justify-center hover:bg-ayoya-cream hover:text-ayoya-brown transition-all">
+              <a href="https://www.facebook.com/ayoyashop" className="w-10 h-10 rounded-full border border-ayoya-cream/20 flex items-center justify-center hover:bg-ayoya-cream hover:text-ayoya-brown transition-all">
                 <Facebook size={18} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full border border-ayoya-cream/20 flex items-center justify-center hover:bg-ayoya-cream hover:text-ayoya-brown transition-all">
+              <a href="www.instagram.com/kiandli777" className="w-10 h-10 rounded-full border border-ayoya-cream/20 flex items-center justify-center hover:bg-ayoya-cream hover:text-ayoya-brown transition-all">
                 <Instagram size={18} />
               </a>
               <a href={TIKTOK_LINK} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-ayoya-cream/20 flex items-center justify-center hover:bg-ayoya-cream hover:text-ayoya-brown transition-all">
