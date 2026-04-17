@@ -11,7 +11,7 @@ export const PRODUCTS = [
     image: 'https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&q=80&w=800',
     video: 'https://res.cloudinary.com/dfb8mvzhc/video/upload/v1776437376/xoabop_leoaaz.mp4',
     cta: 'Trải nghiệm sự an yên',
-    link: TIKTOK_LINK,
+    link: https://vn.shp.ee/GA43KvdT,
     badges: ['Bí truyền', 'Cốt rượu lâu năm']
   },
   {
