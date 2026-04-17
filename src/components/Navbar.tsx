@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { ShoppingCart, Menu, Search, Phone } from 'lucide-react';
-import { TIKTOK_LINK } from '../data';
+import { SHOPEE_LINK } from '../data';
 
 export default function Navbar() {
   return (
@@ -36,7 +36,7 @@ export default function Navbar() {
             <Search size={20} />
           </button>
           <a 
-            href={TIKTOK_LINK} 
+            href={SHOPEE_LINK} 
             target="_blank" 
             rel="noopener noreferrer"
             className="flex items-center gap-2 px-4 py-2 bg-ayoya-brown text-ayoya-cream rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-ayoya-green transition-all"
