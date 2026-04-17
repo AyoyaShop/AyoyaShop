@@ -23,7 +23,7 @@ export const PRODUCTS = [
     image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&q=80&w=800',
     video: 'https://assets.mixkit.co/videos/preview/mixkit-incense-smoke-rising-in-slow-motion-44163-large.mp4',
     cta: 'Thanh tẩy không gian',
-    link: https://vt.tiktok.com/ZS9LbvTHMTVWL-nDl6P/,
+    link: 'https://vt.tiktok.com/ZS9LbvTHMTVWL-nDl6P/',
     badges: ['38 vị thảo mộc', 'Xông nhà như ý cát tường']
   },
   {
