@@ -74,10 +74,10 @@ export default function InteractiveTools() {
             </div>
             <a 
   href="/bo-lich-ayoya.pdf" 
-  download="phong-thuy-chuyen-sau-ve-thanh-tay-khong-gian.docx"
+  download="phong-thuy-chuyen-sau-ve-thanh-tay-khong-gian.pdf"
   className="mt-8 block text-center w-full py-4 border border-ayoya-brown/10 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-ayoya-brown hover:text-white transition-all cursor-pointer"
 >
-  TẢI PHONG THỦY CHUYÊN SÂU (DOCX)
+  TẢI PHONG THỦY CHUYÊN SÂU (PDF)
 </a>
           </motion.div>
 
