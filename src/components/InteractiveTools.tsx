@@ -59,7 +59,7 @@ export default function InteractiveTools() {
             <div className="space-y-4">
               {[
                 { day: 'Mùng 1 & Rằm', title: 'Thanh tẩy nhẹ nhàng', text: 'Thích hợp lau dọn ban thờ, thắp nhang trầm sạch.' },
-                { day: 'Ngày 24 Âm Lịch', title: 'Tẩy uế gia đạo', text: 'Ngày tốt để xông thảo mộc 38 vị, đẩy lùi uế khí.' },
+                { day: 'Mùng 2 & 16 Âm Lịch', title: 'Tẩy uế gia đạo', text: 'Ngày tốt để xông thảo mộc 38 vị, đẩy lùi uế khí.' },
               ].map((item, idx) => (
                 <div key={idx} className="flex gap-6 p-6 rounded-2xl bg-ayoya-cream/20 border border-ayoya-brown/5">
                   <div className="text-ayoya-amber font-serif text-lg leading-tight w-20 flex-shrink-0">
@@ -72,9 +72,13 @@ export default function InteractiveTools() {
                 </div>
               ))}
             </div>
-            <button className="mt-8 w-full py-4 border border-ayoya-brown/10 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-ayoya-brown hover:text-white transition-all">
-              Tải Bộ Lịch Đầy Đủ (PDF)
-            </button>
+            <a 
+  href="/bo-lich-ayoya.pdf" 
+  download="phong-thuy-chuyen-sau-ve-thanh-tay-khong-gian.docx"
+  className="mt-8 block text-center w-full py-4 border border-ayoya-brown/10 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-ayoya-brown hover:text-white transition-all cursor-pointer"
+>
+  TẢI PHONG THỦY CHUYÊN SÂU (DOCX)
+</a>
           </motion.div>
 
           {/* Quiz Tương Tác */}
