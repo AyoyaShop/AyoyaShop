@@ -23,7 +23,7 @@ export default function Navbar() {
         <div className="absolute left-1/2 -translate-x-1/2">
           <a href="/" className="flex flex-col items-center">
             <h1 className="text-3xl font-serif font-bold tracking-tighter text-ayoya-brown">AYOYA</h1>
-            <span className="text-[8px] tracking-[0.3em] uppercase opacity-60 -mt-1">Traditional Wellness</span>
+            <span className="text-[8px] tracking-[0.3em] uppercase opacity-60 -mt-1">DƯỠNG SINH THẢO MỘC & LỐI SỐNG TỈNH THỨC</span>
           </a>
         </div>
 
