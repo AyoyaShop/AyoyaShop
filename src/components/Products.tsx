@@ -188,8 +188,6 @@ export default function Products() {
             </div>
           ))}
         </div>
-        import { ArrowRight } from 'lucide-react';
-import { motion } from 'motion/react';
 
 // ... Chèn đoạn này vào dưới phần danh sách sản phẩm ...
 
