@@ -159,7 +159,7 @@ export default function Products() {
                   <ul className="space-y-3">
                     <li className="flex items-center gap-3 text-sm text-ayoya-green font-medium">
                       <CheckCircle2 size={18} />
-                      Sản phẩm được tin dùng bởi các võ sư Bình Định
+                      Chinh phục hàng ngàn khách hàng tinh tế, Ayoya tự hào là thương hiệu thảo mộc được yêu thích nhất trên TikTok Shop và Shopee.
                     </li>
                   </ul>
 
