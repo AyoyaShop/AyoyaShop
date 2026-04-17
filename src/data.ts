@@ -11,7 +11,7 @@ export const PRODUCTS = [
     image: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776438151/XOA_B%C3%93P_6_lfilv2.png?auto=format&fit=crop&q=80&w=800',
     video: 'https://res.cloudinary.com/dfb8mvzhc/video/upload/v1776437376/xoabop_leoaaz.mp4',
     cta: 'Trải nghiệm sự an yên',
-    link: https://vn.shp.ee/GA43KvdT,
+    link: 'https://vn.shp.ee/GA43KvdT',
     badges: ['Bí truyền', 'Cốt rượu lâu năm']
   },
   {
