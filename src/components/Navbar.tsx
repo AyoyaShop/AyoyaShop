@@ -35,7 +35,7 @@ export default function Navbar() {
             <Phone size={20} />
             <span className="hidden md:inline text-xs font-semibold">0933.458.485</span>
           </a>
-          <button className="text-ayoya-brown hover:text-ayoya-amber transition-colors">
+          <button className="hidden sm:block text-ayoya-brown hover:text-ayoya-amber transition-colors">
             <Search size={20} />
           </button>
           <a 
