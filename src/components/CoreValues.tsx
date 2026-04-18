@@ -13,19 +13,21 @@ export default function CoreValues() {
     <section className="py-24 bg-white/50 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
         
-        {/* --- BANNER "CHẤT LƯỢNG ĐI CÙNG TÂM ĐỨC" --- */}
+        {/* --- BANNER THƯ PHÁP TỪ CLOUDINARY --- */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-ayoya-cream/20 text-ayoya-brown rounded-[32px] py-6 px-10 text-center mb-16 border border-ayoya-brown/10 shadow-sm"
+          className="bg-ayoya-cream/20 rounded-[32px] overflow-hidden mb-16 border border-ayoya-brown/10 shadow-sm"
         >
-          <p className="text-xl md:text-2xl font-bold uppercase tracking-[0.2em] leading-tight">
-            CHẤT LƯỢNG ĐI CÙNG TÂM ĐỨC
-          </p>
+          <img 
+            src="https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776474445/calligraphy_banner_mpfrxj.jpg" 
+            alt="Banner Chất lượng đi cùng Tâm đức"
+            className="w-full h-auto block"
+          />
         </motion.div>
 
-        {/* --- KHỐI 3 ICON GỐC --- */}
+        {/* --- KHỐI 3 GIÁ TRỊ CỐT LÕI --- */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {CORE_VALUES.map((value, idx) => {
             const Icon = iconMap[value.icon as keyof typeof iconMap];
