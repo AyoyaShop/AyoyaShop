@@ -3,7 +3,6 @@ import { motion } from 'motion/react';
 import { ShoppingCart, Menu, Search, Phone, X } from 'lucide-react';
 
 export default function Navbar() {
-  // Công tắc điều khiển trạng thái Đóng/Mở của Menu điện thoại
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
@@ -17,7 +16,6 @@ export default function Navbar() {
           
           {/* === CỤM BÊN TRÁI === */}
           <div className="flex items-center gap-4 lg:gap-6">
-            {/* Nút 3 gạch (BẤM VÀO SẼ MỞ MENU) */}
             <button 
               onClick={() => setIsMobileMenuOpen(true)}
               className="lg:hidden text-ayoya-brown hover:text-ayoya-amber transition-colors"
@@ -25,7 +23,6 @@ export default function Navbar() {
               <Menu size={26} strokeWidth={1.5} />
             </button>
 
-            {/* Nút Tiktok Shop */}
             <a 
               href="https://www.tiktok.com/@ayoyashop?_r=1&_t=ZS-95c3k6dwdyH" 
               target="_blank" 
@@ -38,14 +35,13 @@ export default function Navbar() {
               <span className="text-[8px] text-ayoya-brown font-bold uppercase tracking-wider whitespace-nowrap">Tiktok Shop</span>
             </a>
 
-            {/* Menu chữ (Chỉ hiện trên Máy tính) */}
             <div className="hidden lg:flex items-center gap-8 text-sm font-medium tracking-widest uppercase">
               <a href="#products" className="hover:text-ayoya-amber transition-colors">Sản phẩm</a>
               <a href="#about" className="hover:text-ayoya-amber transition-colors">Về chúng tôi</a>
             </div>
           </div>
 
-          {/* === CỤM GIỮA: Logo Ayoya === */}
+          {/* === CỤM GIỮA: Logo === */}
           <div className="absolute left-1/2 -translate-x-1/2">
             <a href="/" className="flex flex-col items-center">
               <h1 className="text-3xl font-serif font-bold tracking-tighter text-ayoya-brown">AYOYA</h1>
@@ -55,7 +51,6 @@ export default function Navbar() {
 
           {/* === CỤM BÊN PHẢI === */}
           <div className="flex items-center gap-4 lg:gap-6">
-            {/* Nút Gọi Điện */}
             <a 
               href="tel:0933458485" 
               className="flex items-center gap-2 text-ayoya-brown hover:text-ayoya-amber transition-colors cursor-pointer"
@@ -64,12 +59,10 @@ export default function Navbar() {
               <span className="hidden md:inline text-xs font-semibold">0933.458.485</span>
             </a>
 
-            {/* Nút Kính lúp */}
             <button className="hidden sm:block text-ayoya-brown hover:text-ayoya-amber transition-colors">
               <Search size={20} />
             </button>
 
-            {/* Nút Shopee */}
             <a 
               href="https://vn.shp.ee/dKiXxDRN" 
               target="_blank" 
@@ -91,31 +84,40 @@ export default function Navbar() {
       {/* === BẢNG MENU TRƯỢT TRÊN ĐIỆN THOẠI === */}
       {isMobileMenuOpen && (
         <div className="fixed inset-0 z-[60] bg-ayoya-cream flex flex-col items-center justify-center lg:hidden">
+          
           {/* Nút tắt Menu (Dấu X) */}
           <button 
             onClick={() => setIsMobileMenuOpen(false)}
-            className="absolute top-6 right-6 text-ayoya-brown hover:text-red-700 transition-colors"
+            className="absolute top-6 right-6 text-ayoya-brown hover:text-red-700 transition-colors p-2"
           >
-            <X size={36} />
+            <X size={36} strokeWidth={1.5} />
           </button>
 
-          {/* Các đường link trong Menu */}
-          <div className="flex flex-col items-center gap-8">
+          {/* Logo trong Menu để tăng nhận diện */}
+          <div className="mb-12 flex flex-col items-center">
+             <h2 className="text-4xl font-serif font-bold text-ayoya-brown">AYOYA</h2>
+             <div className="w-12 h-[1px] bg-ayoya-brown/30 mt-4"></div>
+          </div>
+
+          {/* Các đường link được đặt trong khung (Card UI) */}
+          <div className="flex flex-col items-center gap-5 w-full px-8 max-w-[320px]">
             <a 
               href="#products" 
-              onClick={() => setIsMobileMenuOpen(false)} // Bấm xong tự đóng menu
-              className="text-2xl font-serif text-ayoya-brown uppercase tracking-widest hover:text-ayoya-amber transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="w-full py-4 bg-white rounded-2xl border border-ayoya-brown/10 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] text-ayoya-brown text-center text-lg font-bold tracking-widest uppercase active:scale-95 transition-all"
             >
               Sản phẩm
             </a>
+            
             <a 
               href="#about" 
               onClick={() => setIsMobileMenuOpen(false)} 
-              className="text-2xl font-serif text-ayoya-brown uppercase tracking-widest hover:text-ayoya-amber transition-colors"
+              className="w-full py-4 bg-white rounded-2xl border border-ayoya-brown/10 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] text-ayoya-brown text-center text-lg font-bold tracking-widest uppercase active:scale-95 transition-all"
             >
               Về chúng tôi
             </a>
           </div>
+          
         </div>
       )}
     </>
