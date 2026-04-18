@@ -47,6 +47,25 @@ export default function Hero() {
 
           <TrustBadges />
         </motion.div>
+        {/* --- KHUNG VIDEO HIỂN THỊ --- */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          className="w-full max-w-4xl mx-auto mt-8 rounded-[32px] overflow-hidden modern-zen-shadow border border-ayoya-brown/10 bg-ayoya-cream/20 relative z-20"
+        >
+          <video
+            className="w-full h-auto aspect-video object-cover"
+            controls
+            autoPlay
+            muted
+            loop
+            playsInline
+          >
+            <source src="https://res.cloudinary.com/dfb8mvzhc/video/upload/v1776477125/7737331366812_kepdxc.mp4" />
+            Trình duyệt của bạn không hỗ trợ xem video.
+          </video>
+        </motion.div>
       </div>
 
       <div className="absolute bottom-10 left-10 hidden lg:block">
