@@ -32,7 +32,7 @@ export const PRODUCTS = [
     subtitle: 'TThân khỏe tâm an & Tẩy trần thanh tịnh',
     description: '100% Thảo dược tự nhiên: Kết hợp tinh túy từ các loại lá thơm, thảo mộc quý, cam kết không hương liệu, không chất bảo quản.',
     benefits: 'Khơi thông dòng chảy năng lượng, gột rửa bụi trần và tìm lại sự thư thái tuyệt đối cho cả thân thể lẫn tâm hồn.',
-    image: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776441148/x%C3%B4ng_c%C6%A1_th%E1%BB%83_mcwdrb.png?auto=format&fit=crop&q=80&w=800',
+    image: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776506403/x%C3%B4ng_c%C6%A1_th%E1%BB%83_1_sowj2u.png?auto=format&fit=crop&q=80&w=800',
     video: 'https://res.cloudinary.com/dfb8mvzhc/video/upload/v1776441157/xongtam_fomnwn.mp4',
     cta: 'Chăm sóc cơ thể',
     link: 'https://vt.tiktok.com/ZS9LgeM9mft9m-5arsI/',
