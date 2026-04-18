@@ -28,12 +28,12 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-6">
-          <a 
+         <a 
             href="tel:0933458485" 
-            className="hidden sm:flex items-center gap-2 text-ayoya-brown/70 hover:text-ayoya-amber transition-colors cursor-pointer"
+            className="flex items-center gap-2 text-ayoya-brown hover:text-ayoya-amber transition-colors cursor-pointer"
           >
-            <Phone size={16} />
-            <span className="text-xs font-semibold">0933.458.485</span>
+            <Phone size={20} />
+            <span className="hidden md:inline text-xs font-semibold">0933.458.485</span>
           </a>
           <button className="text-ayoya-brown hover:text-ayoya-amber transition-colors">
             <Search size={20} />
