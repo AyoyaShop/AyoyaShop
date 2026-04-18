@@ -35,7 +35,7 @@ export default function Footer() {
               <div className="flex gap-4">
                 <a href={SHOPEE_LINK} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 border border-ayoya-amber/30 rounded-lg text-xs hover:bg-ayoya-amber/10 transition-colors">
                   <ShoppingBag size={14} />
-                  Shopee Shop
+                  Shopee
                 </a>
                 <a href={TIKTOK_LINK} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 border border-ayoya-amber/30 rounded-lg text-xs hover:bg-ayoya-amber/10 transition-colors">
                   <span className="font-black italic">T</span>
