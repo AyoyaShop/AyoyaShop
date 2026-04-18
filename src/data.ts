@@ -66,9 +66,10 @@ export const BLOGS = [
     link: 'https://www.nguyentuankiet.com.vn/2026/04/meo-cham-soc-suc-khoe-khong-dung-thuoc.html'
   },
   {
-    title: 'Ý nghĩa của 38 vị thảo dược trong gói xông nhà',
-    excerpt: 'Tại sao lại là 38 vị? Hoắc hương, Quế chi, Hồi... mỗi vị đều mang một tầng năng lượng riêng...',
-    image: 'https://images.unsplash.com/photo-1544161515-4af6b1d8e1c6?auto=format&fit=crop&q=80&w=600'
+   title: '"Thanh tẩy Trường khí & Tái tạo Năng lượng Gia đạo"  - Sự giao thoa giữa Phong thủy và Thảo dược',
+    excerpt: 'Sự kết hợp diệu kỳ giữa dược tính của thảo mộc thiên nhiên và quy luật vận hành của năng lượng vũ trụ...',
+    image: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776502433/1a_dtrje5.jpg?auto=format&fit=crop&q=80&w=600',
+    link: 'https://www.nguyentuankiet.com.vn/2026/04/thanh-tay-truong-khi-tai-tao-nang-luong.html'
   },
   {
     title: 'Cách phân biệt trầm thật - trầm giả cho gia chủ',
