@@ -66,7 +66,7 @@ export const BLOGS = [
     link: 'https://www.nguyentuankiet.com.vn/2026/04/meo-cham-soc-suc-khoe-khong-dung-thuoc.html'
   },
   {
-   title: '"Thanh tẩy Trường khí & Tái tạo Năng lượng Gia đạo"  - Sự giao thoa giữa Phong thủy và Thảo dược',
+   title: 'Thanh tẩy Trường khí & Tái tạo Năng lượng Gia đạo',
     excerpt: 'Sự kết hợp diệu kỳ giữa dược tính của thảo mộc thiên nhiên và quy luật vận hành của năng lượng vũ trụ...',
     image: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776502433/1a_dtrje5.jpg?auto=format&fit=crop&q=80&w=600',
     link: 'https://www.nguyentuankiet.com.vn/2026/04/thanh-tay-truong-khi-tai-tao-nang-luong.html'
