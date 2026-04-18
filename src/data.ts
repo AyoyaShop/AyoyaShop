@@ -72,9 +72,10 @@ export const BLOGS = [
     link: 'https://www.nguyentuankiet.com.vn/2026/04/thanh-tay-truong-khi-tai-tao-nang-luong.html'
   },
   {
-    title: 'Cách phân biệt trầm thật - trầm giả cho gia chủ',
-    excerpt: 'Vì sức khỏe gia đình, hãy là người tiêu dùng thông thái khi chọn vật phẩm thờ cúng...',
-    image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=600'
+    title: 'Thanh tẩy Trường khí & Tái tạo Năng lượng Gia đạo',
+    excerpt: 'Dưỡng sinh Võ đạo: Giải cứu Cột sống & Thông kinh lạc cho người hiện đại',
+    image: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776505547/vo_binh_dinh_ud0cpl.jpg?auto=format&fit=crop&q=80&w=600',
+    link: 'https://www.nguyentuankiet.com.vn/2026/04/duong-sinh-vo-ao-giai-cuu-cot-song.html'
   }
 ];
 
