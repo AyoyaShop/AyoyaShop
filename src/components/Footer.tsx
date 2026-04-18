@@ -66,10 +66,10 @@ export default function Footer() {
           <div>
             <h4 className="text-sm font-bold uppercase tracking-[0.2em] mb-8 text-ayoya-amber">Chính sách</h4>
             <ul className="space-y-4 text-sm text-ayoya-cream/70">
-              <li><a href="#" className="hover:text-ayoya-cream transition-colors">Chính sách bảo mật</a></li>
-              <li><a href="#" className="hover:text-ayoya-cream transition-colors">Chính sách vận chuyển</a></li>
-              <li><a href="#" className="hover:text-ayoya-cream transition-colors">Chính sách đổi trả</a></li>
-              <li><a href="#" className="hover:text-ayoya-cream transition-colors">Hướng dẫn thanh toán</a></li>
+              <li><a href="https://www.nguyentuankiet.com.vn/p/chinh-sach-bao-mat.html" className="hover:text-ayoya-cream transition-colors">Chính sách bảo mật</a></li>
+              <li><a href="https://www.nguyentuankiet.com.vn/p/chinh-sach-van-chuyen.html" className="hover:text-ayoya-cream transition-colors">Chính sách vận chuyển</a></li>
+              <li><a href="https://www.nguyentuankiet.com.vn/p/chinh-sach-doi-tra.html" className="hover:text-ayoya-cream transition-colors">Chính sách đổi trả</a></li>
+              <li><a href="https://www.nguyentuankiet.com.vn/p/huong-dan-thanh-toan.html" className="hover:text-ayoya-cream transition-colors">Hướng dẫn thanh toán</a></li>
             </ul>
           </div>
         </div>
