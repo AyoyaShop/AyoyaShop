@@ -62,7 +62,8 @@ export const BLOGS = [
   {
     title: 'Mẹo chăm sóc sức khỏe không dùng thuốc',
     excerpt: 'Khám phá các phương pháp tự nhiên từ y học cổ truyền Bình Định để phục hồi thân tâm...',
-    image: 'https://images.unsplash.com/photo-1512428559086-560e5ba80a4e?auto=format&fit=crop&q=80&w=600'
+    image: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776480897/5meo_hu29y2.jpg?auto=format&fit=crop&q=80&w=600'
+    link: 'https://www.nguyentuankiet.com.vn/2026/04/meo-cham-soc-suc-khoe-khong-dung-thuoc.html'
   },
   {
     title: 'Ý nghĩa của 38 vị thảo dược trong gói xông nhà',
