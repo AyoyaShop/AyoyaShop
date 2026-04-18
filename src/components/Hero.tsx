@@ -62,7 +62,7 @@ export default function Hero() {
             loop
             playsInline
           >
-            <source src="https://res.cloudinary.com/dfb8mvzhc/video/upload/v1776477125/7737331366812_kepdxc.mp4" />
+            <source src="https://res.cloudinary.com/dfb8mvzhc/video/upload/v1776477706/7737362006875_lxnlau.mp4" />
             Trình duyệt của bạn không hỗ trợ xem video.
           </video>
         </motion.div>
