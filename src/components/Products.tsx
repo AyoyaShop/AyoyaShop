@@ -218,7 +218,7 @@ export default function Products() {
 </motion.a>
 
         <motion.a
-  href="https://www.tiktok.com/@ayoyashop?_r=1&_t=ZS-95c3k6dwdyH"
+  href="https://vt.tiktok.com/ZS4qEo8dm/?page=TikTokShop"
   target="_blank"
   rel="noopener noreferrer"
   initial={{ opacity: 0, y: 20 }}
