@@ -1,5 +1,5 @@
 export const SHOPEE_LINK = 'https://vn.shp.ee/dKiXxDRN';
-export const TIKTOK_LINK = 'https://www.tiktok.com/@ayoyashop?_r=1&_t=ZS-95c3k6dwdyH';
+export const TIKTOK_LINK = 'https://vt.tiktok.com/ZS4qEo8dm/?page=TikTokShop';
 
 export const PRODUCTS = [
   {
