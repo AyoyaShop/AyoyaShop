@@ -24,7 +24,7 @@ export default function Navbar() {
             </button>
 
             <a 
-              href="https://www.tiktok.com/@ayoyashop?_r=1&_t=ZS-95c3k6dwdyH" 
+              href="https://vt.tiktok.com/ZS4qEo8dm/?page=TikTokShop" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="flex flex-col items-center gap-1 lg:hidden cursor-pointer hover:opacity-80 transition-opacity"
