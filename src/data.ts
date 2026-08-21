@@ -121,8 +121,8 @@ export const QUIZ_RESULTS = {
   },
   nâu: {
     title: 'Tĩnh Tâm Gia Đạo',
-    description: 'Nước lau bàn thờ và nhang trầm sạch sẽ là mỏ neo giúp gia đình bạn bình an.',
-    product: 'nuoc-lau-ban-tho'
+    description: 'Thảo dược Xông & Tắm Mộc An giúp thân khỏe tâm an, tẩy trần thanh tịnh và mang lại sự bình an cho gia đạo bạn.',
+    product: 'la-xong-moc-an'
   },
   đỏ: {
     title: 'Hồi Sinh Thể Chất',

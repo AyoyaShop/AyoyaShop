@@ -113,9 +113,10 @@ export default function Products() {
 
         <div className="space-y-20 md:space-y-32">
           {PRODUCTS.map((product, idx) => (
-            <div 
+            <div
               key={product.id}
-              className={`flex flex-col lg:flex-row items-center gap-10 md:gap-16 ${
+              id={product.id}
+              className={`flex flex-col lg:flex-row items-center gap-10 md:gap-16 scroll-mt-28 ${
                 idx % 2 === 1 ? 'lg:flex-row-reverse' : ''
               }`}
             >
