@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
-import { ShoppingCart } from 'lucide-react';
+import { ShoppingCart, ArrowRight } from 'lucide-react';
 import { MORE_PRODUCTS } from '../data';
 import { useCart } from '../context/CartContext';
 
@@ -91,6 +91,58 @@ export default function ProductGrid() {
             );
           })}
         </div>
+
+        <motion.a
+          href="https://vn.shp.ee/dKiXxDRN"
+          target="_blank"
+          rel="noopener noreferrer"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          whileHover={{ y: -5 }}
+          className="relative mt-12 block w-full aspect-[21/9] md:aspect-[3/1] rounded-[32px] overflow-hidden group cursor-pointer shadow-xl"
+        >
+          <img
+            src="https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776451812/c%C3%A1c_sp_kh%C3%A1c_ky8zby.png"
+            alt="Các sản phẩm khác của Ayoya"
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-ayoya-brown/40 group-hover:bg-ayoya-brown/50 transition-colors flex flex-col items-center justify-center text-white text-center p-6">
+            <h3 className="text-2xl md:text-4xl font-bold mb-2 tracking-tight">Các sản phẩm khác</h3>
+            <p className="text-[10px] md:text-xs opacity-90 mb-6 font-medium uppercase tracking-[0.2em]">Khám phá trọn bộ sưu tập Thảo mộc & Phong thủy</p>
+            <div className="flex items-center gap-2 px-8 py-3 bg-ayoya-cream text-ayoya-brown rounded-full text-[10px] font-bold uppercase tracking-widest group-hover:bg-white transition-all shadow-lg">
+              Xem đầy đủ tại Shopee <ArrowRight size={14} />
+            </div>
+          </div>
+        </motion.a>
+
+        <motion.a
+          href="https://vt.tiktok.com/ZS4qEo8dm/?page=TikTokShop"
+          target="_blank"
+          rel="noopener noreferrer"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          whileHover={{ y: -5 }}
+          className="relative mt-12 block w-full aspect-[21/9] md:aspect-[3/1] rounded-[32px] overflow-hidden group cursor-pointer shadow-xl"
+        >
+          <img
+            src="https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776453450/c%C3%A1c_sp_kh%C3%A1c_2_zrnefx.png"
+            alt="Các sản phẩm khác của Ayoya"
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-ayoya-brown/40 group-hover:bg-ayoya-brown/50 transition-colors flex flex-col items-center justify-center text-white text-center p-6">
+            <h3 className="text-2xl md:text-4xl font-bold mb-2 tracking-tight">Thế Giới Thảo Mộc</h3>
+            <p className="text-[10px] md:text-xs opacity-90 mb-6 font-medium uppercase tracking-[0.2em]">Xem video thực tế & chốt đơn liền tay</p>
+            <div className="flex items-center gap-2 px-8 py-3 bg-ayoya-cream text-ayoya-brown rounded-full text-[10px] font-bold uppercase tracking-widest group-hover:bg-white transition-all shadow-lg">
+              Vào ngay TikTok Shop <ArrowRight size={14} />
+            </div>
+          </div>
+        </motion.a>
+
+        <p className="mt-10 text-center text-[10px] text-ayoya-brown/40 italic tracking-wide">
+          Nội dung mang tính tham khảo theo kinh nghiệm dân gian — không thay thế tư vấn y tế chuyên môn.
+        </p>
       </div>
     </section>
   );
