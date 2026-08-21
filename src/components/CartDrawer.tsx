@@ -28,6 +28,7 @@ export default function CartDrawer() {
   const [zoneId, setZoneId] = useState('');
   const [paymentMethod, setPaymentMethod] = useState<'cod' | 'bank'>('cod');
   const [submitting, setSubmitting] = useState(false);
+  const [submitAttempted, setSubmitAttempted] = useState(false);
   const [error, setError] = useState('');
   const [orderCode, setOrderCode] = useState('');
   const [previewOrderCode] = useState(() => generateOrderCode());
@@ -38,6 +39,18 @@ export default function CartDrawer() {
   const shippingFee = selectedZone ? calcShippingFee(totalWeightGrams, selectedZone.id) : 0;
   const grandTotal = totalPrice + shippingFee;
 
+  const fieldErrors = {
+    name: !form.name.trim() ? 'Vui lòng nhập họ tên.' : '',
+    phone: !form.phone.trim()
+      ? 'Vui lòng nhập số điện thoại.'
+      : !/^\d{10}$/.test(form.phone.trim())
+        ? 'Số điện thoại phải đủ 10 số.'
+        : '',
+    address: !form.address.trim() ? 'Vui lòng nhập địa chỉ nhận hàng.' : '',
+    zone: !zoneId ? 'Vui lòng chọn khu vực giao hàng.' : ''
+  };
+  const hasFieldErrors = Object.values(fieldErrors).some(Boolean);
+
   const handleClose = () => {
     closeCart();
     if (step === 'success') {
@@ -46,16 +59,13 @@ export default function CartDrawer() {
       setZoneId('');
       setPaymentMethod('cod');
       setOrderCode('');
+      setSubmitAttempted(false);
     }
   };
 
   const handleSubmit = async () => {
-    if (!form.name.trim() || !form.phone.trim() || !form.address.trim()) {
-      setError('Vui lòng điền đầy đủ Họ tên, Số điện thoại và Địa chỉ.');
-      return;
-    }
-    if (!selectedZone) {
-      setError('Vui lòng chọn khu vực giao hàng để tính phí vận chuyển.');
+    if (hasFieldErrors || !selectedZone) {
+      setSubmitAttempted(true);
       return;
     }
     setError('');
@@ -183,9 +193,14 @@ export default function CartDrawer() {
                   <input
                     value={form.name}
                     onChange={e => setForm({ ...form, name: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-ayoya-brown/15 bg-white focus:outline-none focus:border-ayoya-amber"
+                    className={`w-full px-4 py-3 rounded-xl border bg-white focus:outline-none focus:border-ayoya-amber ${
+                      submitAttempted && fieldErrors.name ? 'border-ayoya-brick' : 'border-ayoya-brown/15'
+                    }`}
                     placeholder="Nguyễn Văn A"
                   />
+                  {submitAttempted && fieldErrors.name && (
+                    <p className="text-xs text-ayoya-brick font-medium mt-1">{fieldErrors.name}</p>
+                  )}
                 </div>
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-widest text-ayoya-brown/60 mb-2">Số điện thoại *</label>
@@ -193,9 +208,14 @@ export default function CartDrawer() {
                     value={form.phone}
                     onChange={e => setForm({ ...form, phone: e.target.value })}
                     type="tel"
-                    className="w-full px-4 py-3 rounded-xl border border-ayoya-brown/15 bg-white focus:outline-none focus:border-ayoya-amber"
+                    className={`w-full px-4 py-3 rounded-xl border bg-white focus:outline-none focus:border-ayoya-amber ${
+                      submitAttempted && fieldErrors.phone ? 'border-ayoya-brick' : 'border-ayoya-brown/15'
+                    }`}
                     placeholder="09xxxxxxxx"
                   />
+                  {submitAttempted && fieldErrors.phone && (
+                    <p className="text-xs text-ayoya-brick font-medium mt-1">{fieldErrors.phone}</p>
+                  )}
                 </div>
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-widest text-ayoya-brown/60 mb-2">Địa chỉ nhận hàng *</label>
@@ -203,16 +223,23 @@ export default function CartDrawer() {
                     value={form.address}
                     onChange={e => setForm({ ...form, address: e.target.value })}
                     rows={2}
-                    className="w-full px-4 py-3 rounded-xl border border-ayoya-brown/15 bg-white focus:outline-none focus:border-ayoya-amber resize-none"
+                    className={`w-full px-4 py-3 rounded-xl border bg-white focus:outline-none focus:border-ayoya-amber resize-none ${
+                      submitAttempted && fieldErrors.address ? 'border-ayoya-brick' : 'border-ayoya-brown/15'
+                    }`}
                     placeholder="Số nhà, đường, phường/xã, tỉnh/thành"
                   />
+                  {submitAttempted && fieldErrors.address && (
+                    <p className="text-xs text-ayoya-brick font-medium mt-1">{fieldErrors.address}</p>
+                  )}
                 </div>
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-widest text-ayoya-brown/60 mb-2">Khu vực giao hàng *</label>
                   <select
                     value={zoneId}
                     onChange={e => setZoneId(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl border border-ayoya-brown/15 bg-white focus:outline-none focus:border-ayoya-amber text-ayoya-brown"
+                    className={`w-full px-4 py-3 rounded-xl border bg-white focus:outline-none focus:border-ayoya-amber text-ayoya-brown ${
+                      submitAttempted && fieldErrors.zone ? 'border-ayoya-brick' : 'border-ayoya-brown/15'
+                    }`}
                   >
                     <option value="">-- Chọn khu vực --</option>
                     {SHIPPING_ZONES.map(z => (
@@ -221,7 +248,11 @@ export default function CartDrawer() {
                       </option>
                     ))}
                   </select>
-                  <p className="text-[10px] text-ayoya-brown/40 mt-1">Dùng để tính phí vận chuyển qua SPX Express.</p>
+                  {submitAttempted && fieldErrors.zone ? (
+                    <p className="text-xs text-ayoya-brick font-medium mt-1">{fieldErrors.zone}</p>
+                  ) : (
+                    <p className="text-[10px] text-ayoya-brown/40 mt-1">Dùng để tính phí vận chuyển qua SPX Express.</p>
+                  )}
                 </div>
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-widest text-ayoya-brown/60 mb-2">Ghi chú</label>
