@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Minus, Plus, Trash2, ShoppingCart, Loader2, CheckCircle2 } from 'lucide-react';
+import { X, Minus, Plus, Trash2, ShoppingCart, Loader2, CheckCircle2, Info } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { BANK_INFO, ORDER_SHEET_URL, SHIPPING_ZONES, calcShippingFee } from '../data';
 
@@ -278,6 +278,16 @@ export default function CartDrawer() {
                     <span>Tổng cộng</span>
                     <span>{formatPrice(grandTotal)}</span>
                   </div>
+                </div>
+
+                <div className="flex gap-3 p-4 bg-ayoya-amber/5 rounded-2xl border-l-4 border-ayoya-amber">
+                  <Info size={16} className="text-ayoya-amber flex-shrink-0 mt-0.5" />
+                  <p className="text-[11px] leading-relaxed text-ayoya-brown/70">
+                    <span className="font-bold text-ayoya-brown">Lưu ý về cước vận chuyển: </span>
+                    Nhằm đảm bảo tính minh bạch, phí vận chuyển được cập nhật theo thời gian thực từ hệ thống đối tác SPX.
+                    Do đó, tổng giá trị thanh toán thực tế có thể dao động nhẹ: tăng hoặc giảm (biên độ từ 1.000đ – 10.000đ)
+                    tùy thuộc vào chính sách phụ phí ban hành tại thời điểm bàn giao kiện hàng.
+                  </p>
                 </div>
 
                 <div>
