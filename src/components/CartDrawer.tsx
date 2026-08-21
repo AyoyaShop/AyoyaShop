@@ -210,23 +210,29 @@ export default function CartDrawer() {
                   <div className="grid grid-cols-2 gap-3">
                     <button
                       onClick={() => setPaymentMethod('cod')}
-                      className={`py-3 rounded-xl border text-sm font-medium transition-all ${
+                      className={`py-3 rounded-xl border text-sm font-medium transition-all flex flex-col items-center gap-0.5 ${
                         paymentMethod === 'cod'
                           ? 'border-ayoya-brown bg-ayoya-brown text-white'
                           : 'border-ayoya-brown/15 bg-white text-ayoya-brown'
                       }`}
                     >
-                      COD
+                      <span>COD</span>
+                      <span className={`text-[10px] font-normal ${paymentMethod === 'cod' ? 'text-white/70' : 'text-ayoya-brown/50'}`}>
+                        Thanh toán khi nhận hàng
+                      </span>
                     </button>
                     <button
                       onClick={() => setPaymentMethod('bank')}
-                      className={`py-3 rounded-xl border text-sm font-medium transition-all ${
+                      className={`py-3 rounded-xl border text-sm font-medium transition-all flex flex-col items-center gap-0.5 ${
                         paymentMethod === 'bank'
                           ? 'border-ayoya-brown bg-ayoya-brown text-white'
                           : 'border-ayoya-brown/15 bg-white text-ayoya-brown'
                       }`}
                     >
-                      Chuyển khoản
+                      <span>Chuyển khoản</span>
+                      <span className={`text-[10px] font-normal ${paymentMethod === 'bank' ? 'text-white/70' : 'text-ayoya-brown/50'}`}>
+                        Quét mã QR
+                      </span>
                     </button>
                   </div>
                 </div>
