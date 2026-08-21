@@ -3,6 +3,10 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ExternalLink, CheckCircle2, Play, X, Volume2, VolumeX, ArrowRight } from 'lucide-react';
 import { PRODUCTS } from '../data';
 
+function formatPrice(price: number): string {
+  return `${price.toLocaleString('vi-VN')}đ`;
+}
+
 interface ProductMediaProps {
   image: string;
   video: string;
@@ -145,7 +149,23 @@ export default function Products() {
                 
                 <h3 className="text-3xl md:text-4xl font-serif text-ayoya-brown mb-2">{product.title}</h3>
                 <p className="text-ayoya-amber font-serif italic text-lg mb-6">{product.subtitle}</p>
-                
+
+                <div className="mb-6">
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-3xl font-serif font-bold text-ayoya-brown">{formatPrice(product.price)}</span>
+                    <span className="text-sm text-ayoya-brown/50">/ {product.priceUnit}</span>
+                  </div>
+                  {product.priceOptions.length > 0 && (
+                    <div className="mt-2 flex flex-wrap gap-x-6 gap-y-1 text-xs text-ayoya-brown/60">
+                      {product.priceOptions.map(opt => (
+                        <span key={opt.label}>
+                          {opt.label}: <strong className="text-ayoya-brown">{formatPrice(opt.price)}</strong>
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
                 <div className="space-y-6">
                   <div className="p-6 bg-white rounded-2xl modern-zen-shadow border-l-4 border-ayoya-amber">
                     <p className="text-ayoya-brown/80 leading-relaxed italic">

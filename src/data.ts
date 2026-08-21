@@ -12,7 +12,13 @@ export const PRODUCTS = [
     video: 'https://res.cloudinary.com/dfb8mvzhc/video/upload/v1776437376/xoabop_leoaaz.mp4',
     cta: 'Trải nghiệm sự an yên',
     link: 'https://vn.shp.ee/GA43KvdT',
-    badges: ['Bí truyền', 'Cốt rượu lâu năm']
+    badges: ['Bí truyền', 'Cốt rượu lâu năm'],
+    price: 60000,
+    priceUnit: 'chai 100ml',
+    priceOptions: [
+      { label: '2 chai 100ml', price: 115000 },
+      { label: 'chai 500ml', price: 275000 }
+    ]
   },
   {
     id: 'thao-moc-xong-nha',
@@ -24,7 +30,10 @@ export const PRODUCTS = [
     video: 'https://res.cloudinary.com/dfb8mvzhc/video/upload/v1776440319/7736771989880_f9ltno.mp4',
     cta: 'Thanh tẩy không gian',
     link: 'https://vt.tiktok.com/ZS9LbvTHMTVWL-nDl6P/',
-    badges: ['38 vị thảo mộc', 'Xông nhà Như Ý - Cát Tường']
+    badges: ['38 vị thảo mộc', 'Xông nhà Như Ý - Cát Tường'],
+    price: 60000,
+    priceUnit: 'gói',
+    priceOptions: [] as { label: string; price: number }[]
   },
   {
     id: 'la-xong-moc-an',
@@ -36,7 +45,10 @@ export const PRODUCTS = [
     video: 'https://res.cloudinary.com/dfb8mvzhc/video/upload/v1776441157/xongtam_fomnwn.mp4',
     cta: 'Chăm sóc cơ thể',
     link: 'https://vt.tiktok.com/ZS9LgeM9mft9m-5arsI/',
-    badges: ['Dịu nhẹ cho mọi làn da, kể cả da nhạy cảm', 'Hỗ trợ lưu thông khí huyết và giải tỏa căng thẳng hiệu quả']
+    badges: ['Dịu nhẹ cho mọi làn da, kể cả da nhạy cảm', 'Hỗ trợ lưu thông khí huyết và giải tỏa căng thẳng hiệu quả'],
+    price: 35000,
+    priceUnit: 'gói',
+    priceOptions: [] as { label: string; price: number }[]
   }
 ];
 
