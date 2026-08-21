@@ -25,7 +25,7 @@ export default function OriginStory() {
                   Tại sao lại là Rượu xoa bóp võ thuật cổ truyền Bình Định? 
                 </p>
                 <p>
-                  Câu chuyện bắt nguồn từ những lò võ truyền thống tại Binh Định. Sau những giờ luyện tập cường độ cao, các võ sư dùng loại "rượu mã tiền - thuốc võ" bí truyền để phục hồi thể lực, thông kinh lạc và đánh tan các vết bầm.
+                  Câu chuyện bắt nguồn từ những lò võ truyền thống tại Binh Định. Sau những giờ luyện tập cường độ cao, các võ sư dùng bài thuốc xoa bóp bí truyền để phục hồi thể lực, thông kinh lạc và làm dịu các vết bầm.
                 </p>
                 <p>
                   Chúng tôi kế thừa công thức ấy, kết hợp cùng quy trình "Tận tâm": từ việc trực tiếp chọn lựa từng vị thảo dược phơi khô dưới nắng giòn, đến khâu đóng gói tỉ mỉ như một món quà từ đất mẹ. Đó là bằng chứng thép cho giá trị "Chất lượng" mà AYOYA cam kết.

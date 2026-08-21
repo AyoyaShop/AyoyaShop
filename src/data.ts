@@ -7,7 +7,7 @@ export const PRODUCTS = [
     title: 'Dầu Xoa Bóp Võ Thuật Cổ Truyền Bình Định',
     subtitle: 'Tinh hoa miền đất Võ - Thông kinh lạc, nhẹ thân tâm',
     description: 'Sản phẩm mang tính di sản, kế thừa tinh hoa võ học Bình Định. Kết hợp công thức bí truyền và cốt rượu lâu năm.',
-    benefits: 'Phục hồi thần tốc cơ xương khớp, cảm giác ấm nồng lan tỏa, đánh tan đau nhức.',
+    benefits: 'Hỗ trợ giảm cảm giác đau nhức, cảm giác ấm nồng lan tỏa giúp thư giãn cơ xương khớp.',
     image: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776438151/XOA_B%C3%93P_6_lfilv2.png?auto=format&fit=crop&q=80&w=800',
     video: 'https://res.cloudinary.com/dfb8mvzhc/video/upload/v1776437376/xoabop_leoaaz.mp4',
     cta: 'Trải nghiệm sự an yên',
@@ -19,7 +19,7 @@ export const PRODUCTS = [
     title: 'Thảo Dược Xông Nhà Như Ý - Cát Tường',
     subtitle: 'Thanh tẩy uế khí - Khởi sinh cát tường',
     description: 'Gói thảo dược 38 vị quý hiếm (Trầm hương, Quế chi, Đại hồi, Thảo quả...). Năng lượng sạch từ thiên nhiên.',
-    benefits: 'Không gian thơm ngát, ngủ ngon, đón nhận năng lượng tích cực và tài lộc.',
+    benefits: 'Không gian thơm ngát, dễ chịu hơn, đón nhận năng lượng tích cực theo quan niệm phong thủy dân gian.',
     image: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776440289/%C3%B4ng_l%C3%A3o_phong_th%E1%BB%A7y_vtmurx.png?auto=format&fit=crop&q=80&w=800',
     video: 'https://res.cloudinary.com/dfb8mvzhc/video/upload/v1776440319/7736771989880_f9ltno.mp4',
     cta: 'Thanh tẩy không gian',
@@ -31,7 +31,7 @@ export const PRODUCTS = [
     title: 'Thảo Dược Xông & Tắm Cơ Thể Mộc An',
     subtitle: 'TThân khỏe tâm an & Tẩy trần thanh tịnh',
     description: '100% Thảo dược tự nhiên: Kết hợp tinh túy từ các loại lá thơm, thảo mộc quý, cam kết không hương liệu, không chất bảo quản.',
-    benefits: 'Khơi thông dòng chảy năng lượng, gột rửa bụi trần và tìm lại sự thư thái tuyệt đối cho cả thân thể lẫn tâm hồn.',
+    benefits: 'Khơi thông dòng chảy năng lượng, gột rửa bụi trần và tìm lại sự thư thái trọn vẹn cho cả thân thể lẫn tâm hồn.',
     image: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776506403/x%C3%B4ng_c%C6%A1_th%E1%BB%83_1_sowj2u.png?auto=format&fit=crop&q=80&w=800',
     video: 'https://res.cloudinary.com/dfb8mvzhc/video/upload/v1776441157/xongtam_fomnwn.mp4',
     cta: 'Chăm sóc cơ thể',
@@ -126,7 +126,7 @@ export const QUIZ_RESULTS = {
   },
   đỏ: {
     title: 'Hồi Sinh Thể Chất',
-    description: 'Dầu võ Bình Định chính là "báu vật" giúp bạn phục hồi năng lượng và đánh tan đau nhức.',
+    description: 'Dầu võ Bình Định chính là "báu vật" giúp bạn phục hồi năng lượng và giảm cảm giác đau nhức.',
     product: 'dau-vo'
   }
 };

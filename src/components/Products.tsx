@@ -245,6 +245,10 @@ export default function Products() {
     </div>
   </div>
 </motion.a>
+
+        <p className="mt-10 text-center text-[10px] text-ayoya-brown/40 italic tracking-wide">
+          Nội dung mang tính tham khảo theo kinh nghiệm dân gian — không thay thế tư vấn y tế chuyên môn.
+        </p>
       </div>
     </section>
   );

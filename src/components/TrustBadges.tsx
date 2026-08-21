@@ -2,7 +2,7 @@ import { ShieldCheck, Truck, MessageCircle } from 'lucide-react';
 
 export default function TrustBadges() {
   const badges = [
-    { icon: ShieldCheck, text: 'Hoàn tiền 100% nếu phát hiện hóa chất' },
+    { icon: ShieldCheck, text: 'Hoàn tiền theo chính sách nếu phát hiện hóa chất' },
     { icon: Truck, text: 'Đồng kiểm - Kiểm tra hàng trước khi nhận' },
     { icon: MessageCircle, text: 'Tư vấn 24/7 từ chuyên gia thảo mộc' },
   ];
