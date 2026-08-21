@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Minus, Plus, Trash2, ShoppingCart, Loader2, CheckCircle2 } from 'lucide-react';
 import { useCart } from '../context/CartContext';
-import { BANK_INFO, ORDER_SHEET_URL } from '../data';
+import { BANK_INFO, ORDER_SHEET_URL, SHIPPING_ZONES, calcShippingFee } from '../data';
 
 function formatPrice(price: number): string {
   return `${price.toLocaleString('vi-VN')}đ`;
@@ -22,9 +22,10 @@ function buildVietQrUrl(amount: number, orderCode: string): string {
 type Step = 'cart' | 'checkout' | 'success';
 
 export default function CartDrawer() {
-  const { items, isOpen, closeCart, removeItem, updateQuantity, totalPrice, clearCart } = useCart();
+  const { items, isOpen, closeCart, removeItem, updateQuantity, totalPrice, totalWeightGrams, clearCart } = useCart();
   const [step, setStep] = useState<Step>('cart');
   const [form, setForm] = useState({ name: '', phone: '', address: '', note: '' });
+  const [zoneId, setZoneId] = useState('');
   const [paymentMethod, setPaymentMethod] = useState<'cod' | 'bank'>('cod');
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
@@ -33,11 +34,16 @@ export default function CartDrawer() {
 
   if (!isOpen) return null;
 
+  const selectedZone = SHIPPING_ZONES.find(z => z.id === zoneId);
+  const shippingFee = selectedZone ? calcShippingFee(totalWeightGrams, selectedZone.id) : 0;
+  const grandTotal = totalPrice + shippingFee;
+
   const handleClose = () => {
     closeCart();
     if (step === 'success') {
       setStep('cart');
       setForm({ name: '', phone: '', address: '', note: '' });
+      setZoneId('');
       setPaymentMethod('cod');
       setOrderCode('');
     }
@@ -46,6 +52,10 @@ export default function CartDrawer() {
   const handleSubmit = async () => {
     if (!form.name.trim() || !form.phone.trim() || !form.address.trim()) {
       setError('Vui lòng điền đầy đủ Họ tên, Số điện thoại và Địa chỉ.');
+      return;
+    }
+    if (!selectedZone) {
+      setError('Vui lòng chọn khu vực giao hàng để tính phí vận chuyển.');
       return;
     }
     setError('');
@@ -57,6 +67,7 @@ export default function CartDrawer() {
       phone: form.phone.trim(),
       address: form.address.trim(),
       note: form.note.trim(),
+      shippingZone: selectedZone.label,
       paymentMethod: paymentMethod === 'cod' ? 'COD - Thanh toán khi nhận hàng' : 'Chuyển khoản ngân hàng',
       items: items.map(i => ({
         title: i.title,
@@ -65,7 +76,9 @@ export default function CartDrawer() {
         unitPrice: i.unitPrice,
         lineTotal: i.unitPrice * i.quantity
       })),
-      total: totalPrice
+      subtotal: totalPrice,
+      shippingFee,
+      total: grandTotal
     };
 
     try {
@@ -195,6 +208,22 @@ export default function CartDrawer() {
                   />
                 </div>
                 <div>
+                  <label className="block text-xs font-bold uppercase tracking-widest text-ayoya-brown/60 mb-2">Khu vực giao hàng *</label>
+                  <select
+                    value={zoneId}
+                    onChange={e => setZoneId(e.target.value)}
+                    className="w-full px-4 py-3 rounded-xl border border-ayoya-brown/15 bg-white focus:outline-none focus:border-ayoya-amber text-ayoya-brown"
+                  >
+                    <option value="">-- Chọn khu vực --</option>
+                    {SHIPPING_ZONES.map(z => (
+                      <option key={z.id} value={z.id}>
+                        {z.label}
+                      </option>
+                    ))}
+                  </select>
+                  <p className="text-[10px] text-ayoya-brown/40 mt-1">Dùng để tính phí vận chuyển qua SPX Express.</p>
+                </div>
+                <div>
                   <label className="block text-xs font-bold uppercase tracking-widest text-ayoya-brown/60 mb-2">Ghi chú</label>
                   <textarea
                     value={form.note}
@@ -203,6 +232,21 @@ export default function CartDrawer() {
                     className="w-full px-4 py-3 rounded-xl border border-ayoya-brown/15 bg-white focus:outline-none focus:border-ayoya-amber resize-none"
                     placeholder="Yêu cầu thêm (không bắt buộc)"
                   />
+                </div>
+
+                <div className="p-4 bg-white rounded-2xl border border-ayoya-brown/10 space-y-2 text-sm">
+                  <div className="flex items-center justify-between text-ayoya-brown/70">
+                    <span>Tạm tính</span>
+                    <span>{formatPrice(totalPrice)}</span>
+                  </div>
+                  <div className="flex items-center justify-between text-ayoya-brown/70">
+                    <span>Phí vận chuyển</span>
+                    <span>{selectedZone ? formatPrice(shippingFee) : 'Chọn khu vực bên trên'}</span>
+                  </div>
+                  <div className="flex items-center justify-between pt-2 border-t border-ayoya-brown/10 font-bold text-ayoya-brown">
+                    <span>Tổng cộng</span>
+                    <span>{formatPrice(grandTotal)}</span>
+                  </div>
                 </div>
 
                 <div>
@@ -240,7 +284,7 @@ export default function CartDrawer() {
                 {paymentMethod === 'bank' && (
                   <div className="p-5 bg-white rounded-2xl border border-ayoya-brown/10 text-center space-y-3">
                     <img
-                      src={buildVietQrUrl(totalPrice, previewOrderCode)}
+                      src={buildVietQrUrl(grandTotal, previewOrderCode)}
                       alt="Mã QR chuyển khoản VietQR"
                       className="w-48 h-auto mx-auto rounded-lg"
                     />
@@ -255,7 +299,7 @@ export default function CartDrawer() {
                         Chủ TK: <strong className="text-ayoya-brown">{BANK_INFO.accountHolder}</strong>
                       </p>
                       <p>
-                        Số tiền: <strong className="text-ayoya-brown">{formatPrice(totalPrice)}</strong>
+                        Số tiền: <strong className="text-ayoya-brown">{formatPrice(grandTotal)}</strong>
                       </p>
                     </div>
                     <p className="text-[10px] text-ayoya-brown/40 italic">
@@ -284,7 +328,7 @@ export default function CartDrawer() {
               {step === 'cart' && items.length > 0 && (
                 <>
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-ayoya-brown/60">Tổng cộng</span>
+                    <span className="text-ayoya-brown/60">Tạm tính (chưa gồm phí ship)</span>
                     <span className="text-xl font-bold text-ayoya-brown">{formatPrice(totalPrice)}</span>
                   </div>
                   <button

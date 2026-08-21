@@ -7,6 +7,7 @@ export interface CartItem {
   image: string;
   variantLabel: string;
   unitPrice: number;
+  weightGrams: number;
   quantity: number;
 }
 
@@ -21,6 +22,7 @@ interface CartContextValue {
   clearCart: () => void;
   totalItems: number;
   totalPrice: number;
+  totalWeightGrams: number;
 }
 
 const CartContext = createContext<CartContextValue | null>(null);
@@ -56,6 +58,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   const totalItems = items.reduce((sum, i) => sum + i.quantity, 0);
   const totalPrice = items.reduce((sum, i) => sum + i.quantity * i.unitPrice, 0);
+  const totalWeightGrams = items.reduce((sum, i) => sum + i.quantity * i.weightGrams, 0);
 
   return (
     <CartContext.Provider
@@ -69,7 +72,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
         updateQuantity,
         clearCart,
         totalItems,
-        totalPrice
+        totalPrice,
+        totalWeightGrams
       }}
     >
       {children}

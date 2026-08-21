@@ -27,7 +27,10 @@ export default function ProductGrid() {
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
           {MORE_PRODUCTS.map(product => {
-            const variants = [{ label: product.priceUnit, price: product.price }, ...product.priceOptions];
+            const variants = [
+              { label: product.priceUnit, price: product.price, weightGrams: product.weightGrams },
+              ...product.priceOptions
+            ];
             const selectedLabel = selectedVariants[product.id] ?? variants[0].label;
             const selectedVariant = variants.find(v => v.label === selectedLabel) ?? variants[0];
 
@@ -85,7 +88,8 @@ export default function ProductGrid() {
                           title: product.title,
                           image: product.image,
                           variantLabel: variants.length > 1 ? selectedVariant.label : '',
-                          unitPrice: selectedVariant.price
+                          unitPrice: selectedVariant.price,
+                          weightGrams: selectedVariant.weightGrams
                         })
                       }
                       className="w-9 h-9 flex-shrink-0 rounded-full bg-ayoya-brown text-white flex items-center justify-center hover:bg-ayoya-brick transition-colors"

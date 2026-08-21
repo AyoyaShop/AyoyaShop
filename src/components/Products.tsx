@@ -121,7 +121,10 @@ export default function Products() {
 
         <div className="space-y-20 md:space-y-32">
           {PRODUCTS.map((product, idx) => {
-            const variants = [{ label: product.priceUnit, price: product.price }, ...product.priceOptions];
+            const variants = [
+              { label: product.priceUnit, price: product.price, weightGrams: product.weightGrams },
+              ...product.priceOptions
+            ];
             const selectedLabel = selectedVariants[product.id] ?? variants[0].label;
             const selectedVariant = variants.find(v => v.label === selectedLabel) ?? variants[0];
 
@@ -219,7 +222,8 @@ export default function Products() {
                           title: product.title,
                           image: product.image,
                           variantLabel: variants.length > 1 ? selectedVariant.label : '',
-                          unitPrice: selectedVariant.price
+                          unitPrice: selectedVariant.price,
+                          weightGrams: selectedVariant.weightGrams
                         })
                       }
                       className="w-full flex items-center justify-center gap-3 px-8 py-5 bg-ayoya-brown text-white rounded-full font-bold uppercase tracking-widest hover:bg-ayoya-brick transition-all shadow-lg"

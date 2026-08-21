@@ -11,6 +11,45 @@ export const BANK_INFO = {
 // Google Apps Script Web App URL that receives order submissions and appends them to a Google Sheet.
 export const ORDER_SHEET_URL = 'https://script.google.com/macros/s/AKfycbwaKRNtKadrzXDslUNUI9mkBzSAs7GCu5Ue8hGlIuUAbrvlsLT2TcPASyKrSn5ZEZLi/exec';
 
+// Shipping fee zones based on SPX Express's published rate card (effective 01/02/2024).
+// Nội thành/Ngoại thành share one tier, Nội tỉnh/Nội miền share another, Đặc biệt/Liên miền share the third.
+export const SHIPPING_ZONES = [
+  {
+    id: 'noi-tinh',
+    label: 'TP.HCM / Bình Dương',
+    tier1: 18000, // 0-1kg
+    tier2: 20000, // 1-1.5kg
+    tier3: 23000, // 1.5-2kg
+    extraPer500g: 2000
+  },
+  {
+    id: 'mien-nam',
+    label: 'Tỉnh/thành khác ở Miền Nam',
+    tier1: 22000,
+    tier2: 24000,
+    tier3: 27000,
+    extraPer500g: 2000
+  },
+  {
+    id: 'lien-mien',
+    label: 'Miền Trung / Tây Nguyên / Miền Bắc',
+    tier1: 22000,
+    tier2: 27000,
+    tier3: 30000,
+    extraPer500g: 5000
+  }
+];
+
+export function calcShippingFee(weightGrams: number, zoneId: string): number {
+  const zone = SHIPPING_ZONES.find(z => z.id === zoneId) ?? SHIPPING_ZONES[0];
+  const kg = weightGrams / 1000;
+  if (kg <= 1) return zone.tier1;
+  if (kg <= 1.5) return zone.tier2;
+  if (kg <= 2) return zone.tier3;
+  const extraSteps = Math.ceil((kg - 2) / 0.5);
+  return zone.tier3 + extraSteps * zone.extraPer500g;
+}
+
 export const PRODUCTS = [
   {
     id: 'dau-vo',
@@ -25,9 +64,10 @@ export const PRODUCTS = [
     badges: ['Bí truyền', 'Cốt rượu lâu năm'],
     price: 60000,
     priceUnit: 'chai 100ml',
+    weightGrams: 265,
     priceOptions: [
-      { label: '2 chai 100ml', price: 115000 },
-      { label: 'chai 500ml', price: 275000 }
+      { label: '2 chai 100ml', price: 115000, weightGrams: 570 },
+      { label: 'chai 500ml', price: 275000, weightGrams: 650 }
     ]
   },
   {
@@ -41,9 +81,13 @@ export const PRODUCTS = [
     cta: 'Thanh tẩy không gian',
     link: 'https://vt.tiktok.com/ZS9LbvTHMTVWL-nDl6P/',
     badges: ['38 vị thảo mộc', 'Xông nhà Như Ý - Cát Tường'],
-    price: 60000,
-    priceUnit: 'gói',
-    priceOptions: [] as { label: string; price: number }[]
+    price: 119000,
+    priceUnit: 'gói dùng thử',
+    weightGrams: 320,
+    priceOptions: [
+      { label: 'Combo 3 gói', price: 357000, weightGrams: 1500 },
+      { label: '5 gói siêu tiết kiệm', price: 595000, weightGrams: 2200 }
+    ]
   },
   {
     id: 'la-xong-moc-an',
@@ -56,9 +100,13 @@ export const PRODUCTS = [
     cta: 'Chăm sóc cơ thể',
     link: 'https://vt.tiktok.com/ZS9LgeM9mft9m-5arsI/',
     badges: ['Dịu nhẹ cho mọi làn da, kể cả da nhạy cảm', 'Hỗ trợ lưu thông khí huyết và giải tỏa căng thẳng hiệu quả'],
-    price: 35000,
-    priceUnit: 'gói',
-    priceOptions: [] as { label: string; price: number }[]
+    price: 70000,
+    priceUnit: 'gói dùng thử',
+    weightGrams: 340,
+    priceOptions: [
+      { label: 'Combo 3 gói', price: 210000, weightGrams: 1700 },
+      { label: '4 gói siêu tiết kiệm', price: 280000, weightGrams: 2200 }
+    ]
   }
 ];
 
@@ -70,7 +118,8 @@ export const MORE_PRODUCTS = [
     image: '/products/tram-huong-xong-nha-nhu-y-cat-tuong.webp',
     price: 95000,
     priceUnit: 'gói',
-    priceOptions: [] as { label: string; price: number }[]
+    weightGrams: 300,
+    priceOptions: [] as { label: string; price: number; weightGrams: number }[]
   },
   {
     id: 'nuoc-lau-ban-tho',
@@ -79,7 +128,8 @@ export const MORE_PRODUCTS = [
     image: '/products/nuoc-lau-ban-tho-cuu-vi-huong.webp',
     price: 65000,
     priceUnit: 'chai 500ml',
-    priceOptions: [] as { label: string; price: number }[]
+    weightGrams: 650,
+    priceOptions: [] as { label: string; price: number; weightGrams: number }[]
   },
   {
     id: 'ngam-chan-moc-an',
@@ -88,10 +138,11 @@ export const MORE_PRODUCTS = [
     image: '/products/thao-duoc-ngam-chan-moc-an.webp',
     price: 6000,
     priceUnit: 'túi lẻ (35g)',
+    weightGrams: 50,
     priceOptions: [
-      { label: '10 túi/bịch', price: 56000 },
-      { label: '15 túi/bịch', price: 79000 },
-      { label: 'Combo 2 bịch (30 túi)', price: 113000 }
+      { label: '10 túi/bịch', price: 56000, weightGrams: 400 },
+      { label: '15 túi/bịch', price: 79000, weightGrams: 580 },
+      { label: 'Combo 2 bịch (30 túi)', price: 113000, weightGrams: 950 }
     ]
   },
   {
@@ -101,7 +152,8 @@ export const MORE_PRODUCTS = [
     image: '/products/dau-goi.png',
     price: 70000,
     priceUnit: 'bịch 30 túi lọc',
-    priceOptions: [] as { label: string; price: number }[]
+    weightGrams: 450,
+    priceOptions: [] as { label: string; price: number; weightGrams: number }[]
   },
   {
     id: 'nu-que',
@@ -110,7 +162,8 @@ export const MORE_PRODUCTS = [
     image: '/products/nu-tram-huong-nu-que.webp',
     price: 61000,
     priceUnit: 'hộp 30 nụ',
-    priceOptions: [] as { label: string; price: number }[]
+    weightGrams: 150,
+    priceOptions: [] as { label: string; price: number; weightGrams: number }[]
   },
   {
     id: 'nu-tram-huong',
@@ -119,7 +172,8 @@ export const MORE_PRODUCTS = [
     image: '/products/nu-tram-huong-nu-que.webp',
     price: 119000,
     priceUnit: 'hộp 30 nụ',
-    priceOptions: [] as { label: string; price: number }[]
+    weightGrams: 150,
+    priceOptions: [] as { label: string; price: number; weightGrams: number }[]
   },
   {
     id: 'nhang-que',
@@ -128,7 +182,8 @@ export const MORE_PRODUCTS = [
     image: '/products/nhang-vo-que.webp',
     price: 82000,
     priceUnit: 'hộp 180 cây',
-    priceOptions: [] as { label: string; price: number }[]
+    weightGrams: 300,
+    priceOptions: [] as { label: string; price: number; weightGrams: number }[]
   },
   {
     id: 'nhang-bo-que',
@@ -137,7 +192,8 @@ export const MORE_PRODUCTS = [
     image: '/products/nhang-vo-va-la-que.webp',
     price: 50000,
     priceUnit: 'bó',
-    priceOptions: [] as { label: string; price: number }[]
+    weightGrams: 280,
+    priceOptions: [] as { label: string; price: number; weightGrams: number }[]
   },
   {
     id: 'nhang-tram-cao-cap',
@@ -146,7 +202,8 @@ export const MORE_PRODUCTS = [
     image: '/products/nhang-tram-huong.webp',
     price: 71000,
     priceUnit: 'hộp 50 cây',
-    priceOptions: [] as { label: string; price: number }[]
+    weightGrams: 150,
+    priceOptions: [] as { label: string; price: number; weightGrams: number }[]
   },
   {
     id: 'than-vien-xong-nha',
@@ -155,7 +212,8 @@ export const MORE_PRODUCTS = [
     image: '/products/than.png',
     price: 19000,
     priceUnit: 'gói 10 viên',
-    priceOptions: [] as { label: string; price: number }[]
+    weightGrams: 200,
+    priceOptions: [] as { label: string; price: number; weightGrams: number }[]
   },
   {
     id: 'rua-vang-phong-thuy',
@@ -164,7 +222,8 @@ export const MORE_PRODUCTS = [
     image: '/products/rua-phong-thuy.jpeg',
     price: 13000,
     priceUnit: 'thẻ bài',
-    priceOptions: [] as { label: string; price: number }[]
+    weightGrams: 30,
+    priceOptions: [] as { label: string; price: number; weightGrams: number }[]
   },
   {
     id: 'chai-ngu-coc-phong-thuy',
@@ -173,7 +232,8 @@ export const MORE_PRODUCTS = [
     image: '/products/chai-ngu-coc-phong-thuy.webp',
     price: 27000,
     priceUnit: 'chai 6cm',
-    priceOptions: [{ label: 'chai 7.5cm', price: 45000 }]
+    weightGrams: 80,
+    priceOptions: [{ label: 'chai 7.5cm', price: 45000, weightGrams: 150 }]
   },
   {
     id: 'tao-xoan',
@@ -182,7 +242,8 @@ export const MORE_PRODUCTS = [
     image: '/products/vien-tao-xoan-an-ngon-ngu-ngon.jpg',
     price: 233000,
     priceUnit: 'hộp 60 viên',
-    priceOptions: [] as { label: string; price: number }[]
+    weightGrams: 250,
+    priceOptions: [] as { label: string; price: number; weightGrams: number }[]
   },
   {
     id: 'beauty-collagen-c',
@@ -191,7 +252,8 @@ export const MORE_PRODUCTS = [
     image: '/products/beauty-collagen-c.webp',
     price: 215000,
     priceUnit: 'hộp 30 viên',
-    priceOptions: [] as { label: string; price: number }[]
+    weightGrams: 150,
+    priceOptions: [] as { label: string; price: number; weightGrams: number }[]
   }
 ];
 
