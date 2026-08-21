@@ -82,7 +82,7 @@ export const PRODUCTS = [
     link: 'https://vt.tiktok.com/ZS9LbvTHMTVWL-nDl6P/',
     badges: ['38 vị thảo mộc', 'Xông nhà Như Ý - Cát Tường'],
     price: 60000,
-    priceUnit: '1 Gói dùng thử',
+    priceUnit: 'Gói dùng thử',
     weightGrams: 320,
     priceOptions: [
       { label: 'Combo 3 gói', price: 171000, weightGrams: 1500 },
@@ -101,7 +101,7 @@ export const PRODUCTS = [
     link: 'https://vt.tiktok.com/ZS9LgeM9mft9m-5arsI/',
     badges: ['Dịu nhẹ cho mọi làn da, kể cả da nhạy cảm', 'Hỗ trợ lưu thông khí huyết và giải tỏa căng thẳng hiệu quả'],
     price: 35000,
-    priceUnit: '1 Gói dùng thử',
+    priceUnit: 'Gói dùng thử',
     weightGrams: 340,
     priceOptions: [
       { label: 'Combo 3 gói', price: 99000, weightGrams: 1700 },
