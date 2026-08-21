@@ -37,12 +37,20 @@ export default function Hero() {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-            <button className="px-10 py-4 bg-ayoya-brown text-ayoya-cream rounded-full font-medium tracking-widest uppercase hover:bg-ayoya-green transition-all transform hover:scale-105 duration-300">
+            <a
+              href="#products"
+              className="px-10 py-4 bg-ayoya-brown text-ayoya-cream rounded-full font-medium tracking-widest uppercase hover:bg-ayoya-green transition-all transform hover:scale-105 duration-300"
+            >
               Khám Phá Di Sản
-            </button>
-            <button className="px-10 py-4 border border-ayoya-brown text-ayoya-brown rounded-full font-medium tracking-widest uppercase hover:bg-ayoya-brown/5 transition-all">
+            </a>
+            <a
+              href="https://zalo.me/0933458485"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-10 py-4 border border-ayoya-brown text-ayoya-brown rounded-full font-medium tracking-widest uppercase hover:bg-ayoya-brown/5 transition-all"
+            >
               Tư Vấn Tận Tâm
-            </button>
+            </a>
           </div>
 
           <TrustBadges />
