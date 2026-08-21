@@ -176,7 +176,7 @@ export default function Products() {
                     <div className="mt-4 flex flex-wrap gap-4 justify-center md:justify-start">
                        <div className="flex items-center gap-1 text-[8px] font-bold uppercase tracking-widest text-ayoya-green bg-ayoya-green/5 px-3 py-1 rounded-full">
                           <CheckCircle2 size={10} />
-                          Hoàn tiền 100%
+                          Hoàn tiền theo chính sách
                        </div>
                        <div className="flex items-center gap-1 text-[8px] font-bold uppercase tracking-widest text-ayoya-green bg-ayoya-green/5 px-3 py-1 rounded-full">
                           <CheckCircle2 size={10} />
