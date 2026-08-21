@@ -92,7 +92,7 @@ export default function ProductGrid() {
                           weightGrams: selectedVariant.weightGrams
                         })
                       }
-                      className="w-9 h-9 flex-shrink-0 rounded-full bg-ayoya-brown text-white flex items-center justify-center hover:bg-ayoya-brick transition-colors"
+                      className="w-10 h-10 flex-shrink-0 rounded-full bg-ayoya-brown text-white flex items-center justify-center hover:bg-ayoya-brick transition-colors active:scale-95"
                       aria-label={`Thêm ${product.title} vào giỏ hàng`}
                     >
                       <ShoppingCart size={15} />

@@ -18,9 +18,10 @@ export default function Navbar() {
           
           {/* === CỤM BÊN TRÁI === */}
           <div className="flex items-center gap-4 lg:gap-6">
-            <button 
+            <button
               onClick={() => setIsMobileMenuOpen(true)}
-              className="lg:hidden text-ayoya-brown hover:text-ayoya-amber transition-colors"
+              className="lg:hidden -m-2.5 p-2.5 text-ayoya-brown hover:text-ayoya-amber transition-colors"
+              aria-label="Mở menu"
             >
               <Menu size={26} strokeWidth={1.5} />
             </button>
@@ -53,9 +54,10 @@ export default function Navbar() {
 
           {/* === CỤM BÊN PHẢI === */}
           <div className="flex items-center gap-4 lg:gap-6">
-            <a 
-              href="tel:0933458485" 
-              className="flex items-center gap-2 text-ayoya-brown hover:text-ayoya-amber transition-colors cursor-pointer"
+            <a
+              href="tel:0933458485"
+              className="flex items-center gap-2 -m-2.5 p-2.5 md:m-0 md:p-0 text-ayoya-brown hover:text-ayoya-amber transition-colors cursor-pointer"
+              aria-label="Gọi điện 0933.458.485"
             >
               <Phone size={22} strokeWidth={1.5} />
               <span className="hidden md:inline text-xs font-semibold">0933.458.485</span>

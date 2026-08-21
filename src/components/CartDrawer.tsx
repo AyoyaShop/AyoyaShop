@@ -129,7 +129,11 @@ export default function CartDrawer() {
               {step === 'checkout' && 'Thông tin đặt hàng'}
               {step === 'success' && 'Đặt hàng thành công'}
             </h3>
-            <button onClick={handleClose} className="text-ayoya-brown/50 hover:text-ayoya-brown transition-colors">
+            <button
+              onClick={handleClose}
+              className="text-ayoya-brown/50 hover:text-ayoya-brown transition-colors -m-2 p-2"
+              aria-label="Đóng"
+            >
               <X size={22} />
             </button>
           </div>
@@ -160,14 +164,16 @@ export default function CartDrawer() {
                           <div className="flex items-center gap-2">
                             <button
                               onClick={() => updateQuantity(item.key, item.quantity - 1)}
-                              className="w-6 h-6 rounded-full border border-ayoya-brown/20 flex items-center justify-center text-ayoya-brown hover:bg-ayoya-brown/5"
+                              className="w-8 h-8 rounded-full border border-ayoya-brown/20 flex items-center justify-center text-ayoya-brown hover:bg-ayoya-brown/5 active:scale-95"
+                              aria-label="Giảm số lượng"
                             >
                               <Minus size={12} />
                             </button>
                             <span className="text-sm w-5 text-center">{item.quantity}</span>
                             <button
                               onClick={() => updateQuantity(item.key, item.quantity + 1)}
-                              className="w-6 h-6 rounded-full border border-ayoya-brown/20 flex items-center justify-center text-ayoya-brown hover:bg-ayoya-brown/5"
+                              className="w-8 h-8 rounded-full border border-ayoya-brown/20 flex items-center justify-center text-ayoya-brown hover:bg-ayoya-brown/5 active:scale-95"
+                              aria-label="Tăng số lượng"
                             >
                               <Plus size={12} />
                             </button>
@@ -177,7 +183,8 @@ export default function CartDrawer() {
                       </div>
                       <button
                         onClick={() => removeItem(item.key)}
-                        className="text-ayoya-brown/30 hover:text-ayoya-brick transition-colors self-start"
+                        className="text-ayoya-brown/30 hover:text-ayoya-brick transition-colors self-start -m-2 p-2"
+                        aria-label="Xóa sản phẩm"
                       >
                         <Trash2 size={16} />
                       </button>
