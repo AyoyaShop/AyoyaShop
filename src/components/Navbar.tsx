@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
 import { ShoppingCart, Menu, Search, Phone, X } from 'lucide-react';
+import { useCart } from '../context/CartContext';
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { openCart, totalItems } = useCart();
 
   return (
     <>
@@ -63,19 +65,29 @@ export default function Navbar() {
               <Search size={20} />
             </button>
 
-            <a 
-              href="https://vn.shp.ee/dKiXxDRN" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2 md:px-4 md:py-2 md:bg-ayoya-brown md:text-ayoya-cream md:rounded-full font-bold uppercase transition-all md:hover:bg-ayoya-green cursor-pointer"
+            <button
+              onClick={openCart}
+              className="relative flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2 md:px-4 md:py-2 md:bg-ayoya-brown md:text-ayoya-cream md:rounded-full font-bold uppercase transition-all md:hover:bg-ayoya-green cursor-pointer"
             >
-              <div className="w-8 h-8 rounded-lg bg-ayoya-brown text-white flex items-center justify-center shadow-sm md:hidden">
+              <div className="relative w-8 h-8 rounded-lg bg-ayoya-brown text-white flex items-center justify-center shadow-sm md:hidden">
                 <ShoppingCart size={15} />
+                {totalItems > 0 && (
+                  <span className="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-ayoya-amber text-ayoya-brown text-[9px] font-bold flex items-center justify-center">
+                    {totalItems}
+                  </span>
+                )}
               </div>
-              <span className="text-[8px] text-ayoya-brown md:hidden whitespace-nowrap tracking-wider">Shopee</span>
-              <ShoppingCart size={16} className="hidden md:block" />
+              <span className="text-[8px] text-ayoya-brown md:hidden whitespace-nowrap tracking-wider">Giỏ hàng</span>
+              <span className="relative hidden md:block">
+                <ShoppingCart size={16} />
+                {totalItems > 0 && (
+                  <span className="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-ayoya-amber text-ayoya-brown text-[9px] font-bold flex items-center justify-center">
+                    {totalItems}
+                  </span>
+                )}
+              </span>
               <span className="hidden md:inline text-[10px] tracking-widest">Mua hàng</span>
-            </a>
+            </button>
           </div>
 
         </div>

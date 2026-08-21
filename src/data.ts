@@ -1,6 +1,16 @@
 export const SHOPEE_LINK = 'https://vn.shp.ee/dKiXxDRN';
 export const TIKTOK_LINK = 'https://vt.tiktok.com/ZS4qEo8dm/?page=TikTokShop';
 
+export const BANK_INFO = {
+  bankName: 'ACB',
+  bankBin: '970416',
+  accountNumber: '191800499',
+  accountHolder: 'NGUYEN TUAN KIET'
+};
+
+// Google Apps Script Web App URL that receives order submissions and appends them to a Google Sheet.
+export const ORDER_SHEET_URL = 'https://script.google.com/macros/s/AKfycbwaKRNtKadrzXDslUNUI9mkBzSAs7GCu5Ue8hGlIuUAbrvlsLT2TcPASyKrSn5ZEZLi/exec';
+
 export const PRODUCTS = [
   {
     id: 'dau-vo',

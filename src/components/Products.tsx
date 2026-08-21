@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ExternalLink, CheckCircle2, Play, X, Volume2, VolumeX, ArrowRight } from 'lucide-react';
+import { ShoppingCart, CheckCircle2, Play, X, Volume2, VolumeX, ArrowRight } from 'lucide-react';
 import { PRODUCTS } from '../data';
+import { useCart } from '../context/CartContext';
 
 function formatPrice(price: number): string {
   return `${price.toLocaleString('vi-VN')}đ`;
@@ -103,6 +104,9 @@ function ProductMedia({ image, video, title, idx }: ProductMediaProps) {
 }
 
 export default function Products() {
+  const { addItem } = useCart();
+  const [selectedVariants, setSelectedVariants] = useState<Record<string, string>>({});
+
   return (
     <section id="products" className="py-16 md:py-24 px-4 bg-paper bg-ayoya-cream/30">
       <div className="max-w-7xl mx-auto">
@@ -116,7 +120,12 @@ export default function Products() {
         </div>
 
         <div className="space-y-20 md:space-y-32">
-          {PRODUCTS.map((product, idx) => (
+          {PRODUCTS.map((product, idx) => {
+            const variants = [{ label: product.priceUnit, price: product.price }, ...product.priceOptions];
+            const selectedLabel = selectedVariants[product.id] ?? variants[0].label;
+            const selectedVariant = variants.find(v => v.label === selectedLabel) ?? variants[0];
+
+            return (
             <div
               key={product.id}
               id={product.id}
@@ -185,14 +194,40 @@ export default function Products() {
                   </ul>
 
                   <div className="pt-8">
-                    <a 
-                      href={product.link}
+                    {variants.length > 1 && (
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {variants.map(v => (
+                          <button
+                            key={v.label}
+                            onClick={() => setSelectedVariants(prev => ({ ...prev, [product.id]: v.label }))}
+                            className={`px-4 py-2 rounded-full text-xs font-medium border transition-all ${
+                              selectedLabel === v.label
+                                ? 'bg-ayoya-brown text-white border-ayoya-brown'
+                                : 'bg-white text-ayoya-brown border-ayoya-brown/15 hover:border-ayoya-brown/40'
+                            }`}
+                          >
+                            {v.label} · {formatPrice(v.price)}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                    <button
+                      onClick={() =>
+                        addItem({
+                          key: `${product.id}::${selectedVariant.label}`,
+                          productId: product.id,
+                          title: product.title,
+                          image: product.image,
+                          variantLabel: variants.length > 1 ? selectedVariant.label : '',
+                          unitPrice: selectedVariant.price
+                        })
+                      }
                       className="w-full flex items-center justify-center gap-3 px-8 py-5 bg-ayoya-brown text-white rounded-full font-bold uppercase tracking-widest hover:bg-ayoya-brick transition-all shadow-lg"
                     >
-                      {product.cta}
-                      <ExternalLink size={18} />
-                    </a>
-                    
+                      Thêm vào giỏ hàng
+                      <ShoppingCart size={18} />
+                    </button>
+
                     <div className="mt-4 flex flex-wrap gap-4 justify-center md:justify-start">
                        <div className="flex items-center gap-1 text-[8px] font-bold uppercase tracking-widest text-ayoya-green bg-ayoya-green/5 px-3 py-1 rounded-full">
                           <CheckCircle2 size={10} />
@@ -207,7 +242,8 @@ export default function Products() {
                 </div>
               </motion.div>
             </div>
-          ))}
+            );
+          })}
         </div>
 
 <motion.a

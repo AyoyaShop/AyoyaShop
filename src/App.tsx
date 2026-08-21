@@ -14,6 +14,7 @@ import Comparison from './components/Comparison';
 import Blogs from './components/Blogs';
 import Footer from './components/Footer';
 import Chatbot from './components/Chatbot';
+import CartDrawer from './components/CartDrawer';
 
 export default function App() {
   return (
@@ -31,6 +32,7 @@ export default function App() {
       </main>
       <Footer />
       <Chatbot />
+      <CartDrawer />
     </div>
   );
 }
