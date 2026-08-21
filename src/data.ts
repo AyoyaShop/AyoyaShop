@@ -36,7 +36,7 @@ export const PRODUCTS = [
     subtitle: 'Thanh tẩy uế khí - Khởi sinh cát tường',
     description: 'Gói thảo dược 38 vị quý hiếm (Trầm hương, Quế chi, Đại hồi, Thảo quả...). Năng lượng sạch từ thiên nhiên.',
     benefits: 'Không gian thơm ngát, dễ chịu hơn, đón nhận năng lượng tích cực theo quan niệm phong thủy dân gian.',
-    image: '/products/tram-huong-xong-nha-nhu-y-cat-tuong.webp',
+    image: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776440289/%C3%B4ng_l%C3%A3o_phong_th%E1%BB%A7y_vtmurx.png?auto=format&fit=crop&q=80&w=800',
     video: 'https://res.cloudinary.com/dfb8mvzhc/video/upload/v1776440319/7736771989880_f9ltno.mp4',
     cta: 'Thanh tẩy không gian',
     link: 'https://vt.tiktok.com/ZS9LbvTHMTVWL-nDl6P/',
@@ -64,11 +64,20 @@ export const PRODUCTS = [
 
 export const MORE_PRODUCTS = [
   {
+    id: 'tram-huong-xong-nha',
+    title: 'Trầm Hương Xông Nhà Như Ý - Cát Tường',
+    description: 'Gói xông nhà lấy trầm hương thượng hạng làm chủ đạo, kết hợp cùng các thảo mộc quý. Giúp thanh lọc không gian, mang lại hương thơm thư thái và đón nhận năng lượng tích cực theo quan niệm phong thủy dân gian.',
+    image: '/products/tram-huong-xong-nha-nhu-y-cat-tuong.webp',
+    price: 95000,
+    priceUnit: 'gói',
+    priceOptions: [] as { label: string; price: number }[]
+  },
+  {
     id: 'nuoc-lau-ban-tho',
     title: 'Nước Lau Bàn Thờ Cửu Vị Hương',
     description: 'Dung dịch lau dọn bàn thờ chiết xuất từ 9 loại thảo mộc tự nhiên, không cồn, không chất tẩy công nghiệp. Giúp làm sạch, sáng bóng đồ thờ và mang lại không gian thờ cúng thanh tịnh.',
     image: '/products/nuoc-lau-ban-tho-cuu-vi-huong.webp',
-    price: 65250,
+    price: 65000,
     priceUnit: 'chai 500ml',
     priceOptions: [] as { label: string; price: number }[]
   },
@@ -80,9 +89,9 @@ export const MORE_PRODUCTS = [
     price: 6000,
     priceUnit: 'túi lẻ (35g)',
     priceOptions: [
-      { label: '10 túi/bịch', price: 56250 },
-      { label: '15 túi/bịch', price: 78750 },
-      { label: 'Combo 2 bịch (30 túi)', price: 112500 }
+      { label: '10 túi/bịch', price: 56000 },
+      { label: '15 túi/bịch', price: 79000 },
+      { label: 'Combo 2 bịch (30 túi)', price: 113000 }
     ]
   },
   {
@@ -90,7 +99,7 @@ export const MORE_PRODUCTS = [
     title: 'Dầu Gội Thảo Dược Mộc An',
     description: 'Dầu gội 11in1 làm thủ công từ bồ kết, bồ hòn, lá neem, hà thủ ô... không chất bảo quản, không sulfate. Giúp sạch gàu, dịu ngứa da đầu và nuôi dưỡng tóc chắc khỏe.',
     image: '/products/dau-goi.png',
-    price: 69750,
+    price: 70000,
     priceUnit: 'bịch 30 túi lọc',
     priceOptions: [] as { label: string; price: number }[]
   },
@@ -99,7 +108,7 @@ export const MORE_PRODUCTS = [
     title: 'Nụ Quế Cao Cấp',
     description: 'Nụ hương từ bột vỏ quế rừng nguyên chất và keo bời lời tự nhiên, dùng cho lư xông, tạo không gian ấm áp, hỗ trợ thư giãn khi thiền định.',
     image: '/products/nu-tram-huong-nu-que.webp',
-    price: 60750,
+    price: 61000,
     priceUnit: 'hộp 30 nụ',
     priceOptions: [] as { label: string; price: number }[]
   },
@@ -108,7 +117,7 @@ export const MORE_PRODUCTS = [
     title: 'Nụ Trầm Hương Cao Cấp',
     description: 'Nụ trầm hương nguyên chất từ vùng nguyên liệu Tiên Phước, dùng xông phòng khách, phòng thờ, giúp không gian thư thái và dễ chịu hơn.',
     image: '/products/nu-tram-huong-nu-que.webp',
-    price: 119250,
+    price: 119000,
     priceUnit: 'hộp 30 nụ',
     priceOptions: [] as { label: string; price: number }[]
   },
@@ -117,7 +126,7 @@ export const MORE_PRODUCTS = [
     title: 'Nhang Quế Cao Cấp',
     description: '90% vỏ và lá quế tự nhiên kết hợp keo bời lời, ít khói, mùi quế ấm áp, phù hợp thắp bàn thờ và không gian căn hộ kín.',
     image: '/products/nhang-vo-que.webp',
-    price: 81750,
+    price: 82000,
     priceUnit: 'hộp 180 cây',
     priceOptions: [] as { label: string; price: number }[]
   },
@@ -126,7 +135,7 @@ export const MORE_PRODUCTS = [
     title: 'Nhang Vỏ & Lá Quế Dạng Bó',
     description: 'Vỏ và lá quế rừng nghiền mịn kết dính tự nhiên, mùi thơm đậm đà, phù hợp nhu cầu thờ cúng hàng ngày với chi phí tiết kiệm.',
     image: '/products/nhang-vo-va-la-que.webp',
-    price: 50250,
+    price: 50000,
     priceUnit: 'bó',
     priceOptions: [] as { label: string; price: number }[]
   },
@@ -135,7 +144,7 @@ export const MORE_PRODUCTS = [
     title: 'Nhang Trầm Hương Cao Cấp',
     description: 'Bột trầm hương thiên nhiên kết dính từ vỏ cây bời lời, tăm tre tự nhiên. Ít khói, phù hợp thắp bàn thờ Phật, tổ tiên và không gian văn phòng kín.',
     image: '/products/nhang-tram-huong.webp',
-    price: 71250,
+    price: 71000,
     priceUnit: 'hộp 50 cây',
     priceOptions: [] as { label: string; price: number }[]
   },
@@ -144,7 +153,7 @@ export const MORE_PRODUCTS = [
     title: 'Than Viên Tròn Xông Nhà',
     description: 'Than viên chuyên dụng cho xông thảo dược, mồi nhanh, ít khói, tỏa nhiệt đều và giữ lửa lâu, tối ưu cho mỗi lần xông nhà.',
     image: '/products/than.png',
-    price: 18750,
+    price: 19000,
     priceUnit: 'gói 10 viên',
     priceOptions: [] as { label: string; price: number }[]
   },
@@ -153,7 +162,7 @@ export const MORE_PRODUCTS = [
     title: 'Rùa Vàng Phong Thủy',
     description: 'Vật phẩm trang trí mang ý nghĩa văn hóa truyền thống, tượng trưng cho sự bảo vệ và kiên định. Phù hợp đặt trong ví, ốp điện thoại hoặc làm quà tặng.',
     image: '/products/rua-phong-thuy.jpeg',
-    price: 13125,
+    price: 13000,
     priceUnit: 'thẻ bài',
     priceOptions: [] as { label: string; price: number }[]
   },
@@ -171,7 +180,7 @@ export const MORE_PRODUCTS = [
     title: 'Viên Tảo Xoắn Ăn Ngon - Ngủ Ngon',
     description: 'Viên uống kết hợp Tảo Xoắn Spirulina, Yến Sào, Hồng Sâm Korea, Đông Trùng Hạ Thảo, Cao Tâm Sen, Cao Nữ Lang và Bạch Quả. Hỗ trợ tăng cường tiêu hóa, ăn ngon miệng, dưỡng tâm an thần và hỗ trợ tạo giấc ngủ sâu hơn.',
     image: '/products/vien-tao-xoan-an-ngon-ngu-ngon.jpg',
-    price: 233250,
+    price: 233000,
     priceUnit: 'hộp 60 viên',
     priceOptions: [] as { label: string; price: number }[]
   },
