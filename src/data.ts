@@ -81,12 +81,12 @@ export const PRODUCTS = [
     cta: 'Thanh tẩy không gian',
     link: 'https://vt.tiktok.com/ZS9LbvTHMTVWL-nDl6P/',
     badges: ['38 vị thảo mộc', 'Xông nhà Như Ý - Cát Tường'],
-    price: 119000,
+    price: 60000,
     priceUnit: 'gói dùng thử',
     weightGrams: 320,
     priceOptions: [
-      { label: 'Combo 3 gói', price: 357000, weightGrams: 1500 },
-      { label: '5 gói siêu tiết kiệm', price: 595000, weightGrams: 2200 }
+      { label: 'Combo 3 gói', price: 171000, weightGrams: 1500 },
+      { label: '5 gói siêu tiết kiệm', price: 275000, weightGrams: 2200 }
     ]
   },
   {
@@ -100,12 +100,12 @@ export const PRODUCTS = [
     cta: 'Chăm sóc cơ thể',
     link: 'https://vt.tiktok.com/ZS9LgeM9mft9m-5arsI/',
     badges: ['Dịu nhẹ cho mọi làn da, kể cả da nhạy cảm', 'Hỗ trợ lưu thông khí huyết và giải tỏa căng thẳng hiệu quả'],
-    price: 70000,
+    price: 35000,
     priceUnit: 'gói dùng thử',
     weightGrams: 340,
     priceOptions: [
-      { label: 'Combo 3 gói', price: 210000, weightGrams: 1700 },
-      { label: '4 gói siêu tiết kiệm', price: 280000, weightGrams: 2200 }
+      { label: 'Combo 3 gói', price: 99000, weightGrams: 1700 },
+      { label: '4 gói siêu tiết kiệm', price: 124000, weightGrams: 2200 }
     ]
   }
 ];
