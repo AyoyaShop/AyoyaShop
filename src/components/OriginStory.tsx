@@ -54,9 +54,9 @@ export default function OriginStory() {
             >
               <div className="organic-border overflow-hidden aspect-[3/4] modern-zen-shadow bg-white p-2">
                 <img 
-                  src="https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776444400/%C4%91%C3%B4ng_y_codzsc.jpg?auto=format&fit=crop&q=80&w=800" 
-                  alt=" " 
-                  className="w-full h-full object-cover rounded-[35px] 5px [35px] 5px"
+                  src="https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776444400/%C4%91%C3%B4ng_y_codzsc.jpg?auto=format&fit=crop&q=80&w=800"
+                  alt="Thảo mộc tuyển chọn từ nguồn dược liệu sạch của AYOYA"
+                  className="w-full h-full object-cover rounded-[35px]"
                   referrerPolicy="no-referrer"
                 />
               </div>
@@ -75,9 +75,9 @@ export default function OriginStory() {
             >
               <div className="organic-border overflow-hidden aspect-[3/4] modern-zen-shadow bg-white p-2">
                 <img 
-                  src="https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776444643/%C4%91%C3%B3ng_g%C3%B3i_f1mam2.png?auto=format&fit=crop&q=80&w=800" 
-                  alt=" " 
-                  className="w-full h-full object-cover rounded-[35px] 5px [35px] 5px"
+                  src="https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776444643/%C4%91%C3%B3ng_g%C3%B3i_f1mam2.png?auto=format&fit=crop&q=80&w=800"
+                  alt="Đóng gói tỉ mỉ sản phẩm AYOYA, gửi trọn tâm tình"
+                  className="w-full h-full object-cover rounded-[35px]"
                   referrerPolicy="no-referrer"
                 />
               </div>
