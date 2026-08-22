@@ -29,7 +29,7 @@ export default function InteractiveTools() {
   };
 
   return (
-    <section className="py-24 bg-paper bg-ayoya-cream/40">
+    <section id="quiz" className="py-24 bg-paper bg-ayoya-cream/40 scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-serif text-ayoya-brown mb-4">Giá Trị <span className="italic">Trao Tặng</span></h2>

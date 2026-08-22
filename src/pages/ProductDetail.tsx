@@ -11,7 +11,8 @@ import {
   VolumeX,
   AlertTriangle,
   Sparkles,
-  ZoomIn
+  ZoomIn,
+  HelpCircle
 } from 'lucide-react';
 import { ALL_PRODUCTS, getProductById } from '../data';
 import { useCart } from '../context/CartContext';
@@ -266,6 +267,16 @@ export default function ProductDetail() {
                   Đồng kiểm
                 </div>
               </div>
+
+              <Link
+                to="/#quiz"
+                className="flex items-center gap-3 p-4 bg-ayoya-amber/5 rounded-2xl border border-ayoya-amber/20 hover:bg-ayoya-amber/10 transition-colors"
+              >
+                <HelpCircle size={20} className="text-ayoya-amber flex-shrink-0" />
+                <span className="text-sm text-ayoya-brown">
+                  Chưa chắc sản phẩm này phù hợp? <span className="font-bold underline">Làm bài trắc nghiệm 30 giây</span> để AYOYA gợi ý đúng sản phẩm cho bạn.
+                </span>
+              </Link>
             </div>
           </div>
         </div>

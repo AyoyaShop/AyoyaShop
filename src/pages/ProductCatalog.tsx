@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { ShoppingCart } from 'lucide-react';
 import { ALL_PRODUCTS, CATEGORIES } from '../data';
 import { useCart } from '../context/CartContext';
@@ -11,7 +11,12 @@ function formatPrice(price: number): string {
 
 export default function ProductCatalog() {
   const { addItem } = useCart();
-  const [activeCategory, setActiveCategory] = useState('all');
+  const [searchParams] = useSearchParams();
+  const categoryIds = CATEGORIES.map(c => c.id);
+  const initialCategory = searchParams.get('cat');
+  const [activeCategory, setActiveCategory] = useState(
+    initialCategory && categoryIds.includes(initialCategory) ? initialCategory : 'all'
+  );
   const [selectedVariants, setSelectedVariants] = useState<Record<string, string>>({});
 
   useEffect(() => {
