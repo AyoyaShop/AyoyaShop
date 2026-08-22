@@ -31,9 +31,7 @@ export default function CartDrawer() {
   const [submitAttempted, setSubmitAttempted] = useState(false);
   const [error, setError] = useState('');
   const [orderCode, setOrderCode] = useState('');
-  const [previewOrderCode] = useState(() => generateOrderCode());
-
-  if (!isOpen) return null;
+  const [pendingOrderCode, setPendingOrderCode] = useState(() => generateOrderCode());
 
   const selectedZone = SHIPPING_ZONES.find(z => z.id === zoneId);
   const shippingFee = selectedZone ? calcShippingFee(totalWeightGrams, selectedZone.id) : 0;
@@ -51,6 +49,8 @@ export default function CartDrawer() {
   };
   const hasFieldErrors = Object.values(fieldErrors).some(Boolean);
 
+  if (!isOpen) return null;
+
   const handleClose = () => {
     closeCart();
     if (step === 'success') {
@@ -60,6 +60,7 @@ export default function CartDrawer() {
       setPaymentMethod('cod');
       setOrderCode('');
       setSubmitAttempted(false);
+      setPendingOrderCode(generateOrderCode());
     }
   };
 
@@ -70,7 +71,7 @@ export default function CartDrawer() {
     }
     setError('');
     setSubmitting(true);
-    const code = generateOrderCode();
+    const code = pendingOrderCode;
     const payload = {
       orderCode: code,
       customerName: form.name.trim(),
@@ -332,7 +333,7 @@ export default function CartDrawer() {
                 {paymentMethod === 'bank' && (
                   <div className="p-5 bg-white rounded-2xl border border-ayoya-brown/10 text-center space-y-3">
                     <img
-                      src={buildVietQrUrl(grandTotal, previewOrderCode)}
+                      src={buildVietQrUrl(grandTotal, pendingOrderCode)}
                       alt="Mã QR chuyển khoản VietQR"
                       className="w-48 h-auto mx-auto rounded-lg"
                     />
@@ -380,7 +381,10 @@ export default function CartDrawer() {
                     <span className="text-xl font-bold text-ayoya-brown">{formatPrice(totalPrice)}</span>
                   </div>
                   <button
-                    onClick={() => setStep('checkout')}
+                    onClick={() => {
+                      setPendingOrderCode(generateOrderCode());
+                      setStep('checkout');
+                    }}
                     className="w-full py-4 bg-ayoya-brown text-white rounded-full font-bold uppercase tracking-widest hover:bg-ayoya-brick transition-all"
                   >
                     Tiến hành đặt hàng

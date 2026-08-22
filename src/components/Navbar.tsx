@@ -48,7 +48,7 @@ export default function Navbar() {
           {/* === CỤM GIỮA: Logo === */}
           <div className="absolute left-1/2 -translate-x-1/2">
             <Link to="/" className="flex flex-col items-center">
-              <h1 className="text-3xl font-serif font-bold tracking-tighter text-ayoya-brown">AYOYA</h1>
+              <span className="text-3xl font-serif font-bold tracking-tighter text-ayoya-brown">AYOYA</span>
               <span className="text-[8px] tracking-[0.3em] uppercase opacity-60 -mt-1 text-ayoya-brown">THẢO MỘC & PHONG THỦY</span>
             </Link>
           </div>
