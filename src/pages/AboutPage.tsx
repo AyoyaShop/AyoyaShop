@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { Shield, Sparkles, HeartHandshake, ArrowRight, MessageCircle, Package, Star, Leaf, Clock, MapPin } from 'lucide-react';
-import { CONTACT_INFO } from '../data';
+import { CONTACT_INFO, CORE_VALUES } from '../data';
 import { applySeo, SITE_URL } from '../lib/seo';
 
 const iconMap = { Shield, Sparkles, HeartHandshake };
@@ -26,26 +26,6 @@ const TIMELINE = [
   }
 ];
 
-const ABOUT_VALUES = [
-  {
-    title: 'UY TÍN',
-    icon: 'Shield',
-    description:
-      'Từ một lò võ nhỏ ở Bình Định đến một thương hiệu được hàng chục nghìn khách hàng tin dùng — nền tảng duy nhất giúp AYOYA đi được chặng đường đó là sự minh bạch: nguồn gốc rõ ràng, tư vấn trung thực.'
-  },
-  {
-    title: 'CHẤT LƯỢNG',
-    icon: 'Sparkles',
-    description:
-      'Mỗi mẻ thảo dược, mỗi nén trầm hương vẫn được chế biến thủ công đúng công thức gia truyền — không đổi khác dù quy mô đã lớn hơn nhiều so với ngày đầu.'
-  },
-  {
-    title: 'TẬN TÂM',
-    icon: 'HeartHandshake',
-    description:
-      'Từ 2022 đến nay, chính Tuấn Kiệt vẫn là người trực tiếp đóng gói và lắng nghe từng phản hồi của khách hàng — không qua trung gian.'
-  }
-];
 
 const STATS = [
   { icon: Package, value: '64.300+', label: 'Đơn hàng đã giao trên TikTok Shop' },
@@ -208,7 +188,7 @@ export default function AboutPage() {
 
         {/* 3 core values */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-          {ABOUT_VALUES.map((value, idx) => {
+          {CORE_VALUES.map((value, idx) => {
             const Icon = iconMap[value.icon as keyof typeof iconMap];
             return (
               <motion.div

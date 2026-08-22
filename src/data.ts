@@ -497,17 +497,19 @@ export function getProductById(id: string) {
 export const CORE_VALUES = [
   {
     title: 'UY TÍN',
-    description: 'Nền tảng sống còn. Minh bạch nguồn gốc, trung thực tư vấn. Kế thừa tinh hoa Bình Định.',
+    description:
+      'Từ một lò võ nhỏ ở Bình Định đến một thương hiệu được hàng chục nghìn khách hàng tin dùng — nền tảng duy nhất giúp AYOYA đi được chặng đường đó là sự minh bạch: nguồn gốc rõ ràng, tư vấn trung thực.',
     icon: 'Shield'
   },
   {
     title: 'CHẤT LƯỢNG',
-    description: 'Mỗi sản phẩm là một công trình tâm huyết, chế biến thủ công để giữ trọn dược tính.',
+    description:
+      'Mỗi mẻ thảo dược, mỗi nén trầm hương vẫn được chế biến thủ công đúng công thức gia truyền — không đổi khác dù quy mô đã lớn hơn nhiều so với ngày đầu.',
     icon: 'Sparkles'
   },
   {
     title: 'TẬN TÂM',
-    description: 'Đồng hành chăm sóc sức khỏe và nuôi dưỡng tâm hồn, lắng nghe từng phản hồi nhỏ nhất.',
+    description: 'Từ 2022 đến nay, chính Tuấn Kiệt vẫn là người trực tiếp đóng gói và lắng nghe từng phản hồi của khách hàng — không qua trung gian.',
     icon: 'HeartHandshake'
   }
 ];
