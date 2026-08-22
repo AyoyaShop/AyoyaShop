@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ShoppingCart, CheckCircle2, Play, X, Volume2, VolumeX } from 'lucide-react';
 import { PRODUCTS } from '../data';
 import { useCart } from '../context/CartContext';
+import { calcOriginalPrice } from '../lib/pricing';
 
 function formatPrice(price: number): string {
   return `${price.toLocaleString('vi-VN')}đ`;
@@ -168,6 +169,7 @@ export default function Products() {
                 <p className="text-ayoya-amber font-serif italic text-lg mb-6">{product.subtitle}</p>
 
                 <div className="mb-6">
+                  <span className="block text-sm text-ayoya-brown/40 line-through">{formatPrice(calcOriginalPrice(product.price))}</span>
                   <div className="flex items-baseline gap-2">
                     <span className="text-3xl font-serif font-bold text-ayoya-brown">{formatPrice(product.price)}</span>
                     <span className="text-sm text-ayoya-brown/50">/ {product.priceUnit}</span>
@@ -176,7 +178,9 @@ export default function Products() {
                     <div className="mt-2 flex flex-wrap gap-x-6 gap-y-1 text-xs text-ayoya-brown/60">
                       {product.priceOptions.map(opt => (
                         <span key={opt.label}>
-                          {opt.label}: <strong className="text-ayoya-brown">{formatPrice(opt.price)}</strong>
+                          {opt.label}:{' '}
+                          <span className="text-ayoya-brown/40 line-through">{formatPrice(calcOriginalPrice(opt.price))}</span>{' '}
+                          <strong className="text-ayoya-brown">{formatPrice(opt.price)}</strong>
                         </span>
                       ))}
                     </div>
@@ -214,7 +218,11 @@ export default function Products() {
                                 : 'bg-white text-ayoya-brown border-ayoya-brown/15 hover:border-ayoya-brown/40'
                             }`}
                           >
-                            {v.label} · {formatPrice(v.price)}
+                            {v.label} ·{' '}
+                            <span className={selectedLabel === v.label ? 'text-white/60 line-through' : 'text-ayoya-brown/40 line-through'}>
+                              {formatPrice(calcOriginalPrice(v.price))}
+                            </span>{' '}
+                            {formatPrice(v.price)}
                           </button>
                         ))}
                       </div>

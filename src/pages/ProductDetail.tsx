@@ -18,6 +18,7 @@ import {
 import { ALL_PRODUCTS, getProductById, PRODUCT_RATINGS } from '../data';
 import { useCart } from '../context/CartContext';
 import { applySeo, SITE_URL } from '../lib/seo';
+import { calcOriginalPrice } from '../lib/pricing';
 
 function formatPrice(price: number): string {
   return `${price.toLocaleString('vi-VN')}đ`;
@@ -213,6 +214,7 @@ export default function ProductDetail() {
             )}
 
             <div className="mb-6">
+              <span className="block text-sm text-ayoya-brown/40 line-through">{formatPrice(calcOriginalPrice(selectedVariant.price))}</span>
               <div className="flex items-baseline gap-2">
                 <span className="text-3xl font-serif font-bold text-ayoya-brown">{formatPrice(selectedVariant.price)}</span>
                 <span className="text-sm text-ayoya-brown/50">/ {selectedVariant.label}</span>
@@ -231,7 +233,11 @@ export default function ProductDetail() {
                         : 'bg-white text-ayoya-brown border-ayoya-brown/15 hover:border-ayoya-brown/40'
                     }`}
                   >
-                    {v.label} · {formatPrice(v.price)}
+                    {v.label} ·{' '}
+                    <span className={activeLabel === v.label ? 'text-white/60 line-through' : 'text-ayoya-brown/40 line-through'}>
+                      {formatPrice(calcOriginalPrice(v.price))}
+                    </span>{' '}
+                    {formatPrice(v.price)}
                   </button>
                 ))}
               </div>
@@ -361,7 +367,8 @@ export default function ProductDetail() {
                   </div>
                   <div className="p-4">
                     <h3 className="text-sm font-serif text-ayoya-brown leading-snug line-clamp-2">{p.title}</h3>
-                    <p className="text-sm font-bold text-ayoya-brown mt-1">{formatPrice(p.price)}</p>
+                    <p className="text-xs text-ayoya-brown/40 line-through mt-1">{formatPrice(calcOriginalPrice(p.price))}</p>
+                    <p className="text-sm font-bold text-ayoya-brown">{formatPrice(p.price)}</p>
                   </div>
                 </Link>
               ))}
@@ -410,6 +417,7 @@ export default function ProductDetail() {
             className="md:hidden fixed inset-x-0 bottom-0 z-40 bg-white border-t border-ayoya-brown/10 px-4 py-3 flex items-center gap-3 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]"
           >
             <div className="flex flex-col min-w-0">
+              <span className="text-[10px] text-ayoya-brown/40 line-through leading-tight">{formatPrice(calcOriginalPrice(selectedVariant.price))}</span>
               <span className="text-lg font-serif font-bold text-ayoya-brown leading-tight">{formatPrice(selectedVariant.price)}</span>
               <span className="text-[10px] text-ayoya-brown/50 leading-tight truncate">/ {selectedVariant.label}</span>
             </div>

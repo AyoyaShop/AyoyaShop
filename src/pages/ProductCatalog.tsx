@@ -4,6 +4,7 @@ import { ShoppingCart } from 'lucide-react';
 import { ALL_PRODUCTS, CATEGORIES } from '../data';
 import { useCart } from '../context/CartContext';
 import { applySeo, SITE_URL } from '../lib/seo';
+import { calcOriginalPrice } from '../lib/pricing';
 
 function formatPrice(price: number): string {
   return `${price.toLocaleString('vi-VN')}đ`;
@@ -116,6 +117,9 @@ export default function ProductCatalog() {
 
                   <div className="mt-auto flex items-end justify-between gap-2">
                     <div className="flex flex-col">
+                      <span className="text-[11px] text-ayoya-brown/40 line-through leading-tight">
+                        {formatPrice(calcOriginalPrice(selectedVariant.price))}
+                      </span>
                       <span className="text-base font-bold text-ayoya-brown leading-tight">{formatPrice(selectedVariant.price)}</span>
                       <span className="text-[10px] text-ayoya-brown/50 leading-tight">/ {selectedVariant.label}</span>
                     </div>

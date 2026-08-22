@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { X, Minus, Plus, Trash2, ShoppingCart, Loader2, CheckCircle2, Info } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { BANK_INFO, ORDER_SHEET_URL, SHIPPING_ZONES, calcShippingFee } from '../data';
+import { calcOriginalPrice } from '../lib/pricing';
 
 function formatPrice(price: number): string {
   return `${price.toLocaleString('vi-VN')}đ`;
@@ -187,7 +188,12 @@ export default function CartDrawer() {
                               <Plus size={12} />
                             </button>
                           </div>
-                          <span className="text-sm font-bold text-ayoya-brown">{formatPrice(item.unitPrice * item.quantity)}</span>
+                          <div className="flex flex-col items-end">
+                            <span className="text-[10px] text-ayoya-brown/40 line-through leading-tight">
+                              {formatPrice(calcOriginalPrice(item.unitPrice) * item.quantity)}
+                            </span>
+                            <span className="text-sm font-bold text-ayoya-brown leading-tight">{formatPrice(item.unitPrice * item.quantity)}</span>
+                          </div>
                         </div>
                       </div>
                       <button
@@ -284,7 +290,10 @@ export default function CartDrawer() {
                 <div className="p-4 bg-white rounded-2xl border border-ayoya-brown/10 space-y-2 text-sm">
                   <div className="flex items-center justify-between text-ayoya-brown/70">
                     <span>Tạm tính</span>
-                    <span>{formatPrice(totalPrice)}</span>
+                    <span className="flex items-baseline gap-2">
+                      <span className="text-xs text-ayoya-brown/40 line-through">{formatPrice(calcOriginalPrice(totalPrice))}</span>
+                      {formatPrice(totalPrice)}
+                    </span>
                   </div>
                   <div className="flex items-center justify-between text-ayoya-brown/70">
                     <span>Phí vận chuyển</span>
@@ -386,7 +395,10 @@ export default function CartDrawer() {
                 <>
                   <div className="flex items-center justify-between text-sm">
                     <span className="text-ayoya-brown/60">Tạm tính (chưa gồm phí ship)</span>
-                    <span className="text-xl font-bold text-ayoya-brown">{formatPrice(totalPrice)}</span>
+                    <span className="flex items-baseline gap-2">
+                      <span className="text-xs text-ayoya-brown/40 line-through">{formatPrice(calcOriginalPrice(totalPrice))}</span>
+                      <span className="text-xl font-bold text-ayoya-brown">{formatPrice(totalPrice)}</span>
+                    </span>
                   </div>
                   <button
                     onClick={() => {
