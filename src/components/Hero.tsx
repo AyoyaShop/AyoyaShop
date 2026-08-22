@@ -20,11 +20,7 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
+        <div>
           <span className="inline-block px-4 py-1 mb-6 border border-ayoya-brown/20 rounded-full text-xs font-semibold tracking-[0.2em] uppercase text-ayoya-brown/60">
             Trải nghiệm Lối sống Tỉnh thức
           </span>
@@ -35,7 +31,7 @@ export default function Hero() {
           <p className="max-w-2xl mx-auto text-lg md:text-xl text-ayoya-brown/70 font-light mb-12 leading-relaxed">
             Chúng tôi không chỉ bán sản phẩm, chúng tôi trao gửi niềm tin và sự bình an qua những báu vật thảo mộc cổ truyền.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
             <a
               href="#products"
@@ -49,12 +45,12 @@ export default function Hero() {
               rel="noopener noreferrer"
               className="px-10 py-4 border border-ayoya-brown text-ayoya-brown rounded-full font-medium tracking-widest uppercase hover:bg-ayoya-brown/5 transition-all"
             >
-              Tư Vấn Tận Tâm
+              Chat Zalo Tư Vấn
             </a>
           </div>
 
           <TrustBadges />
-        </motion.div>
+        </div>
         {/* --- KHUNG VIDEO HIỂN THỊ --- */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
