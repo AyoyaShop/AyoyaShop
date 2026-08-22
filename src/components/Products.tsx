@@ -218,11 +218,7 @@ export default function Products() {
                                 : 'bg-white text-ayoya-brown border-ayoya-brown/15 hover:border-ayoya-brown/40'
                             }`}
                           >
-                            {v.label} ·{' '}
-                            <span className={selectedLabel === v.label ? 'text-white/60 line-through' : 'text-ayoya-brown/40 line-through'}>
-                              {formatPrice(calcOriginalPrice(v.price))}
-                            </span>{' '}
-                            {formatPrice(v.price)}
+                            {v.label} · {formatPrice(v.price)}
                           </button>
                         ))}
                       </div>
