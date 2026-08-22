@@ -15,10 +15,10 @@ export default function Navbar() {
         animate={{ y: 0 }}
         className="fixed top-0 left-0 right-0 z-50 bg-ayoya-cream/90 backdrop-blur-md border-b border-ayoya-brown/10"
       >
-        <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
-          
+        <div className="max-w-7xl mx-auto px-4 h-20 grid grid-cols-[1fr_auto_1fr] items-center gap-4">
+
           {/* === CỤM BÊN TRÁI === */}
-          <div className="flex items-center gap-4 lg:gap-6">
+          <div className="flex items-center gap-4 lg:gap-6 min-w-0">
             <button
               onClick={() => setIsMobileMenuOpen(true)}
               className="lg:hidden -m-2.5 p-2.5 text-ayoya-brown hover:text-ayoya-amber transition-colors"
@@ -27,10 +27,10 @@ export default function Navbar() {
               <Menu size={26} strokeWidth={1.5} />
             </button>
 
-            <a 
-              href="https://vt.tiktok.com/ZS4qEo8dm/?page=TikTokShop" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a
+              href="https://vt.tiktok.com/ZS4qEo8dm/?page=TikTokShop"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex flex-col items-center gap-1 lg:hidden cursor-pointer hover:opacity-80 transition-opacity"
             >
               <div className="w-8 h-8 rounded-lg bg-ayoya-brown text-white flex items-center justify-center shadow-sm">
@@ -39,9 +39,8 @@ export default function Navbar() {
               <span className="text-[8px] text-ayoya-brown font-bold uppercase tracking-wider whitespace-nowrap">Tiktok Shop</span>
             </a>
 
-            <div className="hidden lg:flex items-center gap-6 text-sm font-medium tracking-widest uppercase">
-              <Link to="/#products" className="hover:text-ayoya-amber transition-colors">Sản phẩm</Link>
-              <Link to="/san-pham" className="hover:text-ayoya-amber transition-colors">Tất cả sản phẩm</Link>
+            <div className="hidden lg:flex items-center gap-5 text-sm font-medium tracking-wide uppercase whitespace-nowrap">
+              <Link to="/san-pham" className="hover:text-ayoya-amber transition-colors">Sản phẩm</Link>
               <Link to="/ve-chung-toi" className="hover:text-ayoya-amber transition-colors">Về chúng tôi</Link>
               <Link to="/hoi-dap" className="hover:text-ayoya-amber transition-colors">Hỏi đáp</Link>
               <Link to="/lien-he" className="hover:text-ayoya-amber transition-colors">Liên hệ</Link>
@@ -49,15 +48,15 @@ export default function Navbar() {
           </div>
 
           {/* === CỤM GIỮA: Logo === */}
-          <div className="absolute left-1/2 -translate-x-1/2">
+          <div className="flex flex-col items-center">
             <Link to="/" className="flex flex-col items-center">
               <span className="text-3xl font-serif font-bold tracking-tighter text-ayoya-brown">AYOYA</span>
-              <span className="text-[8px] tracking-[0.3em] uppercase opacity-60 -mt-1 text-ayoya-brown">THẢO MỘC & PHONG THỦY</span>
+              <span className="text-[8px] tracking-[0.3em] uppercase opacity-60 -mt-1 text-ayoya-brown whitespace-nowrap">THẢO MỘC & PHONG THỦY</span>
             </Link>
           </div>
 
           {/* === CỤM BÊN PHẢI === */}
-          <div className="flex items-center gap-4 lg:gap-6">
+          <div className="flex items-center justify-end gap-4 lg:gap-6">
             <a
               href="tel:0933458485"
               className="flex items-center gap-2 -m-2.5 p-2.5 md:m-0 md:p-0 text-ayoya-brown hover:text-ayoya-amber transition-colors cursor-pointer"
@@ -120,19 +119,11 @@ export default function Navbar() {
           {/* Các đường link được đặt trong khung (Card UI) */}
           <div className="flex flex-col items-center gap-5 w-full px-8 max-w-[320px]">
             <Link
-              to="/#products"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="w-full py-4 bg-white rounded-2xl border border-ayoya-brown/10 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] text-ayoya-brown text-center text-lg font-bold tracking-widest uppercase active:scale-95 transition-all"
-            >
-              Sản phẩm
-            </Link>
-
-            <Link
               to="/san-pham"
               onClick={() => setIsMobileMenuOpen(false)}
               className="w-full py-4 bg-white rounded-2xl border border-ayoya-brown/10 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] text-ayoya-brown text-center text-lg font-bold tracking-widest uppercase active:scale-95 transition-all"
             >
-              Tất cả sản phẩm
+              Sản phẩm
             </Link>
 
             <Link
