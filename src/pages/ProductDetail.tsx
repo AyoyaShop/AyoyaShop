@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import {
@@ -29,6 +29,8 @@ export default function ProductDetail() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [showStickyBar, setShowStickyBar] = useState(false);
+  const buyBoxRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!product) return;
@@ -61,6 +63,17 @@ export default function ProductDetail() {
     setLightboxOpen(false);
   }, [id]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const el = buyBoxRef.current;
+      if (!el) return;
+      setShowStickyBar(el.getBoundingClientRect().bottom < 0);
+    };
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   if (!id || !product) {
     return <Navigate to="/" replace />;
   }
@@ -71,6 +84,16 @@ export default function ProductDetail() {
   ];
   const activeLabel = selectedLabel || variants[0].label;
   const selectedVariant = variants.find(v => v.label === activeLabel) ?? variants[0];
+
+  const buildCartItem = () => ({
+    key: `${product.id}::${selectedVariant.label}`,
+    productId: product.id,
+    title: product.title,
+    image: product.image,
+    variantLabel: variants.length > 1 ? selectedVariant.label : '',
+    unitPrice: selectedVariant.price,
+    weightGrams: selectedVariant.weightGrams
+  });
 
   const relatedProducts = ALL_PRODUCTS.filter(p => p.id !== product.id).slice(0, 4);
 
@@ -211,18 +234,10 @@ export default function ProductDetail() {
 
               <p className="text-ayoya-brown/70 leading-relaxed">{product.description}</p>
 
-              <div className="flex flex-col sm:flex-row gap-3">
+              <div ref={buyBoxRef} className="flex flex-col sm:flex-row gap-3">
                 <button
                   onClick={() => {
-                    addItem({
-                      key: `${product.id}::${selectedVariant.label}`,
-                      productId: product.id,
-                      title: product.title,
-                      image: product.image,
-                      variantLabel: variants.length > 1 ? selectedVariant.label : '',
-                      unitPrice: selectedVariant.price,
-                      weightGrams: selectedVariant.weightGrams
-                    });
+                    addItem(buildCartItem());
                     requestCheckout();
                   }}
                   className="flex-1 flex items-center justify-center gap-3 px-8 py-5 bg-ayoya-brown text-white rounded-full font-bold uppercase tracking-widest hover:bg-ayoya-brick transition-all shadow-lg"
@@ -231,15 +246,7 @@ export default function ProductDetail() {
                 </button>
                 <button
                   onClick={() => {
-                    addItem({
-                      key: `${product.id}::${selectedVariant.label}`,
-                      productId: product.id,
-                      title: product.title,
-                      image: product.image,
-                      variantLabel: variants.length > 1 ? selectedVariant.label : '',
-                      unitPrice: selectedVariant.price,
-                      weightGrams: selectedVariant.weightGrams
-                    });
+                    addItem(buildCartItem());
                     openCart();
                   }}
                   className="flex-1 flex items-center justify-center gap-3 px-8 py-5 border border-ayoya-brown text-ayoya-brown rounded-full font-bold uppercase tracking-widest hover:bg-ayoya-brown/5 transition-all"
@@ -367,6 +374,32 @@ export default function ProductDetail() {
               referrerPolicy="no-referrer"
               className="max-w-full max-h-[85vh] rounded-2xl object-contain shadow-2xl"
             />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {showStickyBar && (
+          <motion.div
+            initial={{ y: '100%' }}
+            animate={{ y: 0 }}
+            exit={{ y: '100%' }}
+            transition={{ type: 'tween', duration: 0.25 }}
+            className="md:hidden fixed inset-x-0 bottom-0 z-40 bg-white border-t border-ayoya-brown/10 px-4 py-3 flex items-center gap-3 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]"
+          >
+            <div className="flex flex-col min-w-0">
+              <span className="text-lg font-serif font-bold text-ayoya-brown leading-tight">{formatPrice(selectedVariant.price)}</span>
+              <span className="text-[10px] text-ayoya-brown/50 leading-tight truncate">/ {selectedVariant.label}</span>
+            </div>
+            <button
+              onClick={() => {
+                addItem(buildCartItem());
+                requestCheckout();
+              }}
+              className="flex-1 flex items-center justify-center px-6 py-3 bg-ayoya-brown text-white rounded-full font-bold uppercase tracking-widest text-sm hover:bg-ayoya-brick transition-all"
+            >
+              Mua ngay
+            </button>
           </motion.div>
         )}
       </AnimatePresence>
