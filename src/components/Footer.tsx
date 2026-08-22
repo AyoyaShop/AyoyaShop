@@ -1,5 +1,5 @@
-import { Mail, Phone, MapPin, Instagram, Facebook, Youtube, ShoppingBag } from 'lucide-react';
-import { SHOPEE_LINK, TIKTOK_LINK } from '../data';
+import { Mail, Phone, MapPin, Instagram, Facebook, ShoppingBag } from 'lucide-react';
+import { SHOPEE_LINK, TIKTOK_LINK, CONTACT_INFO } from '../data';
 
 export default function Footer() {
   return (
@@ -14,17 +14,17 @@ export default function Footer() {
               cho không gian sống của bạn.
             </p>
             <div className="flex flex-wrap gap-4">
-              <a href="https://www.facebook.com/ayoyashop" className="w-10 h-10 rounded-full border border-ayoya-cream/20 flex items-center justify-center hover:bg-ayoya-cream hover:text-ayoya-brown transition-all">
+              <a href={CONTACT_INFO.facebook} className="w-10 h-10 rounded-full border border-ayoya-cream/20 flex items-center justify-center hover:bg-ayoya-cream hover:text-ayoya-brown transition-all">
                 <Facebook size={18} />
               </a>
-              <a 
-  href="https://www.instagram.com/kiandli777" 
-  target="_blank" 
-  rel="noopener noreferrer" 
-  className="w-10 h-10 rounded-full border border-ayoya-cream/20 flex items-center justify-center hover:bg-ayoya-cream hover:text-ayoya-brown transition-all"
->
-  <Instagram size={18} />
-</a>
+              <a
+                href={CONTACT_INFO.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full border border-ayoya-cream/20 flex items-center justify-center hover:bg-ayoya-cream hover:text-ayoya-brown transition-all"
+              >
+                <Instagram size={18} />
+              </a>
               <a href={TIKTOK_LINK} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-ayoya-cream/20 flex items-center justify-center hover:bg-ayoya-cream hover:text-ayoya-brown transition-all">
                 <span className="text-[10px] font-black italic">TT</span>
               </a>
@@ -50,15 +50,15 @@ export default function Footer() {
             <div className="space-y-6">
               <div className="flex items-start gap-4 text-ayoya-cream/70 hover:text-ayoya-cream transition-colors">
                 <MapPin size={20} className="mt-1 flex-shrink-0" />
-                <span className="text-sm">6A/3 Nguyễn Du, Phường Bình Hòa, TP.HCM</span>
+                <span className="text-sm">{CONTACT_INFO.address}</span>
               </div>
               <div className="flex items-center gap-4 text-ayoya-cream/70 hover:text-ayoya-cream transition-colors">
                 <Phone size={20} className="flex-shrink-0" />
-                <span className="text-sm">0933.458.485</span>
+                <span className="text-sm">{CONTACT_INFO.phone}</span>
               </div>
               <div className="flex items-center gap-4 text-ayoya-cream/70 hover:text-ayoya-cream transition-colors">
                 <Mail size={20} className="flex-shrink-0" />
-                <span className="text-sm">ayoyashop@gmail.com</span>
+                <span className="text-sm">{CONTACT_INFO.email}</span>
               </div>
             </div>
           </div>

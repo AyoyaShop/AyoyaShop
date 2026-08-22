@@ -1,6 +1,16 @@
 export const SHOPEE_LINK = 'https://vn.shp.ee/dKiXxDRN';
 export const TIKTOK_LINK = 'https://vt.tiktok.com/ZS4qEo8dm/?page=TikTokShop';
 
+export const CONTACT_INFO = {
+  address: '6A/3 Nguyễn Du, Phường Bình Hòa, TP.HCM',
+  phone: '0933.458.485',
+  phoneHref: 'tel:0933458485',
+  zaloHref: 'https://zalo.me/0933458485',
+  email: 'ayoyashop@gmail.com',
+  facebook: 'https://www.facebook.com/ayoyashop',
+  instagram: 'https://www.instagram.com/kiandli777'
+};
+
 export const BANK_INFO = {
   bankName: 'ACB',
   bankBin: '970416',

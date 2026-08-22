@@ -11,6 +11,9 @@ import CartDrawer from './components/CartDrawer';
 import Home from './pages/Home';
 import ProductCatalog from './pages/ProductCatalog';
 import ProductDetail from './pages/ProductDetail';
+import AboutPage from './pages/AboutPage';
+import FaqPage from './pages/FaqPage';
+import ContactPage from './pages/ContactPage';
 import ScrollToHash from './components/ScrollToHash';
 
 export default function App() {
@@ -24,6 +27,9 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/san-pham" element={<ProductCatalog />} />
             <Route path="/san-pham/:id" element={<ProductDetail />} />
+            <Route path="/ve-chung-toi" element={<AboutPage />} />
+            <Route path="/hoi-dap" element={<FaqPage />} />
+            <Route path="/lien-he" element={<ContactPage />} />
           </Routes>
         </main>
         <Footer />

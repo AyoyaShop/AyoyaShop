@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
+import { ArrowRight } from 'lucide-react';
 
 export default function OriginStory() {
   return (
@@ -42,6 +44,13 @@ export default function OriginStory() {
                   <span className="text-[10px] font-bold uppercase tracking-widest text-ayoya-brown/40">Quy trình thủ công</span>
                 </div>
               </div>
+
+              <Link
+                to="/ve-chung-toi"
+                className="mt-8 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-ayoya-brown hover:text-ayoya-brick transition-colors"
+              >
+                Đọc câu chuyện đầy đủ <ArrowRight size={16} />
+              </Link>
             </motion.div>
           </div>
 
