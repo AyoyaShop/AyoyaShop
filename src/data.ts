@@ -527,6 +527,31 @@ export const MORE_PRODUCTS = [
     priceUnit: 'hộp 30 viên',
     weightGrams: 150,
     priceOptions: [] as { label: string; price: number; weightGrams: number }[]
+  },
+  {
+    id: 'calcinano-sunuri',
+    category: 'suc-khoe',
+    noDiscount: false,
+    title: 'CALCINANO SUNURI',
+    description:
+      'Trẻ chậm tăng chiều cao, có dấu hiệu còi xương; người lớn tuổi lo ngại loãng xương; mẹ bầu, mẹ đang cho con bú cần bổ sung thêm calci mỗi ngày — đây là nỗi lo chung của nhiều gia đình khi chế độ ăn hàng ngày khó đáp ứng đủ nhu cầu calci và vitamin D3. CALCINANO SUNURI là viên nén bao phim bổ sung Calci Carbonat Nano, Calci Carbonat, Vitamin D3 và Vitamin K2 — bộ dưỡng chất quen thuộc trong hỗ trợ phát triển và duy trì hệ xương, răng chắc khỏe cho cả gia đình.',
+    benefits:
+      'Bổ sung Calci, Vitamin D3, Vitamin K2 cho trẻ em và người lớn; hỗ trợ phát triển xương, răng chắc khỏe; hỗ trợ phát triển chiều cao, hỗ trợ giảm nguy cơ còi xương ở trẻ em; hỗ trợ giảm nguy cơ loãng xương ở người cao tuổi, thiếu hụt calci ở phụ nữ có thai, phụ nữ cho con bú. Hiệu quả có thể khác nhau tùy cơ địa mỗi người.',
+    ingredients:
+      'Calci Carbonat Nano, Calci Carbonat, Vitamin D3, Vitamin K2. Số tiếp nhận đăng ký bản công bố sản phẩm 508/2021/ĐKSP.',
+    usage:
+      'Đối tượng sử dụng: người lớn và trẻ em từ 7 tuổi trở lên; phụ nữ mang thai hoặc đang cho con bú. Cách dùng: uống vào buổi sáng, sau khi ăn 15-30 phút. Trẻ em trên 7 tuổi: 1 viên/ngày. Người lớn: 2 viên/ngày. Phụ nữ mang thai hoặc cho con bú: 2-3 viên/ngày.',
+    warnings: 'Thực phẩm này không phải là thuốc, không có tác dụng thay thế thuốc chữa bệnh. Không dùng cho người mẫn cảm với bất kỳ thành phần nào của sản phẩm.',
+    origin:
+      'Phân phối bởi Ayoya Shop (không phải nhà sản xuất). Nhà sản xuất & đơn vị công bố xem đầy đủ trên bao bì sản phẩm, số tiếp nhận đăng ký bản công bố sản phẩm 508/2021/ĐKSP. Dạng viên nén bao phim, quy cách hộp 10 vỉ x 10 viên (100 viên), tiêu chuẩn TCCS, sản xuất tại Việt Nam. Hạn sử dụng 36 tháng kể từ ngày sản xuất, xem cụ thể trên bao bì. Bảo quản nơi khô mát, dưới 30°C, tránh ánh nắng mặt trời.',
+    subtitle: '',
+    video: '',
+    badges: [] as string[],
+    image: '/products/calcinano-sunuri.webp',
+    price: 300000,
+    priceUnit: 'hộp 100 viên',
+    weightGrams: 200,
+    priceOptions: [] as { label: string; price: number; weightGrams: number }[]
   }
 ];
 
