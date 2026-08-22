@@ -137,10 +137,14 @@ export const MORE_PRODUCTS = [
     title: 'Trầm Hương Xông Nhà Như Ý - Cát Tường',
     description: 'Gói xông nhà lấy trầm hương thượng hạng làm chủ đạo, kết hợp cùng các thảo mộc quý. Giúp thanh lọc không gian, mang lại hương thơm thư thái và đón nhận năng lượng tích cực theo quan niệm phong thủy dân gian.',
     benefits: '',
-    ingredients: '',
-    usage: '',
-    warnings: '',
-    origin: '',
+    ingredients:
+      '3 nhóm nguyên liệu chọn lọc: Bột thơm (trầm hương, bách xanh, đại hồi, sả, vỏ bưởi, quế, ớt khô, ngân tinh, hương nhu, ngải cứu, kinh giới, quế chi, thương truật, cúc tần...); Thảo dược có gai theo dân gian (quỷ kiến sầu, thương nhĩ tử, câu đằng, muối sống); Gỗ quý (đàn hương, trầm gió, ngọc am, hương thảo, thảo quả, bồ kết).',
+    usage:
+      'Chuẩn bị khay chịu nhiệt, đốt than cho hồng đều. Cho các loại gỗ, thảo dược có gai vào khay trước, sau đó rắc từng ít bột thơm lên, rắc thêm muối sống — chỉ thêm khi lớp trước đã cháy hết. Cầm khay xông di chuyển khắp nhà, chú trọng gầm giường, phòng ngủ, nhà vệ sinh, bếp. Mở cửa thông thoáng khi xông. Liệu trình đầy đủ gồm 4 gói, mỗi lần cách nhau 3-4 ngày.',
+    warnings:
+      'Chỉ thêm bột khi lớp than trước đã cháy hết để tránh ngạt khói. Vật phẩm phong thủy đi kèm (Linh Phù, Rùa phong thủy) mang ý nghĩa theo quan niệm dân gian, không cam kết hiệu quả tuyệt đối hay kết quả tức thời.',
+    origin:
+      'Nguyên liệu sạch, chọn lọc kỹ càng. Hạn sử dụng 12 tháng. Bảo quản nơi khô ráo, thoáng mát. Quà tặng kèm mỗi đơn: 1 Linh Phù, 1 Rùa phong thủy, nụ trầm hương, 1 cây than (10 viên) và khay xông.',
     subtitle: '',
     video: '',
     badges: [] as string[],
@@ -155,10 +159,13 @@ export const MORE_PRODUCTS = [
     title: 'Nước Lau Bàn Thờ Cửu Vị Hương',
     description: 'Dung dịch lau dọn bàn thờ chiết xuất từ 9 loại thảo mộc tự nhiên, không cồn, không chất tẩy công nghiệp. Giúp làm sạch, sáng bóng đồ thờ và mang lại không gian thờ cúng thanh tịnh.',
     benefits: '',
-    ingredients: '',
-    usage: '',
+    ingredients:
+      'Nước tinh khiết + tinh chất 9 loại thảo mộc: mùi già, quế, đại hồi, đinh hương, gừng, hương nhu, bạc hà, sả, vỏ bưởi. Không cồn, không chất tẩy công nghiệp.',
+    usage:
+      'Dùng nguyên chất hoặc pha loãng theo tỷ lệ 1:3 với nước ấm. Dùng khăn mềm sạch (riêng cho bàn thờ) thấm dung dịch, lau nhẹ nhàng lên đồ thờ cúng, sau đó lau khô lại để không còn ẩm ướt. Nên vệ sinh 1-2 lần/tuần hoặc trước các dịp lễ, mùng 1, rằm, bao sái cuối năm.',
     warnings: '',
-    origin: '',
+    origin:
+      'Nguyên liệu sạch, nguồn gốc thiên nhiên từ thực vật. Hạn sử dụng 12 tháng kể từ ngày sản xuất. Bảo quản nơi khô ráo, thoáng mát.',
     subtitle: '',
     video: '',
     badges: [] as string[],
@@ -173,10 +180,13 @@ export const MORE_PRODUCTS = [
     title: 'Thảo Dược Ngâm Chân Mộc An',
     description: 'Túi lọc 12 vị thảo dược ấm nóng (gừng, quế chi, ngải cứu, lá lốt...) giúp thư giãn, hỗ trợ tuần hoàn và mang lại cảm giác dễ chịu, ngủ ngon hơn sau một ngày dài.',
     benefits: '',
-    ingredients: '',
-    usage: '',
-    warnings: '',
-    origin: '',
+    ingredients:
+      '12 vị thảo mộc thiên nhiên: gừng già, quế chi, ngải cứu, lá lốt, hồng hoa, hương nhu, bạch chỉ, dây đau xương, bạc hà, thương truật cùng các thảo dược khác.',
+    usage:
+      'Cho 1 túi lọc vào 1-2 lít nước sôi, đợi khoảng 5 phút để tinh chất hòa tan. Pha thêm nước lạnh cho nhiệt độ giảm còn khoảng 38-42°C. Ngâm chân 15-20 phút kết hợp xoa bóp nhẹ nhàng. Lau khô, không cần rửa lại bằng nước.',
+    warnings:
+      'Chống chỉ định — không dùng cho phụ nữ mang thai, người tiểu đường, giãn tĩnh mạch, có vết thương hở ở chân, hoặc ngay sau khi ăn no.',
+    origin: 'Bảo quản nơi khô ráo, thoáng mát, tránh ánh nắng trực tiếp.',
     subtitle: '',
     video: '',
     badges: [] as string[],
@@ -195,10 +205,13 @@ export const MORE_PRODUCTS = [
     title: 'Dầu Gội Thảo Dược Mộc An',
     description: 'Dầu gội 11in1 làm thủ công từ bồ kết, bồ hòn, lá neem, hà thủ ô... không chất bảo quản, không sulfate. Giúp sạch gàu, dịu ngứa da đầu và nuôi dưỡng tóc chắc khỏe.',
     benefits: '',
-    ingredients: '',
-    usage: '',
-    warnings: '',
-    origin: '',
+    ingredients:
+      '11 vị thảo mộc thiên nhiên: bồ kết (tách hạt nướng), bồ hòn, lá neem, hà thủ ô, núc nác, hương nhu, me rừng, cỏ mần trầu, sả, vỏ bưởi, quế.',
+    usage:
+      'Cho 1 túi lọc (13g) vào 500ml nước, nấu sôi 5 phút (hoặc hãm với nước sôi khoảng 10 phút). Đổ ra thau, pha thêm nước lạnh cho nhiệt độ giảm còn khoảng 40-45°C, dùng tay bóp nhẹ túi lọc để tinh chất hòa tan. Xối nước gội lên tóc, massage da đầu nhẹ nhàng, gội lại lần 2 nếu cần, xả sạch lại bằng nước mát. Không cần dùng thêm dầu xả.',
+    warnings:
+      'An toàn cho trẻ sơ sinh và da nhạy cảm, tuy nhiên tránh để nước gội dính vào mắt vì bồ kết có thể gây cay. Sản phẩm ít bọt tự nhiên (không dùng chất tạo bọt công nghiệp) nhưng vẫn làm sạch tốt.',
+    origin: 'Xuất xứ Bình Dương. Hạn sử dụng 12 tháng kể từ ngày sản xuất. Bảo quản nơi khô ráo, thoáng mát.',
     subtitle: '',
     video: '',
     badges: [] as string[],
@@ -213,10 +226,12 @@ export const MORE_PRODUCTS = [
     title: 'Nụ Quế Cao Cấp',
     description: 'Nụ hương từ bột vỏ quế rừng nguyên chất và keo bời lời tự nhiên, dùng cho lư xông, tạo không gian ấm áp, hỗ trợ thư giãn khi thiền định.',
     benefits: '',
-    ingredients: '',
-    usage: '',
-    warnings: '',
-    origin: '',
+    ingredients: '95% bột quế kết hợp 5% vỏ cây bời lời, giữ nguyên kết dính tự nhiên, không pha hóa chất. Hộp 30 nụ.',
+    usage:
+      'Đốt nụ trầm hương thác khói: dùng bật lửa đốt đầu nụ đến khi cháy đỏ hồng, đợi có khói phát ra rồi đặt vào phần trên cùng của lư thác trầm. Đảm bảo lỗ thông khí bên dưới lư thông thoáng để khói lưu thông đều.',
+    warnings:
+      'Đặt lư ở vị trí vững chãi, cách xa vật dễ cháy (rèm, vải, giấy), để xa tầm tay trẻ em và thú cưng. Không rời mắt trong lúc đốt, đảm bảo phòng có thông gió.',
+    origin: 'Thương hiệu An Mộc Hương. Đóng gói hộp nhựa chống ẩm. Bảo quản nơi khô ráo, thoáng mát.',
     subtitle: '',
     video: '',
     badges: [] as string[],
@@ -231,10 +246,13 @@ export const MORE_PRODUCTS = [
     title: 'Nụ Trầm Hương Cao Cấp',
     description: 'Nụ trầm hương nguyên chất từ vùng nguyên liệu Tiên Phước, dùng xông phòng khách, phòng thờ, giúp không gian thư thái và dễ chịu hơn.',
     benefits: '',
-    ingredients: '',
-    usage: '',
-    warnings: '',
-    origin: '',
+    ingredients:
+      '95% bột trầm hương kết hợp 5% vỏ cây bời lời tạo kết dính tự nhiên, không pha hóa chất hay nguyên liệu khác. Hộp 30 nụ.',
+    usage:
+      'Đốt nụ trầm hương thác khói: dùng bật lửa đốt đầu nụ đến khi cháy đỏ hồng, đợi có khói phát ra rồi đặt vào phần trên cùng của lư thác trầm. Đảm bảo lỗ thông khí bên dưới lư thông thoáng để khói lưu thông đều.',
+    warnings:
+      'Đặt lư ở vị trí vững chãi, cách xa vật dễ cháy (rèm, vải, giấy), để xa tầm tay trẻ em và thú cưng. Không rời mắt trong lúc đốt, đảm bảo phòng có thông gió.',
+    origin: 'Thương hiệu An Mộc Hương. Đóng gói hộp nhựa chống ẩm. Bảo quản nơi khô ráo, thoáng mát.',
     subtitle: '',
     video: '',
     badges: [] as string[],
@@ -249,10 +267,12 @@ export const MORE_PRODUCTS = [
     title: 'Nhang Quế Cao Cấp',
     description: '90% vỏ và lá quế tự nhiên kết hợp keo bời lời, ít khói, mùi quế ấm áp, phù hợp thắp bàn thờ và không gian căn hộ kín.',
     benefits: '',
-    ingredients: '',
-    usage: '',
-    warnings: '',
-    origin: '',
+    ingredients: '90% vỏ quế, 10% keo bời lời và tăm tre tự nhiên, hương thơm quế ấm áp đặc trưng.',
+    usage:
+      'Thắp bàn thờ Phật, tổ tiên; hỗ trợ thanh lọc không khí; làm ấm không gian, phù hợp dùng khi yoga, thiền định; ít khói, thích hợp dùng ở văn phòng, căn hộ chung cư.',
+    warnings:
+      'Màu nhang sẽ nhạt dần theo thời gian do tính chất thiên nhiên, không dùng hóa chất giữ màu — đây là đặc điểm tự nhiên, không phải lỗi sản phẩm.',
+    origin: 'Thương hiệu An Mộc Hương. Bảo quản nơi khô ráo, thoáng mát.',
     subtitle: '',
     video: '',
     badges: [] as string[],
@@ -267,10 +287,12 @@ export const MORE_PRODUCTS = [
     title: 'Nhang Vỏ & Lá Quế Dạng Bó',
     description: 'Vỏ và lá quế rừng nghiền mịn kết dính tự nhiên, mùi thơm đậm đà, phù hợp nhu cầu thờ cúng hàng ngày với chi phí tiết kiệm.',
     benefits: '',
-    ingredients: '',
-    usage: '',
-    warnings: '',
-    origin: '',
+    ingredients: '90% vỏ và lá quế, 10% keo bời lời và tăm tre tự nhiên, hương thơm đậm đà từ lá quế.',
+    usage:
+      'Thắp bàn thờ Phật, tổ tiên; hỗ trợ thanh lọc không khí; làm ấm không gian, phù hợp dùng khi yoga, thiền định; ít khói, thích hợp dùng ở văn phòng, căn hộ chung cư.',
+    warnings:
+      'Màu nhang sẽ nhạt dần theo thời gian do tính chất thiên nhiên, không dùng hóa chất giữ màu — đây là đặc điểm tự nhiên, không phải lỗi sản phẩm.',
+    origin: 'Thương hiệu An Mộc Hương. Bảo quản nơi khô ráo, thoáng mát.',
     subtitle: '',
     video: '',
     badges: [] as string[],
@@ -285,10 +307,12 @@ export const MORE_PRODUCTS = [
     title: 'Nhang Trầm Hương Cao Cấp',
     description: 'Bột trầm hương thiên nhiên kết dính từ vỏ cây bời lời, tăm tre tự nhiên. Ít khói, phù hợp thắp bàn thờ Phật, tổ tiên và không gian văn phòng kín.',
     benefits: '',
-    ingredients: '',
-    usage: '',
-    warnings: '',
-    origin: '',
+    ingredients: 'Bột trầm hương tự nhiên, keo bời lời tạo kết dính, tăm tre tự nhiên. Hộp 50 cây, dài 30cm.',
+    usage:
+      'Thắp bàn thờ Phật, tổ tiên; hỗ trợ thanh lọc không khí; làm ấm không gian, phù hợp dùng khi yoga, thiền định; ít khói, thích hợp dùng ở văn phòng, căn hộ chung cư.',
+    warnings:
+      'Màu nhang sẽ nhạt dần theo thời gian do tính chất thiên nhiên, không dùng hóa chất giữ màu — đây là đặc điểm tự nhiên, không phải lỗi sản phẩm.',
+    origin: 'Thương hiệu An Mộc Hương. Bảo quản nơi khô ráo, thoáng mát.',
     subtitle: '',
     video: '',
     badges: [] as string[],
@@ -304,9 +328,11 @@ export const MORE_PRODUCTS = [
     description: 'Than viên chuyên dụng cho xông thảo dược, mồi nhanh, ít khói, tỏa nhiệt đều và giữ lửa lâu, tối ưu cho mỗi lần xông nhà.',
     benefits: '',
     ingredients: '',
-    usage: '',
-    warnings: '',
-    origin: '',
+    usage:
+      'Chuẩn bị khay chịu nhiệt (khay sứ, gốm hoặc lót giấy bạc), đặt ở vị trí vững chãi, cách xa vật dễ cháy. Dùng kẹp chuyên dụng giữ viên than, đốt đến khi bề mặt hồng đều rồi đặt vào khay — không dùng tay trần chạm vào than đang cháy hoặc vừa tắt. Rắc thảo mộc hoặc trầm hương lên than, để hương thơm lan tỏa trong không gian thông thoáng.',
+    warnings:
+      'Không đốt trong phòng kín hoàn toàn, không để trẻ em/thú cưng lại gần, không rời mắt trong lúc đốt. Sau khi dùng, đợi than nguội hoàn toàn trước khi bỏ vào thùng rác chuyên dụng cho tro/than.',
+    origin: 'Kích thước 1cm x 3.2cm/viên. Bảo quản nơi khô ráo, thoáng mát, tránh ẩm để giữ khả năng bắt lửa tốt.',
     subtitle: '',
     video: '',
     badges: [] as string[],
@@ -323,8 +349,8 @@ export const MORE_PRODUCTS = [
     benefits: '',
     ingredients: '',
     usage: '',
-    warnings: '',
-    origin: '',
+    warnings: 'Ý nghĩa mang tính biểu tượng văn hóa, không cam kết hiệu quả tâm linh cụ thể.',
+    origin: 'Quy cách: thẻ bài 7cm x 5.8cm, rùa 1.7cm x 1cm. Bảo quản nơi khô ráo, tránh va đập mạnh.',
     subtitle: '',
     video: '',
     badges: [] as string[],
@@ -337,12 +363,12 @@ export const MORE_PRODUCTS = [
   {
     id: 'chai-ngu-coc-phong-thuy',
     title: 'Chai Ngũ Cốc Phong Thủy',
-    description: 'Chai thủy tinh chứa ngũ cốc tự nhiên (gạo, đậu, ngô, mè), vật phẩm trang trí mang ý nghĩa văn hóa cầu chúc sung túc, đủ đầy cho không gian sống.',
+    description: 'Chai thủy tinh chứa 5 loại ngũ cốc thật (gạo, lúa mì, ngô, đậu, mè), vật phẩm trang trí mang ý nghĩa văn hóa cầu chúc sung túc, đủ đầy cho không gian sống.',
     benefits: '',
     ingredients: '',
     usage: '',
-    warnings: '',
-    origin: '',
+    warnings: 'Ý nghĩa mang tính biểu tượng văn hóa, không cam kết hiệu quả tâm linh cụ thể.',
+    origin: 'Chất liệu thủy tinh trong suốt, ruột gạo/lúa mì/ngô/đậu/mè tự nhiên. Bảo quản nơi khô ráo, tránh va đập mạnh, tránh ánh nắng trực tiếp.',
     subtitle: '',
     video: '',
     badges: [] as string[],
@@ -355,12 +381,16 @@ export const MORE_PRODUCTS = [
   {
     id: 'tao-xoan',
     title: 'Viên Tảo Xoắn Ăn Ngon - Ngủ Ngon',
-    description: 'Viên uống kết hợp Tảo Xoắn Spirulina, Yến Sào, Hồng Sâm Korea, Đông Trùng Hạ Thảo, Cao Tâm Sen, Cao Nữ Lang và Bạch Quả. Hỗ trợ tăng cường tiêu hóa, ăn ngon miệng, dưỡng tâm an thần và hỗ trợ tạo giấc ngủ sâu hơn.',
+    description:
+      'Thực phẩm bảo vệ sức khỏe gồm 2 loại viên riêng biệt — Ăn Ngon và Ngủ Ngon — kết hợp tinh hoa thảo dược thiên nhiên, hỗ trợ cải thiện cả ăn uống kém lẫn giấc ngủ không ngon.',
     benefits: '',
-    ingredients: '',
-    usage: '',
-    warnings: '',
-    origin: '',
+    ingredients:
+      'Viên Ăn Ngon: Tảo Xoắn Spirulina, Đông Trùng Hạ Thảo, Hồng Sâm Korea, Đan Sâm, Đương Quy, Bạch Truật, Hoàng Kỳ. Viên Ngủ Ngon: Cao Bình Vôi, Đông Trùng Hạ Thảo, Cao Lạc Tiên, Cao Tâm Sen, Cao Nữ Lang.',
+    usage:
+      'Viên Ăn Ngon: 1 viên/ngày, uống trước bữa ăn (có thể dùng 2 viên/ngày nếu suy nhược cơ thể). Viên Ngủ Ngon: 1 viên/ngày, uống trước khi đi ngủ 30 phút - 1 giờ. Phù hợp với người suy nhược cơ thể, ăn uống kém, mệt mỏi, chán ăn, hoặc mất ngủ, ngủ không sâu giấc.',
+    warnings:
+      'Thực phẩm này không phải là thuốc và không có tác dụng thay thế thuốc chữa bệnh. Để xa tầm tay trẻ em. Không sử dụng khi mẫn cảm với bất kỳ thành phần nào của sản phẩm.',
+    origin: 'Hạn sử dụng 36 tháng kể từ ngày sản xuất. Bảo quản nơi khô ráo, thoáng mát, tránh ánh nắng trực tiếp, nhiệt độ không quá 30°C.',
     subtitle: '',
     video: '',
     badges: [] as string[],
@@ -375,10 +405,13 @@ export const MORE_PRODUCTS = [
     title: 'Beauty Collagen C+',
     description: 'Viên uống Fish Collagen Peptide nhập khẩu Nhật kết hợp chiết xuất Sâm Tố Nữ, Glutathione và Vitamin E. Hỗ trợ cải thiện nội tiết tố nữ, giúp làn da đều màu, sáng khỏe hơn từ bên trong.',
     benefits: '',
-    ingredients: '',
-    usage: '',
-    warnings: '',
-    origin: '',
+    ingredients:
+      'Fish Collagen Peptide, Sâm tố nữ (Pueraria mirifica), sữa ong chúa, chiết xuất thông đỏ, Maca, Damiana, L-Glutathione, kẽm gluconate, Vitamin E và Biotin.',
+    usage: 'Người lớn uống 1 viên/lần/ngày.',
+    warnings:
+      'Thực phẩm này không phải là thuốc, không có tác dụng thay thế thuốc chữa bệnh. Không dùng cho người mẫn cảm với bất kỳ thành phần nào của sản phẩm. Đối tượng sử dụng: phụ nữ có triệu chứng bốc hỏa, nám sạm da, nhăn da do thiếu hụt nội tiết tố.',
+    origin:
+      'Phân phối bởi Ayoya Shop. Giấy tiếp nhận đăng ký bản công bố sản phẩm số 4296/2021/ĐKSP, Cục An Toàn Thực Phẩm - Bộ Y Tế. Bảo quản nơi khô ráo, thoáng mát, tránh ánh nắng trực tiếp.',
     subtitle: '',
     video: '',
     badges: [] as string[],
