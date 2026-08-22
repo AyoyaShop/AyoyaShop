@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Minus, Plus, Trash2, ShoppingCart, Loader2, CheckCircle2, Info } from 'lucide-react';
 import { useCart } from '../context/CartContext';
@@ -22,7 +22,7 @@ function buildVietQrUrl(amount: number, orderCode: string): string {
 type Step = 'cart' | 'checkout' | 'success';
 
 export default function CartDrawer() {
-  const { items, isOpen, closeCart, removeItem, updateQuantity, totalPrice, totalWeightGrams, clearCart } = useCart();
+  const { items, isOpen, closeCart, removeItem, updateQuantity, totalPrice, totalWeightGrams, clearCart, checkoutIntent, clearCheckoutIntent } = useCart();
   const [step, setStep] = useState<Step>('cart');
   const [form, setForm] = useState({ name: '', phone: '', address: '', note: '' });
   const [zoneId, setZoneId] = useState('');
@@ -32,6 +32,14 @@ export default function CartDrawer() {
   const [error, setError] = useState('');
   const [orderCode, setOrderCode] = useState('');
   const [pendingOrderCode, setPendingOrderCode] = useState(() => generateOrderCode());
+
+  useEffect(() => {
+    if (checkoutIntent) {
+      setPendingOrderCode(generateOrderCode());
+      setStep('checkout');
+      clearCheckoutIntent();
+    }
+  }, [checkoutIntent, clearCheckoutIntent]);
 
   const selectedZone = SHIPPING_ZONES.find(z => z.id === zoneId);
   const shippingFee = selectedZone ? calcShippingFee(totalWeightGrams, selectedZone.id) : 0;

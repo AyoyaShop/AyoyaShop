@@ -24,7 +24,7 @@ function formatPrice(price: number): string {
 export default function ProductDetail() {
   const { id } = useParams<{ id: string }>();
   const product = id ? getProductById(id) : undefined;
-  const { addItem, openCart } = useCart();
+  const { addItem, openCart, requestCheckout } = useCart();
   const [selectedLabel, setSelectedLabel] = useState('');
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
@@ -211,24 +211,43 @@ export default function ProductDetail() {
 
               <p className="text-ayoya-brown/70 leading-relaxed">{product.description}</p>
 
-              <button
-                onClick={() => {
-                  addItem({
-                    key: `${product.id}::${selectedVariant.label}`,
-                    productId: product.id,
-                    title: product.title,
-                    image: product.image,
-                    variantLabel: variants.length > 1 ? selectedVariant.label : '',
-                    unitPrice: selectedVariant.price,
-                    weightGrams: selectedVariant.weightGrams
-                  });
-                  openCart();
-                }}
-                className="w-full flex items-center justify-center gap-3 px-8 py-5 bg-ayoya-brown text-white rounded-full font-bold uppercase tracking-widest hover:bg-ayoya-brick transition-all shadow-lg"
-              >
-                Thêm vào giỏ hàng
-                <ShoppingCart size={18} />
-              </button>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <button
+                  onClick={() => {
+                    addItem({
+                      key: `${product.id}::${selectedVariant.label}`,
+                      productId: product.id,
+                      title: product.title,
+                      image: product.image,
+                      variantLabel: variants.length > 1 ? selectedVariant.label : '',
+                      unitPrice: selectedVariant.price,
+                      weightGrams: selectedVariant.weightGrams
+                    });
+                    requestCheckout();
+                  }}
+                  className="flex-1 flex items-center justify-center gap-3 px-8 py-5 bg-ayoya-brown text-white rounded-full font-bold uppercase tracking-widest hover:bg-ayoya-brick transition-all shadow-lg"
+                >
+                  Mua ngay
+                </button>
+                <button
+                  onClick={() => {
+                    addItem({
+                      key: `${product.id}::${selectedVariant.label}`,
+                      productId: product.id,
+                      title: product.title,
+                      image: product.image,
+                      variantLabel: variants.length > 1 ? selectedVariant.label : '',
+                      unitPrice: selectedVariant.price,
+                      weightGrams: selectedVariant.weightGrams
+                    });
+                    openCart();
+                  }}
+                  className="flex-1 flex items-center justify-center gap-3 px-8 py-5 border border-ayoya-brown text-ayoya-brown rounded-full font-bold uppercase tracking-widest hover:bg-ayoya-brown/5 transition-all"
+                >
+                  Thêm vào giỏ hàng
+                  <ShoppingCart size={18} />
+                </button>
+              </div>
 
               <div className="flex flex-wrap gap-4 justify-center md:justify-start">
                 <div className="flex items-center gap-1 text-[8px] font-bold uppercase tracking-widest text-ayoya-green bg-ayoya-green/5 px-3 py-1 rounded-full">
