@@ -21,6 +21,9 @@ export const BANK_INFO = {
 // Google Apps Script Web App URL that receives order submissions and appends them to a Google Sheet.
 export const ORDER_SHEET_URL = 'https://script.google.com/macros/s/AKfycbwaKRNtKadrzXDslUNUI9mkBzSAs7GCu5Ue8hGlIuUAbrvlsLT2TcPASyKrSn5ZEZLi/exec';
 
+// Google Apps Script Web App URL that receives promo-newsletter opt-ins and appends them to a Google Sheet.
+export const SUBSCRIBE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbzodaVNZ9InPxwMtYEWuZctet-R7-sIc3WCkn9vawibGrrKeIgRUHg3-KNp0ZmX3l8/exec';
+
 // Shipping fee zones based on SPX Express's published rate card (effective 01/02/2024).
 // Nội thành/Ngoại thành share one tier, Nội tỉnh/Nội miền share another, Đặc biệt/Liên miền share the third.
 export const SHIPPING_ZONES = [

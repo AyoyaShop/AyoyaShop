@@ -10,6 +10,7 @@ import OriginStory from '../components/OriginStory';
 import SocialProof from '../components/SocialProof';
 import Comparison from '../components/Comparison';
 import Blogs from '../components/Blogs';
+import NewsletterSignup from '../components/NewsletterSignup';
 import { applyDefaultSeo } from '../lib/seo';
 
 export default function Home() {
@@ -30,6 +31,7 @@ export default function Home() {
       <SocialProof />
       <Comparison />
       <Blogs />
+      <NewsletterSignup />
     </>
   );
 }
