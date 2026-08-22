@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'motion/react';
-import { ShoppingCart, ArrowRight, X } from 'lucide-react';
+import { motion } from 'motion/react';
+import { ShoppingCart, ArrowRight } from 'lucide-react';
 import { MORE_PRODUCTS } from '../data';
 import { useCart } from '../context/CartContext';
 
@@ -12,7 +12,6 @@ function formatPrice(price: number): string {
 export default function ProductGrid() {
   const { addItem } = useCart();
   const [selectedVariants, setSelectedVariants] = useState<Record<string, string>>({});
-  const [lightbox, setLightbox] = useState<{ src: string; title: string } | null>(null);
 
   return (
     <section id="more-products" className="py-16 md:py-24 px-4 bg-white">
@@ -43,18 +42,14 @@ export default function ProductGrid() {
                 viewport={{ once: true }}
                 className="flex flex-col bg-ayoya-cream/20 rounded-3xl border border-ayoya-brown/5 overflow-hidden hover:modern-zen-shadow transition-shadow"
               >
-                <button
-                  onClick={() => setLightbox({ src: product.image, title: product.title })}
-                  className="aspect-square overflow-hidden bg-ayoya-brown/5 cursor-zoom-in"
-                  aria-label={`Phóng to ảnh ${product.title}`}
-                >
+                <Link to={`/san-pham/${product.id}`} className="aspect-square overflow-hidden bg-ayoya-brown/5 block">
                   <img
                     src={product.image}
                     alt={product.title}
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                   />
-                </button>
+                </Link>
 
                 <div className="flex-1 flex flex-col p-4">
                   <Link to={`/san-pham/${product.id}`}>
@@ -161,36 +156,6 @@ export default function ProductGrid() {
           Nội dung mang tính tham khảo theo kinh nghiệm dân gian — không thay thế tư vấn y tế chuyên môn.
         </p>
       </div>
-
-      <AnimatePresence>
-        {lightbox && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setLightbox(null)}
-            className="fixed inset-0 z-[200] bg-black/80 backdrop-blur-sm flex items-center justify-center p-6"
-          >
-            <button
-              onClick={() => setLightbox(null)}
-              className="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors"
-              aria-label="Đóng"
-            >
-              <X size={20} />
-            </button>
-            <motion.img
-              initial={{ scale: 0.9 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0.9 }}
-              onClick={e => e.stopPropagation()}
-              src={lightbox.src}
-              alt={lightbox.title}
-              referrerPolicy="no-referrer"
-              className="max-w-full max-h-[85vh] rounded-2xl object-contain shadow-2xl"
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
     </section>
   );
 }

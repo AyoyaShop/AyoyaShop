@@ -1,7 +1,18 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { ChevronLeft, ShoppingCart, CheckCircle2, Play, X, Volume2, VolumeX, AlertTriangle, Sparkles } from 'lucide-react';
+import {
+  ChevronLeft,
+  ShoppingCart,
+  CheckCircle2,
+  Play,
+  X,
+  Volume2,
+  VolumeX,
+  AlertTriangle,
+  Sparkles,
+  ZoomIn
+} from 'lucide-react';
 import { ALL_PRODUCTS, getProductById } from '../data';
 import { useCart } from '../context/CartContext';
 
@@ -16,6 +27,7 @@ export default function ProductDetail() {
   const [selectedLabel, setSelectedLabel] = useState('');
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
 
   useEffect(() => {
     if (!product) return;
@@ -58,20 +70,42 @@ export default function ProductDetail() {
                 <AnimatePresence mode="wait">
                   {!isPlaying ? (
                     <motion.div key="image" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="w-full h-full">
-                      <img
-                        src={product.image}
-                        alt={product.title}
-                        referrerPolicy="no-referrer"
-                        className="w-full h-full object-cover"
-                      />
-                      {product.video && (
+                      {product.video ? (
+                        <>
+                          <img
+                            src={product.image}
+                            alt={product.title}
+                            referrerPolicy="no-referrer"
+                            className="w-full h-full object-cover"
+                          />
+                          <button
+                            onClick={() => setIsPlaying(true)}
+                            className="absolute inset-0 flex items-center justify-center group/btn"
+                          >
+                            <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white transform group-hover/btn:scale-110 transition-all duration-500">
+                              <Play size={32} fill="white" className="ml-1" />
+                            </div>
+                          </button>
+                          <button
+                            onClick={() => setLightboxOpen(true)}
+                            className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/30 backdrop-blur-md flex items-center justify-center text-white hover:bg-black/50 transition-colors"
+                            aria-label="Phóng to ảnh"
+                          >
+                            <ZoomIn size={18} />
+                          </button>
+                        </>
+                      ) : (
                         <button
-                          onClick={() => setIsPlaying(true)}
-                          className="absolute inset-0 flex items-center justify-center group/btn"
+                          onClick={() => setLightboxOpen(true)}
+                          className="w-full h-full cursor-zoom-in"
+                          aria-label="Phóng to ảnh"
                         >
-                          <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white transform group-hover/btn:scale-110 transition-all duration-500">
-                            <Play size={32} fill="white" className="ml-1" />
-                          </div>
+                          <img
+                            src={product.image}
+                            alt={product.title}
+                            referrerPolicy="no-referrer"
+                            className="w-full h-full object-cover"
+                          />
                         </button>
                       )}
                     </motion.div>
@@ -263,6 +297,36 @@ export default function ProductDetail() {
           </div>
         )}
       </div>
+
+      <AnimatePresence>
+        {lightboxOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setLightboxOpen(false)}
+            className="fixed inset-0 z-[200] bg-black/80 backdrop-blur-sm flex items-center justify-center p-6"
+          >
+            <button
+              onClick={() => setLightboxOpen(false)}
+              className="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors"
+              aria-label="Đóng"
+            >
+              <X size={20} />
+            </button>
+            <motion.img
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.9 }}
+              onClick={e => e.stopPropagation()}
+              src={product.image}
+              alt={product.title}
+              referrerPolicy="no-referrer"
+              className="max-w-full max-h-[85vh] rounded-2xl object-contain shadow-2xl"
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
