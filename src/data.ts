@@ -102,6 +102,7 @@ export const PRODUCTS = [
   {
     id: 'dau-vo',
     category: 'cham-soc-co-the',
+    noDiscount: false,
     title: 'Dầu Xoa Bóp Võ Thuật Cổ Truyền Bình Định',
     subtitle: 'Tinh hoa miền đất Võ - Thông kinh lạc, nhẹ thân tâm',
     description: 'Sản phẩm mang tính di sản, kế thừa tinh hoa võ học Bình Định. Kết hợp công thức bí truyền và cốt rượu lâu năm.',
@@ -129,6 +130,7 @@ export const PRODUCTS = [
   {
     id: 'thao-moc-xong-nha',
     category: 'xong-nha-phong-thuy',
+    noDiscount: false,
     title: 'Thảo Dược Xông Nhà Như Ý - Cát Tường',
     subtitle: 'Thanh tẩy uế khí - Khởi sinh cát tường',
     description: 'Gói thảo dược 38 vị quý hiếm (Trầm hương, Quế chi, Đại hồi, Thảo quả...). Năng lượng sạch từ thiên nhiên.',
@@ -156,6 +158,7 @@ export const PRODUCTS = [
   {
     id: 'la-xong-moc-an',
     category: 'cham-soc-co-the',
+    noDiscount: false,
     title: 'Thảo Dược Xông & Tắm Cơ Thể Mộc An',
     subtitle: 'TThân khỏe tâm an & Tẩy trần thanh tịnh',
     description: '100% Thảo dược tự nhiên: Kết hợp tinh túy từ các loại lá thơm, thảo mộc quý, cam kết không hương liệu, không chất bảo quản.',
@@ -186,6 +189,7 @@ export const MORE_PRODUCTS = [
   {
     id: 'tram-huong-xong-nha',
     category: 'xong-nha-phong-thuy',
+    noDiscount: false,
     title: 'Trầm Hương Xông Nhà Như Ý - Cát Tường',
     description: 'Gói xông nhà lấy trầm hương thượng hạng làm chủ đạo, kết hợp cùng các thảo mộc quý. Giúp thanh lọc không gian, mang lại hương thơm thư thái và đón nhận năng lượng tích cực theo quan niệm phong thủy dân gian.',
     benefits: '',
@@ -209,6 +213,7 @@ export const MORE_PRODUCTS = [
   {
     id: 'nuoc-lau-ban-tho',
     category: 'tho-cung',
+    noDiscount: false,
     title: 'Nước Lau Bàn Thờ Cửu Vị Hương',
     description: 'Dung dịch lau dọn bàn thờ chiết xuất từ 9 loại thảo mộc tự nhiên, không cồn, không chất tẩy công nghiệp. Giúp làm sạch, sáng bóng đồ thờ và mang lại không gian thờ cúng thanh tịnh.',
     benefits: '',
@@ -231,6 +236,7 @@ export const MORE_PRODUCTS = [
   {
     id: 'ngam-chan-moc-an',
     category: 'cham-soc-co-the',
+    noDiscount: false,
     title: 'Thảo Dược Ngâm Chân Mộc An',
     description: 'Túi lọc 12 vị thảo dược ấm nóng (gừng, quế chi, ngải cứu, lá lốt...) giúp thư giãn, hỗ trợ tuần hoàn và mang lại cảm giác dễ chịu, ngủ ngon hơn sau một ngày dài.',
     benefits: '',
@@ -257,6 +263,7 @@ export const MORE_PRODUCTS = [
   {
     id: 'dau-goi-moc-an',
     category: 'cham-soc-co-the',
+    noDiscount: false,
     title: 'Dầu Gội Thảo Dược Mộc An',
     description: 'Dầu gội 11in1 làm thủ công từ bồ kết, bồ hòn, lá neem, hà thủ ô... không chất bảo quản, không sulfate. Giúp sạch gàu, dịu ngứa da đầu và nuôi dưỡng tóc chắc khỏe.',
     benefits: '',
@@ -279,6 +286,7 @@ export const MORE_PRODUCTS = [
   {
     id: 'nu-que',
     category: 'tho-cung',
+    noDiscount: false,
     title: 'Nụ Quế Cao Cấp',
     description: 'Nụ hương từ bột vỏ quế rừng nguyên chất và keo bời lời tự nhiên, dùng cho lư xông, tạo không gian ấm áp, hỗ trợ thư giãn khi thiền định.',
     benefits: '',
@@ -300,6 +308,7 @@ export const MORE_PRODUCTS = [
   {
     id: 'nu-tram-huong',
     category: 'tho-cung',
+    noDiscount: false,
     title: 'Nụ Trầm Hương Cao Cấp',
     description: 'Nụ trầm hương nguyên chất từ vùng nguyên liệu Tiên Phước, dùng xông phòng khách, phòng thờ, giúp không gian thư thái và dễ chịu hơn.',
     benefits: '',
@@ -322,6 +331,7 @@ export const MORE_PRODUCTS = [
   {
     id: 'nhang-que',
     category: 'tho-cung',
+    noDiscount: false,
     title: 'Nhang Quế Cao Cấp',
     description: '90% vỏ và lá quế tự nhiên kết hợp keo bời lời, ít khói, mùi quế ấm áp, phù hợp thắp bàn thờ và không gian căn hộ kín.',
     benefits: '',
@@ -343,6 +353,7 @@ export const MORE_PRODUCTS = [
   {
     id: 'nhang-bo-que',
     category: 'tho-cung',
+    noDiscount: false,
     title: 'Nhang Vỏ & Lá Quế Dạng Bó',
     description: 'Vỏ và lá quế rừng nghiền mịn kết dính tự nhiên, mùi thơm đậm đà, phù hợp nhu cầu thờ cúng hàng ngày với chi phí tiết kiệm.',
     benefits: '',
@@ -364,6 +375,7 @@ export const MORE_PRODUCTS = [
   {
     id: 'nhang-tram-cao-cap',
     category: 'tho-cung',
+    noDiscount: false,
     title: 'Nhang Trầm Hương Cao Cấp',
     description: 'Bột trầm hương thiên nhiên kết dính từ vỏ cây bời lời, tăm tre tự nhiên. Ít khói, phù hợp thắp bàn thờ Phật, tổ tiên và không gian văn phòng kín.',
     benefits: '',
@@ -385,6 +397,7 @@ export const MORE_PRODUCTS = [
   {
     id: 'than-vien-xong-nha',
     category: 'xong-nha-phong-thuy',
+    noDiscount: false,
     title: 'Than Viên Tròn Xông Nhà',
     description: 'Than viên chuyên dụng cho xông thảo dược, mồi nhanh, ít khói, tỏa nhiệt đều và giữ lửa lâu, tối ưu cho mỗi lần xông nhà.',
     benefits: '',
@@ -406,6 +419,7 @@ export const MORE_PRODUCTS = [
   {
     id: 'rua-vang-phong-thuy',
     category: 'xong-nha-phong-thuy',
+    noDiscount: false,
     title: 'Rùa Vàng Phong Thủy',
     description: 'Vật phẩm trang trí mang ý nghĩa văn hóa truyền thống, tượng trưng cho sự bảo vệ và kiên định. Phù hợp đặt trong ví, ốp điện thoại hoặc làm quà tặng.',
     benefits: '',
@@ -425,6 +439,7 @@ export const MORE_PRODUCTS = [
   {
     id: 'chai-ngu-coc-phong-thuy',
     category: 'xong-nha-phong-thuy',
+    noDiscount: false,
     title: 'Chai Ngũ Cốc Phong Thủy',
     description: 'Chai thủy tinh chứa 5 loại ngũ cốc thật (gạo, lúa mì, ngô, đậu, mè), vật phẩm trang trí mang ý nghĩa văn hóa cầu chúc sung túc, đủ đầy cho không gian sống.',
     benefits: '',
@@ -444,6 +459,7 @@ export const MORE_PRODUCTS = [
   {
     id: 'tao-xoan',
     category: 'suc-khoe',
+    noDiscount: false,
     title: 'Viên Tảo Xoắn Ăn Ngon - Ngủ Ngon',
     description:
       'Thực phẩm bảo vệ sức khỏe gồm 2 loại viên riêng biệt — Ăn Ngon và Ngủ Ngon — kết hợp tinh hoa thảo dược thiên nhiên, hỗ trợ cải thiện cả ăn uống kém lẫn giấc ngủ không ngon.',
@@ -467,6 +483,7 @@ export const MORE_PRODUCTS = [
   {
     id: 'beauty-collagen-c',
     category: 'suc-khoe',
+    noDiscount: false,
     title: 'Beauty Collagen C+',
     description: 'Viên uống Fish Collagen Peptide nhập khẩu Nhật kết hợp chiết xuất Sâm Tố Nữ, Glutathione và Vitamin E. Hỗ trợ cải thiện nội tiết tố nữ, giúp làn da đều màu, sáng khỏe hơn từ bên trong.',
     benefits: '',
@@ -482,6 +499,31 @@ export const MORE_PRODUCTS = [
     badges: [] as string[],
     image: '/products/beauty-collagen-c.webp',
     price: 215000,
+    priceUnit: 'hộp 30 viên',
+    weightGrams: 150,
+    priceOptions: [] as { label: string; price: number; weightGrams: number }[]
+  },
+  {
+    id: 'hoat-huyet-tien-dinh-sunmax',
+    category: 'suc-khoe',
+    noDiscount: true,
+    title: 'Hoạt Huyết Tiền Đình SUNMAX',
+    description:
+      'Thường xuyên nhức đầu, ù tai, chóng mặt, khó ngủ sâu giấc và trí nhớ kém tập trung hơn trước — đây là những dấu hiệu thường gặp khi tuần hoàn máu não hoạt động kém hiệu quả. Hoạt Huyết Tiền Đình SUNMAX kết hợp Cao Lá Bạch Quả (Ginkgo Biloba), Cao Đan Sâm, Cao Ngưu Tất, GABA, Nattokinase cùng Citicolin Natri, Coenzyme Q10, Vitamin B1, Vitamin B6 và nhiều dưỡng chất khác trong từng viên nang mềm.',
+    benefits:
+      'Hỗ trợ hoạt huyết, tăng cường tuần hoàn máu não; hỗ trợ giảm các triệu chứng nhức đầu, ù tai, chóng mặt, mất ngủ, suy giảm trí nhớ do thiểu năng tuần hoàn não; hỗ trợ quá trình phục hồi sau tai biến mạch máu não do tắc mạch. Hiệu quả có thể khác nhau tùy cơ địa mỗi người.',
+    ingredients:
+      'Cao Lá Bạch Quả (Ginkgo Biloba), Cao Đan Sâm, Cao Ngưu Tất, GABA, Nattokinase, Citicolin Natri, Coenzyme Q10, Vitamin B1, Vitamin B6 và các dưỡng chất khác. Số tiếp nhận đăng ký bản công bố sản phẩm 5247/2024/ĐKSP.',
+    usage: 'Đối tượng sử dụng: người lớn bị thiểu năng tuần hoàn não, rối loạn tiền đình do thiểu năng tuần hoàn não; người lớn trong giai đoạn phục hồi sau tai biến mạch máu não do tắc mạch. Cách dùng: uống 1 viên/lần x 1 lần/ngày, uống trước khi đi ngủ ít nhất 1 giờ.',
+    warnings:
+      'Thực phẩm này không phải là thuốc, không có tác dụng thay thế thuốc chữa bệnh. Không dùng cho phụ nữ có thai, phụ nữ cho con bú, phụ nữ đang bị rong kinh/băng huyết, người chuẩn bị phẫu thuật, người đang dùng thuốc chống đông máu. Không dùng cho người đang vận hành máy móc, lái tàu xe, làm việc trên cao. Người đang dùng thuốc điều trị nên tham khảo ý kiến chuyên gia y tế trước khi sử dụng.',
+    origin:
+      'Phân phối bởi Ayoya Shop (không phải nhà sản xuất). Nhà sản xuất & đơn vị công bố xem đầy đủ trên bao bì sản phẩm, số tiếp nhận đăng ký bản công bố sản phẩm 5247/2024/ĐKSP. Dạng viên nang mềm, khối lượng trung bình 1550mg ± 7,5%/viên, tiêu chuẩn TCCS, sản xuất tại Việt Nam. Xem ngày sản xuất/hạn sử dụng in trên bao bì. Bảo quản nơi khô ráo, thoáng mát, tránh ánh nắng chiếu trực tiếp.',
+    subtitle: '',
+    video: '',
+    badges: [] as string[],
+    image: '/products/hoat-huyet-tien-dinh-sunmax.jpg',
+    price: 267000,
     priceUnit: 'hộp 30 viên',
     weightGrams: 150,
     priceOptions: [] as { label: string; price: number; weightGrams: number }[]

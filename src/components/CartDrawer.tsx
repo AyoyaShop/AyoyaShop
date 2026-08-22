@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Minus, Plus, Trash2, ShoppingCart, Loader2, CheckCircle2, Info } from 'lucide-react';
 import { useCart } from '../context/CartContext';
-import { BANK_INFO, ORDER_SHEET_URL, SHIPPING_ZONES, calcShippingFee } from '../data';
+import { BANK_INFO, ORDER_SHEET_URL, SHIPPING_ZONES, calcShippingFee, getProductById } from '../data';
 import { calcOriginalPrice } from '../lib/pricing';
 
 function formatPrice(price: number): string {
@@ -45,6 +45,12 @@ export default function CartDrawer() {
   const selectedZone = SHIPPING_ZONES.find(z => z.id === zoneId);
   const shippingFee = selectedZone ? calcShippingFee(totalWeightGrams, selectedZone.id) : 0;
   const grandTotal = totalPrice + shippingFee;
+  const originalSubtotal = items.reduce((sum, item) => {
+    const noDiscount = getProductById(item.productId)?.noDiscount;
+    const unitOriginal = noDiscount ? item.unitPrice : calcOriginalPrice(item.unitPrice);
+    return sum + unitOriginal * item.quantity;
+  }, 0);
+  const hasSubtotalDiscount = originalSubtotal !== totalPrice;
 
   const fieldErrors = {
     name: !form.name.trim() ? 'Vui lòng nhập họ tên.' : '',
@@ -157,7 +163,9 @@ export default function CartDrawer() {
                 </div>
               ) : (
                 <div className="space-y-4">
-                  {items.map(item => (
+                  {items.map(item => {
+                    const itemProduct = getProductById(item.productId);
+                    return (
                     <div key={item.key} className="flex gap-4 p-3 bg-white rounded-2xl border border-ayoya-brown/5">
                       <img
                         src={item.image}
@@ -189,9 +197,11 @@ export default function CartDrawer() {
                             </button>
                           </div>
                           <div className="flex flex-col items-end">
-                            <span className="text-[10px] text-ayoya-brown/40 line-through leading-tight">
-                              {formatPrice(calcOriginalPrice(item.unitPrice) * item.quantity)}
-                            </span>
+                            {!itemProduct?.noDiscount && (
+                              <span className="text-[10px] text-ayoya-brown/40 line-through leading-tight">
+                                {formatPrice(calcOriginalPrice(item.unitPrice) * item.quantity)}
+                              </span>
+                            )}
                             <span className="text-sm font-bold text-ayoya-brown leading-tight">{formatPrice(item.unitPrice * item.quantity)}</span>
                           </div>
                         </div>
@@ -204,7 +214,8 @@ export default function CartDrawer() {
                         <Trash2 size={16} />
                       </button>
                     </div>
-                  ))}
+                    );
+                  })}
                 </div>
               ))}
 
@@ -291,7 +302,9 @@ export default function CartDrawer() {
                   <div className="flex items-center justify-between text-ayoya-brown/70">
                     <span>Tạm tính</span>
                     <span className="flex items-baseline gap-2">
-                      <span className="text-xs text-ayoya-brown/40 line-through">{formatPrice(calcOriginalPrice(totalPrice))}</span>
+                      {hasSubtotalDiscount && (
+                        <span className="text-xs text-ayoya-brown/40 line-through">{formatPrice(originalSubtotal)}</span>
+                      )}
                       {formatPrice(totalPrice)}
                     </span>
                   </div>
@@ -396,7 +409,9 @@ export default function CartDrawer() {
                   <div className="flex items-center justify-between text-sm">
                     <span className="text-ayoya-brown/60">Tạm tính (chưa gồm phí ship)</span>
                     <span className="flex items-baseline gap-2">
-                      <span className="text-xs text-ayoya-brown/40 line-through">{formatPrice(calcOriginalPrice(totalPrice))}</span>
+                      {hasSubtotalDiscount && (
+                        <span className="text-xs text-ayoya-brown/40 line-through">{formatPrice(originalSubtotal)}</span>
+                      )}
                       <span className="text-xl font-bold text-ayoya-brown">{formatPrice(totalPrice)}</span>
                     </span>
                   </div>

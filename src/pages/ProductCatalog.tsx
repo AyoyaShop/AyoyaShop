@@ -117,9 +117,11 @@ export default function ProductCatalog() {
 
                   <div className="mt-auto flex items-end justify-between gap-2">
                     <div className="flex flex-col">
-                      <span className="text-[11px] text-ayoya-brown/40 line-through leading-tight">
-                        {formatPrice(calcOriginalPrice(selectedVariant.price))}
-                      </span>
+                      {!product.noDiscount && (
+                        <span className="text-[11px] text-ayoya-brown/40 line-through leading-tight">
+                          {formatPrice(calcOriginalPrice(selectedVariant.price))}
+                        </span>
+                      )}
                       <span className="text-base font-bold text-ayoya-brown leading-tight">{formatPrice(selectedVariant.price)}</span>
                       <span className="text-[10px] text-ayoya-brown/50 leading-tight">/ {selectedVariant.label}</span>
                     </div>
