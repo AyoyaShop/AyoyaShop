@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { ShoppingCart, ArrowRight, X } from 'lucide-react';
 import { MORE_PRODUCTS } from '../data';
@@ -56,7 +57,11 @@ export default function ProductGrid() {
                 </button>
 
                 <div className="flex-1 flex flex-col p-4">
-                  <h3 className="text-sm font-serif text-ayoya-brown mb-1 leading-snug">{product.title}</h3>
+                  <Link to={`/san-pham/${product.id}`}>
+                    <h3 className="text-sm font-serif text-ayoya-brown mb-1 leading-snug hover:text-ayoya-brick transition-colors">
+                      {product.title}
+                    </h3>
+                  </Link>
                   <p className="text-[11px] text-ayoya-brown/60 leading-relaxed mb-3 line-clamp-2">
                     {product.description}
                   </p>

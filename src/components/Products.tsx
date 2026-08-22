@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { ShoppingCart, CheckCircle2, Play, X, Volume2, VolumeX } from 'lucide-react';
 import { PRODUCTS } from '../data';
@@ -159,7 +160,11 @@ export default function Products() {
                   ))}
                 </div>
                 
-                <h3 className="text-3xl md:text-4xl font-serif text-ayoya-brown mb-2">{product.title}</h3>
+                <Link to={`/san-pham/${product.id}`}>
+                  <h3 className="text-3xl md:text-4xl font-serif text-ayoya-brown mb-2 hover:text-ayoya-brick transition-colors">
+                    {product.title}
+                  </h3>
+                </Link>
                 <p className="text-ayoya-amber font-serif italic text-lg mb-6">{product.subtitle}</p>
 
                 <div className="mb-6">

@@ -3,39 +3,31 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import CoreValues from './components/CoreValues';
-import Products from './components/Products';
-import ProductGrid from './components/ProductGrid';
-import OriginStory from './components/OriginStory';
-import SocialProof from './components/SocialProof';
-import InteractiveTools from './components/InteractiveTools';
-import Comparison from './components/Comparison';
-import Blogs from './components/Blogs';
 import Footer from './components/Footer';
 import Chatbot from './components/Chatbot';
 import CartDrawer from './components/CartDrawer';
+import Home from './pages/Home';
+import ProductDetail from './pages/ProductDetail';
+import ScrollToHash from './components/ScrollToHash';
 
 export default function App() {
   return (
-    <div className="min-h-screen">
-      <Navbar />
-      <main>
-        <Hero />
-        <CoreValues />
-        <Products />
-        <ProductGrid />
-        <OriginStory />
-        <SocialProof />
-        <InteractiveTools />
-        <Comparison />
-        <Blogs />
-      </main>
-      <Footer />
-      <Chatbot />
-      <CartDrawer />
-    </div>
+    <BrowserRouter>
+      <div className="min-h-screen">
+        <ScrollToHash />
+        <Navbar />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/san-pham/:id" element={<ProductDetail />} />
+          </Routes>
+        </main>
+        <Footer />
+        <Chatbot />
+        <CartDrawer />
+      </div>
+    </BrowserRouter>
   );
 }
-

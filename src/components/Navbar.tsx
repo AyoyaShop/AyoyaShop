@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ShoppingCart, Menu, Search, Phone, X } from 'lucide-react';
 import { useCart } from '../context/CartContext';
@@ -39,17 +40,17 @@ export default function Navbar() {
             </a>
 
             <div className="hidden lg:flex items-center gap-8 text-sm font-medium tracking-widest uppercase">
-              <a href="#products" className="hover:text-ayoya-amber transition-colors">Sản phẩm</a>
-              <a href="#about" className="hover:text-ayoya-amber transition-colors">Về chúng tôi</a>
+              <Link to="/#products" className="hover:text-ayoya-amber transition-colors">Sản phẩm</Link>
+              <Link to="/#about" className="hover:text-ayoya-amber transition-colors">Về chúng tôi</Link>
             </div>
           </div>
 
           {/* === CỤM GIỮA: Logo === */}
           <div className="absolute left-1/2 -translate-x-1/2">
-            <a href="/" className="flex flex-col items-center">
+            <Link to="/" className="flex flex-col items-center">
               <h1 className="text-3xl font-serif font-bold tracking-tighter text-ayoya-brown">AYOYA</h1>
               <span className="text-[8px] tracking-[0.3em] uppercase opacity-60 -mt-1 text-ayoya-brown">THẢO MỘC & PHONG THỦY</span>
-            </a>
+            </Link>
           </div>
 
           {/* === CỤM BÊN PHẢI === */}
@@ -115,21 +116,21 @@ export default function Navbar() {
 
           {/* Các đường link được đặt trong khung (Card UI) */}
           <div className="flex flex-col items-center gap-5 w-full px-8 max-w-[320px]">
-            <a 
-              href="#products" 
+            <Link
+              to="/#products"
               onClick={() => setIsMobileMenuOpen(false)}
               className="w-full py-4 bg-white rounded-2xl border border-ayoya-brown/10 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] text-ayoya-brown text-center text-lg font-bold tracking-widest uppercase active:scale-95 transition-all"
             >
               Sản phẩm
-            </a>
-            
-            <a 
-              href="#about" 
-              onClick={() => setIsMobileMenuOpen(false)} 
+            </Link>
+
+            <Link
+              to="/#about"
+              onClick={() => setIsMobileMenuOpen(false)}
               className="w-full py-4 bg-white rounded-2xl border border-ayoya-brown/10 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] text-ayoya-brown text-center text-lg font-bold tracking-widest uppercase active:scale-95 transition-all"
             >
               Về chúng tôi
-            </a>
+            </Link>
           </div>
           
         </div>
