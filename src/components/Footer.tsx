@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Instagram, Facebook, ShoppingBag } from 'lucide-react';
 import { SHOPEE_LINK, TIKTOK_LINK, CONTACT_INFO } from '../data';
 
@@ -66,10 +67,10 @@ export default function Footer() {
           <div>
             <h4 className="text-sm font-bold uppercase tracking-[0.2em] mb-8 text-ayoya-amber">Chính sách</h4>
             <ul className="space-y-4 text-sm text-ayoya-cream/70">
-              <li><a href="https://www.nguyentuankiet.com.vn/p/chinh-sach-bao-mat.html" className="hover:text-ayoya-cream transition-colors">Chính sách bảo mật</a></li>
-              <li><a href="https://www.nguyentuankiet.com.vn/p/chinh-sach-van-chuyen.html" className="hover:text-ayoya-cream transition-colors">Chính sách vận chuyển</a></li>
-              <li><a href="https://www.nguyentuankiet.com.vn/p/chinh-sach-doi-tra.html" className="hover:text-ayoya-cream transition-colors">Chính sách đổi trả</a></li>
-              <li><a href="https://www.nguyentuankiet.com.vn/p/huong-dan-thanh-toan.html" className="hover:text-ayoya-cream transition-colors">Hướng dẫn thanh toán</a></li>
+              <li><Link to="/chinh-sach/chinh-sach-bao-mat" className="hover:text-ayoya-cream transition-colors">Chính sách bảo mật</Link></li>
+              <li><Link to="/chinh-sach/chinh-sach-van-chuyen" className="hover:text-ayoya-cream transition-colors">Chính sách vận chuyển</Link></li>
+              <li><Link to="/chinh-sach/chinh-sach-doi-tra" className="hover:text-ayoya-cream transition-colors">Chính sách đổi trả</Link></li>
+              <li><Link to="/chinh-sach/huong-dan-thanh-toan" className="hover:text-ayoya-cream transition-colors">Hướng dẫn thanh toán</Link></li>
             </ul>
           </div>
         </div>

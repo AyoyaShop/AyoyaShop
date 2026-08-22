@@ -14,6 +14,7 @@ import ProductDetail from './pages/ProductDetail';
 import AboutPage from './pages/AboutPage';
 import FaqPage from './pages/FaqPage';
 import ContactPage from './pages/ContactPage';
+import PolicyPage from './pages/PolicyPage';
 import ScrollToHash from './components/ScrollToHash';
 
 export default function App() {
@@ -30,6 +31,7 @@ export default function App() {
             <Route path="/ve-chung-toi" element={<AboutPage />} />
             <Route path="/hoi-dap" element={<FaqPage />} />
             <Route path="/lien-he" element={<ContactPage />} />
+            <Route path="/chinh-sach/:slug" element={<PolicyPage />} />
           </Routes>
         </main>
         <Footer />
