@@ -506,7 +506,7 @@ export const MORE_PRODUCTS = [
   {
     id: 'hoat-huyet-tien-dinh-sunmax',
     category: 'suc-khoe',
-    noDiscount: true,
+    noDiscount: false,
     title: 'Hoạt Huyết Tiền Đình SUNMAX',
     description:
       'Thường xuyên nhức đầu, ù tai, chóng mặt, khó ngủ sâu giấc và trí nhớ kém tập trung hơn trước — đây là những dấu hiệu thường gặp khi tuần hoàn máu não hoạt động kém hiệu quả. Hoạt Huyết Tiền Đình SUNMAX kết hợp Cao Lá Bạch Quả (Ginkgo Biloba), Cao Đan Sâm, Cao Ngưu Tất, GABA, Nattokinase cùng Citicolin Natri, Coenzyme Q10, Vitamin B1, Vitamin B6 và nhiều dưỡng chất khác trong từng viên nang mềm.',
@@ -523,7 +523,7 @@ export const MORE_PRODUCTS = [
     video: '',
     badges: [] as string[],
     image: '/products/hoat-huyet-tien-dinh-sunmax.jpg',
-    price: 267000,
+    price: 200000,
     priceUnit: 'hộp 30 viên',
     weightGrams: 150,
     priceOptions: [] as { label: string; price: number; weightGrams: number }[]
