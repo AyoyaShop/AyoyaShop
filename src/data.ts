@@ -60,6 +60,34 @@ export const CATEGORIES = [
   { id: 'suc-khoe', label: 'Sức khỏe' }
 ];
 
+// Real ratings from Shopee + TikTok Shop product listing screenshots (captured 22/08/2026),
+// cross-checked against the owner's review-count spreadsheet for the same date.
+// `stars` is the average of the two platforms' displayed product rating when both show a
+// product-specific score; when only one platform shows a product-specific score (the other
+// falls back to a shop-level rating, which isn't specific to this product), that one score is
+// used alone. `reviewCount` is the combined Shopee + TikTok Shop review count from the sheet.
+// Two products (Nụ Trầm Hương, Nụ Quế) share one bundled listing on both platforms and one
+// score/count; same for the two nhang SKUs sold as a single "Nhang Trầm & Nhang Quế" listing.
+// Nhang Vỏ & Lá Quế Dạng Bó and Rùa Vàng Phong Thủy are omitted: no confident product-specific
+// rating was found for either on Shopee or TikTok Shop.
+export const PRODUCT_RATINGS: Record<string, { stars: number; reviewCount: number }> = {
+  'dau-vo': { stars: 4.9, reviewCount: 1387 },
+  'thao-moc-xong-nha': { stars: 5.0, reviewCount: 887 },
+  'tram-huong-xong-nha': { stars: 5.0, reviewCount: 38 },
+  'la-xong-moc-an': { stars: 5.0, reviewCount: 573 },
+  'dau-goi-moc-an': { stars: 4.5, reviewCount: 106 },
+  'than-vien-xong-nha': { stars: 4.6, reviewCount: 57 },
+  'ngam-chan-moc-an': { stars: 5.0, reviewCount: 62 },
+  'nu-tram-huong': { stars: 4.4, reviewCount: 38 },
+  'nu-que': { stars: 4.4, reviewCount: 38 },
+  'beauty-collagen-c': { stars: 5.0, reviewCount: 23 },
+  'nhang-que': { stars: 4.9, reviewCount: 11 },
+  'nhang-tram-cao-cap': { stars: 4.9, reviewCount: 11 },
+  'nuoc-lau-ban-tho': { stars: 4.9, reviewCount: 24 },
+  'chai-ngu-coc-phong-thuy': { stars: 4.8, reviewCount: 8 },
+  'tao-xoan': { stars: 5.0, reviewCount: 7 }
+};
+
 export function calcShippingFee(weightGrams: number, zoneId: string): number {
   const zone = SHIPPING_ZONES.find(z => z.id === zoneId) ?? SHIPPING_ZONES[0];
   const kg = weightGrams / 1000;

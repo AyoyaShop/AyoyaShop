@@ -12,9 +12,10 @@ import {
   AlertTriangle,
   Sparkles,
   ZoomIn,
-  HelpCircle
+  HelpCircle,
+  Star
 } from 'lucide-react';
-import { ALL_PRODUCTS, getProductById } from '../data';
+import { ALL_PRODUCTS, getProductById, PRODUCT_RATINGS } from '../data';
 import { useCart } from '../context/CartContext';
 import { applySeo, SITE_URL } from '../lib/seo';
 
@@ -199,7 +200,17 @@ export default function ProductDetail() {
             )}
 
             <h1 className="text-3xl md:text-4xl font-serif text-ayoya-brown mb-2">{product.title}</h1>
-            {product.subtitle && <p className="text-ayoya-amber font-serif italic text-lg mb-6">{product.subtitle}</p>}
+            {product.subtitle && <p className="text-ayoya-amber font-serif italic text-lg mb-4">{product.subtitle}</p>}
+
+            {PRODUCT_RATINGS[product.id] && (
+              <div className="flex items-center gap-1.5 mb-6 text-ayoya-brown/70">
+                <Star size={16} className="fill-ayoya-amber text-ayoya-amber" />
+                <span className="text-sm">
+                  <strong className="text-ayoya-brown">{PRODUCT_RATINGS[product.id].stars.toFixed(1)}</strong> ·{' '}
+                  <strong className="text-ayoya-brown">{PRODUCT_RATINGS[product.id].reviewCount.toLocaleString('vi-VN')}</strong> lượt đánh giá trên Shopee & TikTok Shop
+                </span>
+              </div>
+            )}
 
             <div className="mb-6">
               <div className="flex items-baseline gap-2">
