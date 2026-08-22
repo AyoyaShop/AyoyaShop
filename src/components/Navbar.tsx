@@ -41,6 +41,7 @@ export default function Navbar() {
 
             <div className="hidden lg:flex items-center gap-8 text-sm font-medium tracking-widest uppercase">
               <Link to="/#products" className="hover:text-ayoya-amber transition-colors">Sản phẩm</Link>
+              <Link to="/san-pham" className="hover:text-ayoya-amber transition-colors">Tất cả sản phẩm</Link>
               <Link to="/#about" className="hover:text-ayoya-amber transition-colors">Về chúng tôi</Link>
             </div>
           </div>
@@ -122,6 +123,14 @@ export default function Navbar() {
               className="w-full py-4 bg-white rounded-2xl border border-ayoya-brown/10 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] text-ayoya-brown text-center text-lg font-bold tracking-widest uppercase active:scale-95 transition-all"
             >
               Sản phẩm
+            </Link>
+
+            <Link
+              to="/san-pham"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="w-full py-4 bg-white rounded-2xl border border-ayoya-brown/10 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] text-ayoya-brown text-center text-lg font-bold tracking-widest uppercase active:scale-95 transition-all"
+            >
+              Tất cả sản phẩm
             </Link>
 
             <Link

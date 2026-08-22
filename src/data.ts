@@ -40,6 +40,13 @@ export const SHIPPING_ZONES = [
   }
 ];
 
+export const CATEGORIES = [
+  { id: 'cham-soc-co-the', label: 'Chăm sóc cơ thể' },
+  { id: 'xong-nha-phong-thuy', label: 'Xông nhà & Phong thủy' },
+  { id: 'tho-cung', label: 'Thờ cúng' },
+  { id: 'suc-khoe', label: 'Sức khỏe' }
+];
+
 export function calcShippingFee(weightGrams: number, zoneId: string): number {
   const zone = SHIPPING_ZONES.find(z => z.id === zoneId) ?? SHIPPING_ZONES[0];
   const kg = weightGrams / 1000;
@@ -53,6 +60,7 @@ export function calcShippingFee(weightGrams: number, zoneId: string): number {
 export const PRODUCTS = [
   {
     id: 'dau-vo',
+    category: 'cham-soc-co-the',
     title: 'Dầu Xoa Bóp Võ Thuật Cổ Truyền Bình Định',
     subtitle: 'Tinh hoa miền đất Võ - Thông kinh lạc, nhẹ thân tâm',
     description: 'Sản phẩm mang tính di sản, kế thừa tinh hoa võ học Bình Định. Kết hợp công thức bí truyền và cốt rượu lâu năm.',
@@ -79,6 +87,7 @@ export const PRODUCTS = [
   },
   {
     id: 'thao-moc-xong-nha',
+    category: 'xong-nha-phong-thuy',
     title: 'Thảo Dược Xông Nhà Như Ý - Cát Tường',
     subtitle: 'Thanh tẩy uế khí - Khởi sinh cát tường',
     description: 'Gói thảo dược 38 vị quý hiếm (Trầm hương, Quế chi, Đại hồi, Thảo quả...). Năng lượng sạch từ thiên nhiên.',
@@ -105,6 +114,7 @@ export const PRODUCTS = [
   },
   {
     id: 'la-xong-moc-an',
+    category: 'cham-soc-co-the',
     title: 'Thảo Dược Xông & Tắm Cơ Thể Mộc An',
     subtitle: 'TThân khỏe tâm an & Tẩy trần thanh tịnh',
     description: '100% Thảo dược tự nhiên: Kết hợp tinh túy từ các loại lá thơm, thảo mộc quý, cam kết không hương liệu, không chất bảo quản.',
@@ -134,6 +144,7 @@ export const PRODUCTS = [
 export const MORE_PRODUCTS = [
   {
     id: 'tram-huong-xong-nha',
+    category: 'xong-nha-phong-thuy',
     title: 'Trầm Hương Xông Nhà Như Ý - Cát Tường',
     description: 'Gói xông nhà lấy trầm hương thượng hạng làm chủ đạo, kết hợp cùng các thảo mộc quý. Giúp thanh lọc không gian, mang lại hương thơm thư thái và đón nhận năng lượng tích cực theo quan niệm phong thủy dân gian.',
     benefits: '',
@@ -156,6 +167,7 @@ export const MORE_PRODUCTS = [
   },
   {
     id: 'nuoc-lau-ban-tho',
+    category: 'tho-cung',
     title: 'Nước Lau Bàn Thờ Cửu Vị Hương',
     description: 'Dung dịch lau dọn bàn thờ chiết xuất từ 9 loại thảo mộc tự nhiên, không cồn, không chất tẩy công nghiệp. Giúp làm sạch, sáng bóng đồ thờ và mang lại không gian thờ cúng thanh tịnh.',
     benefits: '',
@@ -177,6 +189,7 @@ export const MORE_PRODUCTS = [
   },
   {
     id: 'ngam-chan-moc-an',
+    category: 'cham-soc-co-the',
     title: 'Thảo Dược Ngâm Chân Mộc An',
     description: 'Túi lọc 12 vị thảo dược ấm nóng (gừng, quế chi, ngải cứu, lá lốt...) giúp thư giãn, hỗ trợ tuần hoàn và mang lại cảm giác dễ chịu, ngủ ngon hơn sau một ngày dài.',
     benefits: '',
@@ -202,6 +215,7 @@ export const MORE_PRODUCTS = [
   },
   {
     id: 'dau-goi-moc-an',
+    category: 'cham-soc-co-the',
     title: 'Dầu Gội Thảo Dược Mộc An',
     description: 'Dầu gội 11in1 làm thủ công từ bồ kết, bồ hòn, lá neem, hà thủ ô... không chất bảo quản, không sulfate. Giúp sạch gàu, dịu ngứa da đầu và nuôi dưỡng tóc chắc khỏe.',
     benefits: '',
@@ -223,6 +237,7 @@ export const MORE_PRODUCTS = [
   },
   {
     id: 'nu-que',
+    category: 'tho-cung',
     title: 'Nụ Quế Cao Cấp',
     description: 'Nụ hương từ bột vỏ quế rừng nguyên chất và keo bời lời tự nhiên, dùng cho lư xông, tạo không gian ấm áp, hỗ trợ thư giãn khi thiền định.',
     benefits: '',
@@ -243,6 +258,7 @@ export const MORE_PRODUCTS = [
   },
   {
     id: 'nu-tram-huong',
+    category: 'tho-cung',
     title: 'Nụ Trầm Hương Cao Cấp',
     description: 'Nụ trầm hương nguyên chất từ vùng nguyên liệu Tiên Phước, dùng xông phòng khách, phòng thờ, giúp không gian thư thái và dễ chịu hơn.',
     benefits: '',
@@ -264,6 +280,7 @@ export const MORE_PRODUCTS = [
   },
   {
     id: 'nhang-que',
+    category: 'tho-cung',
     title: 'Nhang Quế Cao Cấp',
     description: '90% vỏ và lá quế tự nhiên kết hợp keo bời lời, ít khói, mùi quế ấm áp, phù hợp thắp bàn thờ và không gian căn hộ kín.',
     benefits: '',
@@ -284,6 +301,7 @@ export const MORE_PRODUCTS = [
   },
   {
     id: 'nhang-bo-que',
+    category: 'tho-cung',
     title: 'Nhang Vỏ & Lá Quế Dạng Bó',
     description: 'Vỏ và lá quế rừng nghiền mịn kết dính tự nhiên, mùi thơm đậm đà, phù hợp nhu cầu thờ cúng hàng ngày với chi phí tiết kiệm.',
     benefits: '',
@@ -304,6 +322,7 @@ export const MORE_PRODUCTS = [
   },
   {
     id: 'nhang-tram-cao-cap',
+    category: 'tho-cung',
     title: 'Nhang Trầm Hương Cao Cấp',
     description: 'Bột trầm hương thiên nhiên kết dính từ vỏ cây bời lời, tăm tre tự nhiên. Ít khói, phù hợp thắp bàn thờ Phật, tổ tiên và không gian văn phòng kín.',
     benefits: '',
@@ -324,6 +343,7 @@ export const MORE_PRODUCTS = [
   },
   {
     id: 'than-vien-xong-nha',
+    category: 'xong-nha-phong-thuy',
     title: 'Than Viên Tròn Xông Nhà',
     description: 'Than viên chuyên dụng cho xông thảo dược, mồi nhanh, ít khói, tỏa nhiệt đều và giữ lửa lâu, tối ưu cho mỗi lần xông nhà.',
     benefits: '',
@@ -344,6 +364,7 @@ export const MORE_PRODUCTS = [
   },
   {
     id: 'rua-vang-phong-thuy',
+    category: 'xong-nha-phong-thuy',
     title: 'Rùa Vàng Phong Thủy',
     description: 'Vật phẩm trang trí mang ý nghĩa văn hóa truyền thống, tượng trưng cho sự bảo vệ và kiên định. Phù hợp đặt trong ví, ốp điện thoại hoặc làm quà tặng.',
     benefits: '',
@@ -362,6 +383,7 @@ export const MORE_PRODUCTS = [
   },
   {
     id: 'chai-ngu-coc-phong-thuy',
+    category: 'xong-nha-phong-thuy',
     title: 'Chai Ngũ Cốc Phong Thủy',
     description: 'Chai thủy tinh chứa 5 loại ngũ cốc thật (gạo, lúa mì, ngô, đậu, mè), vật phẩm trang trí mang ý nghĩa văn hóa cầu chúc sung túc, đủ đầy cho không gian sống.',
     benefits: '',
@@ -380,6 +402,7 @@ export const MORE_PRODUCTS = [
   },
   {
     id: 'tao-xoan',
+    category: 'suc-khoe',
     title: 'Viên Tảo Xoắn Ăn Ngon - Ngủ Ngon',
     description:
       'Thực phẩm bảo vệ sức khỏe gồm 2 loại viên riêng biệt — Ăn Ngon và Ngủ Ngon — kết hợp tinh hoa thảo dược thiên nhiên, hỗ trợ cải thiện cả ăn uống kém lẫn giấc ngủ không ngon.',
@@ -402,6 +425,7 @@ export const MORE_PRODUCTS = [
   },
   {
     id: 'beauty-collagen-c',
+    category: 'suc-khoe',
     title: 'Beauty Collagen C+',
     description: 'Viên uống Fish Collagen Peptide nhập khẩu Nhật kết hợp chiết xuất Sâm Tố Nữ, Glutathione và Vitamin E. Hỗ trợ cải thiện nội tiết tố nữ, giúp làn da đều màu, sáng khỏe hơn từ bên trong.',
     benefits: '',

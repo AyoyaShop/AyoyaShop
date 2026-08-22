@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import Chatbot from './components/Chatbot';
 import CartDrawer from './components/CartDrawer';
 import Home from './pages/Home';
+import ProductCatalog from './pages/ProductCatalog';
 import ProductDetail from './pages/ProductDetail';
 import ScrollToHash from './components/ScrollToHash';
 
@@ -21,6 +22,7 @@ export default function App() {
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/san-pham" element={<ProductCatalog />} />
             <Route path="/san-pham/:id" element={<ProductDetail />} />
           </Routes>
         </main>
