@@ -257,7 +257,7 @@ export const MORE_PRODUCTS = [
     priceOptions: [
       { label: '10 túi/bịch', price: 75000, weightGrams: 400 },
       { label: '15 túi/bịch', price: 105000, weightGrams: 580 },
-      { label: 'Combo 2 bịch (30 túi)', price: 113000, weightGrams: 950 }
+      { label: 'Combo 2 bịch (30 túi)', price: 200000, weightGrams: 950 }
     ]
   },
   {
