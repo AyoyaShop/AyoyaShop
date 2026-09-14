@@ -175,7 +175,7 @@ export const PRODUCTS = [
     cta: 'Chăm sóc cơ thể',
     link: 'https://vt.tiktok.com/ZS9LgeM9mft9m-5arsI/',
     badges: ['Dịu nhẹ cho mọi làn da, kể cả da nhạy cảm', 'Hỗ trợ lưu thông khí huyết và giải tỏa căng thẳng hiệu quả'],
-    price: 35000,
+    price: 43000,
     priceUnit: 'Gói dùng thử',
     weightGrams: 340,
     priceOptions: [
