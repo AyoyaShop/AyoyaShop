@@ -20,15 +20,15 @@ function buildVietQrUrl(amount: number, orderCode: string): string {
   return `https://img.vietqr.io/image/${BANK_INFO.bankBin}-${BANK_INFO.accountNumber}-compact2.png?amount=${amount}&addInfo=${info}&accountName=${name}`;
 }
 
-// Promo codes: 10% off order subtotal, capped at 30.000đ, order subtotal must exceed 150.000đ.
+// Promo codes: 20% off order subtotal, capped at 50.000đ, order subtotal must exceed 100.000đ.
 // "Nguồn" tracks which channel handed out the code (printed menu vs. thank-you card in past shipments).
 const PROMO_CODES: Record<string, string> = {
   AYOYAMENU: 'Menu',
   AYOYACAMON: 'Thư cảm ơn'
 };
-const PROMO_MIN_ORDER = 150000;
-const PROMO_DISCOUNT_RATE = 0.1;
-const PROMO_MAX_DISCOUNT = 30000;
+const PROMO_MIN_ORDER = 100000;
+const PROMO_DISCOUNT_RATE = 0.2;
+const PROMO_MAX_DISCOUNT = 50000;
 
 type Step = 'cart' | 'checkout' | 'success';
 
