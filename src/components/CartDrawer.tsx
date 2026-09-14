@@ -20,6 +20,16 @@ function buildVietQrUrl(amount: number, orderCode: string): string {
   return `https://img.vietqr.io/image/${BANK_INFO.bankBin}-${BANK_INFO.accountNumber}-compact2.png?amount=${amount}&addInfo=${info}&accountName=${name}`;
 }
 
+// Promo codes: 10% off order subtotal, capped at 30.000đ, order subtotal must exceed 150.000đ.
+// "Nguồn" tracks which channel handed out the code (printed menu vs. thank-you card in past shipments).
+const PROMO_CODES: Record<string, string> = {
+  AYOYAMENU: 'Menu',
+  AYOYACAMON: 'Thư cảm ơn'
+};
+const PROMO_MIN_ORDER = 150000;
+const PROMO_DISCOUNT_RATE = 0.1;
+const PROMO_MAX_DISCOUNT = 30000;
+
 type Step = 'cart' | 'checkout' | 'success';
 
 export default function CartDrawer() {
@@ -33,6 +43,9 @@ export default function CartDrawer() {
   const [error, setError] = useState('');
   const [orderCode, setOrderCode] = useState('');
   const [pendingOrderCode, setPendingOrderCode] = useState(() => generateOrderCode());
+  const [promoInput, setPromoInput] = useState('');
+  const [appliedPromo, setAppliedPromo] = useState<string | null>(null);
+  const [promoMessage, setPromoMessage] = useState<{ type: 'error' | 'success'; text: string } | null>(null);
 
   useEffect(() => {
     if (checkoutIntent) {
@@ -44,7 +57,10 @@ export default function CartDrawer() {
 
   const selectedZone = SHIPPING_ZONES.find(z => z.id === zoneId);
   const shippingFee = selectedZone ? calcShippingFee(totalWeightGrams, selectedZone.id) : 0;
-  const grandTotal = totalPrice + shippingFee;
+  const promoQualifies = appliedPromo !== null && totalPrice > PROMO_MIN_ORDER;
+  const promoDiscount = promoQualifies ? Math.min(Math.round(totalPrice * PROMO_DISCOUNT_RATE), PROMO_MAX_DISCOUNT) : 0;
+  const discountedSubtotal = totalPrice - promoDiscount;
+  const grandTotal = discountedSubtotal + shippingFee;
   const originalSubtotal = items.reduce((sum, item) => {
     const noDiscount = getProductById(item.productId)?.noDiscount;
     const unitOriginal = noDiscount ? item.unitPrice : calcOriginalPrice(item.unitPrice);
@@ -76,7 +92,35 @@ export default function CartDrawer() {
       setOrderCode('');
       setSubmitAttempted(false);
       setPendingOrderCode(generateOrderCode());
+      setPromoInput('');
+      setAppliedPromo(null);
+      setPromoMessage(null);
     }
+  };
+
+  const handlePromoInputChange = (value: string) => {
+    setPromoInput(value);
+    setAppliedPromo(null);
+    setPromoMessage(null);
+  };
+
+  const handleApplyPromo = () => {
+    const normalized = promoInput.trim().toUpperCase();
+    if (!normalized) {
+      setPromoMessage({ type: 'error', text: 'Vui lòng nhập mã ưu đãi.' });
+      return;
+    }
+    if (!PROMO_CODES[normalized]) {
+      setPromoMessage({ type: 'error', text: 'Mã ưu đãi không hợp lệ.' });
+      return;
+    }
+    if (totalPrice <= PROMO_MIN_ORDER) {
+      setPromoMessage({ type: 'error', text: `Đơn hàng cần trên ${formatPrice(PROMO_MIN_ORDER)} để áp dụng mã ưu đãi.` });
+      return;
+    }
+    const discount = Math.min(Math.round(totalPrice * PROMO_DISCOUNT_RATE), PROMO_MAX_DISCOUNT);
+    setAppliedPromo(normalized);
+    setPromoMessage({ type: 'success', text: `Áp dụng mã thành công! Giảm ${formatPrice(discount)}.` });
   };
 
   const handleSubmit = async () => {
@@ -102,9 +146,13 @@ export default function CartDrawer() {
         unitPrice: i.unitPrice,
         lineTotal: i.unitPrice * i.quantity
       })),
-      subtotal: totalPrice,
+      subtotal: discountedSubtotal,
       shippingFee,
-      total: grandTotal
+      total: grandTotal,
+      promoCode: promoQualifies ? appliedPromo : '',
+      originalOrderValue: totalPrice,
+      discountedValue: discountedSubtotal,
+      promoSource: promoQualifies && appliedPromo ? PROMO_CODES[appliedPromo] : ''
     };
 
     try {
@@ -298,6 +346,29 @@ export default function CartDrawer() {
                   />
                 </div>
 
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-widest text-ayoya-brown/60 mb-2">Mã ưu đãi</label>
+                  <div className="flex gap-2">
+                    <input
+                      value={promoInput}
+                      onChange={e => handlePromoInputChange(e.target.value)}
+                      className="flex-1 px-4 py-3 rounded-xl border border-ayoya-brown/15 bg-white focus:outline-none focus:border-ayoya-amber uppercase"
+                      placeholder="Nhập mã ưu đãi (không bắt buộc)"
+                    />
+                    <button
+                      onClick={handleApplyPromo}
+                      className="px-5 py-3 rounded-xl border border-ayoya-brown text-ayoya-brown text-xs font-bold uppercase tracking-widest hover:bg-ayoya-brown hover:text-white transition-all whitespace-nowrap"
+                    >
+                      Áp dụng
+                    </button>
+                  </div>
+                  {promoMessage && (
+                    <p className={`text-xs font-medium mt-1 ${promoMessage.type === 'error' ? 'text-ayoya-brick' : 'text-ayoya-green'}`}>
+                      {promoMessage.text}
+                    </p>
+                  )}
+                </div>
+
                 <div className="p-4 bg-white rounded-2xl border border-ayoya-brown/10 space-y-2 text-sm">
                   <div className="flex items-center justify-between text-ayoya-brown/70">
                     <span>Tạm tính</span>
@@ -308,6 +379,12 @@ export default function CartDrawer() {
                       {formatPrice(totalPrice)}
                     </span>
                   </div>
+                  {promoQualifies && (
+                    <div className="flex items-center justify-between text-ayoya-green">
+                      <span>Giảm giá (mã {appliedPromo})</span>
+                      <span>-{formatPrice(promoDiscount)}</span>
+                    </div>
+                  )}
                   <div className="flex items-center justify-between text-ayoya-brown/70">
                     <span>Phí vận chuyển</span>
                     <span>{selectedZone ? formatPrice(shippingFee) : 'Chọn khu vực bên trên'}</span>
