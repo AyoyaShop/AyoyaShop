@@ -123,8 +123,8 @@ export const PRODUCTS = [
     priceUnit: 'Chai 100ml',
     weightGrams: 265,
     priceOptions: [
-      { label: '2 Chai 100ml', price: 115000, weightGrams: 570 },
-      { label: 'Chai 500ml', price: 275000, weightGrams: 650 }
+      { label: '2 Chai 100ml', price: 145000, weightGrams: 570 },
+      { label: 'Chai 500ml', price: 350000, weightGrams: 650 }
     ]
   },
   {
@@ -151,8 +151,8 @@ export const PRODUCTS = [
     priceUnit: 'Gói dùng thử',
     weightGrams: 320,
     priceOptions: [
-      { label: 'Combo 3 gói', price: 171000, weightGrams: 1500 },
-      { label: '5 Gói siêu tiết kiệm', price: 275000, weightGrams: 2200 }
+      { label: 'Combo 3 gói', price: 204000, weightGrams: 1500 },
+      { label: '5 Gói siêu tiết kiệm', price: 325000, weightGrams: 2200 }
     ]
   },
   {
@@ -179,8 +179,8 @@ export const PRODUCTS = [
     priceUnit: 'Gói dùng thử',
     weightGrams: 340,
     priceOptions: [
-      { label: 'Combo 3 gói', price: 99000, weightGrams: 1700 },
-      { label: '4 Gói siêu tiết kiệm', price: 124000, weightGrams: 2200 }
+      { label: 'Combo 3 gói', price: 125000, weightGrams: 1700 },
+      { label: '4 Gói siêu tiết kiệm', price: 160000, weightGrams: 2200 }
     ]
   }
 ];
