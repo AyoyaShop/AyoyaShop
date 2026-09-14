@@ -119,7 +119,7 @@ export const PRODUCTS = [
     cta: 'Trải nghiệm sự an yên',
     link: 'https://vn.shp.ee/GA43KvdT',
     badges: ['Bí truyền', 'Cốt rượu lâu năm'],
-    price: 60000,
+    price: 75000,
     priceUnit: 'Chai 100ml',
     weightGrams: 265,
     priceOptions: [
@@ -147,7 +147,7 @@ export const PRODUCTS = [
     cta: 'Thanh tẩy không gian',
     link: 'https://vt.tiktok.com/ZS9LbvTHMTVWL-nDl6P/',
     badges: ['38 vị thảo mộc', 'Xông nhà Như Ý - Cát Tường'],
-    price: 60000,
+    price: 70000,
     priceUnit: 'Gói dùng thử',
     weightGrams: 320,
     priceOptions: [
@@ -228,7 +228,7 @@ export const MORE_PRODUCTS = [
     video: '',
     badges: [] as string[],
     image: '/products/nuoc-lau-ban-tho-cuu-vi-huong.webp',
-    price: 65000,
+    price: 87000,
     priceUnit: 'chai 500ml',
     weightGrams: 650,
     priceOptions: [] as { label: string; price: number; weightGrams: number }[]
@@ -278,7 +278,7 @@ export const MORE_PRODUCTS = [
     video: '',
     badges: [] as string[],
     image: '/products/dau-goi.png',
-    price: 70000,
+    price: 99000,
     priceUnit: 'bịch 30 túi lọc',
     weightGrams: 450,
     priceOptions: [] as { label: string; price: number; weightGrams: number }[]
@@ -411,7 +411,7 @@ export const MORE_PRODUCTS = [
     video: '',
     badges: [] as string[],
     image: '/products/than.png',
-    price: 19000,
+    price: 25000,
     priceUnit: 'gói 10 viên',
     weightGrams: 200,
     priceOptions: [] as { label: string; price: number; weightGrams: number }[]
@@ -431,7 +431,7 @@ export const MORE_PRODUCTS = [
     video: '',
     badges: [] as string[],
     image: '/products/rua-phong-thuy.jpeg',
-    price: 13000,
+    price: 17500,
     priceUnit: 'thẻ bài',
     weightGrams: 30,
     priceOptions: [] as { label: string; price: number; weightGrams: number }[]
