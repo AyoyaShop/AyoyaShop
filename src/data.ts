@@ -205,7 +205,7 @@ export const MORE_PRODUCTS = [
     video: '',
     badges: [] as string[],
     image: '/products/tram-huong-xong-nha-nhu-y-cat-tuong.webp',
-    price: 95000,
+    price: 125000,
     priceUnit: 'gói',
     weightGrams: 300,
     priceOptions: [] as { label: string; price: number; weightGrams: number }[]
@@ -251,12 +251,12 @@ export const MORE_PRODUCTS = [
     video: '',
     badges: [] as string[],
     image: '/products/thao-duoc-ngam-chan-moc-an.webp',
-    price: 6000,
+    price: 8000,
     priceUnit: 'túi lẻ (35g)',
     weightGrams: 50,
     priceOptions: [
-      { label: '10 túi/bịch', price: 56000, weightGrams: 400 },
-      { label: '15 túi/bịch', price: 79000, weightGrams: 580 },
+      { label: '10 túi/bịch', price: 75000, weightGrams: 400 },
+      { label: '15 túi/bịch', price: 105000, weightGrams: 580 },
       { label: 'Combo 2 bịch (30 túi)', price: 113000, weightGrams: 950 }
     ]
   },
@@ -300,7 +300,7 @@ export const MORE_PRODUCTS = [
     video: '',
     badges: [] as string[],
     image: '/products/nu-tram-huong-nu-que.webp',
-    price: 61000,
+    price: 81000,
     priceUnit: 'hộp 30 nụ',
     weightGrams: 150,
     priceOptions: [] as { label: string; price: number; weightGrams: number }[]
@@ -323,7 +323,7 @@ export const MORE_PRODUCTS = [
     video: '',
     badges: [] as string[],
     image: '/products/nu-tram-huong-nu-que.webp',
-    price: 119000,
+    price: 159000,
     priceUnit: 'hộp 30 nụ',
     weightGrams: 150,
     priceOptions: [] as { label: string; price: number; weightGrams: number }[]
@@ -345,7 +345,7 @@ export const MORE_PRODUCTS = [
     video: '',
     badges: [] as string[],
     image: '/products/nhang-vo-que.webp',
-    price: 82000,
+    price: 109000,
     priceUnit: 'hộp 180 cây',
     weightGrams: 300,
     priceOptions: [] as { label: string; price: number; weightGrams: number }[]
@@ -367,7 +367,7 @@ export const MORE_PRODUCTS = [
     video: '',
     badges: [] as string[],
     image: '/products/nhang-vo-va-la-que.webp',
-    price: 50000,
+    price: 67000,
     priceUnit: 'bó',
     weightGrams: 280,
     priceOptions: [] as { label: string; price: number; weightGrams: number }[]
@@ -389,7 +389,7 @@ export const MORE_PRODUCTS = [
     video: '',
     badges: [] as string[],
     image: '/products/nhang-tram-huong.webp',
-    price: 71000,
+    price: 95000,
     priceUnit: 'hộp 50 cây',
     weightGrams: 150,
     priceOptions: [] as { label: string; price: number; weightGrams: number }[]
@@ -451,10 +451,10 @@ export const MORE_PRODUCTS = [
     video: '',
     badges: [] as string[],
     image: '/products/chai-ngu-coc-phong-thuy.webp',
-    price: 27000,
+    price: 36000,
     priceUnit: 'chai 6cm',
     weightGrams: 80,
-    priceOptions: [{ label: 'chai 7.5cm', price: 45000, weightGrams: 150 }]
+    priceOptions: [{ label: 'chai 7.5cm', price: 60000, weightGrams: 150 }]
   },
   {
     id: 'tao-xoan',
@@ -475,7 +475,7 @@ export const MORE_PRODUCTS = [
     video: '',
     badges: [] as string[],
     image: '/products/vien-tao-xoan-an-ngon-ngu-ngon.jpg',
-    price: 233000,
+    price: 311000,
     priceUnit: 'hộp 60 viên',
     weightGrams: 250,
     priceOptions: [] as { label: string; price: number; weightGrams: number }[]
@@ -498,7 +498,7 @@ export const MORE_PRODUCTS = [
     video: '',
     badges: [] as string[],
     image: '/products/beauty-collagen-c.webp',
-    price: 215000,
+    price: 285000,
     priceUnit: 'hộp 30 viên',
     weightGrams: 150,
     priceOptions: [] as { label: string; price: number; weightGrams: number }[]
