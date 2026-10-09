@@ -119,12 +119,12 @@ export const PRODUCTS = [
     cta: 'Trải nghiệm sự an yên',
     link: 'https://vn.shp.ee/GA43KvdT',
     badges: ['Bí truyền', 'Cốt rượu lâu năm'],
-    price: 75000,
+    price: 79000,
     priceUnit: 'Chai 100ml',
     weightGrams: 265,
     priceOptions: [
-      { label: '2 Chai 100ml', price: 145000, weightGrams: 570 },
-      { label: 'Chai 500ml', price: 350000, weightGrams: 650 }
+      { label: '2 Chai 100ml', price: 153000, weightGrams: 570 },
+      { label: 'Chai 500ml', price: 370000, weightGrams: 650 }
     ]
   },
   {
