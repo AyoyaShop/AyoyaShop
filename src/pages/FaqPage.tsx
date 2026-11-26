@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { SHOPEE_LINK, TIKTOK_LINK, CONTACT_INFO } from '../data';
-import { applySeo, SITE_URL } from '../lib/seo';
+import { applySeo } from '../lib/seo';
+import { FAQ_META } from '../lib/pageMeta';
 
 const FAQS = [
   {
@@ -40,12 +41,7 @@ export default function FaqPage() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   useEffect(() => {
-    applySeo({
-      title: 'Hỏi đáp | AYOYA Shop',
-      description: 'Giải đáp các thắc mắc thường gặp về vận chuyển, thanh toán, đổi trả và nguồn gốc sản phẩm của AYOYA Shop.',
-      url: `${SITE_URL}/hoi-dap`,
-      image: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776475858/chat_luong_tam_duc_final_kfwn1o.png'
-    });
+    applySeo(FAQ_META);
     window.scrollTo(0, 0);
   }, []);
 

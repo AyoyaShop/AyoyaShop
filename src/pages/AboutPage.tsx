@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { Shield, Sparkles, HeartHandshake, ArrowRight, MessageCircle, Package, Star, Leaf, Clock, MapPin } from 'lucide-react';
 import { CONTACT_INFO, CORE_VALUES } from '../data';
-import { applySeo, SITE_URL } from '../lib/seo';
+import { applySeo } from '../lib/seo';
+import { ABOUT_META } from '../lib/pageMeta';
 
 const iconMap = { Shield, Sparkles, HeartHandshake };
 
@@ -40,13 +41,7 @@ function mapEmbedSrc(address: string): string {
 
 export default function AboutPage() {
   useEffect(() => {
-    applySeo({
-      title: 'Về chúng tôi | AYOYA Shop',
-      description:
-        'Câu chuyện AYOYA — từ lò võ cổ truyền Bình Định năm 1983 đến thương hiệu thảo mộc, phong thủy được hàng chục nghìn khách hàng tin dùng hôm nay.',
-      url: `${SITE_URL}/ve-chung-toi`,
-      image: `${SITE_URL}/products/nguyen-tuan-kiet-founder.jpg`
-    });
+    applySeo(ABOUT_META);
     window.scrollTo(0, 0);
   }, []);
 

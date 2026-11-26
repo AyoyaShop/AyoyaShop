@@ -3,7 +3,8 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { ShoppingCart } from 'lucide-react';
 import { ALL_PRODUCTS, CATEGORIES } from '../data';
 import { useCart } from '../context/CartContext';
-import { applySeo, SITE_URL } from '../lib/seo';
+import { applySeo } from '../lib/seo';
+import { CATALOG_META } from '../lib/pageMeta';
 import { calcOriginalPrice } from '../lib/pricing';
 
 function formatPrice(price: number): string {
@@ -21,12 +22,7 @@ export default function ProductCatalog() {
   const [selectedVariants, setSelectedVariants] = useState<Record<string, string>>({});
 
   useEffect(() => {
-    applySeo({
-      title: 'Tất cả sản phẩm | AYOYA Shop',
-      description: 'Toàn bộ sản phẩm thảo mộc, xông nhà phong thủy, thờ cúng và sức khỏe của AYOYA Shop — lọc nhanh theo nhu cầu của bạn.',
-      url: `${SITE_URL}/san-pham`,
-      image: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776475858/chat_luong_tam_duc_final_kfwn1o.png'
-    });
+    applySeo(CATALOG_META);
     window.scrollTo(0, 0);
   }, []);
 

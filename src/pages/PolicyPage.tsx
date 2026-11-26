@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import { getPolicyBySlug } from '../data/policies';
-import { applySeo, SITE_URL } from '../lib/seo';
+import { applySeo } from '../lib/seo';
+import { policyMeta } from '../lib/pageMeta';
 
 export default function PolicyPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -9,12 +10,7 @@ export default function PolicyPage() {
 
   useEffect(() => {
     if (!policy) return;
-    applySeo({
-      title: `${policy.title} | AYOYA Shop`,
-      description: policy.seoDescription,
-      url: `${SITE_URL}/chinh-sach/${policy.slug}`,
-      image: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776475858/chat_luong_tam_duc_final_kfwn1o.png'
-    });
+    applySeo(policyMeta(policy));
     window.scrollTo(0, 0);
   }, [policy]);
 

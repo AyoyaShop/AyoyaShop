@@ -17,7 +17,8 @@ import {
 } from 'lucide-react';
 import { ALL_PRODUCTS, getProductById, PRODUCT_RATINGS } from '../data';
 import { useCart } from '../context/CartContext';
-import { applySeo, SITE_URL } from '../lib/seo';
+import { applySeo } from '../lib/seo';
+import { productMeta } from '../lib/pageMeta';
 import { calcOriginalPrice } from '../lib/pricing';
 
 function formatPrice(price: number): string {
@@ -37,26 +38,7 @@ export default function ProductDetail() {
 
   useEffect(() => {
     if (!product) return;
-    applySeo({
-      title: `${product.title} | AYOYA Shop`,
-      description: product.description,
-      url: `${SITE_URL}/san-pham/${product.id}`,
-      image: product.image,
-      jsonLd: {
-        '@context': 'https://schema.org',
-        '@type': 'Product',
-        name: product.title,
-        description: product.description,
-        image: product.image,
-        offers: {
-          '@type': 'Offer',
-          url: `${SITE_URL}/san-pham/${product.id}`,
-          priceCurrency: 'VND',
-          price: product.price,
-          availability: 'https://schema.org/InStock'
-        }
-      }
-    });
+    applySeo(productMeta(product));
     window.scrollTo(0, 0);
     // Reset per-product UI state so leftover selections/video/lightbox from a
     // previous product don't carry over when navigating via "Sản phẩm khác".

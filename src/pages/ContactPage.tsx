@@ -1,16 +1,12 @@
 import { useEffect } from 'react';
 import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
 import { CONTACT_INFO } from '../data';
-import { applySeo, SITE_URL } from '../lib/seo';
+import { applySeo } from '../lib/seo';
+import { CONTACT_META } from '../lib/pageMeta';
 
 export default function ContactPage() {
   useEffect(() => {
-    applySeo({
-      title: 'Liên hệ | AYOYA Shop',
-      description: `Liên hệ AYOYA Shop qua địa chỉ ${CONTACT_INFO.address}, hotline ${CONTACT_INFO.phone} hoặc Zalo để được tư vấn sản phẩm thảo mộc, phong thủy.`,
-      url: `${SITE_URL}/lien-he`,
-      image: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776475858/chat_luong_tam_duc_final_kfwn1o.png'
-    });
+    applySeo(CONTACT_META);
     window.scrollTo(0, 0);
   }, []);
 
