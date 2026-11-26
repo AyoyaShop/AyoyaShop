@@ -2,13 +2,18 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ShoppingCart, ArrowRight } from 'lucide-react';
-import { MORE_PRODUCTS } from '../data';
+import { ALL_PRODUCTS, MORE_PRODUCTS, PRODUCT_RATINGS } from '../data';
 import { useCart } from '../context/CartContext';
 import { calcOriginalPrice } from '../lib/pricing';
 
 function formatPrice(price: number): string {
   return `${price.toLocaleString('vi-VN')}đ`;
 }
+
+// The homepage shows only the most reviewed ones; the catalog page has the rest.
+const BEST_SELLERS = [...MORE_PRODUCTS]
+  .sort((a, b) => (PRODUCT_RATINGS[b.id]?.reviewCount ?? 0) - (PRODUCT_RATINGS[a.id]?.reviewCount ?? 0))
+  .slice(0, 4);
 
 export default function ProductGrid() {
   const { addItem } = useCart();
@@ -19,15 +24,15 @@ export default function ProductGrid() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl font-serif text-ayoya-brown mb-4 underline underline-offset-8 decoration-ayoya-amber/30">
-            Thêm <span className="italic">Thảo Mộc & Phong Thủy</span>
+            Được Mua <span className="italic">Nhiều</span>
           </h2>
           <p className="max-w-2xl mx-auto text-ayoya-brown/60 tracking-wider text-[10px] md:text-sm uppercase">
-            Trọn bộ sưu tập chăm sóc thân tâm và không gian sống
+            Thảo mộc & phong thủy nhiều lượt đánh giá trên hai sàn
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-          {MORE_PRODUCTS.map(product => {
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+          {BEST_SELLERS.map(product => {
             const variants = [
               { label: product.priceUnit, price: product.price, weightGrams: product.weightGrams },
               ...product.priceOptions
@@ -108,6 +113,15 @@ export default function ProductGrid() {
               </motion.div>
             );
           })}
+        </div>
+
+        <div className="mt-8 text-center">
+          <Link
+            to="/san-pham"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-ayoya-brown text-white text-xs font-bold uppercase tracking-widest hover:bg-ayoya-brick transition-colors"
+          >
+            Xem tất cả {ALL_PRODUCTS.length} sản phẩm <ArrowRight size={14} />
+          </Link>
         </div>
 
         <motion.a
