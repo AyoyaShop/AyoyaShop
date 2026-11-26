@@ -62,8 +62,8 @@ export const CATEGORIES = [
 
 // Real ratings from Shopee + TikTok Shop product listing screenshots (captured 22/08/2026),
 // cross-checked against the owner's review-count spreadsheet for the same date.
-// `stars` is the average of the two platforms' displayed product rating when both show a
-// product-specific score; when only one platform shows a product-specific score (the other
+// `stars` is the review-count-weighted average of the two platforms' product rating when both
+// show a product-specific score; when only one platform shows a product-specific score (the other
 // falls back to a shop-level rating, which isn't specific to this product), that one score is
 // used alone. `reviewCount` is the combined Shopee + TikTok Shop review count from the sheet.
 // Two products (Nụ Trầm Hương, Nụ Quế) share one bundled listing on both platforms and one
@@ -71,22 +71,25 @@ export const CATEGORIES = [
 // Nhang Vỏ & Lá Quế Dạng Bó and Rùa Vàng Phong Thủy are omitted: no confident product-specific
 // rating was found for either on Shopee or TikTok Shop.
 export const PRODUCT_RATINGS: Record<string, { stars: number; reviewCount: number }> = {
-  'dau-vo': { stars: 4.9, reviewCount: 1387 },
-  'thao-moc-xong-nha': { stars: 5.0, reviewCount: 887 },
+  'dau-vo': { stars: 4.8, reviewCount: 1387 },
+  'thao-moc-xong-nha': { stars: 4.9, reviewCount: 887 },
   'tram-huong-xong-nha': { stars: 5.0, reviewCount: 38 },
-  'la-xong-moc-an': { stars: 5.0, reviewCount: 573 },
-  'dau-goi-moc-an': { stars: 4.5, reviewCount: 106 },
+  'la-xong-moc-an': { stars: 4.9, reviewCount: 573 },
+  'dau-goi-moc-an': { stars: 4.6, reviewCount: 106 },
   'than-vien-xong-nha': { stars: 4.6, reviewCount: 57 },
-  'ngam-chan-moc-an': { stars: 5.0, reviewCount: 62 },
-  'nu-tram-huong': { stars: 4.4, reviewCount: 38 },
-  'nu-que': { stars: 4.4, reviewCount: 38 },
-  'beauty-collagen-c': { stars: 5.0, reviewCount: 23 },
+  'ngam-chan-moc-an': { stars: 4.9, reviewCount: 62 },
+  'nu-tram-huong': { stars: 4.8, reviewCount: 38 },
+  'nu-que': { stars: 4.8, reviewCount: 38 },
+  'beauty-collagen-c': { stars: 4.9, reviewCount: 23 },
   'nhang-que': { stars: 4.9, reviewCount: 11 },
   'nhang-tram-cao-cap': { stars: 4.9, reviewCount: 11 },
   'nuoc-lau-ban-tho': { stars: 4.9, reviewCount: 24 },
   'chai-ngu-coc-phong-thuy': { stars: 4.8, reviewCount: 8 },
   'tao-xoan': { stars: 5.0, reviewCount: 7 }
 };
+
+// Both platforms combined, counted on 22/08/2026; bundled listings are counted once.
+export const REVIEW_SUMMARY = { totalReviews: 3226, shopeeShopRating: 4.9, asOf: '22/08/2026' };
 
 export function calcShippingFee(weightGrams: number, zoneId: string): number {
   const zone = SHIPPING_ZONES.find(z => z.id === zoneId) ?? SHIPPING_ZONES[0];
@@ -599,21 +602,6 @@ export const BLOGS = [
     excerpt: 'Từ hàng thế kỷ trước, các bậc tiền nhân đã đúc kết nên một kho tàng di sản mang tên Võ Y Song Tu...',
     image: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/f_auto,q_auto,c_limit,w_600/v1776505547/vo_binh_dinh_ud0cpl.jpg',
     link: 'https://www.nguyentuankiet.com.vn/2026/04/duong-sinh-vo-ao-giai-cuu-cot-song.html'
-  }
-];
-
-export const TESTIMONIALS = [
-  {
-    name: 'Anh Minh Anh',
-    role: 'Khách hàng thân thiết',
-    content: 'Tôi đã cải thiện giấc ngủ rất nhiều sau 7 ngày dùng nhang quế Ayoya. Không gian thờ cúng trở nên thanh tịnh vô cùng.',
-    videoThumbnail: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/f_auto,q_auto,c_limit,w_400/v1776436632/%E1%BA%A3nh_ch%C3%A2n_dung_202604172136_lb79sp.jpg'
-  },
-  {
-    name: 'Chị Lan Hương',
-    role: 'Người sống xanh',
-    content: 'Combo xông nhà Như Ý thực sự mang lại luồng gió mới cho căn chung cư của mình. Mùi thơm thảo mộc tự nhiên rất dễ chịu.',
-    videoThumbnail: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/f_auto,q_auto,c_limit,w_400/v1776436949/ch%C3%A2n_dung_1_202604172142_kvhhgy.jpg'
   }
 ];
 
