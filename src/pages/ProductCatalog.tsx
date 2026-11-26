@@ -85,7 +85,7 @@ export default function ProductCatalog() {
                 className="flex flex-col bg-white rounded-3xl border border-ayoya-brown/5 overflow-hidden hover:modern-zen-shadow transition-shadow"
               >
                 <Link to={`/san-pham/${product.id}`} className="aspect-square overflow-hidden bg-ayoya-brown/5 block">
-                  <img
+                  <img loading="lazy"
                     src={product.image}
                     alt={product.title}
                     referrerPolicy="no-referrer"

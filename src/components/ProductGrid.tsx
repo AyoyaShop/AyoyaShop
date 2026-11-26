@@ -44,7 +44,7 @@ export default function ProductGrid() {
                 className="flex flex-col bg-ayoya-cream/20 rounded-3xl border border-ayoya-brown/5 overflow-hidden hover:modern-zen-shadow transition-shadow"
               >
                 <Link to={`/san-pham/${product.id}`} className="aspect-square overflow-hidden bg-ayoya-brown/5 block">
-                  <img
+                  <img loading="lazy"
                     src={product.image}
                     alt={product.title}
                     referrerPolicy="no-referrer"
@@ -120,8 +120,8 @@ export default function ProductGrid() {
           whileHover={{ y: -5 }}
           className="relative mt-12 block w-full aspect-[21/9] md:aspect-[3/1] rounded-[32px] overflow-hidden group cursor-pointer shadow-xl"
         >
-          <img
-            src="https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776451812/c%C3%A1c_sp_kh%C3%A1c_ky8zby.png"
+          <img loading="lazy"
+            src="https://res.cloudinary.com/dfb8mvzhc/image/upload/f_auto,q_auto,c_limit,w_1200/v1776451812/c%C3%A1c_sp_kh%C3%A1c_ky8zby.png"
             alt="Các sản phẩm khác của Ayoya"
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
           />
@@ -144,8 +144,8 @@ export default function ProductGrid() {
           whileHover={{ y: -5 }}
           className="relative mt-12 block w-full aspect-[21/9] md:aspect-[3/1] rounded-[32px] overflow-hidden group cursor-pointer shadow-xl"
         >
-          <img
-            src="https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776453450/c%C3%A1c_sp_kh%C3%A1c_2_zrnefx.png"
+          <img loading="lazy"
+            src="https://res.cloudinary.com/dfb8mvzhc/image/upload/f_auto,q_auto,c_limit,w_1200/v1776453450/c%C3%A1c_sp_kh%C3%A1c_2_zrnefx.png"
             alt="Các sản phẩm khác của Ayoya"
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
           />

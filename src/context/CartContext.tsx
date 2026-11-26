@@ -1,4 +1,5 @@
-import { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
+import { getProductById } from '../data';
 
 export interface CartItem {
   key: string;
@@ -30,10 +31,53 @@ interface CartContextValue {
 
 const CartContext = createContext<CartContextValue | null>(null);
 
+const STORAGE_KEY = 'ayoya-cart';
+
+// Only key + quantity are stored, so a returning customer always sees current prices.
+function loadCart(): CartItem[] {
+  try {
+    const saved: unknown = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? '[]');
+    if (!Array.isArray(saved)) return [];
+    return saved.flatMap(entry => {
+      const key = String(entry?.key);
+      const quantity = Number(entry?.quantity);
+      const [productId, label] = key.split('::');
+      const product = getProductById(productId);
+      if (!product || !Number.isInteger(quantity) || quantity <= 0) return [];
+      const variants = [
+        { label: product.priceUnit, price: product.price, weightGrams: product.weightGrams },
+        ...product.priceOptions
+      ];
+      const variant = variants.find(v => v.label === label);
+      if (!variant) return [];
+      return [{
+        key,
+        productId,
+        title: product.title,
+        image: product.image,
+        variantLabel: variants.length > 1 ? variant.label : '',
+        unitPrice: variant.price,
+        weightGrams: variant.weightGrams,
+        quantity
+      }];
+    });
+  } catch {
+    return [];
+  }
+}
+
 export function CartProvider({ children }: { children: ReactNode }) {
-  const [items, setItems] = useState<CartItem[]>([]);
+  const [items, setItems] = useState<CartItem[]>(loadCart);
   const [isOpen, setIsOpen] = useState(false);
   const [checkoutIntent, setCheckoutIntent] = useState(false);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(items.map(({ key, quantity }) => ({ key, quantity }))));
+    } catch {
+      // Storage can be unavailable (private mode, in-app browsers); the cart still works in memory.
+    }
+  }, [items]);
 
   const addItem: CartContextValue['addItem'] = (item, quantity = 1) => {
     setItems(prev => {

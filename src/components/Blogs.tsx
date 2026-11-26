@@ -39,7 +39,7 @@ export default function Blogs() {
             >
               {/* Khung chứa Ảnh */}
               <div className="rounded-[32px] overflow-hidden mb-6 modern-zen-shadow border border-ayoya-brown/5">
-                <img
+                <img loading="lazy"
                   src={blog.image}       // Lệnh lấy link ảnh từ data.ts
                   alt={blog.title}
                   className="w-full aspect-[4/3] object-cover transform group-hover:scale-105 transition-transform duration-700"

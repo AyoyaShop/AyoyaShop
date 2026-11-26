@@ -40,7 +40,7 @@ function ProductMedia({ image, video, title, idx }: ProductMediaProps) {
                 exit={{ opacity: 0 }}
                 className="w-full h-full"
               >
-                <img 
+                <img loading="lazy" 
                   src={image} 
                   alt={title}
                   referrerPolicy="no-referrer"

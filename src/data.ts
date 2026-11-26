@@ -114,7 +114,7 @@ export const PRODUCTS = [
     warnings:
       'Chỉ dùng ngoài da, KHÔNG ĐƯỢC UỐNG. Không dùng cho phụ nữ có thai, trẻ em dưới 30 tháng tuổi, trẻ có tiền sử co giật/động kinh. Không bôi lên mắt, niêm mạc, vết thương hở. Ngừng sử dụng nếu có dấu hiệu mẫn cảm. Để xa tầm tay trẻ em.',
     origin: 'Sản xuất tại Hoài Nhơn, Bình Định. Hạn sử dụng 36 tháng kể từ ngày sản xuất. Bảo quản nơi khô ráo, nhiệt độ dưới 30°C.',
-    image: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776438151/XOA_B%C3%93P_6_lfilv2.png?auto=format&fit=crop&q=80&w=800',
+    image: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/f_auto,q_auto,c_limit,w_800/v1776438151/XOA_B%C3%93P_6_lfilv2.png',
     video: 'https://res.cloudinary.com/dfb8mvzhc/video/upload/v1776437376/xoabop_leoaaz.mp4',
     cta: 'Trải nghiệm sự an yên',
     link: 'https://vn.shp.ee/GA43KvdT',
@@ -142,7 +142,7 @@ export const PRODUCTS = [
     warnings:
       'Chỉ dùng để xông không gian, không dùng cho mục đích khác. Xông nơi thoáng khí, tránh hít trực tiếp khói đậm đặc trong thời gian dài. Để xa tầm tay trẻ em và vật liệu dễ cháy.',
     origin: 'Nguyên liệu trầm hương thu hái tại Tiên Phước, Quảng Nam. Hạn sử dụng 12 tháng. Bảo quản nơi khô ráo, thoáng mát.',
-    image: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776440289/%C3%B4ng_l%C3%A3o_phong_th%E1%BB%A7y_vtmurx.png?auto=format&fit=crop&q=80&w=800',
+    image: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/f_auto,q_auto,c_limit,w_800/v1776440289/%C3%B4ng_l%C3%A3o_phong_th%E1%BB%A7y_vtmurx.png',
     video: 'https://res.cloudinary.com/dfb8mvzhc/video/upload/v1776440319/7736771989880_f9ltno.mp4',
     cta: 'Thanh tẩy không gian',
     link: 'https://vt.tiktok.com/ZS9LbvTHMTVWL-nDl6P/',
@@ -160,7 +160,7 @@ export const PRODUCTS = [
     category: 'cham-soc-co-the',
     noDiscount: false,
     title: 'Thảo Dược Xông & Tắm Cơ Thể Mộc An',
-    subtitle: 'TThân khỏe tâm an & Tẩy trần thanh tịnh',
+    subtitle: 'Thân khỏe tâm an & Tẩy trần thanh tịnh',
     description: '100% Thảo dược tự nhiên: Kết hợp tinh túy từ các loại lá thơm, thảo mộc quý, cam kết không hương liệu, không chất bảo quản.',
     benefits: 'Khơi thông dòng chảy năng lượng, gột rửa bụi trần và tìm lại sự thư thái trọn vẹn cho cả thân thể lẫn tâm hồn.',
     ingredients:
@@ -170,7 +170,7 @@ export const PRODUCTS = [
     warnings:
       'Không xông liên tục mỗi ngày. Phụ nữ sau sinh nên tham khảo ý kiến người có chuyên môn trước khi dùng (sinh thường nên đợi 5-7 ngày, sinh mổ đợi vết mổ khô hẳn). Tránh xông khi đang sốt cao hoặc say rượu.',
     origin: 'Hạn sử dụng 18 tháng. Sử dụng trong vòng 3 tháng sau khi mở túi, bảo quản nơi khô ráo.',
-    image: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776506403/x%C3%B4ng_c%C6%A1_th%E1%BB%83_1_sowj2u.png?auto=format&fit=crop&q=80&w=800',
+    image: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/f_auto,q_auto,c_limit,w_800/v1776506403/x%C3%B4ng_c%C6%A1_th%E1%BB%83_1_sowj2u.png',
     video: 'https://res.cloudinary.com/dfb8mvzhc/video/upload/v1776441157/xongtam_fomnwn.mp4',
     cta: 'Chăm sóc cơ thể',
     link: 'https://vt.tiktok.com/ZS9LgeM9mft9m-5arsI/',
@@ -277,7 +277,7 @@ export const MORE_PRODUCTS = [
     subtitle: '',
     video: '',
     badges: [] as string[],
-    image: '/products/dau-goi.png',
+    image: '/products/dau-goi.webp',
     price: 99000,
     priceUnit: 'bịch 30 túi lọc',
     weightGrams: 450,
@@ -410,7 +410,7 @@ export const MORE_PRODUCTS = [
     subtitle: '',
     video: '',
     badges: [] as string[],
-    image: '/products/than.png',
+    image: '/products/than.webp',
     price: 25000,
     priceUnit: 'gói 10 viên',
     weightGrams: 200,
@@ -585,19 +585,19 @@ export const BLOGS = [
   {
     title: 'Mẹo chăm sóc sức khỏe không dùng thuốc',
     excerpt: 'Khám phá các phương pháp tự nhiên từ y học cổ truyền Bình Định để phục hồi thân tâm...',
-    image: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776480897/5meo_hu29y2.jpg?auto=format&fit=crop&q=80&w=600',
+    image: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/f_auto,q_auto,c_limit,w_600/v1776480897/5meo_hu29y2.jpg',
     link: 'https://www.nguyentuankiet.com.vn/2026/04/meo-cham-soc-suc-khoe-khong-dung-thuoc.html'
   },
   {
    title: 'Thanh tẩy Trường khí & Tái tạo Năng lượng Gia đạo',
     excerpt: 'Sự kết hợp diệu kỳ giữa dược tính của thảo mộc thiên nhiên và quy luật vận hành của năng lượng vũ trụ...',
-    image: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776502433/1a_dtrje5.jpg?auto=format&fit=crop&q=80&w=600',
+    image: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/f_auto,q_auto,c_limit,w_600/v1776502433/1a_dtrje5.jpg',
     link: 'https://www.nguyentuankiet.com.vn/2026/04/thanh-tay-truong-khi-tai-tao-nang-luong.html'
   },
   {
     title: 'Dưỡng sinh Võ đạo: Giải cứu Cột sống & Thông kinh lạc cho người hiện đại',
     excerpt: 'Từ hàng thế kỷ trước, các bậc tiền nhân đã đúc kết nên một kho tàng di sản mang tên Võ Y Song Tu...',
-    image: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776505547/vo_binh_dinh_ud0cpl.jpg?auto=format&fit=crop&q=80&w=600',
+    image: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/f_auto,q_auto,c_limit,w_600/v1776505547/vo_binh_dinh_ud0cpl.jpg',
     link: 'https://www.nguyentuankiet.com.vn/2026/04/duong-sinh-vo-ao-giai-cuu-cot-song.html'
   }
 ];
@@ -607,13 +607,13 @@ export const TESTIMONIALS = [
     name: 'Anh Minh Anh',
     role: 'Khách hàng thân thiết',
     content: 'Tôi đã cải thiện giấc ngủ rất nhiều sau 7 ngày dùng nhang quế Ayoya. Không gian thờ cúng trở nên thanh tịnh vô cùng.',
-    videoThumbnail: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776436632/%E1%BA%A3nh_ch%C3%A2n_dung_202604172136_lb79sp.jpg?auto=format&fit=crop&q=80&w=400'
+    videoThumbnail: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/f_auto,q_auto,c_limit,w_400/v1776436632/%E1%BA%A3nh_ch%C3%A2n_dung_202604172136_lb79sp.jpg'
   },
   {
     name: 'Chị Lan Hương',
     role: 'Người sống xanh',
     content: 'Combo xông nhà Như Ý thực sự mang lại luồng gió mới cho căn chung cư của mình. Mùi thơm thảo mộc tự nhiên rất dễ chịu.',
-    videoThumbnail: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776436949/ch%C3%A2n_dung_1_202604172142_kvhhgy.jpg?auto=format&fit=crop&q=80&w=400'
+    videoThumbnail: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/f_auto,q_auto,c_limit,w_400/v1776436949/ch%C3%A2n_dung_1_202604172142_kvhhgy.jpg'
   }
 ];
 

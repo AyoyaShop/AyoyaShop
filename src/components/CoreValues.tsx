@@ -20,8 +20,8 @@ export default function CoreValues() {
           viewport={{ once: true }}
           className="bg-ayoya-cream/20 rounded-[32px] overflow-hidden mb-16 border border-ayoya-brown/10 shadow-sm"
         >
-          <img 
-            src="https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776475858/chat_luong_tam_duc_final_kfwn1o.png" 
+          <img loading="lazy" 
+            src="https://res.cloudinary.com/dfb8mvzhc/image/upload/f_auto,q_auto,c_limit,w_600/v1776475858/chat_luong_tam_duc_final_kfwn1o.png" 
             alt="Banner Chất lượng đi cùng Tâm đức"
             className="w-full h-auto block"
           />

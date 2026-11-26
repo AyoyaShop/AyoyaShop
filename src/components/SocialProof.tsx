@@ -31,7 +31,7 @@ export default function SocialProof() {
                   transition={{ delay: idx * 0.2 }}
                   className={`relative rounded-[32px] overflow-hidden aspect-[9/16] modern-zen-shadow ${idx === 1 ? 'mt-12' : ''}`}
                 >
-                  <img src={vid.img} alt="UGC content" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                  <img loading="lazy" src={vid.img} alt="UGC content" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex flex-col justify-end p-6">
                     <div className="flex items-center gap-2 mb-2">
                        <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
@@ -71,7 +71,7 @@ export default function SocialProof() {
                 </div>
                 
                 <div className="flex items-center gap-4 mb-6">
-                  <img src={t.videoThumbnail} alt={t.name} className="w-16 h-16 rounded-full object-cover border-2 border-white shadow-sm"  referrerPolicy="no-referrer"/>
+                  <img loading="lazy" src={t.videoThumbnail} alt={t.name} className="w-16 h-16 rounded-full object-cover border-2 border-white shadow-sm"  referrerPolicy="no-referrer"/>
                   <div>
                     <h4 className="font-bold text-ayoya-brown">{t.name}</h4>
                     <p className="text-xs text-ayoya-brown/50 tracking-wider uppercase font-medium">{t.role}</p>

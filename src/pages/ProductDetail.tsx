@@ -364,7 +364,7 @@ export default function ProductDetail() {
                   className="group block bg-white rounded-3xl border border-ayoya-brown/5 overflow-hidden hover:modern-zen-shadow transition-shadow"
                 >
                   <div className="aspect-square overflow-hidden bg-ayoya-brown/5">
-                    <img
+                    <img loading="lazy"
                       src={p.image}
                       alt={p.title}
                       referrerPolicy="no-referrer"

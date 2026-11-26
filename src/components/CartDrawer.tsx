@@ -156,15 +156,18 @@ export default function CartDrawer() {
     };
 
     try {
-      await fetch(ORDER_SHEET_URL, {
+      const response = await fetch(ORDER_SHEET_URL, {
         method: 'POST',
         body: JSON.stringify(payload)
       });
+      // Apps Script answers HTTP 200 with an HTML page when it crashes, so only the JSON status counts.
+      const result = await response.json();
+      if (result?.status !== 'success') throw new Error('order not recorded');
       setOrderCode(code);
       clearCart();
       setStep('success');
     } catch {
-      setError('Không thể gửi đơn hàng lúc này. Vui lòng thử lại hoặc liên hệ Zalo 0933.458.485.');
+      setError(`Chưa xác nhận được đơn hàng. Giỏ hàng vẫn được giữ lại. Vui lòng nhắn Zalo 0933.458.485 kèm mã ${code} để kiểm tra trước khi đặt lại.`);
     } finally {
       setSubmitting(false);
     }

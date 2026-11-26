@@ -29,7 +29,7 @@ export default function FeaturedCategories() {
                   to={`/san-pham?cat=${cat.id}`}
                   className="group relative block aspect-[4/5] rounded-3xl overflow-hidden modern-zen-shadow"
                 >
-                  <img
+                  <img loading="lazy"
                     src={sample.image}
                     alt={cat.label}
                     referrerPolicy="no-referrer"

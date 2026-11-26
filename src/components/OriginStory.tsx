@@ -27,7 +27,7 @@ export default function OriginStory() {
                   Tại sao lại là Rượu xoa bóp võ thuật cổ truyền Bình Định? 
                 </p>
                 <p>
-                  Câu chuyện bắt nguồn từ những lò võ truyền thống tại Binh Định. Sau những giờ luyện tập cường độ cao, các võ sư dùng bài thuốc xoa bóp bí truyền để phục hồi thể lực, thông kinh lạc và làm dịu các vết bầm.
+                  Câu chuyện bắt nguồn từ những lò võ truyền thống tại Bình Định. Sau những giờ luyện tập cường độ cao, các võ sư dùng bài thuốc xoa bóp bí truyền để phục hồi thể lực, thông kinh lạc và làm dịu các vết bầm.
                 </p>
                 <p>
                   Chúng tôi kế thừa công thức ấy, kết hợp cùng quy trình "Tận tâm": từ việc trực tiếp chọn lựa từng vị thảo dược phơi khô dưới nắng giòn, đến khâu đóng gói tỉ mỉ như một món quà từ đất mẹ. Đó là bằng chứng thép cho giá trị "Chất lượng" mà AYOYA cam kết.
@@ -62,8 +62,8 @@ export default function OriginStory() {
                className="space-y-6"
             >
               <div className="organic-border overflow-hidden aspect-[3/4] modern-zen-shadow bg-white p-2">
-                <img 
-                  src="https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776444400/%C4%91%C3%B4ng_y_codzsc.jpg?auto=format&fit=crop&q=80&w=800"
+                <img loading="lazy" 
+                  src="https://res.cloudinary.com/dfb8mvzhc/image/upload/f_auto,q_auto,c_limit,w_800/v1776444400/%C4%91%C3%B4ng_y_codzsc.jpg"
                   alt="Thảo mộc tuyển chọn từ nguồn dược liệu sạch của AYOYA"
                   className="w-full h-full object-cover rounded-[35px]"
                   referrerPolicy="no-referrer"
@@ -83,8 +83,8 @@ export default function OriginStory() {
                className="space-y-6 mt-12"
             >
               <div className="organic-border overflow-hidden aspect-[3/4] modern-zen-shadow bg-white p-2">
-                <img 
-                  src="https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776444643/%C4%91%C3%B3ng_g%C3%B3i_f1mam2.png?auto=format&fit=crop&q=80&w=800"
+                <img loading="lazy" 
+                  src="https://res.cloudinary.com/dfb8mvzhc/image/upload/f_auto,q_auto,c_limit,w_800/v1776444643/%C4%91%C3%B3ng_g%C3%B3i_f1mam2.png"
                   alt="Đóng gói tỉ mỉ sản phẩm AYOYA, gửi trọn tâm tình"
                   className="w-full h-full object-cover rounded-[35px]"
                   referrerPolicy="no-referrer"
