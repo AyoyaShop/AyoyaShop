@@ -14,8 +14,8 @@ const TOP_REVIEWED = Object.entries(PRODUCT_RATINGS)
 const formatNumber = (n: number) => n.toLocaleString('vi-VN');
 
 const SUMMARY_TILES = [
-  { value: REVIEW_SUMMARY.tiktokSold, label: 'sản phẩm đã bán trên TikTok Shop', asOf: REVIEW_SUMMARY.tiktokAsOf },
-  { value: `${REVIEW_SUMMARY.tiktokShopRating}/5`, label: 'điểm đánh giá shop trên TikTok Shop', asOf: REVIEW_SUMMARY.tiktokAsOf },
+  { value: REVIEW_SUMMARY.tiktokSold, label: 'sản phẩm đã bán trên TikTok Shop', asOf: REVIEW_SUMMARY.checkedAt },
+  { value: `${REVIEW_SUMMARY.shopRating}/5`, label: 'điểm đánh giá shop trên TikTok Shop và Shopee', asOf: REVIEW_SUMMARY.checkedAt },
   { value: formatNumber(REVIEW_SUMMARY.totalReviews), label: 'lượt đánh giá trên TikTok Shop và Shopee', asOf: REVIEW_SUMMARY.reviewsAsOf }
 ];
 

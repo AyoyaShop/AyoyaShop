@@ -88,14 +88,14 @@ export const PRODUCT_RATINGS: Record<string, { stars: number; reviewCount: numbe
   'tao-xoan': { stars: 5.0, reviewCount: 7 }
 };
 
-// Review total: both platforms, bundled listings counted once. TikTok figures come from the shop header.
-// TikTok star scores were re-checked on 26/11/2026; review counts and Shopee scores are older.
+// Review total: both platforms, bundled listings counted once. Sold figure comes from the TikTok shop header.
+// Shop rating and visible star scores were re-checked on both platforms on 26/11/2026; review counts are older.
 export const REVIEW_SUMMARY = {
   totalReviews: 3226,
   reviewsAsOf: '22/08/2026',
-  tiktokShopRating: 4.9,
+  shopRating: 4.9,
   tiktokSold: '71,6K',
-  tiktokAsOf: '26/11/2026'
+  checkedAt: '26/11/2026'
 };
 
 export function calcShippingFee(weightGrams: number, zoneId: string): number {
