@@ -13,12 +13,12 @@ const TOP_REVIEWED = Object.entries(PRODUCT_RATINGS)
 
 const formatNumber = (n: number) => n.toLocaleString('vi-VN');
 
-const reviewFloor = Math.floor((REVIEW_SUMMARY.tiktokReviews + REVIEW_SUMMARY.shopeeReviews) / 100) * 100;
+const totalReviews = REVIEW_SUMMARY.tiktokReviews + REVIEW_SUMMARY.shopeeReviews;
 
 const SUMMARY_TILES = [
   { value: REVIEW_SUMMARY.tiktokSold, label: 'sản phẩm đã bán trên TikTok Shop', asOf: REVIEW_SUMMARY.checkedAt },
   { value: `${REVIEW_SUMMARY.shopRating}/5`, label: 'điểm đánh giá shop trên TikTok Shop và Shopee', asOf: REVIEW_SUMMARY.checkedAt },
-  { value: `${formatNumber(reviewFloor)}+`, label: 'lượt đánh giá trên TikTok Shop và Shopee', asOf: REVIEW_SUMMARY.checkedAt }
+  { value: formatNumber(totalReviews), label: 'lượt đánh giá trên TikTok Shop và Shopee', asOf: REVIEW_SUMMARY.checkedAt }
 ];
 
 export default function SocialProof() {
