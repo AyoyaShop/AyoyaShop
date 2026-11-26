@@ -13,7 +13,7 @@ export default function Chatbot() {
         className="w-16 h-16 rounded-full bg-ayoya-brick text-white shadow-lg flex items-center justify-center relative group cursor-pointer block"
       >
         <MessageCircle size={28} />
-        <span className="absolute right-full mr-4 px-4 py-2 bg-white rounded-xl text-ayoya-brown text-[10px] font-bold uppercase tracking-widest modern-zen-shadow opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+        <span className="absolute right-full mr-4 px-4 py-2 bg-white rounded-xl text-ayoya-brown text-xs font-bold uppercase tracking-widest modern-zen-shadow opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
           Chat Zalo với Ayoya
         </span>
       </motion.a>

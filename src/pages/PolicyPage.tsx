@@ -49,7 +49,7 @@ export default function PolicyPage() {
         </div>
 
         {policy.closing && (
-          <p className="mt-10 pt-6 border-t border-ayoya-brown/10 text-sm text-ayoya-brown/60 italic leading-relaxed">{policy.closing}</p>
+          <p className="mt-10 pt-6 border-t border-ayoya-brown/10 text-sm text-ayoya-brown/75 italic leading-relaxed">{policy.closing}</p>
         )}
       </div>
     </div>

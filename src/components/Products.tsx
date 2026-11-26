@@ -53,7 +53,7 @@ function ProductMedia({ image, video, title, idx }: ProductMediaProps) {
                   <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white transform group-hover/btn:scale-110 transition-all duration-500">
                     <Play size={32} fill="white" className="ml-1" />
                   </div>
-                  <div className="absolute bottom-8 left-1/2 -translate-x-1/2 px-4 py-2 bg-black/40 backdrop-blur-sm rounded-full text-[10px] text-white font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="absolute bottom-8 left-1/2 -translate-x-1/2 px-4 py-2 bg-black/40 backdrop-blur-sm rounded-full text-xs text-white font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
                     Xem Video Thực Tế
                   </div>
                 </button>
@@ -77,7 +77,7 @@ function ProductMedia({ image, video, title, idx }: ProductMediaProps) {
                 
                 {/* Video Controls Overlay */}
                 <div className="absolute inset-x-0 top-0 p-6 flex justify-between items-start bg-gradient-to-b from-black/40 to-transparent">
-                  <span className="text-white text-[10px] font-bold uppercase tracking-widest">
+                  <span className="text-white text-xs font-bold uppercase tracking-widest">
                     Đang xem: Quy trình di sản
                   </span>
                   <button 
@@ -116,7 +116,7 @@ export default function Products() {
           <h2 className="text-3xl md:text-5xl font-serif text-ayoya-brown mb-6 underline underline-offset-8 decoration-ayoya-amber/30">
             Sản Phẩm <span className="italic">Di Sản</span>
           </h2>
-          <p className="max-w-2xl mx-auto text-ayoya-brown/60 tracking-wider text-[10px] md:text-sm uppercase">
+          <p className="max-w-2xl mx-auto text-ayoya-brown/75 tracking-wider text-xs md:text-sm uppercase">
             Tuyển chọn khắt khe - Chế biến tỉ mỉ - Gửi trọn tâm tình
           </p>
         </div>
@@ -155,7 +155,7 @@ export default function Products() {
               >
                 <div className="flex flex-wrap gap-2 mb-6">
                   {product.badges.map(badge => (
-                    <span key={badge} className="px-3 py-1 bg-ayoya-green/5 text-ayoya-green text-[10px] font-bold uppercase tracking-widest rounded-full">
+                    <span key={badge} className="px-3 py-1 bg-ayoya-green/5 text-ayoya-green text-xs font-bold uppercase tracking-widest rounded-full">
                       {badge}
                     </span>
                   ))}
@@ -166,20 +166,20 @@ export default function Products() {
                     {product.title}
                   </h3>
                 </Link>
-                <p className="text-ayoya-amber font-serif italic text-lg mb-6">{product.subtitle}</p>
+                <p className="text-ayoya-gold font-serif italic text-lg mb-6">{product.subtitle}</p>
 
                 <div className="mb-6">
-                  <span className="block text-sm text-ayoya-brown/40 line-through">{formatPrice(calcOriginalPrice(product.price))}</span>
+                  <span className="block text-sm text-ayoya-brown/75 line-through">{formatPrice(calcOriginalPrice(product.price))}</span>
                   <div className="flex items-baseline gap-2">
                     <span className="text-3xl font-serif font-bold text-ayoya-brown">{formatPrice(product.price)}</span>
-                    <span className="text-sm text-ayoya-brown/50">/ {product.priceUnit}</span>
+                    <span className="text-sm text-ayoya-brown/75">/ {product.priceUnit}</span>
                   </div>
                   {product.priceOptions.length > 0 && (
-                    <div className="mt-2 flex flex-wrap gap-x-6 gap-y-1 text-xs text-ayoya-brown/60">
+                    <div className="mt-2 flex flex-wrap gap-x-6 gap-y-1 text-xs text-ayoya-brown/75">
                       {product.priceOptions.map(opt => (
                         <span key={opt.label}>
                           {opt.label}:{' '}
-                          <span className="text-ayoya-brown/40 line-through">{formatPrice(calcOriginalPrice(opt.price))}</span>{' '}
+                          <span className="text-ayoya-brown/75 line-through">{formatPrice(calcOriginalPrice(opt.price))}</span>{' '}
                           <strong className="text-ayoya-brown">{formatPrice(opt.price)}</strong>
                         </span>
                       ))}
@@ -242,11 +242,11 @@ export default function Products() {
                     </button>
 
                     <div className="mt-4 flex flex-wrap gap-4 justify-center md:justify-start">
-                       <div className="flex items-center gap-1 text-[8px] font-bold uppercase tracking-widest text-ayoya-green bg-ayoya-green/5 px-3 py-1 rounded-full">
+                       <div className="flex items-center gap-1 text-xs font-bold uppercase tracking-widest text-ayoya-green bg-ayoya-green/5 px-3 py-1 rounded-full">
                           <CheckCircle2 size={10} />
                           Hoàn tiền theo chính sách
                        </div>
-                       <div className="flex items-center gap-1 text-[8px] font-bold uppercase tracking-widest text-ayoya-green bg-ayoya-green/5 px-3 py-1 rounded-full">
+                       <div className="flex items-center gap-1 text-xs font-bold uppercase tracking-widest text-ayoya-green bg-ayoya-green/5 px-3 py-1 rounded-full">
                           <CheckCircle2 size={10} />
                           Đồng kiểm
                        </div>

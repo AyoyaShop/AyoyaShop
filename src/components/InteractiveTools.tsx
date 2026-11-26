@@ -29,11 +29,11 @@ export default function InteractiveTools() {
   };
 
   return (
-    <section id="quiz" className="py-24 bg-paper bg-ayoya-cream/40 scroll-mt-24">
+    <section id="quiz" className="py-24 bg-paper bg-ayoya-cream/40 scroll-mt-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-serif text-ayoya-brown mb-4">Giá Trị <span className="italic">Trao Tặng</span></h2>
-          <p className="text-ayoya-brown/50 tracking-[0.2em] uppercase text-[10px] font-bold">Mỏ neo năng lượng cho gia chủ</p>
+          <p className="text-ayoya-brown/75 tracking-[0.2em] uppercase text-xs font-bold">Mỏ neo năng lượng cho gia chủ</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -62,12 +62,12 @@ export default function InteractiveTools() {
                 { day: 'Mùng 2 & 16 Âm Lịch', title: 'Tẩy uế gia đạo', text: 'Theo quan niệm dân gian, đây là ngày hợp để xông thảo mộc 38 vị.' },
               ].map((item, idx) => (
                 <div key={idx} className="flex gap-6 p-6 rounded-2xl bg-ayoya-cream/20 border border-ayoya-brown/5">
-                  <div className="text-ayoya-amber font-serif text-lg leading-tight w-20 flex-shrink-0">
+                  <div className="text-ayoya-gold font-serif text-lg leading-tight w-20 flex-shrink-0">
                     {item.day}
                   </div>
                   <div>
-                    <h4 className="font-bold text-sm uppercase tracking-wider mb-1">{item.title}</h4>
-                    <p className="text-xs text-ayoya-brown/60 leading-normal">{item.text}</p>
+                    <h3 className="font-bold text-sm uppercase tracking-wider mb-1">{item.title}</h3>
+                    <p className="text-xs text-ayoya-brown/75 leading-normal">{item.text}</p>
                   </div>
                 </div>
               ))}
@@ -75,7 +75,7 @@ export default function InteractiveTools() {
             <a 
   href="/phong-thuy-chuyen-sau-ve-thanh-tay-khong-gian.pdf" 
   download="Phong-Thuy-Chuyen-Sau-Ayoya.pdf"
-  className="mt-8 block text-center w-full py-4 border border-ayoya-brown/10 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-ayoya-brown hover:text-white transition-all cursor-pointer"
+  className="mt-8 block text-center w-full py-4 border border-ayoya-brown/10 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-ayoya-brown hover:text-white transition-all cursor-pointer"
 >
   Tải Phong Thủy Chuyên Sâu (PDF)
 </a>
@@ -107,9 +107,9 @@ export default function InteractiveTools() {
                     <p className="text-xs font-bold uppercase tracking-[0.2em] text-ayoya-amber mb-4">
                       Câu hỏi {currentStep + 1}/{QUIZ_QUESTIONS.length}
                     </p>
-                    <h4 className="text-xl md:text-2xl font-serif mb-8 leading-snug">
+                    <h3 className="text-xl md:text-2xl font-serif mb-8 leading-snug">
                       {QUIZ_QUESTIONS[currentStep].question}
-                    </h4>
+                    </h3>
                     <div className="space-y-4">
                       {QUIZ_QUESTIONS[currentStep].options.map((opt, i) => (
                         <button 
@@ -131,7 +131,7 @@ export default function InteractiveTools() {
                     className="flex-1 flex flex-col items-center text-center justify-center py-8"
                   >
                     <span className="text-ayoya-amber mb-4 uppercase tracking-[0.3em] font-bold text-xs">Kết quả trắc nghiệm</span>
-                    <h4 className="text-3xl font-serif mb-6">{result.title}</h4>
+                    <h3 className="text-3xl font-serif mb-6">{result.title}</h3>
                     <p className="text-ayoya-cream/70 mb-10 leading-relaxed italic max-w-sm">
                       "{result.description}"
                     </p>
@@ -144,7 +144,7 @@ export default function InteractiveTools() {
                       </a>
                       <button 
                         onClick={resetQuiz}
-                        className="flex items-center justify-center gap-2 text-ayoya-cream/40 hover:text-ayoya-cream transition-colors text-[10px] uppercase font-bold tracking-widest"
+                        className="flex items-center justify-center gap-2 text-ayoya-cream/75 hover:text-ayoya-cream transition-colors text-xs uppercase font-bold tracking-widest"
                       >
                         <RefreshCcw size={14} />
                         Làm lại trắc nghiệm

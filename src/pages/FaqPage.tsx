@@ -52,7 +52,7 @@ export default function FaqPage() {
           <h1 className="text-3xl md:text-5xl font-serif text-ayoya-brown mb-4 underline underline-offset-8 decoration-ayoya-amber/30">
             Câu hỏi <span className="italic">thường gặp</span>
           </h1>
-          <p className="text-ayoya-brown/60 tracking-wider text-[10px] md:text-sm uppercase">Mọi thắc mắc trước khi đặt hàng</p>
+          <p className="text-ayoya-brown/75 tracking-wider text-xs md:text-sm uppercase">Mọi thắc mắc trước khi đặt hàng</p>
         </div>
 
         <div className="space-y-3">
@@ -65,7 +65,7 @@ export default function FaqPage() {
                   className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left"
                 >
                   <span className="font-medium text-ayoya-brown">{faq.question}</span>
-                  <ChevronDown size={18} className={`flex-shrink-0 text-ayoya-brown/50 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+                  <ChevronDown size={18} className={`flex-shrink-0 text-ayoya-brown/75 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
                 </button>
                 {isOpen && (
                   <p className="px-6 pb-5 text-sm text-ayoya-brown/70 leading-relaxed">

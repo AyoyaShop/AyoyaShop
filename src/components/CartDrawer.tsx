@@ -212,7 +212,7 @@ export default function CartDrawer() {
             </h3>
             <button
               onClick={handleClose}
-              className="text-ayoya-brown/50 hover:text-ayoya-brown transition-colors -m-2 p-2"
+              className="text-ayoya-brown/75 hover:text-ayoya-brown transition-colors -m-2 p-2"
               aria-label="Đóng"
             >
               <X size={22} />
@@ -222,7 +222,7 @@ export default function CartDrawer() {
           <div className="flex-1 overflow-y-auto px-6 py-6">
             {step === 'cart' &&
               (items.length === 0 ? (
-                <div className="h-full flex flex-col items-center justify-center text-center text-ayoya-brown/50 gap-4">
+                <div className="h-full flex flex-col items-center justify-center text-center text-ayoya-brown/75 gap-4">
                   <ShoppingCart size={48} strokeWidth={1} />
                   <p>Giỏ hàng đang trống.</p>
                 </div>
@@ -241,7 +241,7 @@ export default function CartDrawer() {
                       <div className="flex-1 min-w-0">
                         <p className="text-sm font-medium text-ayoya-brown truncate">{item.title}</p>
                         {item.variantLabel && (
-                          <p className="text-[10px] uppercase tracking-widest text-ayoya-brown/40">{item.variantLabel}</p>
+                          <p className="text-xs uppercase tracking-widest text-ayoya-brown/75">{item.variantLabel}</p>
                         )}
                         <div className="flex items-center justify-between mt-2">
                           <div className="flex items-center gap-2">
@@ -263,7 +263,7 @@ export default function CartDrawer() {
                           </div>
                           <div className="flex flex-col items-end">
                             {!itemProduct?.noDiscount && (
-                              <span className="text-[10px] text-ayoya-brown/40 line-through leading-tight">
+                              <span className="text-xs text-ayoya-brown/75 line-through leading-tight">
                                 {formatPrice(calcOriginalPrice(item.unitPrice) * item.quantity)}
                               </span>
                             )}
@@ -273,7 +273,7 @@ export default function CartDrawer() {
                       </div>
                       <button
                         onClick={() => removeItem(item.key)}
-                        className="text-ayoya-brown/30 hover:text-ayoya-brick transition-colors self-start -m-2 p-2"
+                        className="text-ayoya-brown/75 hover:text-ayoya-brick transition-colors self-start -m-2 p-2"
                         aria-label="Xóa sản phẩm"
                       >
                         <Trash2 size={16} />
@@ -287,7 +287,7 @@ export default function CartDrawer() {
             {step === 'checkout' && (
               <div className="space-y-5">
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-widest text-ayoya-brown/60 mb-2">Họ tên *</label>
+                  <label className="block text-xs font-bold uppercase tracking-widest text-ayoya-brown/75 mb-2">Họ tên *</label>
                   <input
                     value={form.name}
                     onChange={e => setForm({ ...form, name: e.target.value })}
@@ -304,7 +304,7 @@ export default function CartDrawer() {
                   )}
                 </div>
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-widest text-ayoya-brown/60 mb-2">Số điện thoại *</label>
+                  <label className="block text-xs font-bold uppercase tracking-widest text-ayoya-brown/75 mb-2">Số điện thoại *</label>
                   <input
                     value={form.phone}
                     onChange={e => setForm({ ...form, phone: e.target.value })}
@@ -323,7 +323,7 @@ export default function CartDrawer() {
                   )}
                 </div>
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-widest text-ayoya-brown/60 mb-2">Địa chỉ nhận hàng *</label>
+                  <label className="block text-xs font-bold uppercase tracking-widest text-ayoya-brown/75 mb-2">Địa chỉ nhận hàng *</label>
                   <textarea
                     value={form.address}
                     onChange={e => setForm({ ...form, address: e.target.value })}
@@ -341,7 +341,7 @@ export default function CartDrawer() {
                   )}
                 </div>
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-widest text-ayoya-brown/60 mb-2">Khu vực giao hàng *</label>
+                  <label className="block text-xs font-bold uppercase tracking-widest text-ayoya-brown/75 mb-2">Khu vực giao hàng *</label>
                   <select
                     aria-label="Khu vực giao hàng"
                     value={zoneId}
@@ -360,11 +360,11 @@ export default function CartDrawer() {
                   {submitAttempted && fieldErrors.zone ? (
                     <p className="text-xs text-ayoya-brick font-medium mt-1">{fieldErrors.zone}</p>
                   ) : (
-                    <p className="text-[10px] text-ayoya-brown/40 mt-1">Dùng để tính phí vận chuyển qua SPX Express.</p>
+                    <p className="text-xs text-ayoya-brown/75 mt-1">Dùng để tính phí vận chuyển qua SPX Express.</p>
                   )}
                 </div>
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-widest text-ayoya-brown/60 mb-2">Ghi chú</label>
+                  <label className="block text-xs font-bold uppercase tracking-widest text-ayoya-brown/75 mb-2">Ghi chú</label>
                   <textarea
                     value={form.note}
                     onChange={e => setForm({ ...form, note: e.target.value })}
@@ -376,7 +376,7 @@ export default function CartDrawer() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-widest text-ayoya-brown/60 mb-2">Mã ưu đãi</label>
+                  <label className="block text-xs font-bold uppercase tracking-widest text-ayoya-brown/75 mb-2">Mã ưu đãi</label>
                   <div className="flex gap-2">
                     <input
                       value={promoInput}
@@ -404,7 +404,7 @@ export default function CartDrawer() {
                     <span>Tạm tính</span>
                     <span className="flex items-baseline gap-2">
                       {hasSubtotalDiscount && (
-                        <span className="text-xs text-ayoya-brown/40 line-through">{formatPrice(originalSubtotal)}</span>
+                        <span className="text-xs text-ayoya-brown/75 line-through">{formatPrice(originalSubtotal)}</span>
                       )}
                       {formatPrice(totalPrice)}
                     </span>
@@ -427,7 +427,7 @@ export default function CartDrawer() {
 
                 <div className="flex gap-3 p-4 bg-ayoya-amber/5 rounded-2xl border-l-4 border-ayoya-amber">
                   <Info size={16} className="text-ayoya-amber flex-shrink-0 mt-0.5" />
-                  <p className="text-[11px] leading-relaxed text-ayoya-brown/70">
+                  <p className="text-xs leading-relaxed text-ayoya-brown/70">
                     <span className="font-bold text-ayoya-brown">Lưu ý về cước vận chuyển: </span>
                     Nhằm đảm bảo tính minh bạch, phí vận chuyển được cập nhật theo thời gian thực từ hệ thống đối tác SPX.
                     Do đó, tổng giá trị thanh toán thực tế có thể dao động nhẹ: tăng hoặc giảm (biên độ từ 1.000đ – 10.000đ)
@@ -436,7 +436,7 @@ export default function CartDrawer() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-widest text-ayoya-brown/60 mb-2">Phương thức thanh toán</label>
+                  <label className="block text-xs font-bold uppercase tracking-widest text-ayoya-brown/75 mb-2">Phương thức thanh toán</label>
                   <div className="grid grid-cols-2 gap-3">
                     <button
                       onClick={() => setPaymentMethod('cod')}
@@ -447,7 +447,7 @@ export default function CartDrawer() {
                       }`}
                     >
                       <span>COD</span>
-                      <span className={`text-[10px] font-normal ${paymentMethod === 'cod' ? 'text-white/70' : 'text-ayoya-brown/50'}`}>
+                      <span className={`text-xs font-normal ${paymentMethod === 'cod' ? 'text-white/70' : 'text-ayoya-brown/75'}`}>
                         Thanh toán khi nhận hàng
                       </span>
                     </button>
@@ -460,7 +460,7 @@ export default function CartDrawer() {
                       }`}
                     >
                       <span>Chuyển khoản</span>
-                      <span className={`text-[10px] font-normal ${paymentMethod === 'bank' ? 'text-white/70' : 'text-ayoya-brown/50'}`}>
+                      <span className={`text-xs font-normal ${paymentMethod === 'bank' ? 'text-white/70' : 'text-ayoya-brown/75'}`}>
                         Quét mã QR
                       </span>
                     </button>
@@ -488,7 +488,7 @@ export default function CartDrawer() {
                         Số tiền: <strong className="text-ayoya-brown">{formatPrice(grandTotal)}</strong>
                       </p>
                     </div>
-                    <p className="text-[10px] text-ayoya-brown/40 italic">
+                    <p className="text-xs text-ayoya-brown/75 italic">
                       Quét mã hoặc chuyển khoản thủ công, ghi nội dung theo mã đơn Ayoya gửi lại sau khi đặt.
                     </p>
                   </div>
@@ -502,7 +502,7 @@ export default function CartDrawer() {
               <div className="h-full flex flex-col items-center justify-center text-center gap-4 py-10">
                 <CheckCircle2 size={56} className="text-ayoya-green" />
                 <h4 className="text-xl font-serif text-ayoya-brown">Cảm ơn bạn đã đặt hàng!</h4>
-                <p className="text-sm text-ayoya-brown/60 max-w-xs">
+                <p className="text-sm text-ayoya-brown/75 max-w-xs">
                   Mã đơn <strong className="text-ayoya-brown">{orderCode}</strong>. Ayoya sẽ liên hệ xác nhận trong thời gian sớm nhất.
                 </p>
               </div>
@@ -514,10 +514,10 @@ export default function CartDrawer() {
               {step === 'cart' && items.length > 0 && (
                 <>
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-ayoya-brown/60">Tạm tính (chưa gồm phí ship)</span>
+                    <span className="text-ayoya-brown/75">Tạm tính (chưa gồm phí ship)</span>
                     <span className="flex items-baseline gap-2">
                       {hasSubtotalDiscount && (
-                        <span className="text-xs text-ayoya-brown/40 line-through">{formatPrice(originalSubtotal)}</span>
+                        <span className="text-xs text-ayoya-brown/75 line-through">{formatPrice(originalSubtotal)}</span>
                       )}
                       <span className="text-xl font-bold text-ayoya-brown">{formatPrice(totalPrice)}</span>
                     </span>

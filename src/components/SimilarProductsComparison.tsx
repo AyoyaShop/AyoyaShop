@@ -27,7 +27,7 @@ export default function SimilarProductsComparison() {
           <h2 className="text-3xl md:text-4xl font-serif text-ayoya-brown mb-4 underline underline-offset-8 decoration-ayoya-amber/30">
             Phân biệt <span className="italic">3 dòng thảo dược xông</span>
           </h2>
-          <p className="max-w-2xl mx-auto text-ayoya-brown/60 tracking-wider text-[10px] md:text-sm uppercase">
+          <p className="max-w-2xl mx-auto text-ayoya-brown/75 tracking-wider text-xs md:text-sm uppercase">
             Chọn đúng sản phẩm cho đúng nhu cầu
           </p>
         </div>
@@ -41,7 +41,7 @@ export default function SimilarProductsComparison() {
           >
             <thead>
               <tr className="border-b border-ayoya-brown/10">
-                <th className="p-6 text-left font-serif text-lg italic text-ayoya-brown/40 w-40">Tiêu chí</th>
+                <th className="p-6 text-left font-serif text-lg italic text-ayoya-brown/75 w-40">Tiêu chí</th>
                 {products.map(p => (
                   <th key={p.id} className="p-6 text-left">
                     <Link to={`/san-pham/${p.id}`} className="font-serif text-lg text-ayoya-brown hover:text-ayoya-brick transition-colors">
@@ -64,9 +64,9 @@ export default function SimilarProductsComparison() {
                 <td className="p-6 font-medium text-ayoya-brown/70">Giá khởi điểm</td>
                 {products.map(p => (
                   <td key={p.id} className="p-6 text-sm">
-                    <span className="block text-xs text-ayoya-brown/40 line-through">{formatPrice(calcOriginalPrice(p.price))}</span>
+                    <span className="block text-xs text-ayoya-brown/75 line-through">{formatPrice(calcOriginalPrice(p.price))}</span>
                     <span className="font-bold text-ayoya-brown">{formatPrice(p.price)}</span>{' '}
-                    <span className="font-normal text-ayoya-brown/50">/ {p.priceUnit}</span>
+                    <span className="font-normal text-ayoya-brown/75">/ {p.priceUnit}</span>
                   </td>
                 ))}
               </tr>

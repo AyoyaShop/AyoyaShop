@@ -19,7 +19,7 @@ export default function ContactPage() {
           <h1 className="text-3xl md:text-5xl font-serif text-ayoya-brown mb-4 underline underline-offset-8 decoration-ayoya-amber/30">
             Liên hệ <span className="italic">AYOYA</span>
           </h1>
-          <p className="text-ayoya-brown/60 tracking-wider text-[10px] md:text-sm uppercase">Chúng tôi luôn sẵn sàng lắng nghe bạn</p>
+          <p className="text-ayoya-brown/75 tracking-wider text-xs md:text-sm uppercase">Chúng tôi luôn sẵn sàng lắng nghe bạn</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -27,7 +27,7 @@ export default function ContactPage() {
             <div className="flex items-start gap-4 p-5 bg-white rounded-2xl border border-ayoya-brown/10">
               <MapPin size={22} className="text-ayoya-amber flex-shrink-0 mt-0.5" />
               <div>
-                <p className="text-xs font-bold uppercase tracking-widest text-ayoya-brown/50 mb-1">Địa chỉ</p>
+                <p className="text-xs font-bold uppercase tracking-widest text-ayoya-brown/75 mb-1">Địa chỉ</p>
                 <p className="text-ayoya-brown">{CONTACT_INFO.address}</p>
               </div>
             </div>
@@ -38,7 +38,7 @@ export default function ContactPage() {
             >
               <Phone size={22} className="text-ayoya-amber flex-shrink-0 mt-0.5" />
               <div>
-                <p className="text-xs font-bold uppercase tracking-widest text-ayoya-brown/50 mb-1">Điện thoại</p>
+                <p className="text-xs font-bold uppercase tracking-widest text-ayoya-brown/75 mb-1">Điện thoại</p>
                 <p className="text-ayoya-brown">{CONTACT_INFO.phone}</p>
               </div>
             </a>
@@ -51,7 +51,7 @@ export default function ContactPage() {
             >
               <MessageCircle size={22} className="text-ayoya-amber flex-shrink-0 mt-0.5" />
               <div>
-                <p className="text-xs font-bold uppercase tracking-widest text-ayoya-brown/50 mb-1">Zalo</p>
+                <p className="text-xs font-bold uppercase tracking-widest text-ayoya-brown/75 mb-1">Zalo</p>
                 <p className="text-ayoya-brown">Chat trực tiếp với AYOYA</p>
               </div>
             </a>
@@ -62,7 +62,7 @@ export default function ContactPage() {
             >
               <Mail size={22} className="text-ayoya-amber flex-shrink-0 mt-0.5" />
               <div>
-                <p className="text-xs font-bold uppercase tracking-widest text-ayoya-brown/50 mb-1">Email</p>
+                <p className="text-xs font-bold uppercase tracking-widest text-ayoya-brown/75 mb-1">Email</p>
                 <p className="text-ayoya-brown">{CONTACT_INFO.email}</p>
               </div>
             </a>

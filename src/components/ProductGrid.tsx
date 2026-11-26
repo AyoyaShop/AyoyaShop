@@ -26,7 +26,7 @@ export default function ProductGrid() {
           <h2 className="text-3xl md:text-4xl font-serif text-ayoya-brown mb-4 underline underline-offset-8 decoration-ayoya-amber/30">
             Được Mua <span className="italic">Nhiều</span>
           </h2>
-          <p className="max-w-2xl mx-auto text-ayoya-brown/60 tracking-wider text-[10px] md:text-sm uppercase">
+          <p className="max-w-2xl mx-auto text-ayoya-brown/75 tracking-wider text-xs md:text-sm uppercase">
             Thảo mộc & phong thủy nhiều lượt đánh giá trên hai sàn
           </p>
         </div>
@@ -63,15 +63,16 @@ export default function ProductGrid() {
                       {product.title}
                     </h3>
                   </Link>
-                  <p className="text-[11px] text-ayoya-brown/60 leading-relaxed mb-3 line-clamp-2">
+                  <p className="text-xs text-ayoya-brown/75 leading-relaxed mb-3 line-clamp-2">
                     {product.description}
                   </p>
 
                   {variants.length > 1 && (
                     <select
+                      aria-label={`Chọn loại ${product.title}`}
                       value={selectedLabel}
                       onChange={e => setSelectedVariants(prev => ({ ...prev, [product.id]: e.target.value }))}
-                      className="mb-3 w-full text-[11px] px-2 py-1.5 rounded-lg border border-ayoya-brown/15 bg-white text-ayoya-brown"
+                      className="mb-3 w-full text-xs px-2 py-1.5 rounded-lg border border-ayoya-brown/15 bg-white text-ayoya-brown"
                     >
                       {variants.map(v => (
                         <option key={v.label} value={v.label}>
@@ -84,12 +85,12 @@ export default function ProductGrid() {
                   <div className="mt-auto flex items-end justify-between gap-2">
                     <div className="flex flex-col">
                       {!product.noDiscount && (
-                        <span className="text-[11px] text-ayoya-brown/40 line-through leading-tight">
+                        <span className="text-xs text-ayoya-brown/75 line-through leading-tight">
                           {formatPrice(calcOriginalPrice(selectedVariant.price))}
                         </span>
                       )}
                       <span className="text-base font-bold text-ayoya-brown leading-tight">{formatPrice(selectedVariant.price)}</span>
-                      <span className="text-[10px] text-ayoya-brown/50 leading-tight">/ {selectedVariant.label}</span>
+                      <span className="text-xs text-ayoya-brown/75 leading-tight">/ {selectedVariant.label}</span>
                     </div>
                     <button
                       onClick={() =>
@@ -141,8 +142,8 @@ export default function ProductGrid() {
           />
           <div className="absolute inset-0 bg-ayoya-brown/40 group-hover:bg-ayoya-brown/50 transition-colors flex flex-col items-center justify-center text-white text-center p-6">
             <h3 className="text-2xl md:text-4xl font-bold mb-2 tracking-tight">Các sản phẩm khác</h3>
-            <p className="text-[10px] md:text-xs opacity-90 mb-6 font-medium uppercase tracking-[0.2em]">Khám phá trọn bộ sưu tập Thảo mộc & Phong thủy</p>
-            <div className="flex items-center gap-2 px-8 py-3 bg-ayoya-cream text-ayoya-brown rounded-full text-[10px] font-bold uppercase tracking-widest group-hover:bg-white transition-all shadow-lg">
+            <p className="text-xs md:text-xs opacity-90 mb-6 font-medium uppercase tracking-[0.2em]">Khám phá trọn bộ sưu tập Thảo mộc & Phong thủy</p>
+            <div className="flex items-center gap-2 px-8 py-3 bg-ayoya-cream text-ayoya-brown rounded-full text-xs font-bold uppercase tracking-widest group-hover:bg-white transition-all shadow-lg">
               Xem đầy đủ tại Shopee <ArrowRight size={14} />
             </div>
           </div>
@@ -165,8 +166,8 @@ export default function ProductGrid() {
           />
           <div className="absolute inset-0 bg-ayoya-brown/40 group-hover:bg-ayoya-brown/50 transition-colors flex flex-col items-center justify-center text-white text-center p-6">
             <h3 className="text-2xl md:text-4xl font-bold mb-2 tracking-tight">Thế Giới Thảo Mộc</h3>
-            <p className="text-[10px] md:text-xs opacity-90 mb-6 font-medium uppercase tracking-[0.2em]">Xem video thực tế & chốt đơn liền tay</p>
-            <div className="flex items-center gap-2 px-8 py-3 bg-ayoya-cream text-ayoya-brown rounded-full text-[10px] font-bold uppercase tracking-widest group-hover:bg-white transition-all shadow-lg">
+            <p className="text-xs md:text-xs opacity-90 mb-6 font-medium uppercase tracking-[0.2em]">Xem video thực tế & chốt đơn liền tay</p>
+            <div className="flex items-center gap-2 px-8 py-3 bg-ayoya-cream text-ayoya-brown rounded-full text-xs font-bold uppercase tracking-widest group-hover:bg-white transition-all shadow-lg">
               Vào ngay TikTok Shop <ArrowRight size={14} />
             </div>
           </div>

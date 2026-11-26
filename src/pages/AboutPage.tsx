@@ -50,7 +50,7 @@ export default function AboutPage() {
       <div className="max-w-5xl mx-auto">
         {/* Hero */}
         <div className="text-center mb-16">
-          <span className="text-ayoya-amber font-bold tracking-[0.4em] uppercase text-[10px] mb-4 block">Hành trình di sản</span>
+          <span className="text-ayoya-gold font-bold tracking-[0.4em] uppercase text-xs mb-4 block">Hành trình di sản</span>
           <h1 className="text-4xl md:text-6xl font-serif text-ayoya-brown mb-6 leading-[1.1]">
             Từ Lò Võ Bình Định <br />
             <span className="italic">Đến AYOYA Hôm Nay</span>
@@ -118,7 +118,7 @@ export default function AboutPage() {
                 viewport={{ once: true }}
                 className="relative p-6 bg-white rounded-2xl border border-ayoya-brown/10"
               >
-                <span className="text-2xl font-serif italic text-ayoya-amber">{item.year}</span>
+                <span className="text-2xl font-serif italic text-ayoya-gold">{item.year}</span>
                 <p className="mt-3 text-sm text-ayoya-brown/70 leading-relaxed">{item.text}</p>
               </motion.div>
             ))}
@@ -130,7 +130,7 @@ export default function AboutPage() {
           <h2 className="text-2xl md:text-3xl font-serif text-ayoya-brown mb-4 text-center">
             Quy trình thật: từ Bình Định <span className="italic">đến tay khách hàng</span>
           </h2>
-          <p className="max-w-2xl mx-auto text-center text-sm text-ayoya-brown/60 mb-10">
+          <p className="max-w-2xl mx-auto text-center text-sm text-ayoya-brown/75 mb-10">
             Nhiều thương hiệu chỉ nói "nguồn gốc thiên nhiên" chung chung. AYOYA chọn cách minh bạch cụ thể hơn.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -149,7 +149,7 @@ export default function AboutPage() {
                   <MapPin size={18} className="text-ayoya-amber" />
                   <h3 className="font-serif text-lg">Cơ sở chế biến & đóng gói — Bình Định</h3>
                 </div>
-                <p className="text-xs text-ayoya-brown/50 mb-3">285 Bùi Đức Sơn, Phường Hoài Hảo, Thị xã Hoài Nhơn, Bình Định</p>
+                <p className="text-xs text-ayoya-brown/75 mb-3">285 Bùi Đức Sơn, Phường Hoài Hảo, Thị xã Hoài Nhơn, Bình Định</p>
                 <p className="text-sm text-ayoya-brown/70 leading-relaxed">
                   Đây là nơi thảo dược và trầm hương được chọn lọc, phối chế theo đúng công thức gia truyền từ 1983, và
                   đóng gói trước khi vận chuyển đi khắp cả nước.
@@ -172,7 +172,7 @@ export default function AboutPage() {
                   <MapPin size={18} className="text-ayoya-amber" />
                   <h3 className="font-serif text-lg">Showroom giao dịch — TP.HCM</h3>
                 </div>
-                <p className="text-xs text-ayoya-brown/50 mb-3">{CONTACT_INFO.address}</p>
+                <p className="text-xs text-ayoya-brown/75 mb-3">{CONTACT_INFO.address}</p>
                 <p className="text-sm text-ayoya-brown/70 leading-relaxed">
                   Đây là nơi khách hàng khu vực TP.HCM có thể ghé xem sản phẩm trực tiếp và được tư vấn tận nơi.
                 </p>
@@ -198,7 +198,7 @@ export default function AboutPage() {
                   <Icon size={32} strokeWidth={1.5} />
                 </div>
                 <h3 className="text-xl font-medium tracking-widest mb-4">{value.title}</h3>
-                <p className="text-ayoya-brown/60 leading-relaxed text-sm">{value.description}</p>
+                <p className="text-ayoya-brown/75 leading-relaxed text-sm">{value.description}</p>
               </motion.div>
             );
           })}
@@ -221,7 +221,7 @@ export default function AboutPage() {
               >
                 <stat.icon size={24} className="text-ayoya-amber mb-3" strokeWidth={1.5} />
                 <span className="text-2xl font-serif font-bold text-ayoya-brown">{stat.value}</span>
-                <span className="mt-2 text-[11px] text-ayoya-brown/60 leading-snug">{stat.label}</span>
+                <span className="mt-2 text-xs text-ayoya-brown/75 leading-snug">{stat.label}</span>
               </motion.div>
             ))}
           </div>

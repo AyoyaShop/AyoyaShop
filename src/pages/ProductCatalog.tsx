@@ -35,7 +35,7 @@ export default function ProductCatalog() {
           <h1 className="text-3xl md:text-5xl font-serif text-ayoya-brown mb-4 underline underline-offset-8 decoration-ayoya-amber/30">
             Tất cả <span className="italic">sản phẩm</span>
           </h1>
-          <p className="max-w-2xl mx-auto text-ayoya-brown/60 tracking-wider text-[10px] md:text-sm uppercase">
+          <p className="max-w-2xl mx-auto text-ayoya-brown/75 tracking-wider text-xs md:text-sm uppercase">
             Trọn bộ sưu tập thảo mộc, phong thủy và sức khỏe từ AYOYA
           </p>
         </div>
@@ -95,13 +95,14 @@ export default function ProductCatalog() {
                       {product.title}
                     </h3>
                   </Link>
-                  <p className="text-[11px] text-ayoya-brown/60 leading-relaxed mb-3 line-clamp-2">{product.description}</p>
+                  <p className="text-xs text-ayoya-brown/75 leading-relaxed mb-3 line-clamp-2">{product.description}</p>
 
                   {variants.length > 1 && (
                     <select
+                      aria-label={`Chọn loại ${product.title}`}
                       value={selectedLabel}
                       onChange={e => setSelectedVariants(prev => ({ ...prev, [product.id]: e.target.value }))}
-                      className="mb-3 w-full text-[11px] px-2 py-1.5 rounded-lg border border-ayoya-brown/15 bg-white text-ayoya-brown"
+                      className="mb-3 w-full text-xs px-2 py-1.5 rounded-lg border border-ayoya-brown/15 bg-white text-ayoya-brown"
                     >
                       {variants.map(v => (
                         <option key={v.label} value={v.label}>
@@ -114,12 +115,12 @@ export default function ProductCatalog() {
                   <div className="mt-auto flex items-end justify-between gap-2">
                     <div className="flex flex-col">
                       {!product.noDiscount && (
-                        <span className="text-[11px] text-ayoya-brown/40 line-through leading-tight">
+                        <span className="text-xs text-ayoya-brown/75 line-through leading-tight">
                           {formatPrice(calcOriginalPrice(selectedVariant.price))}
                         </span>
                       )}
                       <span className="text-base font-bold text-ayoya-brown leading-tight">{formatPrice(selectedVariant.price)}</span>
-                      <span className="text-[10px] text-ayoya-brown/50 leading-tight">/ {selectedVariant.label}</span>
+                      <span className="text-xs text-ayoya-brown/75 leading-tight">/ {selectedVariant.label}</span>
                     </div>
                     <button
                       onClick={() =>
@@ -146,7 +147,7 @@ export default function ProductCatalog() {
         </div>
 
         {visibleProducts.length === 0 && (
-          <p className="text-center text-ayoya-brown/50 py-16">Chưa có sản phẩm nào trong nhóm này.</p>
+          <p className="text-center text-ayoya-brown/75 py-16">Chưa có sản phẩm nào trong nhóm này.</p>
         )}
       </div>
     </div>

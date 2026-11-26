@@ -40,7 +40,7 @@ export default function SocialProof() {
             <div key={tile.label} className="p-6 bg-ayoya-cream/40 rounded-3xl border border-ayoya-brown/5">
               <p className="text-4xl font-serif font-bold text-ayoya-brown">{tile.value}</p>
               <p className="mt-2 text-sm text-ayoya-brown/70">{tile.label}</p>
-              <p className="mt-1 text-xs text-ayoya-brown/50">tính đến {tile.asOf}</p>
+              <p className="mt-1 text-xs text-ayoya-brown/75">tính đến {tile.asOf}</p>
             </div>
           ))}
         </div>

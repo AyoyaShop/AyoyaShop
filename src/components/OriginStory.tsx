@@ -16,7 +16,7 @@ export default function OriginStory() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <span className="text-ayoya-amber font-bold tracking-[0.4em] uppercase text-[10px] mb-4 block">Hành trình di sản</span>
+              <span className="text-ayoya-gold font-bold tracking-[0.4em] uppercase text-xs mb-4 block">Hành trình di sản</span>
               <h2 className="text-4xl md:text-6xl font-serif text-ayoya-brown mb-8 leading-[1.1]">
                 Báu Vật Đất Võ <br />
                 <span className="italic">Gửi Trọn Niềm Tin</span>
@@ -37,11 +37,11 @@ export default function OriginStory() {
               <div className="pt-8 flex flex-wrap gap-8">
                 <div className="flex flex-col">
                   <span className="text-3xl font-serif text-ayoya-brown tracking-tighter italic">Bình Định</span>
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-ayoya-brown/40">Gốc gác thương hiệu</span>
+                  <span className="text-xs font-bold uppercase tracking-widest text-ayoya-brown/75">Gốc gác thương hiệu</span>
                 </div>
                 <div className="flex flex-col">
                   <span className="text-3xl font-serif text-ayoya-brown tracking-tighter italic">Tận Tâm</span>
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-ayoya-brown/40">Quy trình thủ công</span>
+                  <span className="text-xs font-bold uppercase tracking-widest text-ayoya-brown/75">Quy trình thủ công</span>
                 </div>
               </div>
 
@@ -70,8 +70,8 @@ export default function OriginStory() {
                 />
               </div>
               <div className="px-4">
-                <h4 className="font-serif italic text-ayoya-brown">Thảo mộc tuyển chọn</h4>
-                <p className="text-[10px] uppercase text-ayoya-brown/40 mt-1">Nguồn dược liệu sạch</p>
+                <h3 className="font-serif italic text-ayoya-brown">Thảo mộc tuyển chọn</h3>
+                <p className="text-xs uppercase text-ayoya-brown/75 mt-1">Nguồn dược liệu sạch</p>
               </div>
             </motion.div>
 
@@ -91,8 +91,8 @@ export default function OriginStory() {
                 />
               </div>
               <div className="px-4">
-                <h4 className="font-serif italic text-ayoya-brown">Đóng gói tỉ mỉ</h4>
-                <p className="text-[10px] uppercase text-ayoya-brown/40 mt-1">Gửi trọn tâm tình</p>
+                <h3 className="font-serif italic text-ayoya-brown">Đóng gói tỉ mỉ</h3>
+                <p className="text-xs uppercase text-ayoya-brown/75 mt-1">Gửi trọn tâm tình</p>
               </div>
             </motion.div>
             
@@ -100,7 +100,7 @@ export default function OriginStory() {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full border-2 border-dashed border-ayoya-amber/30 flex items-center justify-center p-2">
                <div className="w-full h-full rounded-full bg-ayoya-brick/10 flex flex-col items-center justify-center text-ayoya-brick leading-none">
                                 <span className="text-[16px] font-serif italic">Làm</span>
-                  <span className="text-[10px] font-bold tracking-tighter">THỦ CÔNG</span>
+                  <span className="text-xs font-bold tracking-tighter">THỦ CÔNG</span>
                </div>
             </div>
           </div>

@@ -13,7 +13,7 @@ export default function Blogs() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="block text-[10px] md:text-xs font-bold text-ayoya-brown uppercase tracking-[0.25em] mb-3">
+          <span className="block text-xs md:text-xs font-bold text-ayoya-brown uppercase tracking-[0.25em] mb-3">
             KIẾN THỨC & TRẢI NGHIỆM
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-ayoya-brown">
@@ -47,7 +47,7 @@ export default function Blogs() {
               </div>
               
               {/* Khung chứa Tiêu đề */}
-              <h3 className="text-xl font-bold text-ayoya-brown mb-3 group-hover:text-yellow-600 transition-colors">
+              <h3 className="text-xl font-bold text-ayoya-brown mb-3 group-hover:text-ayoya-gold transition-colors">
                 {blog.title}
               </h3>
               
@@ -57,7 +57,7 @@ export default function Blogs() {
               </p>
               
               {/* Chữ ĐỌC THÊM */}
-              <span className="text-[10px] font-bold text-yellow-600 uppercase tracking-[0.15em] group-hover:text-ayoya-brown transition-colors">
+              <span className="text-xs font-bold text-ayoya-gold uppercase tracking-[0.15em] group-hover:text-ayoya-brown transition-colors">
                 Đọc thêm
               </span>
               

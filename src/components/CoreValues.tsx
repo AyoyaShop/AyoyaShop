@@ -44,7 +44,7 @@ export default function CoreValues() {
                   <Icon size={32} strokeWidth={1.5} />
                 </div>
                 <h3 className="text-xl font-medium tracking-widest mb-4">{value.title}</h3>
-                <p className="text-ayoya-brown/60 leading-relaxed text-sm">
+                <p className="text-ayoya-brown/75 leading-relaxed text-sm">
                   {value.description}
                 </p>
               </motion.div>

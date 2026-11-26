@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { ShoppingCart, Store, Menu, Search, Phone, X } from 'lucide-react';
+import { ShoppingCart, Store, Menu, Phone, X } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 
 export default function Navbar() {
@@ -36,7 +36,7 @@ export default function Navbar() {
               <div className="w-8 h-8 rounded-lg bg-ayoya-brown text-white flex items-center justify-center shadow-sm">
                 <Store size={15} />
               </div>
-              <span className="text-[8px] text-ayoya-brown font-bold uppercase tracking-wider whitespace-nowrap">TikTok<span className="hidden sm:inline"> Shop</span></span>
+              <span className="text-[10px] text-ayoya-brown font-bold uppercase whitespace-nowrap">TikTok<span className="hidden sm:inline"> Shop</span></span>
             </a>
 
             <div className="hidden lg:flex items-center gap-5 text-sm font-medium tracking-wide uppercase whitespace-nowrap">
@@ -51,7 +51,7 @@ export default function Navbar() {
           <div className="flex flex-col items-center">
             <Link to="/" className="flex flex-col items-center">
               <span className="text-3xl font-serif font-bold tracking-tighter text-ayoya-brown">AYOYA</span>
-              <span className="text-[8px] tracking-[0.08em] sm:tracking-[0.3em] uppercase opacity-60 -mt-1 text-ayoya-brown whitespace-nowrap">THẢO MỘC & PHONG THỦY</span>
+              <span className="hidden min-[360px]:block text-[9px] tracking-[0.04em] sm:tracking-[0.3em] uppercase opacity-80 -mt-1 text-ayoya-brown whitespace-nowrap">THẢO MỘC & PHONG THỦY</span>
             </Link>
           </div>
 
@@ -66,10 +66,6 @@ export default function Navbar() {
               <span className="hidden md:inline text-xs font-semibold">0933.458.485</span>
             </a>
 
-            <button className="hidden sm:block text-ayoya-brown hover:text-ayoya-amber transition-colors">
-              <Search size={20} />
-            </button>
-
             <button
               onClick={openCart}
               className="relative flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2 md:px-4 md:py-2 md:bg-ayoya-brown md:text-ayoya-cream md:rounded-full font-bold uppercase transition-all md:hover:bg-ayoya-green cursor-pointer"
@@ -82,7 +78,7 @@ export default function Navbar() {
                   </span>
                 )}
               </div>
-              <span className="text-[8px] text-ayoya-brown md:hidden whitespace-nowrap tracking-wider">Giỏ hàng</span>
+              <span className="text-[10px] text-ayoya-brown md:hidden whitespace-nowrap">Giỏ hàng</span>
               <span className="relative hidden md:block">
                 <ShoppingCart size={16} />
                 {totalItems > 0 && (
@@ -91,7 +87,7 @@ export default function Navbar() {
                   </span>
                 )}
               </span>
-              <span className="hidden md:inline text-[10px] tracking-widest">Mua hàng</span>
+              <span className="hidden md:inline text-xs tracking-widest">Mua hàng</span>
             </button>
           </div>
 

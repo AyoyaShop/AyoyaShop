@@ -92,7 +92,7 @@ export default function ProductDetail() {
       <div className="max-w-6xl mx-auto">
         <Link
           to="/"
-          className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-widest text-ayoya-brown/60 hover:text-ayoya-brown transition-colors mb-8"
+          className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-widest text-ayoya-brown/75 hover:text-ayoya-brown transition-colors mb-8"
         >
           <ChevronLeft size={16} />
           Về trang chủ
@@ -179,7 +179,7 @@ export default function ProductDetail() {
                 {product.badges.map(badge => (
                   <span
                     key={badge}
-                    className="px-3 py-1 bg-ayoya-green/5 text-ayoya-green text-[10px] font-bold uppercase tracking-widest rounded-full"
+                    className="px-3 py-1 bg-ayoya-green/5 text-ayoya-green text-xs font-bold uppercase tracking-widest rounded-full"
                   >
                     {badge}
                   </span>
@@ -188,7 +188,7 @@ export default function ProductDetail() {
             )}
 
             <h1 className="text-3xl md:text-4xl font-serif text-ayoya-brown mb-2">{product.title}</h1>
-            {product.subtitle && <p className="text-ayoya-amber font-serif italic text-lg mb-4">{product.subtitle}</p>}
+            {product.subtitle && <p className="text-ayoya-gold font-serif italic text-lg mb-4">{product.subtitle}</p>}
 
             {PRODUCT_RATINGS[product.id] && (
               <div className="flex items-center gap-1.5 mb-6 text-ayoya-brown/70">
@@ -202,11 +202,11 @@ export default function ProductDetail() {
 
             <div className="mb-6">
               {!product.noDiscount && (
-                <span className="block text-sm text-ayoya-brown/40 line-through">{formatPrice(calcOriginalPrice(selectedVariant.price))}</span>
+                <span className="block text-sm text-ayoya-brown/75 line-through">{formatPrice(calcOriginalPrice(selectedVariant.price))}</span>
               )}
               <div className="flex items-baseline gap-2">
                 <span className="text-3xl font-serif font-bold text-ayoya-brown">{formatPrice(selectedVariant.price)}</span>
-                <span className="text-sm text-ayoya-brown/50">/ {selectedVariant.label}</span>
+                <span className="text-sm text-ayoya-brown/75">/ {selectedVariant.label}</span>
               </div>
             </div>
 
@@ -225,7 +225,7 @@ export default function ProductDetail() {
                     {v.label} ·{' '}
                     {!product.noDiscount && (
                       <>
-                        <span className={activeLabel === v.label ? 'text-white/60 line-through' : 'text-ayoya-brown/40 line-through'}>
+                        <span className={activeLabel === v.label ? 'text-white/60 line-through' : 'text-ayoya-brown/75 line-through'}>
                           {formatPrice(calcOriginalPrice(v.price))}
                         </span>{' '}
                       </>
@@ -268,11 +268,11 @@ export default function ProductDetail() {
               </div>
 
               <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-                <div className="flex items-center gap-1 text-[8px] font-bold uppercase tracking-widest text-ayoya-green bg-ayoya-green/5 px-3 py-1 rounded-full">
+                <div className="flex items-center gap-1 text-xs font-bold uppercase tracking-widest text-ayoya-green bg-ayoya-green/5 px-3 py-1 rounded-full">
                   <CheckCircle2 size={10} />
                   Hoàn tiền theo chính sách
                 </div>
-                <div className="flex items-center gap-1 text-[8px] font-bold uppercase tracking-widest text-ayoya-green bg-ayoya-green/5 px-3 py-1 rounded-full">
+                <div className="flex items-center gap-1 text-xs font-bold uppercase tracking-widest text-ayoya-green bg-ayoya-green/5 px-3 py-1 rounded-full">
                   <CheckCircle2 size={10} />
                   Đồng kiểm
                 </div>
@@ -324,7 +324,7 @@ export default function ProductDetail() {
             {product.origin && (
               <div className="p-6 bg-white rounded-2xl border border-ayoya-brown/10">
                 <div className="flex items-center gap-2 mb-3 text-ayoya-brown">
-                  <CheckCircle2 size={18} className="text-ayoya-brown/60" />
+                  <CheckCircle2 size={18} className="text-ayoya-brown/75" />
                   <h3 className="font-serif text-lg">Xuất xứ & Bảo quản</h3>
                 </div>
                 <p className="text-sm text-ayoya-brown/70 leading-relaxed">{product.origin}</p>
@@ -361,7 +361,7 @@ export default function ProductDetail() {
                   <div className="p-4">
                     <h3 className="text-sm font-serif text-ayoya-brown leading-snug line-clamp-2">{p.title}</h3>
                     {!p.noDiscount && (
-                      <p className="text-xs text-ayoya-brown/40 line-through mt-1">{formatPrice(calcOriginalPrice(p.price))}</p>
+                      <p className="text-xs text-ayoya-brown/75 line-through mt-1">{formatPrice(calcOriginalPrice(p.price))}</p>
                     )}
                     <p className="text-sm font-bold text-ayoya-brown">{formatPrice(p.price)}</p>
                   </div>
@@ -413,10 +413,10 @@ export default function ProductDetail() {
           >
             <div className="flex flex-col min-w-0">
               {!product.noDiscount && (
-                <span className="text-[10px] text-ayoya-brown/40 line-through leading-tight">{formatPrice(calcOriginalPrice(selectedVariant.price))}</span>
+                <span className="text-xs text-ayoya-brown/75 line-through leading-tight">{formatPrice(calcOriginalPrice(selectedVariant.price))}</span>
               )}
               <span className="text-lg font-serif font-bold text-ayoya-brown leading-tight">{formatPrice(selectedVariant.price)}</span>
-              <span className="text-[10px] text-ayoya-brown/50 leading-tight truncate">/ {selectedVariant.label}</span>
+              <span className="text-xs text-ayoya-brown/75 leading-tight truncate">/ {selectedVariant.label}</span>
             </div>
             <button
               onClick={() => {

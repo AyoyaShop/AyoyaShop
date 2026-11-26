@@ -59,7 +59,7 @@ export default function NewsletterSignup() {
           <h2 className="text-2xl md:text-3xl font-serif text-ayoya-cream mb-3">
             Nhận ưu đãi & mẹo chăm sóc sức khỏe từ AYOYA
           </h2>
-          <p className="text-ayoya-cream/60 text-sm max-w-xl mx-auto mb-8">
+          <p className="text-ayoya-cream/75 text-sm max-w-xl mx-auto mb-8">
             Để lại số điện thoại, AYOYA sẽ nhắn Zalo gửi ưu đãi và mẹo chăm sóc sức khỏe thảo mộc dành riêng cho bạn.
           </p>
 
@@ -78,7 +78,7 @@ export default function NewsletterSignup() {
                   name="name"
                   autoComplete="name"
                   aria-label="Họ tên"
-                  className="w-full px-4 py-3 rounded-xl bg-ayoya-cream/10 border border-ayoya-cream/20 text-ayoya-cream placeholder:text-ayoya-cream/40 focus:outline-none focus:border-ayoya-amber"
+                  className="w-full px-4 py-3 rounded-xl bg-ayoya-cream/10 border border-ayoya-cream/20 text-ayoya-cream placeholder:text-ayoya-cream/75 focus:outline-none focus:border-ayoya-amber"
                 />
                 <input
                   value={phone}
@@ -88,7 +88,7 @@ export default function NewsletterSignup() {
                   name="tel"
                   autoComplete="tel"
                   aria-label="Số điện thoại"
-                  className={`w-full px-4 py-3 rounded-xl bg-ayoya-cream/10 border text-ayoya-cream placeholder:text-ayoya-cream/40 focus:outline-none focus:border-ayoya-amber ${
+                  className={`w-full px-4 py-3 rounded-xl bg-ayoya-cream/10 border text-ayoya-cream placeholder:text-ayoya-cream/75 focus:outline-none focus:border-ayoya-amber ${
                     touched && phoneError ? 'border-ayoya-brick' : 'border-ayoya-cream/20'
                   }`}
                 />

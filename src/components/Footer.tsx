@@ -15,30 +15,32 @@ export default function Footer() {
               cho không gian sống của bạn.
             </p>
             <div className="flex flex-wrap gap-4">
-              <a href={CONTACT_INFO.facebook} className="w-10 h-10 rounded-full border border-ayoya-cream/20 flex items-center justify-center hover:bg-ayoya-cream hover:text-ayoya-brown transition-all">
+              <a href={CONTACT_INFO.facebook}
+                aria-label="Facebook Ayoya Shop" className="w-10 h-10 rounded-full border border-ayoya-cream/20 flex items-center justify-center hover:bg-ayoya-cream hover:text-ayoya-brown transition-all">
                 <Facebook size={18} />
               </a>
               <a
                 href={CONTACT_INFO.instagram}
+                aria-label="Instagram của AYOYA"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full border border-ayoya-cream/20 flex items-center justify-center hover:bg-ayoya-cream hover:text-ayoya-brown transition-all"
               >
                 <Instagram size={18} />
               </a>
-              <a href={TIKTOK_LINK} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-ayoya-cream/20 flex items-center justify-center hover:bg-ayoya-cream hover:text-ayoya-brown transition-all">
-                <span className="text-[10px] font-black italic">TT</span>
+              <a href={TIKTOK_LINK} aria-label="Gian hàng TikTok Shop" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-ayoya-cream/20 flex items-center justify-center hover:bg-ayoya-cream hover:text-ayoya-brown transition-all">
+                <span className="text-xs font-black italic">TT</span>
               </a>
             </div>
             
             <div className="mt-8 flex flex-col gap-3">
-              <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] text-ayoya-amber">Ghé thăm gian hàng</h4>
+              <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-ayoya-amber">Ghé thăm gian hàng</h3>
               <div className="flex gap-4">
                 <a href={SHOPEE_LINK} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 border border-ayoya-amber/30 rounded-lg text-xs hover:bg-ayoya-amber/10 transition-colors">
                   <ShoppingBag size={14} />
                   Shopee
                 </a>
-                <a href={TIKTOK_LINK} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 border border-ayoya-amber/30 rounded-lg text-xs hover:bg-ayoya-amber/10 transition-colors">
+                <a href={TIKTOK_LINK} aria-label="Gian hàng TikTok Shop" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 border border-ayoya-amber/30 rounded-lg text-xs hover:bg-ayoya-amber/10 transition-colors">
                   <span className="font-black italic">T</span>
                   TikTok Shop
                 </a>
@@ -47,7 +49,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-sm font-bold uppercase tracking-[0.2em] mb-8 text-ayoya-amber">Liên hệ</h4>
+            <h3 className="text-sm font-bold uppercase tracking-[0.2em] mb-8 text-ayoya-amber">Liên hệ</h3>
             <div className="space-y-6">
               <div className="flex items-start gap-4 text-ayoya-cream/70 hover:text-ayoya-cream transition-colors">
                 <MapPin size={20} className="mt-1 flex-shrink-0" />
@@ -65,7 +67,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-sm font-bold uppercase tracking-[0.2em] mb-8 text-ayoya-amber">Chính sách</h4>
+            <h3 className="text-sm font-bold uppercase tracking-[0.2em] mb-8 text-ayoya-amber">Chính sách</h3>
             <ul className="space-y-4 text-sm text-ayoya-cream/70">
               <li><Link to="/chinh-sach/chinh-sach-bao-mat" className="hover:text-ayoya-cream transition-colors">Chính sách bảo mật</Link></li>
               <li><Link to="/chinh-sach/chinh-sach-van-chuyen" className="hover:text-ayoya-cream transition-colors">Chính sách vận chuyển</Link></li>
@@ -75,7 +77,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="pt-12 border-t border-ayoya-cream/10 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] font-bold uppercase tracking-[0.3em] text-ayoya-cream/40">
+        <div className="pt-12 border-t border-ayoya-cream/10 flex flex-col md:flex-row justify-between items-center gap-6 text-xs font-bold uppercase tracking-[0.3em] text-ayoya-cream/75">
           <p>© 2026 AYOYA SHOP. All rights reserved.</p>
           <div className="flex gap-8">
             <span>Website by AYOYA Developer</span>
