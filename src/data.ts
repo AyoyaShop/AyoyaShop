@@ -88,11 +88,12 @@ export const PRODUCT_RATINGS: Record<string, { stars: number; reviewCount: numbe
   'tao-xoan': { stars: 5.0, reviewCount: 7 }
 };
 
-// Review total: both platforms, bundled listings counted once. Sold figure comes from the TikTok shop header.
-// Shop rating and visible star scores were re-checked on both platforms on 26/11/2026; review counts are older.
+// Shopee counts, shop rating and sold figure were read on 26/11/2026. The TikTok review count is still
+// the 22/08/2026 one, so the combined total is only shown rounded down, as "at least".
 export const REVIEW_SUMMARY = {
-  totalReviews: 3226,
-  reviewsAsOf: '22/08/2026',
+  tiktokReviews: 2569,
+  shopeeReviews: 1001,
+  shopeeFiveStar: 934,
   shopRating: 4.9,
   tiktokSold: '71,6K',
   checkedAt: '26/11/2026'

@@ -13,10 +13,12 @@ const TOP_REVIEWED = Object.entries(PRODUCT_RATINGS)
 
 const formatNumber = (n: number) => n.toLocaleString('vi-VN');
 
+const reviewFloor = Math.floor((REVIEW_SUMMARY.tiktokReviews + REVIEW_SUMMARY.shopeeReviews) / 100) * 100;
+
 const SUMMARY_TILES = [
   { value: REVIEW_SUMMARY.tiktokSold, label: 'sản phẩm đã bán trên TikTok Shop', asOf: REVIEW_SUMMARY.checkedAt },
   { value: `${REVIEW_SUMMARY.shopRating}/5`, label: 'điểm đánh giá shop trên TikTok Shop và Shopee', asOf: REVIEW_SUMMARY.checkedAt },
-  { value: formatNumber(REVIEW_SUMMARY.totalReviews), label: 'lượt đánh giá trên TikTok Shop và Shopee', asOf: REVIEW_SUMMARY.reviewsAsOf }
+  { value: `${formatNumber(reviewFloor)}+`, label: 'lượt đánh giá trên TikTok Shop và Shopee', asOf: REVIEW_SUMMARY.checkedAt }
 ];
 
 export default function SocialProof() {
@@ -28,7 +30,8 @@ export default function SocialProof() {
             Khách Hàng <span className="italic">Đánh Giá</span>
           </h2>
           <p className="max-w-2xl mx-auto text-ayoya-brown/70 text-sm">
-            Số liệu từ gian hàng Ayoya trên TikTok Shop và Shopee.
+            Số liệu từ gian hàng Ayoya trên TikTok Shop và Shopee. Riêng Shopee, {formatNumber(REVIEW_SUMMARY.shopeeFiveStar)} trong{' '}
+            {formatNumber(REVIEW_SUMMARY.shopeeReviews)} lượt đánh giá là 5 sao.
           </p>
         </div>
 
