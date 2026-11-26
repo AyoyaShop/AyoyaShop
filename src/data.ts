@@ -78,8 +78,8 @@ export const PRODUCT_RATINGS: Record<string, { stars: number; reviewCount: numbe
   'dau-goi-moc-an': { stars: 4.6, reviewCount: 106 },
   'than-vien-xong-nha': { stars: 4.6, reviewCount: 57 },
   'ngam-chan-moc-an': { stars: 4.9, reviewCount: 62 },
-  'nu-tram-huong': { stars: 4.8, reviewCount: 38 },
-  'nu-que': { stars: 4.8, reviewCount: 38 },
+  'nu-tram-huong': { stars: 4.7, reviewCount: 38 },
+  'nu-que': { stars: 4.7, reviewCount: 38 },
   'beauty-collagen-c': { stars: 4.9, reviewCount: 23 },
   'nhang-que': { stars: 4.9, reviewCount: 11 },
   'nhang-tram-cao-cap': { stars: 4.9, reviewCount: 11 },
@@ -88,8 +88,15 @@ export const PRODUCT_RATINGS: Record<string, { stars: number; reviewCount: numbe
   'tao-xoan': { stars: 5.0, reviewCount: 7 }
 };
 
-// Both platforms combined, counted on 22/08/2026; bundled listings are counted once.
-export const REVIEW_SUMMARY = { totalReviews: 3226, shopeeShopRating: 4.9, asOf: '22/08/2026' };
+// Review total: both platforms, bundled listings counted once. TikTok figures come from the shop header.
+// TikTok star scores were re-checked on 26/11/2026; review counts and Shopee scores are older.
+export const REVIEW_SUMMARY = {
+  totalReviews: 3226,
+  reviewsAsOf: '22/08/2026',
+  tiktokShopRating: 4.9,
+  tiktokSold: '71,6K',
+  tiktokAsOf: '26/11/2026'
+};
 
 export function calcShippingFee(weightGrams: number, zoneId: string): number {
   const zone = SHIPPING_ZONES.find(z => z.id === zoneId) ?? SHIPPING_ZONES[0];

@@ -13,6 +13,12 @@ const TOP_REVIEWED = Object.entries(PRODUCT_RATINGS)
 
 const formatNumber = (n: number) => n.toLocaleString('vi-VN');
 
+const SUMMARY_TILES = [
+  { value: REVIEW_SUMMARY.tiktokSold, label: 'sản phẩm đã bán trên TikTok Shop', asOf: REVIEW_SUMMARY.tiktokAsOf },
+  { value: `${REVIEW_SUMMARY.tiktokShopRating}/5`, label: 'điểm đánh giá shop trên TikTok Shop', asOf: REVIEW_SUMMARY.tiktokAsOf },
+  { value: formatNumber(REVIEW_SUMMARY.totalReviews), label: 'lượt đánh giá trên TikTok Shop và Shopee', asOf: REVIEW_SUMMARY.reviewsAsOf }
+];
+
 export default function SocialProof() {
   return (
     <section className="py-24 bg-white overflow-hidden">
@@ -22,19 +28,18 @@ export default function SocialProof() {
             Khách Hàng <span className="italic">Đánh Giá</span>
           </h2>
           <p className="max-w-2xl mx-auto text-ayoya-brown/70 text-sm">
-            Số liệu từ gian hàng Ayoya trên TikTok Shop và Shopee, tính đến ngày {REVIEW_SUMMARY.asOf}.
+            Số liệu từ gian hàng Ayoya trên TikTok Shop và Shopee.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-4 max-w-xl mx-auto mb-10 text-center">
-          <div className="p-6 bg-ayoya-cream/40 rounded-3xl border border-ayoya-brown/5">
-            <p className="text-4xl font-serif font-bold text-ayoya-brown">{formatNumber(REVIEW_SUMMARY.totalReviews)}</p>
-            <p className="mt-2 text-sm text-ayoya-brown/70">lượt đánh giá trên cả hai sàn</p>
-          </div>
-          <div className="p-6 bg-ayoya-cream/40 rounded-3xl border border-ayoya-brown/5">
-            <p className="text-4xl font-serif font-bold text-ayoya-brown">{REVIEW_SUMMARY.shopeeShopRating}/5</p>
-            <p className="mt-2 text-sm text-ayoya-brown/70">điểm đánh giá shop trên Shopee</p>
-          </div>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10 text-center">
+          {SUMMARY_TILES.map(tile => (
+            <div key={tile.label} className="p-6 bg-ayoya-cream/40 rounded-3xl border border-ayoya-brown/5">
+              <p className="text-4xl font-serif font-bold text-ayoya-brown">{tile.value}</p>
+              <p className="mt-2 text-sm text-ayoya-brown/70">{tile.label}</p>
+              <p className="mt-1 text-xs text-ayoya-brown/50">tính đến {tile.asOf}</p>
+            </div>
+          ))}
         </div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
