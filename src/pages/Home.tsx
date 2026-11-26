@@ -8,7 +8,7 @@ import ProductGrid from '../components/ProductGrid';
 import SimilarProductsComparison from '../components/SimilarProductsComparison';
 import OriginStory from '../components/OriginStory';
 import SocialProof from '../components/SocialProof';
-import Comparison from '../components/Comparison';
+import PurchaseAssurance from '../components/PurchaseAssurance';
 import Blogs from '../components/Blogs';
 import NewsletterSignup from '../components/NewsletterSignup';
 import { applyDefaultSeo } from '../lib/seo';
@@ -29,7 +29,7 @@ export default function Home() {
       <SimilarProductsComparison />
       <OriginStory />
       <SocialProof />
-      <Comparison />
+      <PurchaseAssurance />
       <Blogs />
       <NewsletterSignup />
     </>

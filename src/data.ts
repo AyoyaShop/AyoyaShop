@@ -184,7 +184,7 @@ export const PRODUCTS = [
     video: 'https://res.cloudinary.com/dfb8mvzhc/video/upload/v1776441157/xongtam_fomnwn.mp4',
     cta: 'Chăm sóc cơ thể',
     link: 'https://vt.tiktok.com/ZS9LgeM9mft9m-5arsI/',
-    badges: ['Dịu nhẹ cho mọi làn da, kể cả da nhạy cảm', 'Hỗ trợ lưu thông khí huyết và giải tỏa căng thẳng hiệu quả'],
+    badges: ['21 vị thảo mộc', 'Xông và tắm thư giãn'],
     price: 43000,
     priceUnit: 'Gói dùng thử',
     weightGrams: 340,
@@ -472,7 +472,7 @@ export const MORE_PRODUCTS = [
     noDiscount: false,
     title: 'Viên Tảo Xoắn Ăn Ngon - Ngủ Ngon',
     description:
-      'Thực phẩm bảo vệ sức khỏe gồm 2 loại viên riêng biệt — Ăn Ngon và Ngủ Ngon — kết hợp tinh hoa thảo dược thiên nhiên, hỗ trợ cải thiện cả ăn uống kém lẫn giấc ngủ không ngon.',
+      'Thực phẩm bảo vệ sức khỏe gồm 2 loại viên riêng biệt — Ăn Ngon và Ngủ Ngon — kết hợp tinh hoa thảo dược thiên nhiên, hỗ trợ cải thiện cả ăn uống kém lẫn giấc ngủ không ngon. Thực phẩm này không phải là thuốc, không có tác dụng thay thế thuốc chữa bệnh.',
     benefits: '',
     ingredients:
       'Viên Ăn Ngon: Tảo Xoắn Spirulina, Đông Trùng Hạ Thảo, Hồng Sâm Korea, Đan Sâm, Đương Quy, Bạch Truật, Hoàng Kỳ. Viên Ngủ Ngon: Cao Bình Vôi, Đông Trùng Hạ Thảo, Cao Lạc Tiên, Cao Tâm Sen, Cao Nữ Lang.',
@@ -495,7 +495,7 @@ export const MORE_PRODUCTS = [
     category: 'suc-khoe',
     noDiscount: false,
     title: 'Beauty Collagen C+',
-    description: 'Viên uống Fish Collagen Peptide nhập khẩu Nhật kết hợp chiết xuất Sâm Tố Nữ, Glutathione và Vitamin E. Hỗ trợ cải thiện nội tiết tố nữ, giúp làn da đều màu, sáng khỏe hơn từ bên trong.',
+    description: 'Viên uống Fish Collagen Peptide nhập khẩu Nhật kết hợp chiết xuất Sâm Tố Nữ, Glutathione và Vitamin E. Hỗ trợ cải thiện nội tiết tố nữ, giúp làn da đều màu, sáng khỏe hơn từ bên trong. Thực phẩm này không phải là thuốc, không có tác dụng thay thế thuốc chữa bệnh.',
     benefits: '',
     ingredients:
       'Fish Collagen Peptide, Sâm tố nữ (Pueraria mirifica), sữa ong chúa, chiết xuất thông đỏ, Maca, Damiana, L-Glutathione, kẽm gluconate, Vitamin E và Biotin.',
@@ -519,7 +519,7 @@ export const MORE_PRODUCTS = [
     noDiscount: false,
     title: 'Hoạt Huyết Tiền Đình SUNMAX',
     description:
-      'Thường xuyên nhức đầu, ù tai, chóng mặt, khó ngủ sâu giấc và trí nhớ kém tập trung hơn trước — đây là những dấu hiệu thường gặp khi tuần hoàn máu não hoạt động kém hiệu quả. Hoạt Huyết Tiền Đình SUNMAX kết hợp Cao Lá Bạch Quả (Ginkgo Biloba), Cao Đan Sâm, Cao Ngưu Tất, GABA, Nattokinase cùng Citicolin Natri, Coenzyme Q10, Vitamin B1, Vitamin B6 và nhiều dưỡng chất khác trong từng viên nang mềm.',
+      'Thực phẩm bảo vệ sức khỏe dạng viên nang mềm, kết hợp Cao Lá Bạch Quả (Ginkgo Biloba), Cao Đan Sâm, Cao Ngưu Tất, GABA, Nattokinase cùng Citicolin Natri, Coenzyme Q10, Vitamin B1, Vitamin B6 và nhiều dưỡng chất khác. Thực phẩm này không phải là thuốc, không có tác dụng thay thế thuốc chữa bệnh.',
     benefits:
       'Hỗ trợ hoạt huyết, tăng cường tuần hoàn máu não; hỗ trợ giảm các triệu chứng nhức đầu, ù tai, chóng mặt, mất ngủ, suy giảm trí nhớ do thiểu năng tuần hoàn não; hỗ trợ quá trình phục hồi sau tai biến mạch máu não do tắc mạch. Hiệu quả có thể khác nhau tùy cơ địa mỗi người.',
     ingredients:
@@ -544,7 +544,7 @@ export const MORE_PRODUCTS = [
     noDiscount: false,
     title: 'CALCINANO SUNURI',
     description:
-      'Trẻ chậm tăng chiều cao, có dấu hiệu còi xương; người lớn tuổi lo ngại loãng xương; mẹ bầu, mẹ đang cho con bú cần bổ sung thêm calci mỗi ngày — đây là nỗi lo chung của nhiều gia đình khi chế độ ăn hàng ngày khó đáp ứng đủ nhu cầu calci và vitamin D3. CALCINANO SUNURI là viên nén bao phim bổ sung Calci Carbonat Nano, Calci Carbonat, Vitamin D3 và Vitamin K2 — bộ dưỡng chất quen thuộc trong hỗ trợ phát triển và duy trì hệ xương, răng chắc khỏe cho cả gia đình.',
+      'Viên nén bao phim bổ sung Calci Carbonat Nano, Calci Carbonat, Vitamin D3 và Vitamin K2, hỗ trợ duy trì hệ xương, răng chắc khỏe cho cả gia đình. Thực phẩm này không phải là thuốc, không có tác dụng thay thế thuốc chữa bệnh.',
     benefits:
       'Bổ sung Calci, Vitamin D3, Vitamin K2 cho trẻ em và người lớn; hỗ trợ phát triển xương, răng chắc khỏe; hỗ trợ phát triển chiều cao, hỗ trợ giảm nguy cơ còi xương ở trẻ em; hỗ trợ giảm nguy cơ loãng xương ở người cao tuổi, thiếu hụt calci ở phụ nữ có thai, phụ nữ cho con bú. Hiệu quả có thể khác nhau tùy cơ địa mỗi người.',
     ingredients:
@@ -600,7 +600,7 @@ export const BLOGS = [
   },
   {
    title: 'Thanh tẩy Trường khí & Tái tạo Năng lượng Gia đạo',
-    excerpt: 'Sự kết hợp diệu kỳ giữa dược tính của thảo mộc thiên nhiên và quy luật vận hành của năng lượng vũ trụ...',
+    excerpt: 'Cách dùng thảo mộc để làm mới không gian sống theo quan niệm phong thủy dân gian...',
     image: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/f_auto,q_auto,c_limit,w_600/v1776502433/1a_dtrje5.jpg',
     link: 'https://www.nguyentuankiet.com.vn/2026/04/thanh-tay-truong-khi-tai-tao-nang-luong.html'
   },
@@ -644,7 +644,7 @@ export const QUIZ_RESULTS = {
   },
   đỏ: {
     title: 'Hồi Sinh Thể Chất',
-    description: 'Dầu võ Bình Định chính là "báu vật" giúp bạn phục hồi năng lượng và giảm cảm giác đau nhức.',
+    description: 'Dầu xoa bóp võ cổ truyền Bình Định, dùng xoa bóp thư giãn sau vận động.',
     product: 'dau-vo'
   }
 };

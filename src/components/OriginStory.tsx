@@ -30,7 +30,7 @@ export default function OriginStory() {
                   Câu chuyện bắt nguồn từ những lò võ truyền thống tại Bình Định. Sau những giờ luyện tập cường độ cao, các võ sư dùng bài thuốc xoa bóp bí truyền để phục hồi thể lực, thông kinh lạc và làm dịu các vết bầm.
                 </p>
                 <p>
-                  Chúng tôi kế thừa công thức ấy, kết hợp cùng quy trình "Tận tâm": từ việc trực tiếp chọn lựa từng vị thảo dược phơi khô dưới nắng giòn, đến khâu đóng gói tỉ mỉ như một món quà từ đất mẹ. Đó là bằng chứng thép cho giá trị "Chất lượng" mà AYOYA cam kết.
+                  Chúng tôi kế thừa công thức ấy, kết hợp cùng quy trình "Tận tâm": từ việc trực tiếp chọn lựa từng vị thảo dược phơi khô dưới nắng giòn, đến khâu đóng gói tỉ mỉ như một món quà từ đất mẹ. Đó là cách AYOYA giữ giá trị "Chất lượng".
                 </p>
               </div>
 
@@ -99,8 +99,8 @@ export default function OriginStory() {
             {/* Visual seal element */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full border-2 border-dashed border-ayoya-amber/30 flex items-center justify-center p-2">
                <div className="w-full h-full rounded-full bg-ayoya-brick/10 flex flex-col items-center justify-center text-ayoya-brick leading-none">
-                                <span className="text-[16px] font-serif italic">100%</span>
-                  <span className="text-[10px] font-bold tracking-tighter">THIÊN NHIÊN</span>
+                                <span className="text-[16px] font-serif italic">Làm</span>
+                  <span className="text-[10px] font-bold tracking-tighter">THỦ CÔNG</span>
                </div>
             </div>
           </div>

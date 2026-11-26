@@ -54,6 +54,7 @@ export const POLICIES: Policy[] = [
         bullets: [
           'Đối tác vận chuyển (SPX Express) để phục vụ việc giao hàng.',
           'Cổng thanh toán/ngân hàng để xác nhận và xử lý các giao dịch chuyển khoản.',
+          'Dịch vụ lưu trữ và thông báo (Google Sheets, Telegram) để ghi nhận đơn hàng, đăng ký nhận ưu đãi và báo cho nhân sự xử lý.',
           'Cơ quan pháp luật khi có yêu cầu chính thức từ cơ quan chức năng theo quy định của pháp luật Việt Nam.'
         ]
       },

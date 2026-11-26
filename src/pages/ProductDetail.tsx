@@ -328,7 +328,7 @@ export default function ProductDetail() {
           </div>
         )}
 
-        <p className="mt-10 text-center text-[10px] text-ayoya-brown/40 italic tracking-wide">
+        <p className="mt-10 text-center text-xs text-ayoya-brown/70">
           Nội dung mang tính tham khảo theo kinh nghiệm dân gian — không thay thế tư vấn y tế chuyên môn.
         </p>
 

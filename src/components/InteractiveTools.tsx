@@ -59,7 +59,7 @@ export default function InteractiveTools() {
             <div className="space-y-4">
               {[
                 { day: 'Mùng 1 & Rằm', title: 'Thanh tẩy nhẹ nhàng', text: 'Thích hợp lau dọn ban thờ, thắp nhang trầm sạch.' },
-                { day: 'Mùng 2 & 16 Âm Lịch', title: 'Tẩy uế gia đạo', text: 'Ngày tốt để xông thảo mộc 38 vị, đẩy lùi uế khí.' },
+                { day: 'Mùng 2 & 16 Âm Lịch', title: 'Tẩy uế gia đạo', text: 'Theo quan niệm dân gian, đây là ngày hợp để xông thảo mộc 38 vị.' },
               ].map((item, idx) => (
                 <div key={idx} className="flex gap-6 p-6 rounded-2xl bg-ayoya-cream/20 border border-ayoya-brown/5">
                   <div className="text-ayoya-amber font-serif text-lg leading-tight w-20 flex-shrink-0">

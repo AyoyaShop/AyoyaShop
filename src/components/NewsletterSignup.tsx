@@ -68,6 +68,9 @@ export default function NewsletterSignup() {
                   value={name}
                   onChange={e => setName(e.target.value)}
                   placeholder="Họ tên (không bắt buộc)"
+                  name="name"
+                  autoComplete="name"
+                  aria-label="Họ tên"
                   className="w-full px-4 py-3 rounded-xl bg-ayoya-cream/10 border border-ayoya-cream/20 text-ayoya-cream placeholder:text-ayoya-cream/40 focus:outline-none focus:border-ayoya-amber"
                 />
                 <input
@@ -75,6 +78,9 @@ export default function NewsletterSignup() {
                   onChange={e => setPhone(e.target.value)}
                   type="tel"
                   placeholder="Số điện thoại *"
+                  name="tel"
+                  autoComplete="tel"
+                  aria-label="Số điện thoại"
                   className={`w-full px-4 py-3 rounded-xl bg-ayoya-cream/10 border text-ayoya-cream placeholder:text-ayoya-cream/40 focus:outline-none focus:border-ayoya-amber ${
                     touched && phoneError ? 'border-ayoya-brick' : 'border-ayoya-cream/20'
                   }`}
@@ -91,6 +97,13 @@ export default function NewsletterSignup() {
                 Đăng ký
               </button>
             </div>
+          )}
+          {!submitted && (
+            <p className="mt-4 text-xs text-ayoya-cream/70">
+              Khi bấm "Đăng ký", bạn đồng ý để AYOYA liên hệ qua Zalo hoặc điện thoại để gửi ưu đãi, theo{' '}
+              <a href="/chinh-sach/chinh-sach-bao-mat" target="_blank" rel="noopener" className="underline">Chính sách bảo mật</a>.
+              Bạn có thể yêu cầu ngưng bất cứ lúc nào.
+            </p>
           )}
         </motion.div>
       </div>

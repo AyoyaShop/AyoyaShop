@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { Shield, Sparkles, HeartHandshake, ArrowRight, MessageCircle, Package, Star, Leaf, Clock, MapPin } from 'lucide-react';
-import { CONTACT_INFO, CORE_VALUES } from '../data';
+import { ALL_PRODUCTS, CONTACT_INFO, CORE_VALUES } from '../data';
 import { applySeo } from '../lib/seo';
 import { ABOUT_META } from '../lib/pageMeta';
 
@@ -31,7 +31,7 @@ const TIMELINE = [
 const STATS = [
   { icon: Package, value: '64.300+', label: 'Đơn hàng đã giao trên TikTok Shop' },
   { icon: Star, value: '4.9/5', label: 'Đánh giá trung bình trên Shopee (121 người theo dõi)' },
-  { icon: Leaf, value: '17', label: 'Sản phẩm thảo mộc, phong thủy & chăm sóc sức khỏe' },
+  { icon: Leaf, value: String(ALL_PRODUCTS.length), label: 'Sản phẩm thảo mộc, phong thủy & chăm sóc sức khỏe' },
   { icon: Clock, value: '40+ năm', label: 'Công thức gia truyền từ lò võ Bình Định' }
 ];
 

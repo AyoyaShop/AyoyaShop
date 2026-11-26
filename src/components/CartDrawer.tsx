@@ -281,6 +281,9 @@ export default function CartDrawer() {
                       submitAttempted && fieldErrors.name ? 'border-ayoya-brick' : 'border-ayoya-brown/15'
                     }`}
                     placeholder="Nguyễn Văn A"
+                    name="name"
+                    autoComplete="name"
+                    aria-label="Họ tên"
                   />
                   {submitAttempted && fieldErrors.name && (
                     <p className="text-xs text-ayoya-brick font-medium mt-1">{fieldErrors.name}</p>
@@ -296,6 +299,10 @@ export default function CartDrawer() {
                       submitAttempted && fieldErrors.phone ? 'border-ayoya-brick' : 'border-ayoya-brown/15'
                     }`}
                     placeholder="09xxxxxxxx"
+                    name="tel"
+                    autoComplete="tel"
+                    inputMode="numeric"
+                    aria-label="Số điện thoại"
                   />
                   {submitAttempted && fieldErrors.phone && (
                     <p className="text-xs text-ayoya-brick font-medium mt-1">{fieldErrors.phone}</p>
@@ -311,6 +318,9 @@ export default function CartDrawer() {
                       submitAttempted && fieldErrors.address ? 'border-ayoya-brick' : 'border-ayoya-brown/15'
                     }`}
                     placeholder="Số nhà, đường, phường/xã, tỉnh/thành"
+                    name="address"
+                    autoComplete="street-address"
+                    aria-label="Địa chỉ nhận hàng"
                   />
                   {submitAttempted && fieldErrors.address && (
                     <p className="text-xs text-ayoya-brick font-medium mt-1">{fieldErrors.address}</p>
@@ -319,6 +329,7 @@ export default function CartDrawer() {
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-widest text-ayoya-brown/60 mb-2">Khu vực giao hàng *</label>
                   <select
+                    aria-label="Khu vực giao hàng"
                     value={zoneId}
                     onChange={e => setZoneId(e.target.value)}
                     className={`w-full px-4 py-3 rounded-xl border bg-white focus:outline-none focus:border-ayoya-amber text-ayoya-brown ${
@@ -346,6 +357,7 @@ export default function CartDrawer() {
                     rows={2}
                     className="w-full px-4 py-3 rounded-xl border border-ayoya-brown/15 bg-white focus:outline-none focus:border-ayoya-amber resize-none"
                     placeholder="Yêu cầu thêm (không bắt buộc)"
+                    aria-label="Ghi chú"
                   />
                 </div>
 
@@ -357,6 +369,7 @@ export default function CartDrawer() {
                       onChange={e => handlePromoInputChange(e.target.value)}
                       className="flex-1 px-4 py-3 rounded-xl border border-ayoya-brown/15 bg-white focus:outline-none focus:border-ayoya-amber uppercase"
                       placeholder="Nhập mã ưu đãi (không bắt buộc)"
+                      aria-label="Mã ưu đãi"
                     />
                     <button
                       onClick={handleApplyPromo}
@@ -505,6 +518,12 @@ export default function CartDrawer() {
                     Tiến hành đặt hàng
                   </button>
                 </>
+              )}
+              {step === 'checkout' && (
+                <p className="mb-3 text-xs text-ayoya-brown/70 leading-relaxed">
+                  Khi bấm "Gửi đơn hàng", bạn đồng ý để AYOYA dùng thông tin trên để xử lý và giao đơn theo{' '}
+                  <a href="/chinh-sach/chinh-sach-bao-mat" target="_blank" rel="noopener" className="underline">Chính sách bảo mật</a>.
+                </p>
               )}
               {step === 'checkout' && (
                 <div className="flex gap-3">
