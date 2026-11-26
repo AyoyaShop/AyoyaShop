@@ -25,13 +25,20 @@ export default function NewsletterSignup() {
     setError('');
     setSubmitting(true);
     try {
-      await fetch(SUBSCRIBE_SHEET_URL, {
+      const response = await fetch(SUBSCRIBE_SHEET_URL, {
         method: 'POST',
         body: JSON.stringify({ name: name.trim(), phone: phone.trim() })
       });
+      // A crashed or unpublished Apps Script answers with an HTML page, often with HTTP 200.
+      if (!response.ok || response.headers.get('content-type')?.includes('text/html')) {
+        throw new Error('signup not recorded');
+      }
+      if (/"(ok|success)"\s*:\s*false|"(status|result)"\s*:\s*"(error|fail)/i.test(await response.text())) {
+        throw new Error('signup rejected');
+      }
       setSubmitted(true);
     } catch {
-      setError('Không thể gửi đăng ký lúc này. Vui lòng thử lại hoặc liên hệ Zalo 0933.458.485.');
+      setError('Chưa ghi nhận được đăng ký. Vui lòng thử lại hoặc nhắn Zalo 0933.458.485.');
     } finally {
       setSubmitting(false);
     }
