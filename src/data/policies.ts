@@ -55,6 +55,7 @@ export const POLICIES: Policy[] = [
           'Đối tác vận chuyển (SPX Express) để phục vụ việc giao hàng.',
           'Cổng thanh toán/ngân hàng để xác nhận và xử lý các giao dịch chuyển khoản.',
           'Dịch vụ lưu trữ và thông báo (Google Sheets, Telegram) để ghi nhận đơn hàng, đăng ký nhận ưu đãi và báo cho nhân sự xử lý.',
+          'Công cụ thống kê truy cập (Google Analytics): dùng cookie để biết trang và sản phẩm nào được xem, giá trị đơn hàng và bước khách dừng lại. AYOYA không gửi họ tên, số điện thoại hay địa chỉ của Quý khách cho công cụ này; Quý khách có thể chặn cookie trong cài đặt trình duyệt.',
           'Cơ quan pháp luật khi có yêu cầu chính thức từ cơ quan chức năng theo quy định của pháp luật Việt Nam.'
         ]
       },

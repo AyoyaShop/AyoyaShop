@@ -19,6 +19,7 @@ import { ALL_PRODUCTS, getProductById, PRODUCT_RATINGS } from '../data';
 import { useCart } from '../context/CartContext';
 import { applySeo } from '../lib/seo';
 import { productMeta } from '../lib/pageMeta';
+import { toGaItem, trackShopEvent } from '../lib/analytics';
 import { calcOriginalPrice } from '../lib/pricing';
 
 function formatPrice(price: number): string {
@@ -39,6 +40,10 @@ export default function ProductDetail() {
   useEffect(() => {
     if (!product) return;
     applySeo(productMeta(product));
+    trackShopEvent('view_item', {
+      value: product.price,
+      items: [toGaItem({ productId: product.id, title: product.title, variantLabel: '', unitPrice: product.price }, 1)]
+    });
     window.scrollTo(0, 0);
     // Reset per-product UI state so leftover selections/video/lightbox from a
     // previous product don't carry over when navigating via "Sản phẩm khác".

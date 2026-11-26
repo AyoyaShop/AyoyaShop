@@ -4,6 +4,7 @@ import { X, Minus, Plus, Trash2, ShoppingCart, Loader2, CheckCircle2, Info } fro
 import { useCart } from '../context/CartContext';
 import { BANK_INFO, ORDER_SHEET_URL, SHIPPING_ZONES, calcShippingFee, getProductById } from '../data';
 import { calcOriginalPrice } from '../lib/pricing';
+import { toGaItem, trackShopEvent } from '../lib/analytics';
 
 function formatPrice(price: number): string {
   return `${price.toLocaleString('vi-VN')}đ`;
@@ -54,6 +55,12 @@ export default function CartDrawer() {
       clearCheckoutIntent();
     }
   }, [checkoutIntent, clearCheckoutIntent]);
+
+  useEffect(() => {
+    if (step !== 'checkout') return;
+    trackShopEvent('begin_checkout', { value: totalPrice, items: items.map(i => toGaItem(i, i.quantity)) });
+    // Fires once per entry into checkout, not on every cart change.
+  }, [step]);
 
   const selectedZone = SHIPPING_ZONES.find(z => z.id === zoneId);
   const shippingFee = selectedZone ? calcShippingFee(totalWeightGrams, selectedZone.id) : 0;
@@ -163,6 +170,13 @@ export default function CartDrawer() {
       // Apps Script answers HTTP 200 with an HTML page when it crashes, so only the JSON status counts.
       const result = await response.json();
       if (result?.status !== 'success') throw new Error('order not recorded');
+      trackShopEvent('purchase', {
+        transaction_id: code,
+        value: discountedSubtotal,
+        shipping: shippingFee,
+        coupon: promoQualifies && appliedPromo ? appliedPromo : undefined,
+        items: items.map(i => toGaItem(i, i.quantity))
+      });
       setOrderCode(code);
       clearCart();
       setStep('success');

@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 import { getProductById } from '../data';
+import { toGaItem, trackShopEvent } from '../lib/analytics';
 
 export interface CartItem {
   key: string;
@@ -88,6 +89,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       return [...prev, { ...item, quantity }];
     });
     setIsOpen(true);
+    trackShopEvent('add_to_cart', { value: item.unitPrice * quantity, items: [toGaItem(item, quantity)] });
   };
 
   const removeItem = (key: string) => {

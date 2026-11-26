@@ -51,6 +51,19 @@
         ]
       }
     </script>
+    <script>
+      // Google Analytics 4, live domain only so local tests are not counted.
+      if (/(^|\.)ayoya\.com\.vn$/.test(location.hostname)) {
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { window.dataLayer.push(arguments); };
+        window.gtag('js', new Date());
+        window.gtag('config', 'G-CN8PD3LDZ9');
+        var ga = document.createElement('script');
+        ga.async = true;
+        ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-CN8PD3LDZ9';
+        document.head.appendChild(ga);
+      }
+    </script>
   </head>
   <body>
     <script type="text/javascript">
