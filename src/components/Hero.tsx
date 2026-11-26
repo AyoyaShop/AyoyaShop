@@ -14,7 +14,7 @@ export default function Hero() {
             Nơi Khởi Sinh <br />
             <span className="italic">Năng Lượng Sạch</span>
           </h1>
-          <p className="max-w-2xl mx-auto text-lg md:text-xl text-ayoya-brown/70 font-light mb-12 leading-relaxed">
+          <p className="max-w-2xl mx-auto text-lg md:text-xl text-ayoya-brown/85 font-light mb-12 leading-relaxed">
             Chúng tôi không chỉ bán sản phẩm, chúng tôi trao gửi niềm tin và sự bình an qua những báu vật thảo mộc cổ truyền.
           </p>
 
