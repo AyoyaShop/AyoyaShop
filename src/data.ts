@@ -115,6 +115,73 @@ export const PRODUCT_GALLERIES: Record<string, string[]> = {
     '/products/dau-xoa-bop-duoc-lieu.webp',
     '/products/dau-xoa-bop-san-vo.webp',
     '/products/dau-xoa-bop-cam-tay.webp'
+  ],
+  'thao-moc-xong-nha': [
+    '/products/xong-nha-2.webp',
+    '/products/xong-nha-3.webp',
+    '/products/xong-nha-1.webp'
+  ],
+  'la-xong-moc-an': [
+    '/products/xong-tam-2.webp',
+    '/products/xong-tam-3.webp',
+    '/products/xong-tam-1.webp',
+    'https://res.cloudinary.com/dfb8mvzhc/image/upload/f_auto,q_auto,c_limit,w_800/v1776506403/x%C3%B4ng_c%C6%A1_th%E1%BB%83_1_sowj2u.png'
+  ],
+  'tram-huong-xong-nha': [
+    '/products/tram-nhu-y-2.webp',
+    '/products/tram-nhu-y-3.webp',
+    '/products/tram-nhu-y-1.webp',
+    '/products/tram-huong-xong-nha-nhu-y-cat-tuong.webp'
+  ],
+  'nuoc-lau-ban-tho': [
+    '/products/nuoc-lau-ban-tho-2.webp',
+    '/products/nuoc-lau-ban-tho-3.webp',
+    '/products/nuoc-lau-ban-tho-1.webp',
+    '/products/nuoc-lau-ban-tho-cuu-vi-huong.webp'
+  ],
+  'ngam-chan-moc-an': [
+    '/products/ngam-chan-2.webp',
+    '/products/ngam-chan-3.webp',
+    '/products/ngam-chan-1.webp',
+    '/products/thao-duoc-ngam-chan-moc-an.webp'
+  ],
+  'dau-goi-moc-an': [
+    '/products/dau-goi-moc-an-2.webp',
+    '/products/dau-goi-moc-an-3.webp',
+    '/products/dau-goi-moc-an-1.webp',
+    '/products/dau-goi.webp'
+  ],
+  'beauty-collagen-c': [
+    '/products/collagen-2.webp',
+    '/products/collagen-3.webp',
+    '/products/collagen-1.webp',
+    '/products/beauty-collagen-c.webp'
+  ],
+  'nu-que': [
+    '/products/nu-tram-que-3.webp',
+    '/products/nu-tram-huong-nu-que.webp',
+    '/products/nu-tram-que-1.webp'
+  ],
+  'nu-tram-huong': [
+    '/products/nu-tram-que-3.webp',
+    '/products/nu-tram-huong-nu-que.webp',
+    '/products/nu-tram-que-1.webp'
+  ],
+  'nhang-que': [
+    '/products/nhang-vo-que.webp',
+    '/products/nhang-an-moc-huong-2.webp',
+    '/products/nhang-an-moc-huong-3.webp',
+    '/products/nhang-an-moc-huong-1.webp'
+  ],
+  'nhang-bo-que': [
+    '/products/nhang-vo-va-la-que.webp',
+    '/products/nhang-an-moc-huong-3.webp'
+  ],
+  'nhang-tram-cao-cap': [
+    '/products/nhang-tram-huong.webp',
+    '/products/nhang-an-moc-huong-2.webp',
+    '/products/nhang-an-moc-huong-1.webp',
+    '/products/nhang-an-moc-huong-3.webp'
   ]
 };
 
@@ -162,7 +229,7 @@ export const PRODUCTS = [
     warnings:
       'Chỉ dùng để xông không gian, không dùng cho mục đích khác. Xông nơi thoáng khí, tránh hít trực tiếp khói đậm đặc trong thời gian dài. Để xa tầm tay trẻ em và vật liệu dễ cháy.',
     origin: 'Nguyên liệu trầm hương thu hái tại Tiên Phước, Quảng Nam. Hạn sử dụng 12 tháng. Bảo quản nơi khô ráo, thoáng mát.',
-    image: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/f_auto,q_auto,c_limit,w_800/v1776440289/%C3%B4ng_l%C3%A3o_phong_th%E1%BB%A7y_vtmurx.png',
+    image: '/products/xong-nha-2.webp',
     video: 'https://res.cloudinary.com/dfb8mvzhc/video/upload/q_auto:eco,w_720,c_limit/v1776440319/7736771989880_f9ltno.mp4',
     cta: 'Thanh tẩy không gian',
     link: 'https://vt.tiktok.com/ZS9LbvTHMTVWL-nDl6P/',
@@ -190,7 +257,7 @@ export const PRODUCTS = [
     warnings:
       'Không xông liên tục mỗi ngày. Phụ nữ sau sinh nên tham khảo ý kiến người có chuyên môn trước khi dùng (sinh thường nên đợi 5-7 ngày, sinh mổ đợi vết mổ khô hẳn). Tránh xông khi đang sốt cao hoặc say rượu.',
     origin: 'Hạn sử dụng 18 tháng. Sử dụng trong vòng 3 tháng sau khi mở túi, bảo quản nơi khô ráo.',
-    image: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/f_auto,q_auto,c_limit,w_800/v1776506403/x%C3%B4ng_c%C6%A1_th%E1%BB%83_1_sowj2u.png',
+    image: '/products/xong-tam-2.webp',
     video: 'https://res.cloudinary.com/dfb8mvzhc/video/upload/q_auto:eco,w_720,c_limit/v1776441157/xongtam_fomnwn.mp4',
     cta: 'Chăm sóc cơ thể',
     link: 'https://vt.tiktok.com/ZS9LgeM9mft9m-5arsI/',
@@ -224,7 +291,7 @@ export const MORE_PRODUCTS = [
     subtitle: '',
     video: '',
     badges: [] as string[],
-    image: '/products/tram-huong-xong-nha-nhu-y-cat-tuong.webp',
+    image: '/products/tram-nhu-y-2.webp',
     price: 125000,
     priceUnit: 'gói',
     weightGrams: 300,
@@ -247,7 +314,7 @@ export const MORE_PRODUCTS = [
     subtitle: '',
     video: '',
     badges: [] as string[],
-    image: '/products/nuoc-lau-ban-tho-cuu-vi-huong.webp',
+    image: '/products/nuoc-lau-ban-tho-2.webp',
     price: 87000,
     priceUnit: 'chai 500ml',
     weightGrams: 650,
@@ -270,7 +337,7 @@ export const MORE_PRODUCTS = [
     subtitle: '',
     video: '',
     badges: [] as string[],
-    image: '/products/thao-duoc-ngam-chan-moc-an.webp',
+    image: '/products/ngam-chan-2.webp',
     price: 8000,
     priceUnit: 'túi lẻ (35g)',
     weightGrams: 50,
@@ -297,7 +364,7 @@ export const MORE_PRODUCTS = [
     subtitle: '',
     video: '',
     badges: [] as string[],
-    image: '/products/dau-goi.webp',
+    image: '/products/dau-goi-moc-an-2.webp',
     price: 99000,
     priceUnit: 'bịch 30 túi lọc',
     weightGrams: 450,
@@ -319,7 +386,7 @@ export const MORE_PRODUCTS = [
     subtitle: '',
     video: '',
     badges: [] as string[],
-    image: '/products/nu-tram-huong-nu-que.webp',
+    image: '/products/nu-tram-que-3.webp',
     price: 81000,
     priceUnit: 'hộp 30 nụ',
     weightGrams: 150,
@@ -342,7 +409,7 @@ export const MORE_PRODUCTS = [
     subtitle: '',
     video: '',
     badges: [] as string[],
-    image: '/products/nu-tram-huong-nu-que.webp',
+    image: '/products/nu-tram-que-3.webp',
     price: 159000,
     priceUnit: 'hộp 30 nụ',
     weightGrams: 150,
@@ -517,7 +584,7 @@ export const MORE_PRODUCTS = [
     subtitle: '',
     video: '',
     badges: [] as string[],
-    image: '/products/beauty-collagen-c.webp',
+    image: '/products/collagen-2.webp',
     price: 285000,
     priceUnit: 'hộp 30 viên',
     weightGrams: 150,

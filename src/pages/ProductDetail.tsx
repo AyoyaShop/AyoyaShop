@@ -201,7 +201,7 @@ export default function ProductDetail() {
                     }}
                     aria-label={`Xem ảnh ${index + 1}`}
                     aria-pressed={!isPlaying && index === photoIndex}
-                    className={`w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 transition-all ${
+                    className={`flex-1 max-w-24 aspect-square rounded-2xl overflow-hidden border-2 transition-all ${
                       !isPlaying && index === photoIndex
                         ? 'border-ayoya-brown'
                         : 'border-transparent opacity-70 hover:opacity-100'

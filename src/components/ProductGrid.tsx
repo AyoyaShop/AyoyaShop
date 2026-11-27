@@ -6,7 +6,7 @@ import { ALL_PRODUCTS, MORE_PRODUCTS, PRODUCT_RATINGS } from '../data';
 import { useCart } from '../context/CartContext';
 import { calcOriginalPrice } from '../lib/pricing';
 import SectionHeading from './SectionHeading';
-import { thumb } from '../lib/thumb';
+import CardPhoto from './CardPhoto';
 
 function formatPrice(price: number): string {
   return `${price.toLocaleString('vi-VN')}đ`;
@@ -44,12 +44,7 @@ export default function ProductGrid() {
                 className="flex flex-col bg-ayoya-cream/20 rounded-2xl border border-ayoya-brown/10 overflow-hidden hover:modern-zen-shadow transition-shadow"
               >
                 <Link to={`/san-pham/${product.id}`} className="aspect-square overflow-hidden bg-ayoya-brown/5 block">
-                  <img loading="lazy"
-                    src={thumb(product.image)}
-                    alt={product.title}
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  />
+                  <CardPhoto productId={product.id} image={product.image} alt={product.title} />
                 </Link>
 
                 <div className="flex-1 flex flex-col p-4">

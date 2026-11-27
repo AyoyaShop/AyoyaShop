@@ -6,6 +6,7 @@ import { useCart } from '../context/CartContext';
 import { applySeo } from '../lib/seo';
 import { CATALOG_META } from '../lib/pageMeta';
 import { calcOriginalPrice } from '../lib/pricing';
+import CardPhoto from '../components/CardPhoto';
 
 function formatPrice(price: number): string {
   return `${price.toLocaleString('vi-VN')}đ`;
@@ -81,12 +82,7 @@ export default function ProductCatalog() {
                 className="flex flex-col bg-white rounded-3xl border border-ayoya-brown/5 overflow-hidden hover:modern-zen-shadow transition-shadow"
               >
                 <Link to={`/san-pham/${product.id}`} className="aspect-square overflow-hidden bg-ayoya-brown/5 block">
-                  <img loading="lazy"
-                    src={product.image}
-                    alt={product.title}
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  />
+                  <CardPhoto productId={product.id} image={product.image} alt={product.title} />
                 </Link>
 
                 <div className="flex-1 flex flex-col p-4">

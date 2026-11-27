@@ -5,7 +5,7 @@ import { PRODUCTS } from '../data';
 import { useCart } from '../context/CartContext';
 import { calcOriginalPrice } from '../lib/pricing';
 import SectionHeading from './SectionHeading';
-import { thumb } from '../lib/thumb';
+import CardPhoto from './CardPhoto';
 
 function formatPrice(price: number): string {
   return `${price.toLocaleString('vi-VN')}đ`;
@@ -36,13 +36,7 @@ export default function Products() {
                 className="flex flex-col overflow-hidden rounded-2xl bg-white border border-ayoya-brown/10 modern-zen-shadow scroll-mt-28"
               >
                 <Link to={`/san-pham/${product.id}`} className="relative block aspect-square overflow-hidden bg-ayoya-brown/5">
-                  <img
-                    loading="lazy"
-                    src={thumb(product.image)}
-                    alt={product.title}
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  />
+                  <CardPhoto productId={product.id} image={product.image} alt={product.title} />
                   {product.video && (
                     <span className="absolute bottom-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-black/55 px-3 py-1 text-xs text-white">
                       <Play size={12} fill="currentColor" /> Có video
