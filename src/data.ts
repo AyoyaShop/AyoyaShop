@@ -111,6 +111,42 @@ export function calcShippingFee(weightGrams: number, zoneId: string): number {
 
 // Extra photos shown on a product page; the first entry is the product's main image.
 export const PRODUCT_GALLERIES: Record<string, string[]> = {
+  'than-vien-xong-nha': [
+    '/products/than-vien-2.webp',
+    '/products/than-vien-3.webp',
+    '/products/than-vien-1.webp',
+    '/products/than.webp'
+  ],
+  'rua-vang-phong-thuy': [
+    '/products/rua-vang-2.webp',
+    '/products/rua-vang-3.webp',
+    '/products/rua-vang-1.webp',
+    '/products/rua-phong-thuy.jpeg'
+  ],
+  'chai-ngu-coc-phong-thuy': [
+    '/products/chai-ngu-coc-2.webp',
+    '/products/chai-ngu-coc-3.webp',
+    '/products/chai-ngu-coc-1.webp',
+    '/products/chai-ngu-coc-phong-thuy.webp'
+  ],
+  'tao-xoan': [
+    '/products/tao-xoan-2.webp',
+    '/products/tao-xoan-3.webp',
+    '/products/tao-xoan-1.webp',
+    '/products/vien-tao-xoan-an-ngon-ngu-ngon.jpg'
+  ],
+  'hoat-huyet-tien-dinh-sunmax': [
+    '/products/sunmax-2.webp',
+    '/products/sunmax-3.webp',
+    '/products/sunmax-1.webp',
+    '/products/hoat-huyet-tien-dinh-sunmax-hop.jpg'
+  ],
+  'calcinano-sunuri': [
+    '/products/calcinano-2.webp',
+    '/products/calcinano-3.webp',
+    '/products/calcinano-1.webp',
+    '/products/calcinano-sunuri-hop.webp'
+  ],
   'dau-vo': [
     '/products/dau-xoa-bop-duoc-lieu.webp',
     '/products/dau-xoa-bop-san-vo.webp',
@@ -497,7 +533,7 @@ export const MORE_PRODUCTS = [
     subtitle: '',
     video: '',
     badges: [] as string[],
-    image: '/products/than.webp',
+    image: '/products/than-vien-2.webp',
     price: 25000,
     priceUnit: 'gói 10 viên',
     weightGrams: 200,
@@ -517,7 +553,7 @@ export const MORE_PRODUCTS = [
     subtitle: '',
     video: '',
     badges: [] as string[],
-    image: '/products/rua-phong-thuy.jpeg',
+    image: '/products/rua-vang-2.webp',
     price: 17500,
     priceUnit: 'thẻ bài',
     weightGrams: 30,
@@ -537,7 +573,7 @@ export const MORE_PRODUCTS = [
     subtitle: '',
     video: '',
     badges: [] as string[],
-    image: '/products/chai-ngu-coc-phong-thuy.webp',
+    image: '/products/chai-ngu-coc-2.webp',
     price: 36000,
     priceUnit: 'chai 6cm',
     weightGrams: 80,
@@ -561,7 +597,7 @@ export const MORE_PRODUCTS = [
     subtitle: '',
     video: '',
     badges: [] as string[],
-    image: '/products/vien-tao-xoan-an-ngon-ngu-ngon.jpg',
+    image: '/products/tao-xoan-2.webp',
     price: 311000,
     priceUnit: 'hộp 60 viên',
     weightGrams: 250,
@@ -609,7 +645,7 @@ export const MORE_PRODUCTS = [
     subtitle: '',
     video: '',
     badges: [] as string[],
-    image: '/products/hoat-huyet-tien-dinh-sunmax-hop.jpg',
+    image: '/products/sunmax-2.webp',
     price: 200000,
     priceUnit: 'hộp 30 viên',
     weightGrams: 150,
@@ -634,7 +670,7 @@ export const MORE_PRODUCTS = [
     subtitle: '',
     video: '',
     badges: [] as string[],
-    image: '/products/calcinano-sunuri-hop.webp',
+    image: '/products/calcinano-2.webp',
     price: 300000,
     priceUnit: 'hộp 100 viên',
     weightGrams: 200,
