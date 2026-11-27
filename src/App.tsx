@@ -15,6 +15,7 @@ import AboutPage from './pages/AboutPage';
 import FaqPage from './pages/FaqPage';
 import ContactPage from './pages/ContactPage';
 import PolicyPage from './pages/PolicyPage';
+import NotFound from './pages/NotFound';
 import ScrollToHash from './components/ScrollToHash';
 
 // The router is chosen by the caller: the browser's here, a static one when pages are pre-rendered.
@@ -32,6 +33,7 @@ export function AppLayout() {
             <Route path="/hoi-dap" element={<FaqPage />} />
             <Route path="/lien-he" element={<ContactPage />} />
             <Route path="/chinh-sach/:slug" element={<PolicyPage />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />

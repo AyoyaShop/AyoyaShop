@@ -20,7 +20,7 @@ const ITEMS = [
   {
     icon: Wallet,
     title: 'COD hoặc chuyển khoản',
-    text: 'Thanh toán khi nhận hàng, hoặc chuyển khoản bằng mã QR hiển thị lúc đặt đơn.',
+    text: 'Thanh toán khi nhận hàng, hoặc chuyển khoản bằng mã QR hiện ngay sau khi đặt đơn.',
     link: { to: '/chinh-sach/huong-dan-thanh-toan', label: 'Hướng dẫn thanh toán' }
   },
   {

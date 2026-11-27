@@ -13,9 +13,13 @@ import {
   Sparkles,
   ZoomIn,
   HelpCircle,
-  Star
+  Star,
+  Minus,
+  Plus,
+  MessageCircle
 } from 'lucide-react';
-import { ALL_PRODUCTS, getProductById, PRODUCT_GALLERIES, PRODUCT_RATINGS } from '../data';
+import { CATEGORIES, CONTACT_INFO, getProductById, PRODUCT_GALLERIES, PRODUCT_RATINGS } from '../data';
+import { relatedProducts as findRelated } from '../lib/related';
 import { useCart } from '../context/CartContext';
 import { applySeo } from '../lib/seo';
 import { productMeta } from '../lib/pageMeta';
@@ -30,7 +34,8 @@ function formatPrice(price: number): string {
 export default function ProductDetail() {
   const { id } = useParams<{ id: string }>();
   const product = id ? getProductById(id) : undefined;
-  const { addItem, openCart, requestCheckout } = useCart();
+  const { addItem, openCart, buyNow } = useCart();
+  const [quantity, setQuantity] = useState(1);
   const [selectedLabel, setSelectedLabel] = useState('');
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
@@ -54,18 +59,21 @@ export default function ProductDetail() {
     setIsMuted(true);
     setLightboxOpen(false);
     setPhotoIndex(0);
+    setQuantity(1);
   }, [id]);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const el = buyBoxRef.current;
-      if (!el) return;
-      setShowStickyBar(el.getBoundingClientRect().bottom < 0);
+    const el = buyBoxRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(([entry]) => setShowStickyBar(!entry.isIntersecting));
+    observer.observe(el);
+    // Room at the foot of the page so the bar never covers the last lines.
+    document.body.classList.add('has-buybar');
+    return () => {
+      observer.disconnect();
+      document.body.classList.remove('has-buybar');
     };
-    handleScroll();
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [id]);
 
   if (!id || !product) {
     return <Navigate to="/" replace />;
@@ -88,7 +96,8 @@ export default function ProductDetail() {
     weightGrams: selectedVariant.weightGrams
   });
 
-  const relatedProducts = ALL_PRODUCTS.filter(p => p.id !== product.id).slice(0, 4);
+  const relatedProducts = findRelated(product.id);
+  const category = CATEGORIES.find(c => c.id === product.category);
 
   const photos = PRODUCT_GALLERIES[product.id] ?? [product.image];
   const photo = photos[photoIndex] ?? photos[0];
@@ -99,11 +108,11 @@ export default function ProductDetail() {
     <div className="pt-28 pb-24 px-4 bg-paper bg-ayoya-cream/30 min-h-screen">
       <div className="max-w-6xl mx-auto">
         <Link
-          to="/"
-          className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-widest text-ayoya-brown/75 hover:text-ayoya-brown transition-colors mb-8"
+          to={category ? `/san-pham?cat=${category.id}` : '/san-pham'}
+          className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-widest text-ayoya-brown/75 hover:text-ayoya-brown transition-colors mb-6"
         >
           <ChevronLeft size={16} />
-          Về trang chủ
+          {category?.label ?? 'Tất cả sản phẩm'}
         </Link>
 
         <div className="flex flex-col lg:flex-row gap-10 md:gap-16">
@@ -285,6 +294,52 @@ export default function ProductDetail() {
             )}
 
             <div className="space-y-6">
+              <div ref={buyBoxRef} className="space-y-3">
+                <div className="flex items-center gap-3">
+                  <span className="text-xs font-bold uppercase tracking-widest text-ayoya-brown/75">Số lượng</span>
+                  <div className="flex items-center rounded-full border border-ayoya-brown/20 bg-white">
+                    <button
+                      onClick={() => setQuantity(q => Math.max(1, q - 1))}
+                      className="w-11 h-11 flex items-center justify-center text-ayoya-brown disabled:opacity-30"
+                      disabled={quantity <= 1}
+                      aria-label="Giảm số lượng"
+                    >
+                      <Minus size={14} />
+                    </button>
+                    <span className="w-8 text-center font-bold" aria-live="polite">{quantity}</span>
+                    <button
+                      onClick={() => setQuantity(q => Math.min(99, q + 1))}
+                      className="w-11 h-11 flex items-center justify-center text-ayoya-brown"
+                      aria-label="Tăng số lượng"
+                    >
+                      <Plus size={14} />
+                    </button>
+                  </div>
+                </div>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <button
+                    onClick={() => buyNow(buildCartItem(), quantity)}
+                    className="flex-1 flex items-center justify-center gap-3 px-8 py-4 bg-ayoya-brown text-white rounded-full font-bold uppercase tracking-widest hover:bg-ayoya-brick transition-all shadow-lg"
+                  >
+                    Mua ngay
+                  </button>
+                  <button
+                    onClick={() => {
+                      addItem(buildCartItem(), quantity);
+                      openCart();
+                    }}
+                    className="flex-1 flex items-center justify-center gap-3 px-8 py-4 border border-ayoya-brown text-ayoya-brown rounded-full font-bold uppercase tracking-widest text-sm hover:bg-ayoya-brown/5 transition-all"
+                  >
+                    Thêm vào giỏ hàng
+                    <ShoppingCart size={18} />
+                  </button>
+                </div>
+                <p className="text-xs text-ayoya-brown/75 text-center sm:text-left">
+                  Đồng kiểm khi nhận · COD hoặc chuyển khoản · Đổi trả 7 ngày theo{' '}
+                  <Link to="/chinh-sach/chinh-sach-doi-tra" className="underline underline-offset-2">chính sách</Link>
+                </p>
+              </div>
+
               {product.benefits && (
                 <div className="p-6 bg-white rounded-2xl modern-zen-shadow border-l-4 border-ayoya-amber">
                   <p className="text-ayoya-brown/80 leading-relaxed italic">"&nbsp;{product.benefits}&nbsp;"</p>
@@ -293,46 +348,13 @@ export default function ProductDetail() {
 
               <p className="text-ayoya-brown/70 leading-relaxed">{product.description}</p>
 
-              <div ref={buyBoxRef} className="flex flex-col sm:flex-row gap-3">
-                <button
-                  onClick={() => {
-                    addItem(buildCartItem());
-                    requestCheckout();
-                  }}
-                  className="flex-1 flex items-center justify-center gap-3 px-8 py-5 bg-ayoya-brown text-white rounded-full font-bold uppercase tracking-widest hover:bg-ayoya-brick transition-all shadow-lg"
-                >
-                  Mua ngay
-                </button>
-                <button
-                  onClick={() => {
-                    addItem(buildCartItem());
-                    openCart();
-                  }}
-                  className="flex-1 flex items-center justify-center gap-3 px-8 py-5 border border-ayoya-brown text-ayoya-brown rounded-full font-bold uppercase tracking-widest hover:bg-ayoya-brown/5 transition-all"
-                >
-                  Thêm vào giỏ hàng
-                  <ShoppingCart size={18} />
-                </button>
-              </div>
-
-              <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-                <div className="flex items-center gap-1 text-xs font-bold uppercase tracking-widest text-ayoya-green bg-ayoya-green/5 px-3 py-1 rounded-full">
-                  <CheckCircle2 size={10} />
-                  Hoàn tiền theo chính sách
-                </div>
-                <div className="flex items-center gap-1 text-xs font-bold uppercase tracking-widest text-ayoya-green bg-ayoya-green/5 px-3 py-1 rounded-full">
-                  <CheckCircle2 size={10} />
-                  Đồng kiểm
-                </div>
-              </div>
-
               <Link
                 to="/#quiz"
                 className="flex items-center gap-3 p-4 bg-ayoya-amber/5 rounded-2xl border border-ayoya-amber/20 hover:bg-ayoya-amber/10 transition-colors"
               >
                 <HelpCircle size={20} className="text-ayoya-amber flex-shrink-0" />
                 <span className="text-sm text-ayoya-brown">
-                  Chưa chắc sản phẩm này phù hợp? <span className="font-bold underline">Làm bài trắc nghiệm 30 giây</span> để AYOYA gợi ý đúng sản phẩm cho bạn.
+                  Chưa chắc sản phẩm này phù hợp? <span className="font-bold underline">Trả lời 2 câu hỏi</span> để AYOYA gợi ý đúng món bạn cần.
                 </span>
               </Link>
             </div>
@@ -389,7 +411,7 @@ export default function ProductDetail() {
         {relatedProducts.length > 0 && (
           <div className="mt-16 md:mt-24">
             <h2 className="text-2xl md:text-3xl font-serif text-ayoya-brown mb-8 text-center">
-              Sản phẩm <span className="italic">khác</span>
+              Gợi ý <span className="italic">dùng cùng</span>
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
               {relatedProducts.map(p => (
@@ -400,7 +422,7 @@ export default function ProductDetail() {
                 >
                   <div className="aspect-square overflow-hidden bg-ayoya-brown/5">
                     <img loading="lazy"
-                      src={p.image}
+                      src={thumb(p.image)}
                       alt={p.title}
                       referrerPolicy="no-referrer"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -461,17 +483,26 @@ export default function ProductDetail() {
           >
             <div className="flex flex-col min-w-0">
               {!product.noDiscount && (
-                <span className="text-xs text-ayoya-brown/75 line-through leading-tight">{formatPrice(calcOriginalPrice(selectedVariant.price))}</span>
+                <span className="text-xs text-ayoya-brown/75 line-through leading-tight">{formatPrice(calcOriginalPrice(selectedVariant.price) * quantity)}</span>
               )}
-              <span className="text-lg font-serif font-bold text-ayoya-brown leading-tight">{formatPrice(selectedVariant.price)}</span>
-              <span className="text-xs text-ayoya-brown/75 leading-tight truncate">/ {selectedVariant.label}</span>
+              <span className="text-lg font-serif font-bold text-ayoya-brown leading-tight">{formatPrice(selectedVariant.price * quantity)}</span>
+              <span className="text-xs text-ayoya-brown/75 leading-tight truncate">
+                {quantity > 1 ? `${quantity} × ` : '/ '}
+                {selectedVariant.label}
+              </span>
             </div>
+            <a
+              href={CONTACT_INFO.zaloHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Hỏi qua Zalo"
+              className="ml-auto flex-shrink-0 w-12 h-12 rounded-full border border-ayoya-brown/20 flex items-center justify-center text-ayoya-brick"
+            >
+              <MessageCircle size={20} />
+            </a>
             <button
-              onClick={() => {
-                addItem(buildCartItem());
-                requestCheckout();
-              }}
-              className="flex-1 flex items-center justify-center px-6 py-3 bg-ayoya-brown text-white rounded-full font-bold uppercase tracking-widest text-sm hover:bg-ayoya-brick transition-all"
+              onClick={() => buyNow(buildCartItem(), quantity)}
+              className="flex-shrink-0 min-h-12 px-7 bg-ayoya-brown text-white rounded-full font-bold uppercase tracking-widest text-sm hover:bg-ayoya-brick transition-all"
             >
               Mua ngay
             </button>

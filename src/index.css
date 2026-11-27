@@ -27,6 +27,12 @@
   }
 }
 
+@media (max-width: 767px) {
+  body.has-buybar footer {
+    padding-bottom: 7rem;
+  }
+}
+
 .modern-zen-shadow {
   box-shadow: 0 10px 30px -15px rgba(75, 54, 33, 0.1);
 }

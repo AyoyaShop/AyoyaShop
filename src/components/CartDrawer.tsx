@@ -1,22 +1,24 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Minus, Plus, Trash2, ShoppingCart, Loader2, CheckCircle2, Info } from 'lucide-react';
-import { useCart } from '../context/CartContext';
-import { BANK_INFO, ORDER_SHEET_URL, SHIPPING_ZONES, calcShippingFee, getProductById } from '../data';
+import { X, Minus, Plus, Trash2, ShoppingCart, Loader2, CheckCircle2, Copy, MessageCircle } from 'lucide-react';
+import { useCart, type CartItem } from '../context/CartContext';
+import { BANK_INFO, CONTACT_INFO, ORDER_SHEET_URL, SHIPPING_ZONES, calcShippingFee, getProductById } from '../data';
 import { calcOriginalPrice } from '../lib/pricing';
 import { toGaItem, trackShopEvent } from '../lib/analytics';
+import { generateOrderCode, isValidPhone, normalizePhone } from '../lib/order';
+import { thumb } from '../lib/thumb';
 
 function formatPrice(price: number): string {
   return `${price.toLocaleString('vi-VN')}đ`;
 }
 
-function generateOrderCode(): string {
-  const stamp = new Date().toISOString().replace(/[-:T.Z]/g, '').slice(0, 12);
-  return `AY${stamp}`;
+function transferNote(orderCode: string): string {
+  return `AYOYA ${orderCode}`;
 }
 
 function buildVietQrUrl(amount: number, orderCode: string): string {
-  const info = encodeURIComponent(`AYOYA ${orderCode}`);
+  const info = encodeURIComponent(transferNote(orderCode));
   const name = encodeURIComponent(BANK_INFO.accountHolder);
   return `https://img.vietqr.io/image/${BANK_INFO.bankBin}-${BANK_INFO.accountNumber}-compact2.png?amount=${amount}&addInfo=${info}&accountName=${name}`;
 }
@@ -33,34 +35,162 @@ const PROMO_MAX_DISCOUNT = 50000;
 
 type Step = 'cart' | 'checkout' | 'success';
 
+// What the customer ordered, kept for the confirmation screen after the cart is emptied.
+interface PlacedOrder {
+  code: string;
+  total: number;
+  bank: boolean;
+  phone: string;
+  lines: string[];
+}
+
+const emptyForm = { name: '', phone: '', address: '', note: '' };
+
+const fieldClass = (invalid: boolean) =>
+  `w-full px-4 py-3 rounded-xl border bg-white focus:outline-none focus:border-ayoya-amber ${
+    invalid ? 'border-ayoya-brick' : 'border-ayoya-brown/15'
+  }`;
+
+const labelClass = 'block text-xs font-bold uppercase tracking-widest text-ayoya-brown/75 mb-2';
+
+function CartLine({ item }: { item: CartItem; key?: string }) {
+  const { removeItem, updateQuantity } = useCart();
+  const noDiscount = getProductById(item.productId)?.noDiscount;
+  return (
+    <div className="flex gap-3 p-3 bg-white rounded-2xl border border-ayoya-brown/5">
+      <img src={thumb(item.image)} alt={item.title} referrerPolicy="no-referrer" className="w-16 h-16 rounded-xl object-cover flex-shrink-0" />
+      <div className="flex-1 min-w-0">
+        <p className="text-sm font-medium text-ayoya-brown leading-snug line-clamp-2">{item.title}</p>
+        {item.variantLabel && <p className="text-xs text-ayoya-brown/75">{item.variantLabel}</p>}
+        <div className="flex items-center justify-between mt-2">
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => updateQuantity(item.key, item.quantity - 1)}
+              className="w-8 h-8 rounded-full border border-ayoya-brown/20 flex items-center justify-center text-ayoya-brown hover:bg-ayoya-brown/5 active:scale-95"
+              aria-label="Giảm số lượng"
+            >
+              <Minus size={12} />
+            </button>
+            <span className="text-sm w-5 text-center">{item.quantity}</span>
+            <button
+              onClick={() => updateQuantity(item.key, item.quantity + 1)}
+              className="w-8 h-8 rounded-full border border-ayoya-brown/20 flex items-center justify-center text-ayoya-brown hover:bg-ayoya-brown/5 active:scale-95"
+              aria-label="Tăng số lượng"
+            >
+              <Plus size={12} />
+            </button>
+          </div>
+          <div className="flex flex-col items-end">
+            {!noDiscount && (
+              <span className="text-xs text-ayoya-brown/75 line-through leading-tight">
+                {formatPrice(calcOriginalPrice(item.unitPrice) * item.quantity)}
+              </span>
+            )}
+            <span className="text-sm font-bold text-ayoya-brown leading-tight">{formatPrice(item.unitPrice * item.quantity)}</span>
+          </div>
+        </div>
+      </div>
+      <button
+        onClick={() => removeItem(item.key)}
+        className="text-ayoya-brown/75 hover:text-ayoya-brick transition-colors self-start -m-2 p-2"
+        aria-label="Xóa sản phẩm"
+      >
+        <Trash2 size={16} />
+      </button>
+    </div>
+  );
+}
+
+function CopyRow({ label, value, copy }: { label: string; value: string; copy?: string }) {
+  const [copied, setCopied] = useState(false);
+  return (
+    <div className="flex items-center justify-between gap-3 py-1.5">
+      <span className="text-ayoya-brown/75">{label}</span>
+      <span className="flex items-center gap-2 text-right">
+        <strong className="text-ayoya-brown break-all">{value}</strong>
+        {copy !== undefined && (
+          <button
+            onClick={() => {
+              navigator.clipboard?.writeText(copy).then(() => setCopied(true), () => {});
+            }}
+            className="-m-2 p-2 text-ayoya-brown/75 hover:text-ayoya-brown"
+            aria-label={`Sao chép ${label}`}
+          >
+            {copied ? <CheckCircle2 size={15} className="text-ayoya-green" /> : <Copy size={15} />}
+          </button>
+        )}
+      </span>
+    </div>
+  );
+}
+
 export default function CartDrawer() {
-  const { items, isOpen, closeCart, removeItem, updateQuantity, totalPrice, totalWeightGrams, clearCart, checkoutIntent, clearCheckoutIntent } = useCart();
+  const { items, isOpen, closeCart, totalPrice, totalWeightGrams, clearCart, checkoutIntent, clearCheckoutIntent } = useCart();
   const [step, setStep] = useState<Step>('cart');
-  const [form, setForm] = useState({ name: '', phone: '', address: '', note: '' });
+  const [form, setForm] = useState(emptyForm);
   const [zoneId, setZoneId] = useState('');
   const [paymentMethod, setPaymentMethod] = useState<'cod' | 'bank'>('cod');
   const [submitting, setSubmitting] = useState(false);
   const [submitAttempted, setSubmitAttempted] = useState(false);
   const [error, setError] = useState('');
-  const [orderCode, setOrderCode] = useState('');
-  const [pendingOrderCode, setPendingOrderCode] = useState(() => generateOrderCode());
+  const [placed, setPlaced] = useState<PlacedOrder | null>(null);
+  const [pendingOrderCode, setPendingOrderCode] = useState('');
   const [promoInput, setPromoInput] = useState('');
   const [appliedPromo, setAppliedPromo] = useState<string | null>(null);
-  const [promoMessage, setPromoMessage] = useState<{ type: 'error' | 'success'; text: string } | null>(null);
+  const [promoError, setPromoError] = useState('');
+
+  const startCheckout = () => {
+    setPendingOrderCode(generateOrderCode());
+    setStep('checkout');
+  };
+
+  const handleClose = () => {
+    closeCart();
+    if (step === 'success') {
+      setStep('cart');
+      setForm(emptyForm);
+      setZoneId('');
+      setPaymentMethod('cod');
+      setPlaced(null);
+      setSubmitAttempted(false);
+      setPromoInput('');
+      setAppliedPromo(null);
+      setPromoError('');
+    }
+  };
 
   useEffect(() => {
     if (checkoutIntent) {
-      setPendingOrderCode(generateOrderCode());
-      setStep('checkout');
+      startCheckout();
       clearCheckoutIntent();
     }
   }, [checkoutIntent, clearCheckoutIntent]);
+
+  // Removing the last item during checkout leaves nothing to order.
+  useEffect(() => {
+    if (step === 'checkout' && items.length === 0 && !submitting) setStep('cart');
+  }, [step, items.length, submitting]);
 
   useEffect(() => {
     if (step !== 'checkout') return;
     trackShopEvent('begin_checkout', { value: totalPrice, items: items.map(i => toGaItem(i, i.quantity)) });
     // Fires once per entry into checkout, not on every cart change.
   }, [step]);
+
+  // While the drawer is open the page behind it stays still, and Escape closes it.
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') handleClose();
+    };
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.body.style.overflow = previous;
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  }, [isOpen, step]);
 
   const selectedZone = SHIPPING_ZONES.find(z => z.id === zoneId);
   const shippingFee = selectedZone ? calcShippingFee(totalWeightGrams, selectedZone.id) : 0;
@@ -79,69 +209,38 @@ export default function CartDrawer() {
     name: !form.name.trim() ? 'Vui lòng nhập họ tên.' : '',
     phone: !form.phone.trim()
       ? 'Vui lòng nhập số điện thoại.'
-      : !/^\d{10}$/.test(form.phone.trim())
-        ? 'Số điện thoại phải đủ 10 số.'
+      : !isValidPhone(form.phone)
+        ? 'Số điện thoại chưa đúng (10 số, bắt đầu bằng 0).'
         : '',
     address: !form.address.trim() ? 'Vui lòng nhập địa chỉ nhận hàng.' : '',
     zone: !zoneId ? 'Vui lòng chọn khu vực giao hàng.' : ''
   };
   const hasFieldErrors = Object.values(fieldErrors).some(Boolean);
+  const shown = (message: string) => submitAttempted && message !== '';
 
   if (!isOpen) return null;
 
-  const handleClose = () => {
-    closeCart();
-    if (step === 'success') {
-      setStep('cart');
-      setForm({ name: '', phone: '', address: '', note: '' });
-      setZoneId('');
-      setPaymentMethod('cod');
-      setOrderCode('');
-      setSubmitAttempted(false);
-      setPendingOrderCode(generateOrderCode());
-      setPromoInput('');
-      setAppliedPromo(null);
-      setPromoMessage(null);
-    }
-  };
-
-  const handlePromoInputChange = (value: string) => {
-    setPromoInput(value);
-    setAppliedPromo(null);
-    setPromoMessage(null);
-  };
-
   const handleApplyPromo = () => {
     const normalized = promoInput.trim().toUpperCase();
-    if (!normalized) {
-      setPromoMessage({ type: 'error', text: 'Vui lòng nhập mã ưu đãi.' });
-      return;
-    }
-    if (!PROMO_CODES[normalized]) {
-      setPromoMessage({ type: 'error', text: 'Mã ưu đãi không hợp lệ.' });
-      return;
-    }
-    if (totalPrice <= PROMO_MIN_ORDER) {
-      setPromoMessage({ type: 'error', text: `Đơn hàng cần trên ${formatPrice(PROMO_MIN_ORDER)} để áp dụng mã ưu đãi.` });
-      return;
-    }
-    const discount = Math.min(Math.round(totalPrice * PROMO_DISCOUNT_RATE), PROMO_MAX_DISCOUNT);
-    setAppliedPromo(normalized);
-    setPromoMessage({ type: 'success', text: `Áp dụng mã thành công! Giảm ${formatPrice(discount)}.` });
+    setAppliedPromo(PROMO_CODES[normalized] ? normalized : null);
+    setPromoError(!normalized ? 'Vui lòng nhập mã ưu đãi.' : PROMO_CODES[normalized] ? '' : 'Mã ưu đãi không hợp lệ.');
   };
 
   const handleSubmit = async () => {
-    if (hasFieldErrors || !selectedZone) {
+    if (hasFieldErrors || !selectedZone || items.length === 0) {
       setSubmitAttempted(true);
+      // Bring the first thing to fix into view; the form is taller than a phone screen.
+      requestAnimationFrame(() => document.querySelector('[data-invalid="true"]')?.scrollIntoView({ block: 'center', behavior: 'smooth' }));
       return;
     }
     setError('');
     setSubmitting(true);
     const code = pendingOrderCode;
+    const phone = normalizePhone(form.phone);
     const payload = {
       orderCode: code,
       customerName: form.name.trim(),
-      phone: form.phone.trim(),
+      phone,
       address: form.address.trim(),
       note: form.note.trim(),
       shippingZone: selectedZone.label,
@@ -177,15 +276,29 @@ export default function CartDrawer() {
         coupon: promoQualifies && appliedPromo ? appliedPromo : undefined,
         items: items.map(i => toGaItem(i, i.quantity))
       });
-      setOrderCode(code);
-      clearCart();
+      setPlaced({
+        code,
+        total: grandTotal,
+        bank: paymentMethod === 'bank',
+        phone,
+        lines: items.map(i => `${i.quantity} × ${i.title}${i.variantLabel ? ` (${i.variantLabel})` : ''}`)
+      });
       setStep('success');
+      clearCart();
     } catch {
-      setError(`Chưa xác nhận được đơn hàng. Giỏ hàng vẫn được giữ lại. Vui lòng nhắn Zalo 0933.458.485 kèm mã ${code} để kiểm tra trước khi đặt lại.`);
+      setError(`Chưa xác nhận được đơn hàng. Giỏ hàng vẫn được giữ lại. Vui lòng nhắn Zalo ${CONTACT_INFO.phone} kèm mã ${code} để kiểm tra trước khi đặt lại.`);
     } finally {
       setSubmitting(false);
     }
   };
+
+  const promoMessage = promoError
+    ? { good: false, text: promoError }
+    : appliedPromo === null
+      ? null
+      : promoQualifies
+        ? { good: true, text: `Đã áp dụng: giảm ${formatPrice(promoDiscount)}.` }
+        : { good: false, text: `Mã dùng được khi đơn trên ${formatPrice(PROMO_MIN_ORDER)}.` };
 
   return (
     <AnimatePresence>
@@ -202,6 +315,9 @@ export default function CartDrawer() {
           exit={{ x: '100%' }}
           transition={{ type: 'tween', duration: 0.3 }}
           onClick={e => e.stopPropagation()}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Giỏ hàng và đặt hàng"
           className="w-full sm:w-[440px] h-full bg-ayoya-cream flex flex-col shadow-2xl"
         >
           <div className="flex items-center justify-between px-6 py-5 border-b border-ayoya-brown/10 flex-shrink-0">
@@ -219,136 +335,88 @@ export default function CartDrawer() {
             </button>
           </div>
 
-          <div className="flex-1 overflow-y-auto px-6 py-6">
+          <div className="flex-1 overflow-y-auto overscroll-contain px-6 py-6">
             {step === 'cart' &&
               (items.length === 0 ? (
                 <div className="h-full flex flex-col items-center justify-center text-center text-ayoya-brown/75 gap-4">
                   <ShoppingCart size={48} strokeWidth={1} />
                   <p>Giỏ hàng đang trống.</p>
+                  <Link
+                    to="/san-pham"
+                    onClick={handleClose}
+                    className="min-h-12 inline-flex items-center px-8 rounded-full bg-ayoya-brown text-white text-sm font-bold uppercase tracking-widest hover:bg-ayoya-brick transition-colors"
+                  >
+                    Xem sản phẩm
+                  </Link>
                 </div>
               ) : (
                 <div className="space-y-4">
-                  {items.map(item => {
-                    const itemProduct = getProductById(item.productId);
-                    return (
-                    <div key={item.key} className="flex gap-4 p-3 bg-white rounded-2xl border border-ayoya-brown/5">
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        referrerPolicy="no-referrer"
-                        className="w-16 h-16 rounded-xl object-cover flex-shrink-0"
-                      />
-                      <div className="flex-1 min-w-0">
-                        <p className="text-sm font-medium text-ayoya-brown truncate">{item.title}</p>
-                        {item.variantLabel && (
-                          <p className="text-xs uppercase tracking-widest text-ayoya-brown/75">{item.variantLabel}</p>
-                        )}
-                        <div className="flex items-center justify-between mt-2">
-                          <div className="flex items-center gap-2">
-                            <button
-                              onClick={() => updateQuantity(item.key, item.quantity - 1)}
-                              className="w-8 h-8 rounded-full border border-ayoya-brown/20 flex items-center justify-center text-ayoya-brown hover:bg-ayoya-brown/5 active:scale-95"
-                              aria-label="Giảm số lượng"
-                            >
-                              <Minus size={12} />
-                            </button>
-                            <span className="text-sm w-5 text-center">{item.quantity}</span>
-                            <button
-                              onClick={() => updateQuantity(item.key, item.quantity + 1)}
-                              className="w-8 h-8 rounded-full border border-ayoya-brown/20 flex items-center justify-center text-ayoya-brown hover:bg-ayoya-brown/5 active:scale-95"
-                              aria-label="Tăng số lượng"
-                            >
-                              <Plus size={12} />
-                            </button>
-                          </div>
-                          <div className="flex flex-col items-end">
-                            {!itemProduct?.noDiscount && (
-                              <span className="text-xs text-ayoya-brown/75 line-through leading-tight">
-                                {formatPrice(calcOriginalPrice(item.unitPrice) * item.quantity)}
-                              </span>
-                            )}
-                            <span className="text-sm font-bold text-ayoya-brown leading-tight">{formatPrice(item.unitPrice * item.quantity)}</span>
-                          </div>
-                        </div>
-                      </div>
-                      <button
-                        onClick={() => removeItem(item.key)}
-                        className="text-ayoya-brown/75 hover:text-ayoya-brick transition-colors self-start -m-2 p-2"
-                        aria-label="Xóa sản phẩm"
-                      >
-                        <Trash2 size={16} />
-                      </button>
-                    </div>
-                    );
-                  })}
+                  {items.map(item => (
+                    <CartLine key={item.key} item={item} />
+                  ))}
                 </div>
               ))}
 
             {step === 'checkout' && (
               <div className="space-y-5">
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-widest text-ayoya-brown/75 mb-2">Họ tên *</label>
+                  <p className={labelClass}>Đơn của bạn</p>
+                  <div className="space-y-3">
+                    {items.map(item => (
+                      <CartLine key={item.key} item={item} />
+                    ))}
+                  </div>
+                </div>
+
+                <div data-invalid={shown(fieldErrors.name)}>
+                  <label className={labelClass}>Họ tên *</label>
                   <input
                     value={form.name}
                     onChange={e => setForm({ ...form, name: e.target.value })}
-                    className={`w-full px-4 py-3 rounded-xl border bg-white focus:outline-none focus:border-ayoya-amber ${
-                      submitAttempted && fieldErrors.name ? 'border-ayoya-brick' : 'border-ayoya-brown/15'
-                    }`}
+                    className={fieldClass(shown(fieldErrors.name))}
                     placeholder="Nguyễn Văn A"
                     name="name"
                     autoComplete="name"
                     aria-label="Họ tên"
                   />
-                  {submitAttempted && fieldErrors.name && (
-                    <p className="text-xs text-ayoya-brick font-medium mt-1">{fieldErrors.name}</p>
-                  )}
+                  {shown(fieldErrors.name) && <p className="text-xs text-ayoya-brick font-medium mt-1">{fieldErrors.name}</p>}
                 </div>
-                <div>
-                  <label className="block text-xs font-bold uppercase tracking-widest text-ayoya-brown/75 mb-2">Số điện thoại *</label>
+                <div data-invalid={shown(fieldErrors.phone)}>
+                  <label className={labelClass}>Số điện thoại *</label>
                   <input
                     value={form.phone}
                     onChange={e => setForm({ ...form, phone: e.target.value })}
                     type="tel"
-                    className={`w-full px-4 py-3 rounded-xl border bg-white focus:outline-none focus:border-ayoya-amber ${
-                      submitAttempted && fieldErrors.phone ? 'border-ayoya-brick' : 'border-ayoya-brown/15'
-                    }`}
-                    placeholder="09xxxxxxxx"
+                    className={fieldClass(shown(fieldErrors.phone))}
+                    placeholder="09xx xxx xxx"
                     name="tel"
                     autoComplete="tel"
-                    inputMode="numeric"
+                    inputMode="tel"
                     aria-label="Số điện thoại"
                   />
-                  {submitAttempted && fieldErrors.phone && (
-                    <p className="text-xs text-ayoya-brick font-medium mt-1">{fieldErrors.phone}</p>
-                  )}
+                  {shown(fieldErrors.phone) && <p className="text-xs text-ayoya-brick font-medium mt-1">{fieldErrors.phone}</p>}
                 </div>
-                <div>
-                  <label className="block text-xs font-bold uppercase tracking-widest text-ayoya-brown/75 mb-2">Địa chỉ nhận hàng *</label>
+                <div data-invalid={shown(fieldErrors.address)}>
+                  <label className={labelClass}>Địa chỉ nhận hàng *</label>
                   <textarea
                     value={form.address}
                     onChange={e => setForm({ ...form, address: e.target.value })}
                     rows={2}
-                    className={`w-full px-4 py-3 rounded-xl border bg-white focus:outline-none focus:border-ayoya-amber resize-none ${
-                      submitAttempted && fieldErrors.address ? 'border-ayoya-brick' : 'border-ayoya-brown/15'
-                    }`}
+                    className={`${fieldClass(shown(fieldErrors.address))} resize-none`}
                     placeholder="Số nhà, đường, phường/xã, tỉnh/thành"
                     name="address"
                     autoComplete="street-address"
                     aria-label="Địa chỉ nhận hàng"
                   />
-                  {submitAttempted && fieldErrors.address && (
-                    <p className="text-xs text-ayoya-brick font-medium mt-1">{fieldErrors.address}</p>
-                  )}
+                  {shown(fieldErrors.address) && <p className="text-xs text-ayoya-brick font-medium mt-1">{fieldErrors.address}</p>}
                 </div>
-                <div>
-                  <label className="block text-xs font-bold uppercase tracking-widest text-ayoya-brown/75 mb-2">Khu vực giao hàng *</label>
+                <div data-invalid={shown(fieldErrors.zone)}>
+                  <label className={labelClass}>Khu vực giao hàng *</label>
                   <select
                     aria-label="Khu vực giao hàng"
                     value={zoneId}
                     onChange={e => setZoneId(e.target.value)}
-                    className={`w-full px-4 py-3 rounded-xl border bg-white focus:outline-none focus:border-ayoya-amber text-ayoya-brown ${
-                      submitAttempted && fieldErrors.zone ? 'border-ayoya-brick' : 'border-ayoya-brown/15'
-                    }`}
+                    className={`${fieldClass(shown(fieldErrors.zone))} text-ayoya-brown`}
                   >
                     <option value="">-- Chọn khu vực --</option>
                     {SHIPPING_ZONES.map(z => (
@@ -357,32 +425,66 @@ export default function CartDrawer() {
                       </option>
                     ))}
                   </select>
-                  {submitAttempted && fieldErrors.zone ? (
+                  {shown(fieldErrors.zone) ? (
                     <p className="text-xs text-ayoya-brick font-medium mt-1">{fieldErrors.zone}</p>
                   ) : (
-                    <p className="text-xs text-ayoya-brown/75 mt-1">Dùng để tính phí vận chuyển qua SPX Express.</p>
+                    <p className="text-xs text-ayoya-brown/75 mt-1">
+                      Phí ship theo SPX Express, khi giao thực tế có thể chênh khoảng 1.000đ – 10.000đ.
+                    </p>
                   )}
                 </div>
+
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-widest text-ayoya-brown/75 mb-2">Ghi chú</label>
+                  <p className={labelClass}>Phương thức thanh toán</p>
+                  <div className="grid grid-cols-2 gap-3">
+                    {(
+                      [
+                        ['cod', 'COD', 'Trả tiền khi nhận hàng'],
+                        ['bank', 'Chuyển khoản', 'Mã QR hiện sau khi đặt']
+                      ] as const
+                    ).map(([id, title, hint]) => (
+                      <button
+                        key={id}
+                        onClick={() => setPaymentMethod(id)}
+                        aria-pressed={paymentMethod === id}
+                        className={`py-3 rounded-xl border text-sm font-medium transition-all flex flex-col items-center gap-0.5 ${
+                          paymentMethod === id
+                            ? 'border-ayoya-brown bg-ayoya-brown text-white'
+                            : 'border-ayoya-brown/15 bg-white text-ayoya-brown'
+                        }`}
+                      >
+                        <span>{title}</span>
+                        <span className={`text-xs font-normal ${paymentMethod === id ? 'text-white/70' : 'text-ayoya-brown/75'}`}>{hint}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <label className={labelClass}>Ghi chú</label>
                   <textarea
                     value={form.note}
                     onChange={e => setForm({ ...form, note: e.target.value })}
                     rows={2}
-                    className="w-full px-4 py-3 rounded-xl border border-ayoya-brown/15 bg-white focus:outline-none focus:border-ayoya-amber resize-none"
+                    className={`${fieldClass(false)} resize-none`}
                     placeholder="Yêu cầu thêm (không bắt buộc)"
                     aria-label="Ghi chú"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-widest text-ayoya-brown/75 mb-2">Mã ưu đãi</label>
+                  <label className={labelClass}>Mã ưu đãi</label>
                   <div className="flex gap-2">
                     <input
                       value={promoInput}
-                      onChange={e => handlePromoInputChange(e.target.value)}
-                      className="flex-1 px-4 py-3 rounded-xl border border-ayoya-brown/15 bg-white focus:outline-none focus:border-ayoya-amber uppercase"
-                      placeholder="Nhập mã ưu đãi (không bắt buộc)"
+                      onChange={e => {
+                        setPromoInput(e.target.value);
+                        setAppliedPromo(null);
+                        setPromoError('');
+                      }}
+                      onKeyDown={e => e.key === 'Enter' && handleApplyPromo()}
+                      className="min-w-0 flex-1 px-4 py-3 rounded-xl border border-ayoya-brown/15 bg-white focus:outline-none focus:border-ayoya-amber uppercase"
+                      placeholder="Không bắt buộc"
                       aria-label="Mã ưu đãi"
                     />
                     <button
@@ -393,9 +495,7 @@ export default function CartDrawer() {
                     </button>
                   </div>
                   {promoMessage && (
-                    <p className={`text-xs font-medium mt-1 ${promoMessage.type === 'error' ? 'text-ayoya-brick' : 'text-ayoya-green'}`}>
-                      {promoMessage.text}
-                    </p>
+                    <p className={`text-xs font-medium mt-1 ${promoMessage.good ? 'text-ayoya-green' : 'text-ayoya-brick'}`}>{promoMessage.text}</p>
                   )}
                 </div>
 
@@ -417,146 +517,116 @@ export default function CartDrawer() {
                   )}
                   <div className="flex items-center justify-between text-ayoya-brown/70">
                     <span>Phí vận chuyển</span>
-                    <span>{selectedZone ? formatPrice(shippingFee) : 'Chọn khu vực bên trên'}</span>
+                    <span>{selectedZone ? formatPrice(shippingFee) : 'Chọn khu vực'}</span>
                   </div>
                   <div className="flex items-center justify-between pt-2 border-t border-ayoya-brown/10 font-bold text-ayoya-brown">
-                    <span>Tổng cộng</span>
+                    <span>Tổng cộng{selectedZone ? '' : ' (chưa gồm ship)'}</span>
                     <span>{formatPrice(grandTotal)}</span>
                   </div>
                 </div>
-
-                <div className="flex gap-3 p-4 bg-ayoya-amber/5 rounded-2xl border-l-4 border-ayoya-amber">
-                  <Info size={16} className="text-ayoya-amber flex-shrink-0 mt-0.5" />
-                  <p className="text-xs leading-relaxed text-ayoya-brown/70">
-                    <span className="font-bold text-ayoya-brown">Lưu ý về cước vận chuyển: </span>
-                    Nhằm đảm bảo tính minh bạch, phí vận chuyển được cập nhật theo thời gian thực từ hệ thống đối tác SPX.
-                    Do đó, tổng giá trị thanh toán thực tế có thể dao động nhẹ: tăng hoặc giảm (biên độ từ 1.000đ – 10.000đ)
-                    tùy thuộc vào chính sách phụ phí ban hành tại thời điểm bàn giao kiện hàng.
-                  </p>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold uppercase tracking-widest text-ayoya-brown/75 mb-2">Phương thức thanh toán</label>
-                  <div className="grid grid-cols-2 gap-3">
-                    <button
-                      onClick={() => setPaymentMethod('cod')}
-                      className={`py-3 rounded-xl border text-sm font-medium transition-all flex flex-col items-center gap-0.5 ${
-                        paymentMethod === 'cod'
-                          ? 'border-ayoya-brown bg-ayoya-brown text-white'
-                          : 'border-ayoya-brown/15 bg-white text-ayoya-brown'
-                      }`}
-                    >
-                      <span>COD</span>
-                      <span className={`text-xs font-normal ${paymentMethod === 'cod' ? 'text-white/70' : 'text-ayoya-brown/75'}`}>
-                        Thanh toán khi nhận hàng
-                      </span>
-                    </button>
-                    <button
-                      onClick={() => setPaymentMethod('bank')}
-                      className={`py-3 rounded-xl border text-sm font-medium transition-all flex flex-col items-center gap-0.5 ${
-                        paymentMethod === 'bank'
-                          ? 'border-ayoya-brown bg-ayoya-brown text-white'
-                          : 'border-ayoya-brown/15 bg-white text-ayoya-brown'
-                      }`}
-                    >
-                      <span>Chuyển khoản</span>
-                      <span className={`text-xs font-normal ${paymentMethod === 'bank' ? 'text-white/70' : 'text-ayoya-brown/75'}`}>
-                        Quét mã QR
-                      </span>
-                    </button>
-                  </div>
-                </div>
-
-                {paymentMethod === 'bank' && (
-                  <div className="p-5 bg-white rounded-2xl border border-ayoya-brown/10 text-center space-y-3">
-                    <img
-                      src={buildVietQrUrl(grandTotal, pendingOrderCode)}
-                      alt="Mã QR chuyển khoản VietQR"
-                      className="w-48 h-auto mx-auto rounded-lg"
-                    />
-                    <div className="text-xs text-ayoya-brown/70 space-y-1">
-                      <p>
-                        <strong className="text-ayoya-brown">{BANK_INFO.bankName}</strong>
-                      </p>
-                      <p>
-                        STK: <strong className="text-ayoya-brown">{BANK_INFO.accountNumber}</strong>
-                      </p>
-                      <p>
-                        Chủ TK: <strong className="text-ayoya-brown">{BANK_INFO.accountHolder}</strong>
-                      </p>
-                      <p>
-                        Số tiền: <strong className="text-ayoya-brown">{formatPrice(grandTotal)}</strong>
-                      </p>
-                    </div>
-                    <p className="text-xs text-ayoya-brown/75 italic">
-                      Quét mã hoặc chuyển khoản thủ công, ghi nội dung theo mã đơn Ayoya gửi lại sau khi đặt.
-                    </p>
-                  </div>
-                )}
 
                 {error && <p className="text-xs text-ayoya-brick font-medium">{error}</p>}
               </div>
             )}
 
-            {step === 'success' && (
-              <div className="h-full flex flex-col items-center justify-center text-center gap-4 py-10">
-                <CheckCircle2 size={56} className="text-ayoya-green" />
-                <h4 className="text-xl font-serif text-ayoya-brown">Cảm ơn bạn đã đặt hàng!</h4>
-                <p className="text-sm text-ayoya-brown/75 max-w-xs">
-                  Mã đơn <strong className="text-ayoya-brown">{orderCode}</strong>. Ayoya sẽ liên hệ xác nhận trong thời gian sớm nhất.
-                </p>
+            {step === 'success' && placed && (
+              <div className="space-y-5">
+                <div className="flex flex-col items-center text-center gap-3">
+                  <CheckCircle2 size={52} className="text-ayoya-green" />
+                  <h4 className="text-xl font-serif text-ayoya-brown">Cảm ơn bạn đã đặt hàng!</h4>
+                  <p className="text-sm text-ayoya-brown/75">
+                    AYOYA sẽ liên hệ số <strong className="text-ayoya-brown">{placed.phone}</strong> để xác nhận đơn.
+                  </p>
+                </div>
+
+                <div className="p-4 bg-white rounded-2xl border border-ayoya-brown/10 text-sm">
+                  <CopyRow label="Mã đơn" value={placed.code} copy={placed.code} />
+                  <ul className="py-2 border-y border-ayoya-brown/10 text-ayoya-brown space-y-1">
+                    {placed.lines.map(line => (
+                      <li key={line}>{line}</li>
+                    ))}
+                  </ul>
+                  <CopyRow label={placed.bank ? 'Cần chuyển khoản' : 'Trả khi nhận hàng'} value={formatPrice(placed.total)} />
+                </div>
+
+                {placed.bank && (
+                  <div className="p-5 bg-white rounded-2xl border border-ayoya-brown/10 text-sm">
+                    <p className="text-center font-bold text-ayoya-brown mb-3">Quét mã để chuyển khoản</p>
+                    <img src={buildVietQrUrl(placed.total, placed.code)} alt="Mã QR chuyển khoản VietQR" className="w-52 h-auto mx-auto rounded-lg mb-3" />
+                    <CopyRow label="Ngân hàng" value={BANK_INFO.bankName} />
+                    <CopyRow label="Số tài khoản" value={BANK_INFO.accountNumber} copy={BANK_INFO.accountNumber} />
+                    <CopyRow label="Chủ tài khoản" value={BANK_INFO.accountHolder} />
+                    <CopyRow label="Số tiền" value={formatPrice(placed.total)} copy={String(placed.total)} />
+                    <CopyRow label="Nội dung" value={transferNote(placed.code)} copy={transferNote(placed.code)} />
+                    <p className="mt-2 text-xs text-ayoya-brown/75 text-center">
+                      Dùng một điện thoại? Hãy chụp màn hình mã QR rồi chọn ảnh đó trong ứng dụng ngân hàng.
+                    </p>
+                  </div>
+                )}
+
+                <div className="flex flex-col gap-3">
+                  <a
+                    href={CONTACT_INFO.zaloHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="min-h-12 flex items-center justify-center gap-2 rounded-full border border-ayoya-brown text-ayoya-brown text-sm font-bold uppercase tracking-widest"
+                  >
+                    <MessageCircle size={16} /> Nhắn Zalo cho AYOYA
+                  </a>
+                  <Link
+                    to="/san-pham"
+                    onClick={handleClose}
+                    className="min-h-12 flex items-center justify-center rounded-full bg-ayoya-brown text-white text-sm font-bold uppercase tracking-widest"
+                  >
+                    Xem thêm sản phẩm
+                  </Link>
+                </div>
               </div>
             )}
           </div>
 
-          {step !== 'success' && (
+          {step === 'cart' && items.length > 0 && (
             <div className="px-6 py-5 border-t border-ayoya-brown/10 bg-white/50 flex-shrink-0 space-y-3">
-              {step === 'cart' && items.length > 0 && (
-                <>
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-ayoya-brown/75">Tạm tính (chưa gồm phí ship)</span>
-                    <span className="flex items-baseline gap-2">
-                      {hasSubtotalDiscount && (
-                        <span className="text-xs text-ayoya-brown/75 line-through">{formatPrice(originalSubtotal)}</span>
-                      )}
-                      <span className="text-xl font-bold text-ayoya-brown">{formatPrice(totalPrice)}</span>
-                    </span>
-                  </div>
-                  <button
-                    onClick={() => {
-                      setPendingOrderCode(generateOrderCode());
-                      setStep('checkout');
-                    }}
-                    className="w-full py-4 bg-ayoya-brown text-white rounded-full font-bold uppercase tracking-widest hover:bg-ayoya-brick transition-all"
-                  >
-                    Tiến hành đặt hàng
-                  </button>
-                </>
-              )}
-              {step === 'checkout' && (
-                <p className="mb-3 text-xs text-ayoya-brown/70 leading-relaxed">
-                  Khi bấm "Gửi đơn hàng", bạn đồng ý để AYOYA dùng thông tin trên để xử lý và giao đơn theo{' '}
-                  <a href="/chinh-sach/chinh-sach-bao-mat" target="_blank" rel="noopener" className="underline">Chính sách bảo mật</a>.
-                </p>
-              )}
-              {step === 'checkout' && (
-                <div className="flex gap-3">
-                  <button
-                    onClick={() => setStep('cart')}
-                    className="px-6 py-4 border border-ayoya-brown/20 text-ayoya-brown rounded-full font-medium"
-                  >
-                    Quay lại
-                  </button>
-                  <button
-                    onClick={handleSubmit}
-                    disabled={submitting}
-                    className="flex-1 py-4 bg-ayoya-brown text-white rounded-full font-bold uppercase tracking-widest hover:bg-ayoya-brick transition-all disabled:opacity-50 flex items-center justify-center gap-2"
-                  >
-                    {submitting && <Loader2 size={16} className="animate-spin" />}
-                    Gửi đơn hàng
-                  </button>
-                </div>
-              )}
+              <div className="flex items-center justify-between text-sm">
+                <span className="text-ayoya-brown/75">Tạm tính (chưa gồm phí ship)</span>
+                <span className="flex items-baseline gap-2">
+                  {hasSubtotalDiscount && (
+                    <span className="text-xs text-ayoya-brown/75 line-through">{formatPrice(originalSubtotal)}</span>
+                  )}
+                  <span className="text-xl font-bold text-ayoya-brown">{formatPrice(totalPrice)}</span>
+                </span>
+              </div>
+              <button
+                onClick={startCheckout}
+                className="w-full py-4 bg-ayoya-brown text-white rounded-full font-bold uppercase tracking-widest hover:bg-ayoya-brick transition-all"
+              >
+                Tiến hành đặt hàng
+              </button>
+            </div>
+          )}
+
+          {step === 'checkout' && (
+            <div className="px-6 py-4 border-t border-ayoya-brown/10 bg-white/50 flex-shrink-0">
+              <p className="mb-3 text-xs text-ayoya-brown/70 leading-relaxed">
+                Khi bấm "Đặt hàng", bạn đồng ý để AYOYA dùng thông tin trên để xử lý và giao đơn theo{' '}
+                <a href="/chinh-sach/chinh-sach-bao-mat" target="_blank" rel="noopener" className="underline">Chính sách bảo mật</a>.
+              </p>
+              <div className="flex gap-3">
+                <button
+                  onClick={() => setStep('cart')}
+                  className="px-5 py-4 border border-ayoya-brown/20 text-ayoya-brown rounded-full font-medium"
+                >
+                  Quay lại
+                </button>
+                <button
+                  onClick={handleSubmit}
+                  disabled={submitting}
+                  className="flex-1 py-4 bg-ayoya-brown text-white rounded-full font-bold uppercase tracking-wider text-sm hover:bg-ayoya-brick transition-all disabled:opacity-50 flex items-center justify-center gap-2"
+                >
+                  {submitting && <Loader2 size={16} className="animate-spin" />}
+                  Đặt hàng · {formatPrice(grandTotal)}
+                </button>
+              </div>
             </div>
           )}
         </motion.div>

@@ -14,12 +14,11 @@ function formatPrice(price: number): string {
 
 export default function ProductCatalog() {
   const { addItem } = useCart();
-  const [searchParams] = useSearchParams();
-  const categoryIds = CATEGORIES.map(c => c.id);
-  const initialCategory = searchParams.get('cat');
-  const [activeCategory, setActiveCategory] = useState(
-    initialCategory && categoryIds.includes(initialCategory) ? initialCategory : 'all'
-  );
+  const [searchParams, setSearchParams] = useSearchParams();
+  // The chosen category lives in the address, so Back from a product returns to the same list.
+  const requested = searchParams.get('cat');
+  const activeCategory = requested && CATEGORIES.some(c => c.id === requested) ? requested : 'all';
+  const setActiveCategory = (id: string) => setSearchParams(id === 'all' ? {} : { cat: id }, { replace: true });
   const [selectedVariants, setSelectedVariants] = useState<Record<string, string>>({});
 
   useEffect(() => {

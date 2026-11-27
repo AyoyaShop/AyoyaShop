@@ -725,39 +725,46 @@ export const BLOGS = [
   }
 ];
 
-export const QUIZ_QUESTIONS = [
-  {
-    question: 'Bạn đang cảm thấy năng lượng của mình như thế nào?',
-    options: [
-      { text: 'Mệt mỏi, áp lực công việc', score: 'xanh' },
-      { text: 'Cần sự bình an, tĩnh tại cho gia đạo', score: 'nâu' },
-      { text: 'Đau nhức cơ thể sau vận động', score: 'đỏ' }
-    ]
-  },
-  {
-    question: 'Không gian sống của bạn hiện tại?',
-    options: [
-      { text: 'Cần thanh tẩy, làm sạch uế khí', score: 'xanh' },
-      { text: 'Cần sự trang nghiêm, ấm cúng', score: 'nâu' },
-      { text: 'Cần năng lượng mạnh mẽ, phục hồi', score: 'đỏ' }
-    ]
-  }
-];
-
-export const QUIZ_RESULTS = {
-  xanh: {
-    title: 'Thần Thảo Thanh Khiết',
-    description: 'Bạn phù hợp với các dòng sản phẩm Xông nhà và Ngâm chân thảo mộc để thanh lọc áp lực.',
-    product: 'thao-moc-xong-nha'
-  },
-  nâu: {
-    title: 'Tĩnh Tâm Gia Đạo',
-    description: 'Thảo dược Xông & Tắm Mộc An giúp thân khỏe tâm an, tẩy trần thanh tịnh và mang lại sự bình an cho gia đạo bạn.',
-    product: 'la-xong-moc-an'
-  },
-  đỏ: {
-    title: 'Hồi Sinh Thể Chất',
-    description: 'Dầu xoa bóp võ cổ truyền Bình Định, dùng xoa bóp thư giãn sau vận động.',
-    product: 'dau-vo'
-  }
+// Two-step product finder: the need, then the kind. Health supplements are left out on purpose.
+export const QUIZ = {
+  question: 'Bạn đang tìm sản phẩm cho việc gì?',
+  needs: [
+    {
+      text: 'Chăm sóc, thư giãn cơ thể',
+      question: 'Bạn muốn dùng vào việc nào?',
+      options: [
+        { text: 'Xoa bóp sau vận động', productId: 'dau-vo' },
+        { text: 'Ngâm chân buổi tối', productId: 'ngam-chan-moc-an' },
+        { text: 'Xông và tắm toàn thân', productId: 'la-xong-moc-an' },
+        { text: 'Gội đầu', productId: 'dau-goi-moc-an' }
+      ]
+    },
+    {
+      text: 'Làm thơm, dọn sạch nhà cửa',
+      question: 'Bạn thích cách nào?',
+      options: [
+        { text: 'Gói thảo dược xông khói hoặc xông hơi', productId: 'thao-moc-xong-nha' },
+        { text: 'Trầm hương và gỗ đốt trên than', productId: 'tram-huong-xong-nha' },
+        { text: 'Lau dọn bàn thờ', productId: 'nuoc-lau-ban-tho' }
+      ]
+    },
+    {
+      text: 'Thắp hương, thờ cúng',
+      question: 'Bạn hay dùng loại nào?',
+      options: [
+        { text: 'Nhang cây trầm hương', productId: 'nhang-tram-cao-cap' },
+        { text: 'Nhang cây quế', productId: 'nhang-que' },
+        { text: 'Nụ trầm cho lư xông', productId: 'nu-tram-huong' },
+        { text: 'Nụ quế cho lư xông', productId: 'nu-que' }
+      ]
+    },
+    {
+      text: 'Quà tặng, vật phẩm phong thủy',
+      question: 'Bạn thích món nào?',
+      options: [
+        { text: 'Thẻ rùa vàng nhỏ để trong ví', productId: 'rua-vang-phong-thuy' },
+        { text: 'Chai ngũ cốc trang trí', productId: 'chai-ngu-coc-phong-thuy' }
+      ]
+    }
+  ]
 };

@@ -85,7 +85,7 @@ export const POLICIES: Policy[] = [
       {
         heading: '1. Phạm vi giao hàng',
         paragraphs: [
-          'AYOYA Shop thực hiện giao hàng trên toàn quốc (63 tỉnh thành) thông qua đối tác vận chuyển SPX Express, nhằm đảm bảo hàng hóa đến được cả những khu vực vùng sâu, vùng xa.'
+          'AYOYA Shop thực hiện giao hàng trên toàn quốc thông qua đối tác vận chuyển SPX Express, nhằm đảm bảo hàng hóa đến được cả những khu vực vùng sâu, vùng xa.'
         ]
       },
       {
@@ -203,7 +203,7 @@ export const POLICIES: Policy[] = [
       {
         heading: '2. Chuyển khoản ngân hàng qua VietQR',
         paragraphs: [
-          'Khi chọn phương thức "Chuyển khoản" ở bước thanh toán, hệ thống sẽ tự tạo mã QR VietQR với đúng số tiền cần thanh toán để Quý khách quét bằng ứng dụng ngân hàng bất kỳ.',
+          'Khi chọn phương thức "Chuyển khoản" và gửi đơn, màn hình xác nhận hiện mã QR VietQR kèm đúng số tiền và nội dung chuyển khoản để Quý khách quét bằng ứng dụng ngân hàng bất kỳ.',
           'Thông tin tài khoản: Ngân hàng ACB, chủ tài khoản NGUYEN TUAN KIET, số tài khoản 191800499.',
           'Sau khi chuyển khoản, AYOYA sẽ xác nhận đơn hàng và liên hệ với Quý khách trong thời gian sớm nhất.'
         ]

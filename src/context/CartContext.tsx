@@ -19,6 +19,7 @@ interface CartContextValue {
   openCart: () => void;
   closeCart: () => void;
   addItem: (item: Omit<CartItem, 'quantity'>, quantity?: number) => void;
+  buyNow: (item: Omit<CartItem, 'quantity'>, quantity?: number) => void;
   removeItem: (key: string) => void;
   updateQuantity: (key: string, quantity: number) => void;
   clearCart: () => void;
@@ -101,6 +102,19 @@ export function CartProvider({ children }: { children: ReactNode }) {
     trackShopEvent('add_to_cart', { value: item.unitPrice * quantity, items: [toGaItem(item, quantity)] });
   };
 
+  // "Mua ngay" goes straight to checkout. Pressing it again must not pile up the same item,
+  // so an item already in the cart keeps the larger of the two quantities.
+  const buyNow: CartContextValue['buyNow'] = (item, quantity = 1) => {
+    setItems(prev =>
+      prev.some(i => i.key === item.key)
+        ? prev.map(i => (i.key === item.key ? { ...i, quantity: Math.max(i.quantity, quantity) } : i))
+        : [...prev, { ...item, quantity }]
+    );
+    setIsOpen(true);
+    setCheckoutIntent(true);
+    trackShopEvent('add_to_cart', { value: item.unitPrice * quantity, items: [toGaItem(item, quantity)] });
+  };
+
   const removeItem = (key: string) => {
     setItems(prev => prev.filter(i => i.key !== key));
   };
@@ -127,6 +141,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         openCart: () => setIsOpen(true),
         closeCart: () => setIsOpen(false),
         addItem,
+        buyNow,
         removeItem,
         updateQuantity,
         clearCart,

@@ -1,9 +1,12 @@
+import { useLocation } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { MessageCircle } from 'lucide-react';
 
 export default function Chatbot() {
+  // Product pages have their own phone bar with a Zalo button in it.
+  const onProductPage = useLocation().pathname.startsWith('/san-pham/');
   return (
-    <div className="fixed bottom-8 right-8 z-[100]">
+    <div className={`fixed bottom-6 right-5 md:bottom-8 md:right-8 z-[100] ${onProductPage ? 'hidden md:block' : ''}`}>
       <motion.a
         href="https://zalo.me/0933458485" // <-- Đường link Zalo của bạn
         target="_blank"
