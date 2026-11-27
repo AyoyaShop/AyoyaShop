@@ -324,6 +324,15 @@ export default function CartDrawer() {
       });
       // Apps Script answers HTTP 200 with an HTML page when it crashes, so only the JSON status counts.
       const result = await response.json();
+      // The sheet allows the code once per phone number. Nothing was recorded: drop the code and let the customer decide.
+      if (result?.status === 'promo_used') {
+        forgetPromo();
+        setAppliedPromo(null);
+        setPromoInput('');
+        setPromoError('Số điện thoại này đã dùng mã giảm giá.');
+        setError('Số điện thoại này đã dùng mã giảm giá một lần. Đơn chưa được đặt: mã đã được bỏ, bạn xem lại tổng tiền rồi bấm Đặt hàng lần nữa.');
+        return;
+      }
       if (result?.status !== 'success') throw new Error('order not recorded');
       trackShopEvent('purchase', {
         transaction_id: code,
