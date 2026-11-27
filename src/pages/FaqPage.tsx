@@ -12,6 +12,14 @@ const FAQS = [
       'Đơn hàng được giao qua SPX Express, phí tính theo khu vực và tổng khối lượng sản phẩm (hiển thị ngay khi bạn chọn khu vực giao hàng ở bước thanh toán). Do phí vận chuyển cập nhật theo thời gian thực từ đối tác SPX, tổng giá trị thanh toán thực tế có thể dao động nhẹ (khoảng 1.000đ – 10.000đ) tùy chính sách phụ phí tại thời điểm bàn giao kiện hàng.'
   },
   {
+    question: 'Shop có giao hỏa tốc không?',
+    answer: 'Hiện Shop chưa hỗ trợ giao hỏa tốc. Shop đóng gói và gửi đơn sớm nhất có thể trong ngày, thời gian giao tùy đơn vị vận chuyển.'
+  },
+  {
+    question: 'Nhận hàng bị thiếu thì sao?',
+    answer: `Shop xin lỗi về sơ suất này. Bạn chụp ảnh hoặc quay video gói hàng rồi nhắn Zalo ${CONTACT_INFO.phone} kèm mã đơn. Shop hoàn lại tiền phần hàng thiếu.`
+  },
+  {
     question: 'AYOYA hỗ trợ những phương thức thanh toán nào?',
     answer: 'Bạn có thể chọn thanh toán khi nhận hàng (COD) hoặc chuyển khoản ngân hàng qua mã QR VietQR ngay trong bước đặt hàng.'
   },

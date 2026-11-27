@@ -11,7 +11,7 @@ const QUESTIONS = [
   { q: 'Thanh toán thế nào?', a: 'Trả tiền khi nhận hàng, hoặc chuyển khoản bằng mã QR hiện ngay sau khi đặt đơn.' },
   {
     q: 'Bao lâu thì nhận được?',
-    a: 'TP.HCM và Bình Dương 1 – 2 ngày làm việc; miền Nam khác 2 – 4 ngày; miền Trung, Tây Nguyên, miền Bắc 3 – 7 ngày.'
+    a: 'TP.HCM và Bình Dương 1 – 2 ngày làm việc; miền Nam khác 2 – 4 ngày; miền Trung, Tây Nguyên, miền Bắc 3 – 7 ngày. Shop chưa hỗ trợ giao hỏa tốc.'
   },
   { q: 'Đổi trả ra sao?', a: 'Trong 7 ngày, khi sản phẩm lỗi do sản xuất, hư hỏng do vận chuyển hoặc giao sai đơn.' }
 ];

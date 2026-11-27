@@ -229,13 +229,13 @@ export const PRODUCTS = [
     title: 'Dầu Xoa Bóp Võ Thuật Cổ Truyền Bình Định',
     subtitle: 'Tinh hoa miền đất Võ - Thông kinh lạc, nhẹ thân tâm',
     description: 'Sản phẩm mang tính di sản, kế thừa tinh hoa võ học Bình Định. Kết hợp công thức bí truyền và cốt rượu lâu năm.',
-    benefits: 'Hỗ trợ giảm cảm giác đau nhức, cảm giác ấm nồng lan tỏa giúp thư giãn cơ xương khớp.',
+    benefits: 'Hỗ trợ giảm cảm giác đau nhức, cảm giác ấm nhẹ lan tỏa, hơi the mát, giúp thư giãn cơ xương khớp.',
     ingredients:
-      'Lưu hội (Lô hội), Đại hoàng, Bạch chỉ, Nhị trà, Huyết kiệt, Hồng hoa, Tam nại (Địa liền), Mã tiền, Long não, tá dược rượu vừa đủ (công thức cho chai 500ml).',
+      'Lưu hội (Lô hội), Đại hoàng, Bạch chỉ, Nhị trà, Huyết kiệt, Hồng hoa, Tam nại (Địa liền), tá dược rượu vừa đủ (công thức cho chai 500ml).',
     usage:
-      'Lắc đều chai trước khi dùng. Đổ một lượng dầu vừa đủ lên vùng da sạch và khô, thoa đều và xoa bóp nhẹ nhàng theo vòng tròn từ 5-10 phút tại vùng cần chăm sóc, có thể dùng nhiều lần trong ngày.',
+      'Lắc đều chai trước khi dùng. Đổ một lượng dầu vừa đủ lên vùng da sạch và khô, thoa đều và xoa bóp nhẹ nhàng theo vòng tròn từ 5-10 phút tại vùng cần chăm sóc, ngày 2 – 3 lần.',
     warnings:
-      'Chỉ dùng ngoài da, KHÔNG ĐƯỢC UỐNG. Không dùng cho phụ nữ có thai, trẻ em dưới 30 tháng tuổi, trẻ có tiền sử co giật/động kinh. Không bôi lên mắt, niêm mạc, vết thương hở. Ngừng sử dụng nếu có dấu hiệu mẫn cảm. Để xa tầm tay trẻ em.',
+      'Chỉ dùng xoa ngoài da, TUYỆT ĐỐI KHÔNG UỐNG. Không bôi lên vết thương hở, mắt, miệng hay niêm mạc. Không dùng cho phụ nữ mang thai, trẻ dưới 30 tháng tuổi và người có tiền sử động kinh hoặc co giật. Để xa tầm tay trẻ em. Xoa xong rửa tay sạch. Da nhạy cảm nên thử một ít ở mặt trong cánh tay trước. Nếu ngứa, rát, nổi mẩn thì ngưng dùng và rửa lại bằng nước sạch.',
     origin: 'Sản xuất tại Hoài Nhơn, Bình Định. Hạn sử dụng 36 tháng kể từ ngày sản xuất. Bảo quản nơi khô ráo, nhiệt độ dưới 30°C.',
     image: '/products/dau-xoa-bop-duoc-lieu.webp',
     video: 'https://res.cloudinary.com/dfb8mvzhc/video/upload/q_auto:eco,w_720,c_limit/v1776437376/xoabop_leoaaz.mp4',
@@ -388,12 +388,12 @@ export const MORE_PRODUCTS = [
     category: 'cham-soc-co-the',
     noDiscount: false,
     title: 'Dầu Gội Thảo Dược Mộc An',
-    description: 'Dầu gội 11in1 làm thủ công từ bồ kết, bồ hòn, lá neem, hà thủ ô... không chất bảo quản, không sulfate. Giúp sạch gàu, dịu ngứa da đầu và nuôi dưỡng tóc chắc khỏe.',
+    description: 'Dầu gội 11in1 làm thủ công từ bồ kết, bồ hòn, lá neem, hà thủ ô... không chất bảo quản, không sulfate. Giúp làm sạch da đầu, loại bỏ dầu thừa và cặn bám, tạo nền để chân tóc khỏe hơn.',
     benefits: '',
     ingredients:
       '11 vị thảo mộc thiên nhiên: bồ kết (tách hạt nướng), bồ hòn, lá neem, hà thủ ô, núc nác, hương nhu, me rừng, cỏ mần trầu, sả, vỏ bưởi, quế.',
     usage:
-      'Cho 1 túi lọc (13g) vào 500ml nước, nấu sôi 5 phút (hoặc hãm với nước sôi khoảng 10 phút). Đổ ra thau, pha thêm nước lạnh cho nhiệt độ giảm còn khoảng 40-45°C, dùng tay bóp nhẹ túi lọc để tinh chất hòa tan. Xối nước gội lên tóc, massage da đầu nhẹ nhàng, gội lại lần 2 nếu cần, xả sạch lại bằng nước mát. Không cần dùng thêm dầu xả.',
+      'Cho 1 túi lọc (13g) vào 500ml nước, nấu sôi 5 phút (hoặc hãm với nước sôi khoảng 10 phút). Đổ ra thau, pha thêm nước lạnh cho nhiệt độ giảm còn khoảng 40-45°C, dùng tay bóp nhẹ túi lọc để tinh chất hòa tan. Xối nước gội lên tóc, massage da đầu nhẹ nhàng, gội lại lần 2 nếu cần, xả sạch lại bằng nước mát. Muốn tóc mượt hơn, có thể dùng thêm dầu xả thiên nhiên.',
     warnings:
       'An toàn cho da nhạy cảm, tuy nhiên tránh để nước gội dính vào mắt vì bồ kết có thể gây cay. Sản phẩm ít bọt tự nhiên (không dùng chất tạo bọt công nghiệp) nhưng vẫn làm sạch tốt.',
     origin: 'Xuất xứ Bình Dương. Hạn sử dụng 12 tháng kể từ ngày sản xuất. Bảo quản nơi khô ráo, thoáng mát.',

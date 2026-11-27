@@ -27,6 +27,7 @@ import { toGaItem, trackShopEvent } from '../lib/analytics';
 import { calcOriginalPrice } from '../lib/pricing';
 import { thumb, photoSrcSet } from '../lib/thumb';
 import { combosOf, comboSaving } from '../lib/combo';
+import { PRODUCT_FAQ } from '../data/productFaq';
 
 // Below this, shipping (from 18.000đ) weighs heavily on the order.
 const SMALL_ORDER = 40000;
@@ -428,6 +429,22 @@ export default function ProductDetail() {
                 <p className="text-sm text-ayoya-brown/70 leading-relaxed">{product.origin}</p>
               </div>
             )}
+          </div>
+        )}
+
+        {PRODUCT_FAQ[product.id] && (
+          <div className="mt-12 max-w-4xl mx-auto">
+            <h2 className="mb-4 font-serif text-xl text-ayoya-brown">Khách hay hỏi</h2>
+            <div className="space-y-2">
+              {PRODUCT_FAQ[product.id].map(item => (
+                <details key={item.question} className="rounded-2xl bg-white border border-ayoya-brown/10 px-4">
+                  <summary className="min-h-14 flex items-center py-3 font-semibold text-sm text-ayoya-brown cursor-pointer">
+                    {item.question}
+                  </summary>
+                  <p className="pb-4 text-sm text-ayoya-brown/75 leading-relaxed">{item.answer}</p>
+                </details>
+              ))}
+            </div>
           </div>
         )}
 
