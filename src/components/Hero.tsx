@@ -1,5 +1,4 @@
 import TrustBadges from './TrustBadges';
-import IllustrationTag from './IllustrationTag';
 
 export default function Hero() {
   return (
@@ -13,12 +12,11 @@ export default function Hero() {
               srcSet="/photos/truyen-day-800.webp 800w, /photos/truyen-day-1448.webp 1448w"
               sizes="100vw"
               fetchPriority="high"
-              alt="Minh họa lò võ Bình Định: người thầy chỉ dạy học trò"
+              alt="Lò võ Bình Định: người thầy chỉ dạy học trò"
               className="w-full aspect-[4/3] md:aspect-auto md:h-full object-cover"
             />
           </picture>
           <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
-          <IllustrationTag className="md:left-3 md:right-auto md:bottom-3" />
         </div>
 
         <div className="relative md:h-full md:flex md:items-center">

@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import IllustrationTag from './IllustrationTag';
 
 const VIDEO = 'v1776477706/7737362006875_lxnlau';
 
@@ -13,10 +12,9 @@ export default function OriginStory() {
             <img
               loading="lazy"
               src="/photos/binh-khi-700.webp"
-              alt="Minh họa giá binh khí gỗ tre trong võ đường"
+              alt="Giá binh khí gỗ tre trong võ đường"
               className="w-full aspect-[3/4] object-cover"
             />
-            <IllustrationTag />
           </figure>
 
           <div>
