@@ -336,6 +336,11 @@ export default function CartDrawer() {
         setError('Số điện thoại này đã dùng mã giảm giá một lần. Đơn chưa được đặt: mã đã được bỏ, bạn xem lại tổng tiền rồi bấm Đặt hàng lần nữa.');
         return;
       }
+      // The sheet stops a flood of orders from one number. Nothing was recorded.
+      if (result?.status === 'too_many') {
+        setError(`Số điện thoại này đã đặt nhiều đơn trong một giờ nên đơn chưa được ghi. Bạn nhắn Zalo ${CONTACT_INFO.phone} để shop đặt giúp.`);
+        return;
+      }
       if (result?.status !== 'success') throw new Error('order not recorded');
       trackShopEvent('purchase', {
         transaction_id: code,

@@ -150,7 +150,7 @@ export const POLICIES: Policy[] = [
         heading: '1. Điều kiện áp dụng đổi trả',
         paragraphs: ['Quý khách sẽ được hỗ trợ đổi trả sản phẩm trong các trường hợp sau:'],
         bullets: [
-          'Sản phẩm lỗi do nhà sản xuất: thảo mộc bị ẩm mốc, dầu xoa bóp có mùi lạ, nụ trầm không cháy hoặc mất mùi dù chưa sử dụng.',
+          'Sản phẩm lỗi do nhà sản xuất: thảo mộc bị ẩm mốc, dầu xoa bóp có mùi lạ, nụ trầm mất mùi, than hoặc nụ không cháy dù đã đốt đúng hướng dẫn.',
           'Sự cố do vận chuyển: sản phẩm bị vỡ, rò rỉ, hộp hàng bị móp méo nghiêm trọng ảnh hưởng đến chất lượng bên trong.',
           'Giao sai đơn hàng: sản phẩm không đúng mẫu mã, chủng loại hoặc số lượng như Quý khách đã đặt.',
           'Thời hạn: trong vòng 07 ngày kể từ ngày nhận hàng thành công.'
@@ -159,15 +159,15 @@ export const POLICIES: Policy[] = [
       {
         heading: '2. Yêu cầu đối với sản phẩm đổi trả',
         bullets: [
-          'Sản phẩm còn nguyên tem mác, bao bì và chưa qua sử dụng (đặc biệt đối với dầu xoa bóp và các loại thảo mộc dùng để uống/tắm).',
-          'Có video clip mở hộp hàng (unboxing) quay rõ mã vận đơn và tình trạng lỗi của sản phẩm — đây là căn cứ quan trọng nhất để AYOYA làm việc với đơn vị vận chuyển và bảo vệ quyền lợi cho Quý khách.'
+          'Sản phẩm còn nguyên tem mác, bao bì và chưa qua sử dụng (đặc biệt đối với dầu xoa bóp và các loại thảo mộc dùng để uống/tắm). Riêng than hoặc nụ không cháy khi đã đốt đúng hướng dẫn thì không cần còn nguyên.',
+          'Có video clip mở hộp hàng (unboxing) quay rõ mã vận đơn và tình trạng lỗi của sản phẩm — đây là căn cứ quan trọng nhất để AYOYA làm việc với đơn vị vận chuyển và bảo vệ quyền lợi cho Quý khách. Riêng trường hợp giao thiếu hàng, ảnh hoặc video gói hàng đều được.'
         ]
       },
       {
         heading: '3. Các trường hợp không áp dụng đổi trả',
         bullets: [
           'Sản phẩm đã quá hạn 07 ngày kể từ khi nhận hàng.',
-          'Sản phẩm đã bị mở niêm phong, đã qua sử dụng hoặc bảo quản sai cách (để nơi ẩm ướt làm hỏng thảo mộc/trầm).',
+          'Sản phẩm đã bị mở niêm phong, đã qua sử dụng (trừ than, nụ không cháy dù đã đốt đúng hướng dẫn) hoặc bảo quản sai cách (để nơi ẩm ướt làm hỏng thảo mộc/trầm).',
           'Khách hàng thay đổi ý định mua hàng vì lý do chủ quan (không thích mùi hương, không muốn mua nữa...) mà không phải do lỗi của Shop.'
         ]
       },
@@ -175,7 +175,7 @@ export const POLICIES: Policy[] = [
         heading: '4. Quy trình đổi trả',
         bullets: [
           'Bước 1: Liên hệ Hotline 0933.458.485 hoặc nhắn Zalo cho AYOYA.',
-          'Bước 2: Cung cấp video mở hàng và hình ảnh sản phẩm lỗi.',
+          'Bước 2: Gửi video mở hàng và hình ảnh sản phẩm lỗi (giao thiếu hàng: ảnh hoặc video đều được).',
           'Bước 3: AYOYA xác nhận và hướng dẫn Quý khách gửi trả hàng (nếu cần).',
           'Bước 4: Shop gửi sản phẩm mới hoặc hoàn tiền cho Quý khách trong vòng 3-5 ngày làm việc.'
         ]
@@ -215,7 +215,7 @@ export const POLICIES: Policy[] = [
         bullets: [
           'Mã in trên menu và thư cảm ơn: giảm 20%, tối đa 50.000đ, cho đơn trên 100.000đ tiền hàng.',
           'Mỗi số điện thoại dùng mã một lần. Đơn đã hủy hoặc hoàn không tính là đã dùng.',
-          'Đơn có thảo dược xông nhà Như Ý – Cát Tường hoặc thảo dược xông tắm Mộc An được tặng một thẻ rùa phong thủy, mỗi đơn một thẻ.'
+          'Đơn có thảo dược xông nhà Như Ý – Cát Tường hoặc thảo dược xông tắm Mộc An được tặng một thẻ rùa phong thủy, mỗi đơn một thẻ. Đơn đã có gói trầm hương xông nhà (trong gói có sẵn rùa) thì không tặng thêm.'
         ]
       },
       {
