@@ -637,6 +637,14 @@ export default function CartDrawer() {
                     <MessageCircle size={16} /> Nhắn Zalo cho AYOYA
                   </a>
                   <Link
+                    to="/tra-cuu-don"
+                    state={{ code: placed.code, phone: placed.phone }}
+                    onClick={handleClose}
+                    className="min-h-12 flex items-center justify-center rounded-full border border-ayoya-brown text-ayoya-brown text-sm font-bold uppercase tracking-widest"
+                  >
+                    Xem trạng thái đơn
+                  </Link>
+                  <Link
                     to="/san-pham"
                     onClick={handleClose}
                     className="min-h-12 flex items-center justify-center rounded-full bg-ayoya-green text-white text-sm font-bold uppercase tracking-widest"

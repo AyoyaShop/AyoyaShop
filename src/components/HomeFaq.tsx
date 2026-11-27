@@ -22,7 +22,7 @@ const QUESTIONS = [
 
 export default function HomeFaq() {
   return (
-    <section className="px-5 pb-14 md:pb-20">
+    <section className="px-5 py-14 md:py-20">
       <div className="mx-auto max-w-3xl">
         <SectionHeading title="Trước khi đặt hàng" />
         <div className="space-y-2">

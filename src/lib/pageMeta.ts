@@ -40,6 +40,12 @@ export const TET_META = page(
   '/products/xong-nha-2.webp'
 );
 
+export const TRACK_META = page(
+  '/tra-cuu-don',
+  'Tra cứu đơn hàng',
+  'Xem trạng thái và mã vận đơn của đơn đã đặt trên ayoya.com.vn bằng mã đơn và số điện thoại.'
+);
+
 export function pillarMeta(pillar: Pillar): PageMeta {
   return page(`/${pillar.slug}`, pillar.title, pillar.seoDescription, pillar.image);
 }
@@ -108,6 +114,7 @@ export function allPageMeta(): PageMeta[] {
     CATALOG_META,
     ...PILLARS.map(pillarMeta),
     TET_META,
+    TRACK_META,
     ABOUT_META,
     FAQ_META,
     CONTACT_META,

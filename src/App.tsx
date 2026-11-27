@@ -20,6 +20,7 @@ import ScrollToHash from './components/ScrollToHash';
 import PromoNotice from './components/PromoNotice';
 import PillarPage from './pages/PillarPage';
 import TetSetsPage from './pages/TetSetsPage';
+import TrackOrderPage from './pages/TrackOrderPage';
 import { PILLARS } from './data/pillars';
 
 // The router is chosen by the caller: the browser's here, a static one when pages are pre-rendered.
@@ -38,6 +39,7 @@ export function AppLayout() {
             <Route path="/tram-huong" element={<PillarPage key="tram-huong" pillar={PILLARS[1]} />} />
             <Route path="/phong-thuy" element={<PillarPage key="phong-thuy" pillar={PILLARS[2]} />} />
             <Route path="/bo-qua-tet" element={<TetSetsPage />} />
+            <Route path="/tra-cuu-don" element={<TrackOrderPage />} />
             <Route path="/ve-chung-toi" element={<AboutPage />} />
             <Route path="/hoi-dap" element={<FaqPage />} />
             <Route path="/lien-he" element={<ContactPage />} />

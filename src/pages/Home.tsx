@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import Hero from '../components/Hero';
 import HomeShowcase from '../components/HomeShowcase';
 import SocialProof from '../components/SocialProof';
+import TrackOrderBlock from '../components/TrackOrderBlock';
 import HomeFaq from '../components/HomeFaq';
 import NewsletterSignup from '../components/NewsletterSignup';
 import { applyDefaultSeo } from '../lib/seo';
@@ -16,6 +17,7 @@ export default function Home() {
       <Hero />
       <HomeShowcase />
       <SocialProof />
+      <TrackOrderBlock />
       <HomeFaq />
       <NewsletterSignup />
     </>

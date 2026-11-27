@@ -1,5 +1,5 @@
 import { Link, NavLink } from 'react-router-dom';
-import { ShoppingCart, Phone } from 'lucide-react';
+import { ShoppingCart, Phone, PackageSearch } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { CONTACT_INFO } from '../data';
 
@@ -39,6 +39,15 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <Link
+            to="/tra-cuu-don"
+            aria-label="Tra cứu đơn"
+            title="Tra cứu đơn"
+            className="flex h-11 min-w-11 items-center justify-center gap-2 whitespace-nowrap rounded-full border border-ayoya-sand bg-ayoya-white text-sm font-semibold xl:px-4"
+          >
+            <PackageSearch size={18} />
+            <span className="hidden xl:inline">Tra cứu đơn</span>
+          </Link>
           <a
             href={CONTACT_INFO.phoneHref}
             aria-label={`Gọi điện ${CONTACT_INFO.phone}`}

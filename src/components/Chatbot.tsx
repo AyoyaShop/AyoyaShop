@@ -15,7 +15,8 @@ export default function Chatbot() {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
-  const hiddenOnPhone = onProductPage || (pathname === '/' && !scrolled);
+  // The lookup page shows prices where the button would sit.
+  const hiddenOnPhone = onProductPage || pathname === '/tra-cuu-don' || (pathname === '/' && !scrolled);
   return (
     <div className={`fixed bottom-6 right-5 md:bottom-8 md:right-8 z-[100] ${hiddenOnPhone ? 'hidden md:block' : ''}`}>
       <motion.a
