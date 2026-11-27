@@ -281,7 +281,7 @@ export const MORE_PRODUCTS = [
     description: 'Gói xông nhà lấy trầm hương thượng hạng làm chủ đạo, kết hợp cùng các thảo mộc quý. Giúp thanh lọc không gian, mang lại hương thơm thư thái và đón nhận năng lượng tích cực theo quan niệm phong thủy dân gian.',
     benefits: '',
     ingredients:
-      '3 nhóm nguyên liệu chọn lọc: Bột thơm (trầm hương, bách xanh, đại hồi, sả, vỏ bưởi, quế, ớt khô, ngân tinh, hương nhu, ngải cứu, kinh giới, quế chi, thương truật, cúc tần...); Thảo dược có gai theo dân gian (quỷ kiến sầu, thương nhĩ tử, câu đằng, muối sống); Gỗ quý (đàn hương, trầm gió, ngọc am, hương thảo, thảo quả, bồ kết).',
+      '3 nhóm nguyên liệu chọn lọc: Bột thơm (trầm hương, bách xanh, đại hồi, sả, vỏ bưởi, quế, ớt khô, ngân tinh, hương nhu, ngải cứu, kinh giới, quế chi, thương truật, cúc tần...); Thảo dược có gai theo dân gian (bạch tật lê, thương nhĩ tử, câu đằng, muối sống); Gỗ quý (đàn hương, trầm gió, ngọc am, hương thảo, thảo quả, bồ kết).',
     usage:
       'Chuẩn bị khay chịu nhiệt, đốt than cho hồng đều. Cho các loại gỗ, thảo dược có gai vào khay trước, sau đó rắc từng ít bột thơm lên, rắc thêm muối sống — chỉ thêm khi lớp trước đã cháy hết. Cầm khay xông di chuyển khắp nhà, chú trọng gầm giường, phòng ngủ, nhà vệ sinh, bếp. Mở cửa thông thoáng khi xông. Liệu trình đầy đủ gồm 4 gói, mỗi lần cách nhau 3-4 ngày.',
     warnings:
@@ -359,7 +359,7 @@ export const MORE_PRODUCTS = [
     usage:
       'Cho 1 túi lọc (13g) vào 500ml nước, nấu sôi 5 phút (hoặc hãm với nước sôi khoảng 10 phút). Đổ ra thau, pha thêm nước lạnh cho nhiệt độ giảm còn khoảng 40-45°C, dùng tay bóp nhẹ túi lọc để tinh chất hòa tan. Xối nước gội lên tóc, massage da đầu nhẹ nhàng, gội lại lần 2 nếu cần, xả sạch lại bằng nước mát. Không cần dùng thêm dầu xả.',
     warnings:
-      'An toàn cho trẻ sơ sinh và da nhạy cảm, tuy nhiên tránh để nước gội dính vào mắt vì bồ kết có thể gây cay. Sản phẩm ít bọt tự nhiên (không dùng chất tạo bọt công nghiệp) nhưng vẫn làm sạch tốt.',
+      'An toàn cho da nhạy cảm, tuy nhiên tránh để nước gội dính vào mắt vì bồ kết có thể gây cay. Sản phẩm ít bọt tự nhiên (không dùng chất tạo bọt công nghiệp) nhưng vẫn làm sạch tốt.',
     origin: 'Xuất xứ Bình Dương. Hạn sử dụng 12 tháng kể từ ngày sản xuất. Bảo quản nơi khô ráo, thoáng mát.',
     subtitle: '',
     video: '',
