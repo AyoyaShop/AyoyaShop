@@ -6,6 +6,7 @@ import { ALL_PRODUCTS, MORE_PRODUCTS, PRODUCT_RATINGS } from '../data';
 import { useCart } from '../context/CartContext';
 import { calcOriginalPrice } from '../lib/pricing';
 import SectionHeading from './SectionHeading';
+import { thumb } from '../lib/thumb';
 
 function formatPrice(price: number): string {
   return `${price.toLocaleString('vi-VN')}đ`;
@@ -44,7 +45,7 @@ export default function ProductGrid() {
               >
                 <Link to={`/san-pham/${product.id}`} className="aspect-square overflow-hidden bg-ayoya-brown/5 block">
                   <img loading="lazy"
-                    src={product.image}
+                    src={thumb(product.image)}
                     alt={product.title}
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { CATEGORIES, ALL_PRODUCTS } from '../data';
 import SectionHeading from './SectionHeading';
+import { thumb } from '../lib/thumb';
 
 export default function FeaturedCategories() {
   return (
@@ -26,7 +27,7 @@ export default function FeaturedCategories() {
                   className="group relative block aspect-[4/5] rounded-3xl overflow-hidden modern-zen-shadow"
                 >
                   <img loading="lazy"
-                    src={sample.image}
+                    src={thumb(sample.image)}
                     alt={cat.label}
                     referrerPolicy="no-referrer"
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"

@@ -3,6 +3,7 @@ import { Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { PRODUCT_RATINGS, REVIEW_SUMMARY, SHOPEE_LINK, TIKTOK_LINK, getProductById } from '../data';
 import SectionHeading from './SectionHeading';
+import { thumb } from '../lib/thumb';
 
 const TOP_REVIEWED = Object.entries(PRODUCT_RATINGS)
   .sort(([, a], [, b]) => b.reviewCount - a.reviewCount)
@@ -55,7 +56,7 @@ export default function SocialProof() {
                 to={`/san-pham/${product.id}`}
                 className="block h-full p-3 rounded-3xl border border-ayoya-brown/10 hover:border-ayoya-amber transition-colors"
               >
-                <img loading="lazy" src={product.image} alt={product.title} className="w-full aspect-square object-cover rounded-2xl mb-3" />
+                <img loading="lazy" src={thumb(product.image)} alt={product.title} className="w-full aspect-square object-cover rounded-2xl mb-3" />
                 <p className="text-sm font-semibold text-ayoya-brown mb-2">{product.title}</p>
                 <p className="flex items-center gap-1 text-sm text-ayoya-brown">
                   <Star size={14} className="text-ayoya-amber fill-ayoya-amber" />

@@ -23,7 +23,9 @@ function renderHead(template: string, meta: PageMeta): string {
     ['name="twitter:description"', meta.description],
     ['name="twitter:image"', meta.image]
   ];
-  const withoutHomePreload = template.replace(/\n\s*<link rel="preload"[^>]*data-home-preload[^>]*>/g, '');
+  const withoutHomePreload = template
+    .replace(/\n\s*<link rel="preload"[^>]*data-home-preload[^>]*>/g, '')
+    .replace(/<!--home-shell-->[\s\S]*?<!--\/home-shell-->/, '');
   let html = replaceOnce(withoutHomePreload, /(<title>)[\s\S]*?(<\/title>)/, escapeHtml(meta.title));
   html = replaceOnce(html, /(<link rel="canonical" href=")[^"]*(")/, escapeHtml(meta.url));
   for (const [attr, value] of tags) {
