@@ -323,7 +323,7 @@ export const MORE_PRODUCTS = [
     warnings:
       'Chỉ thêm bột khi lớp than trước đã cháy hết để tránh ngạt khói.',
     origin:
-      'Nguyên liệu sạch, chọn lọc kỹ càng. Hạn sử dụng 12 tháng. Bảo quản nơi khô ráo, thoáng mát. Quà tặng kèm mỗi đơn: 1 Linh Phù, 1 Rùa phong thủy, nụ trầm hương, 1 cây than (10 viên) và khay xông.',
+      'Nguyên liệu sạch, chọn lọc kỹ càng. Hạn sử dụng 12 tháng. Bảo quản nơi khô ráo, thoáng mát.',
     subtitle: '',
     video: '',
     badges: [] as string[],
@@ -415,7 +415,7 @@ export const MORE_PRODUCTS = [
     benefits: '',
     ingredients: '95% bột quế kết hợp 5% vỏ cây bời lời, giữ nguyên kết dính tự nhiên, không pha hóa chất. Hộp 30 nụ.',
     usage:
-      'Đốt nụ trầm hương thác khói: dùng bật lửa đốt đầu nụ đến khi cháy đỏ hồng, đợi có khói phát ra rồi đặt vào phần trên cùng của lư thác trầm. Đảm bảo lỗ thông khí bên dưới lư thông thoáng để khói lưu thông đều.',
+      'Đốt nụ kiểu thác khói: dùng bật lửa đốt đầu nụ đến khi cháy đỏ hồng, đợi có khói phát ra rồi đặt vào phần trên cùng của lư thác khói. Đảm bảo lỗ thông khí bên dưới lư thông thoáng để khói lưu thông đều.',
     warnings:
       'Đặt lư ở vị trí vững chãi, cách xa vật dễ cháy (rèm, vải, giấy), để xa tầm tay trẻ em và thú cưng. Không rời mắt trong lúc đốt, đảm bảo phòng có thông gió.',
     origin: 'Thương hiệu An Mộc Hương. Sản xuất tại Long An. Đóng gói hộp nhựa chống ẩm. Bảo quản nơi khô ráo, thoáng mát.',

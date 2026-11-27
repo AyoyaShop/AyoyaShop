@@ -6,7 +6,7 @@ import { useCart, type CartItem } from '../context/CartContext';
 import { BANK_INFO, CONTACT_INFO, ORDER_SHEET_URL, SHIPPING_ZONES, calcShippingFee, getProductById } from '../data';
 import { calcOriginalPrice } from '../lib/pricing';
 import { toGaItem, trackShopEvent } from '../lib/analytics';
-import { generateOrderCode, isValidPhone, normalizePhone } from '../lib/order';
+import { currentOrderCode, forgetOrderCode, isValidPhone, normalizePhone } from '../lib/order';
 import { thumb } from '../lib/thumb';
 import { combosOf } from '../lib/combo';
 import { GIFT_LINE, hasGift } from '../lib/gift';
@@ -189,7 +189,7 @@ export default function CartDrawer() {
   const [promoError, setPromoError] = useState('');
 
   const startCheckout = () => {
-    setPendingOrderCode(generateOrderCode());
+    setPendingOrderCode(currentOrderCode());
     // A code that arrived through the printed QR code is filled in already.
     const saved = savedPromo();
     if (saved && !appliedPromo) {
@@ -317,10 +317,13 @@ export default function CartDrawer() {
       promoSource: promoQualifies && appliedPromo ? PROMO_CODES[appliedPromo] : ''
     };
 
+    const giveUp = new AbortController();
+    const timer = window.setTimeout(() => giveUp.abort(), 45000);
     try {
       const response = await fetch(ORDER_SHEET_URL, {
         method: 'POST',
-        body: JSON.stringify(payload)
+        body: JSON.stringify(payload),
+        signal: giveUp.signal
       });
       // Apps Script answers HTTP 200 with an HTML page when it crashes, so only the JSON status counts.
       const result = await response.json();
@@ -353,10 +356,12 @@ export default function CartDrawer() {
       });
       setStep('success');
       clearCart();
+      forgetOrderCode();
       if (promoQualifies) forgetPromo();
     } catch {
-      setError(`Chưa xác nhận được đơn hàng. Giỏ hàng vẫn được giữ lại. Vui lòng nhắn Zalo ${CONTACT_INFO.phone} kèm mã ${code} để kiểm tra trước khi đặt lại.`);
+      setError(`Chưa nhận được xác nhận. Giỏ hàng vẫn được giữ. Bạn bấm Đặt hàng lần nữa (đơn giống hệt không bị ghi trùng) hoặc nhắn Zalo ${CONTACT_INFO.phone} kèm mã ${code}.`);
     } finally {
+      window.clearTimeout(timer);
       setSubmitting(false);
     }
   };

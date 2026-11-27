@@ -22,7 +22,7 @@ export default function TrackOrderBlock() {
           <p className="mt-2 opacity-90">Nhập mã đơn và số điện thoại đặt hàng để xem trạng thái và mã vận đơn.</p>
         </div>
         <form onSubmit={submit} className="grid gap-3 rounded-2xl bg-ayoya-cream p-5">
-          <input value={code} onChange={e => setCode(e.target.value)} aria-label="Mã đơn" placeholder="Mã đơn (AY…)" className={fieldClass} />
+          <input value={code} onChange={e => setCode(e.target.value)} aria-label="Mã đơn" placeholder="Mã đơn (AY…)" required className={fieldClass} />
           <input
             value={phone}
             onChange={e => setPhone(e.target.value)}
@@ -30,6 +30,7 @@ export default function TrackOrderBlock() {
             placeholder="Số điện thoại đặt hàng"
             type="tel"
             inputMode="tel"
+            required
             className={fieldClass}
           />
           <button type="submit" className="btn">Tra cứu</button>

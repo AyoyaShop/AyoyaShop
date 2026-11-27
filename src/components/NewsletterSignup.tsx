@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Gift, Loader2, CheckCircle2 } from 'lucide-react';
 import { SUBSCRIBE_SHEET_URL } from '../data';
+import { isValidPhone, normalizePhone } from '../lib/order';
 
 export default function NewsletterSignup() {
   const [name, setName] = useState('');
@@ -13,8 +14,8 @@ export default function NewsletterSignup() {
 
   const phoneError = !phone.trim()
     ? 'Vui lòng nhập số điện thoại.'
-    : !/^\d{10}$/.test(phone.trim())
-      ? 'Số điện thoại phải đủ 10 số.'
+    : !isValidPhone(phone)
+      ? 'Số điện thoại chưa đúng (10 số, bắt đầu bằng 0).'
       : '';
 
   const handleSubmit = async () => {
@@ -27,7 +28,7 @@ export default function NewsletterSignup() {
     try {
       const response = await fetch(SUBSCRIBE_SHEET_URL, {
         method: 'POST',
-        body: JSON.stringify({ name: name.trim(), phone: phone.trim() })
+        body: JSON.stringify({ name: name.trim(), phone: normalizePhone(phone) })
       });
       // A crashed or unpublished Apps Script answers with an HTML page, often with HTTP 200.
       if (!response.ok || response.headers.get('content-type')?.includes('text/html')) {

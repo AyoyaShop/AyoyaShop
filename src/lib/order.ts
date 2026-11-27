@@ -16,3 +16,31 @@ export function generateOrderCode(now = new Date()): string {
   const random = String(Math.floor(Math.random() * 1000)).padStart(3, '0');
   return `AY${stamp}${random}`;
 }
+
+const PENDING_KEY = 'ayoya-order-code';
+
+// The code is kept until an order goes through (at most an hour), so that pressing "Đặt hàng" again
+// after a lost connection is recognised by the sheet instead of becoming a second order.
+export function currentOrderCode(now = Date.now()): string {
+  try {
+    const saved = JSON.parse(localStorage.getItem(PENDING_KEY) ?? 'null');
+    if (saved?.code && now - saved.at < 60 * 60 * 1000) return saved.code;
+  } catch {
+    // Unreadable storage: make a new code below.
+  }
+  const code = generateOrderCode();
+  try {
+    localStorage.setItem(PENDING_KEY, JSON.stringify({ code, at: now }));
+  } catch {
+    // Without storage the code lives only as long as this page.
+  }
+  return code;
+}
+
+export function forgetOrderCode(): void {
+  try {
+    localStorage.removeItem(PENDING_KEY);
+  } catch {
+    // Nothing to forget.
+  }
+}

@@ -38,7 +38,7 @@ export default function PolicyPage() {
                 <ul className="space-y-2">
                   {section.bullets.map(b => (
                     <li key={b} className="flex gap-2 text-sm text-ayoya-brown/70 leading-relaxed">
-                      <span className="text-ayoya-amber mt-1">•</span>
+                      <span className="text-ayoya-green mt-1">•</span>
                       <span>{b}</span>
                     </li>
                   ))}

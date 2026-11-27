@@ -28,7 +28,9 @@ export const POLICIES: Policy[] = [
           'Hỗ trợ vận chuyển: giao các sản phẩm thảo mộc, dầu xoa bóp đến đúng địa chỉ Quý khách yêu cầu.',
           'Tư vấn chuyên sâu: lưu lại các trao đổi về tình trạng sức khỏe (đau mỏi vai gáy, mất ngủ...) hoặc nhu cầu phong thủy để tư vấn lộ trình sử dụng sản phẩm phù hợp nhất.',
           'Chăm sóc khách hàng: gửi thông báo về các chương trình ưu đãi, kiến thức dưỡng sinh dành riêng cho khách hàng AYOYA.',
-          'Nâng cao trải nghiệm: cải thiện chất lượng dịch vụ dựa trên phản hồi và thói quen mua sắm của Quý khách.'
+          'Nâng cao trải nghiệm: cải thiện chất lượng dịch vụ dựa trên phản hồi và thói quen mua sắm của Quý khách.',
+          'Tra cứu đơn: ai nhập đúng mã đơn và số điện thoại đặt hàng sẽ xem được trạng thái, mã vận đơn, món hàng và số tiền; trang không hiện tên và địa chỉ.',
+          'Số điện thoại được đối chiếu với các đơn trước để mỗi số chỉ dùng mã giảm giá một lần.'
         ]
       },
       {
@@ -116,7 +118,7 @@ export const POLICIES: Policy[] = [
       {
         heading: '5. Theo dõi đơn hàng',
         paragraphs: [
-          'Ngay sau khi đơn hàng được gửi đi, AYOYA Shop sẽ cung cấp mã vận đơn cho Quý khách qua Zalo. Quý khách có thể tự kiểm tra hành trình đơn hàng trên hệ thống SPX Express hoặc liên hệ hotline của Shop để được hỗ trợ tra cứu.'
+          'Ngay sau khi đơn hàng được gửi đi, AYOYA Shop sẽ cung cấp mã vận đơn cho Quý khách qua Zalo. Quý khách cũng có thể xem trạng thái và mã vận đơn tại trang Tra cứu đơn (ayoya.com.vn/tra-cuu-don) bằng mã đơn và số điện thoại. Quý khách có thể tự kiểm tra hành trình đơn hàng trên hệ thống SPX Express hoặc liên hệ hotline của Shop để được hỗ trợ tra cứu.'
         ]
       },
       {
@@ -209,13 +211,21 @@ export const POLICIES: Policy[] = [
         ]
       },
       {
-        heading: '3. Cam kết minh bạch',
+        heading: '3. Mã giảm giá và quà tặng',
+        bullets: [
+          'Mã in trên menu và thư cảm ơn: giảm 20%, tối đa 50.000đ, cho đơn trên 100.000đ tiền hàng.',
+          'Mỗi số điện thoại dùng mã một lần. Đơn đã hủy hoặc hoàn không tính là đã dùng.',
+          'Đơn có thảo dược xông nhà Như Ý – Cát Tường hoặc thảo dược xông tắm Mộc An được tặng một thẻ rùa phong thủy, mỗi đơn một thẻ.'
+        ]
+      },
+      {
+        heading: '4. Cam kết minh bạch',
         paragraphs: [
           'Giá thanh toán cuối cùng luôn bao gồm giá sản phẩm và phí vận chuyển, được hiển thị rõ ràng trước khi Quý khách xác nhận đặt hàng — không phát sinh chi phí ẩn.'
         ]
       },
       {
-        heading: '4. Hỗ trợ giải đáp',
+        heading: '5. Hỗ trợ giải đáp',
         paragraphs: ['Mọi thắc mắc về thanh toán, vui lòng liên hệ:'],
         bullets: ['Hotline: 0933.458.485', 'Zalo: zalo.me/0933458485']
       }

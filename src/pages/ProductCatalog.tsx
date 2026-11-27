@@ -97,7 +97,7 @@ export default function ProductCatalog() {
                       aria-label={`Chọn loại ${product.title}`}
                       value={selectedLabel}
                       onChange={e => setSelectedVariants(prev => ({ ...prev, [product.id]: e.target.value }))}
-                      className="mb-3 w-full text-xs px-2 py-1.5 rounded-lg border border-ayoya-brown/15 bg-white text-ayoya-brown"
+                      className="mb-3 w-full min-h-10 text-xs px-2 py-1.5 rounded-lg border border-ayoya-brown/15 bg-white text-ayoya-brown"
                     >
                       {variants.map(v => (
                         <option key={v.label} value={v.label}>

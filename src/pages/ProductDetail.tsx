@@ -28,7 +28,7 @@ import { calcOriginalPrice } from '../lib/pricing';
 import { thumb, photoSrcSet } from '../lib/thumb';
 import { combosOf, comboSaving } from '../lib/combo';
 import { PRODUCT_FAQ } from '../data/productFaq';
-import { GIFT_PRODUCT_IDS } from '../lib/gift';
+import { GIFT_PRODUCT_IDS, PACKAGE_EXTRAS } from '../lib/gift';
 
 // Below this, shipping (from 18.000đ) weighs heavily on the order.
 const SMALL_ORDER = 40000;
@@ -289,14 +289,14 @@ export default function ProductDetail() {
                     {v.label} ·{' '}
                     {!product.noDiscount && (
                       <>
-                        <span className={activeLabel === v.label ? 'text-white/60 line-through' : 'text-ayoya-brown/75 line-through'}>
+                        <span className={activeLabel === v.label ? 'text-white/85 line-through' : 'text-ayoya-brown/75 line-through'}>
                           {formatPrice(calcOriginalPrice(v.price))}
                         </span>{' '}
                       </>
                     )}
                     {formatPrice(v.price)}
                     {comboSaving(product.id, v.label) > 0 && (
-                      <span className={`ml-1 font-bold ${activeLabel === v.label ? 'text-ayoya-amber' : 'text-ayoya-green'}`}>
+                      <span className={`ml-1 font-bold ${activeLabel === v.label ? 'text-[#f3dfb6]' : 'text-ayoya-green'}`}>
                         · lợi {formatPrice(comboSaving(product.id, v.label))}
                       </span>
                     )}
@@ -324,6 +324,9 @@ export default function ProductDetail() {
                 </div>
               )}
 
+              {PACKAGE_EXTRAS[product.id] && (
+                <p className="text-sm font-semibold text-ayoya-wood">Trong gói có sẵn: {PACKAGE_EXTRAS[product.id]}.</p>
+              )}
               {GIFT_PRODUCT_IDS.includes(product.id) && (
                 <p className="text-sm font-semibold text-ayoya-wood">Đơn có món này được tặng 1 thẻ rùa phong thủy.</p>
               )}
