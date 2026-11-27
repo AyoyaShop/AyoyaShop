@@ -99,6 +99,8 @@ export const REVIEW_SUMMARY = {
   checkedAt: '26/11/2026'
 };
 
+// weightGrams on products is the weight the carrier bills: for bulky packs that is
+// length x width x height (cm) / 6000, as declared on the TikTok Shop listing, not the scale weight.
 export function calcShippingFee(weightGrams: number, zoneId: string): number {
   const zone = SHIPPING_ZONES.find(z => z.id === zoneId) ?? SHIPPING_ZONES[0];
   const kg = weightGrams / 1000;
@@ -272,9 +274,9 @@ export const PRODUCTS = [
     badges: ['38 vị thảo mộc', 'Xông nhà Như Ý - Cát Tường'],
     price: 70000,
     priceUnit: 'Gói dùng thử',
-    weightGrams: 320,
+    weightGrams: 532,
     priceOptions: [
-      { label: 'Combo 3 gói', price: 204000, weightGrams: 1500 },
+      { label: 'Combo 3 gói', price: 204000, weightGrams: 1490 },
       { label: '5 Gói siêu tiết kiệm', price: 325000, weightGrams: 2200 }
     ]
   },
@@ -300,9 +302,9 @@ export const PRODUCTS = [
     badges: ['21 vị thảo mộc', 'Xông và tắm thư giãn'],
     price: 43000,
     priceUnit: 'Gói dùng thử',
-    weightGrams: 340,
+    weightGrams: 840,
     priceOptions: [
-      { label: 'Combo 3 gói', price: 125000, weightGrams: 1700 },
+      { label: 'Combo 3 gói', price: 125000, weightGrams: 1840 },
       { label: '4 Gói siêu tiết kiệm', price: 160000, weightGrams: 2200 }
     ]
   }
