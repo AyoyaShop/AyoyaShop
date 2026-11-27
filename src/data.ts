@@ -305,7 +305,7 @@ export const MORE_PRODUCTS = [
       'Đốt nụ trầm hương thác khói: dùng bật lửa đốt đầu nụ đến khi cháy đỏ hồng, đợi có khói phát ra rồi đặt vào phần trên cùng của lư thác trầm. Đảm bảo lỗ thông khí bên dưới lư thông thoáng để khói lưu thông đều.',
     warnings:
       'Đặt lư ở vị trí vững chãi, cách xa vật dễ cháy (rèm, vải, giấy), để xa tầm tay trẻ em và thú cưng. Không rời mắt trong lúc đốt, đảm bảo phòng có thông gió.',
-    origin: 'Thương hiệu An Mộc Hương. Đóng gói hộp nhựa chống ẩm. Bảo quản nơi khô ráo, thoáng mát.',
+    origin: 'Thương hiệu An Mộc Hương. Sản xuất tại Long An. Đóng gói hộp nhựa chống ẩm. Bảo quản nơi khô ráo, thoáng mát.',
     subtitle: '',
     video: '',
     badges: [] as string[],
@@ -328,7 +328,7 @@ export const MORE_PRODUCTS = [
       'Đốt nụ trầm hương thác khói: dùng bật lửa đốt đầu nụ đến khi cháy đỏ hồng, đợi có khói phát ra rồi đặt vào phần trên cùng của lư thác trầm. Đảm bảo lỗ thông khí bên dưới lư thông thoáng để khói lưu thông đều.',
     warnings:
       'Đặt lư ở vị trí vững chãi, cách xa vật dễ cháy (rèm, vải, giấy), để xa tầm tay trẻ em và thú cưng. Không rời mắt trong lúc đốt, đảm bảo phòng có thông gió.',
-    origin: 'Thương hiệu An Mộc Hương. Đóng gói hộp nhựa chống ẩm. Bảo quản nơi khô ráo, thoáng mát.',
+    origin: 'Thương hiệu An Mộc Hương. Sản xuất tại Long An. Đóng gói hộp nhựa chống ẩm. Bảo quản nơi khô ráo, thoáng mát.',
     subtitle: '',
     video: '',
     badges: [] as string[],
@@ -350,7 +350,7 @@ export const MORE_PRODUCTS = [
       'Thắp bàn thờ Phật, tổ tiên; hỗ trợ thanh lọc không khí; làm ấm không gian, phù hợp dùng khi yoga, thiền định; ít khói, thích hợp dùng ở văn phòng, căn hộ chung cư.',
     warnings:
       'Màu nhang sẽ nhạt dần theo thời gian do tính chất thiên nhiên, không dùng hóa chất giữ màu — đây là đặc điểm tự nhiên, không phải lỗi sản phẩm.',
-    origin: 'Thương hiệu An Mộc Hương. Bảo quản nơi khô ráo, thoáng mát.',
+    origin: 'Thương hiệu An Mộc Hương. Sản xuất tại Long An. Bảo quản nơi khô ráo, thoáng mát.',
     subtitle: '',
     video: '',
     badges: [] as string[],
@@ -372,7 +372,7 @@ export const MORE_PRODUCTS = [
       'Thắp bàn thờ Phật, tổ tiên; hỗ trợ thanh lọc không khí; làm ấm không gian, phù hợp dùng khi yoga, thiền định; ít khói, thích hợp dùng ở văn phòng, căn hộ chung cư.',
     warnings:
       'Màu nhang sẽ nhạt dần theo thời gian do tính chất thiên nhiên, không dùng hóa chất giữ màu — đây là đặc điểm tự nhiên, không phải lỗi sản phẩm.',
-    origin: 'Thương hiệu An Mộc Hương. Bảo quản nơi khô ráo, thoáng mát.',
+    origin: 'Thương hiệu An Mộc Hương. Sản xuất tại Long An. Bảo quản nơi khô ráo, thoáng mát.',
     subtitle: '',
     video: '',
     badges: [] as string[],
@@ -394,7 +394,7 @@ export const MORE_PRODUCTS = [
       'Thắp bàn thờ Phật, tổ tiên; hỗ trợ thanh lọc không khí; làm ấm không gian, phù hợp dùng khi yoga, thiền định; ít khói, thích hợp dùng ở văn phòng, căn hộ chung cư.',
     warnings:
       'Màu nhang sẽ nhạt dần theo thời gian do tính chất thiên nhiên, không dùng hóa chất giữ màu — đây là đặc điểm tự nhiên, không phải lỗi sản phẩm.',
-    origin: 'Thương hiệu An Mộc Hương. Bảo quản nơi khô ráo, thoáng mát.',
+    origin: 'Thương hiệu An Mộc Hương. Sản xuất tại Long An. Bảo quản nơi khô ráo, thoáng mát.',
     subtitle: '',
     video: '',
     badges: [] as string[],
