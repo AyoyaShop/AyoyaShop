@@ -17,6 +17,7 @@ import ContactPage from './pages/ContactPage';
 import PolicyPage from './pages/PolicyPage';
 import NotFound from './pages/NotFound';
 import ScrollToHash from './components/ScrollToHash';
+import PromoNotice from './components/PromoNotice';
 
 // The router is chosen by the caller: the browser's here, a static one when pages are pre-rendered.
 export function AppLayout() {
@@ -24,6 +25,7 @@ export function AppLayout() {
       <div className="min-h-screen">
         <ScrollToHash />
         <Navbar />
+        <PromoNotice />
         <main>
           <Routes>
             <Route path="/" element={<Home />} />

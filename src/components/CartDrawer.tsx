@@ -8,6 +8,8 @@ import { calcOriginalPrice } from '../lib/pricing';
 import { toGaItem, trackShopEvent } from '../lib/analytics';
 import { generateOrderCode, isValidPhone, normalizePhone } from '../lib/order';
 import { thumb } from '../lib/thumb';
+import { combosOf } from '../lib/combo';
+import { PROMO_CODES, PROMO_MIN_ORDER, forgetPromo, promoDiscount as discountFor, savedPromo } from '../lib/promo';
 
 function formatPrice(price: number): string {
   return `${price.toLocaleString('vi-VN')}đ`;
@@ -22,16 +24,6 @@ function buildVietQrUrl(amount: number, orderCode: string): string {
   const name = encodeURIComponent(BANK_INFO.accountHolder);
   return `https://img.vietqr.io/image/${BANK_INFO.bankBin}-${BANK_INFO.accountNumber}-compact2.png?amount=${amount}&addInfo=${info}&accountName=${name}`;
 }
-
-// Promo codes: 20% off order subtotal, capped at 50.000đ, order subtotal must exceed 100.000đ.
-// "Nguồn" tracks which channel handed out the code (printed menu vs. thank-you card in past shipments).
-const PROMO_CODES: Record<string, string> = {
-  AYOYAMENU: 'Menu',
-  AYOYACAMON: 'Thư cảm ơn'
-};
-const PROMO_MIN_ORDER = 100000;
-const PROMO_DISCOUNT_RATE = 0.2;
-const PROMO_MAX_DISCOUNT = 50000;
 
 type Step = 'cart' | 'checkout' | 'success';
 
@@ -54,10 +46,34 @@ const fieldClass = (invalid: boolean) =>
 const labelClass = 'block text-xs font-bold uppercase tracking-widest text-ayoya-brown/75 mb-2';
 
 function CartLine({ item }: { item: CartItem; key?: string }) {
-  const { removeItem, updateQuantity } = useCart();
-  const noDiscount = getProductById(item.productId)?.noDiscount;
+  const { addItem, removeItem, updateQuantity } = useCart();
+  const product = getProductById(item.productId);
+  const noDiscount = product?.noDiscount;
+  const single = product && item.key === `${product.id}::${product.priceUnit}`;
+  const combo = single ? combosOf(item.productId)[0] : undefined;
+
+  // Singles that fill whole combos move into them; any remainder stays as singles.
+  const takeCombo = () => {
+    if (!combo) return;
+    const packs = Math.max(1, Math.floor(item.quantity / combo.units));
+    updateQuantity(item.key, item.quantity >= combo.units ? item.quantity % combo.units : 0);
+    addItem(
+      {
+        key: `${item.productId}::${combo.label}`,
+        productId: item.productId,
+        title: item.title,
+        image: item.image,
+        variantLabel: combo.label,
+        unitPrice: combo.price,
+        weightGrams: combo.weightGrams
+      },
+      packs
+    );
+  };
+
   return (
-    <div className="flex gap-3 p-3 bg-white rounded-2xl border border-ayoya-brown/5">
+    <div className="p-3 bg-white rounded-2xl border border-ayoya-brown/5">
+    <div className="flex gap-3">
       <img src={thumb(item.image)} alt={item.title} referrerPolicy="no-referrer" className="w-16 h-16 rounded-xl object-cover flex-shrink-0" />
       <div className="flex-1 min-w-0">
         <p className="text-sm font-medium text-ayoya-brown leading-snug line-clamp-2">{item.title}</p>
@@ -98,6 +114,15 @@ function CartLine({ item }: { item: CartItem; key?: string }) {
         <Trash2 size={16} />
       </button>
     </div>
+      {combo && (
+        <button
+          onClick={takeCombo}
+          className="mt-2 w-full min-h-11 rounded-xl border border-dashed border-ayoya-green/50 bg-ayoya-green/5 px-3 py-2 text-xs text-ayoya-green font-medium text-left"
+        >
+          Lấy <strong>{combo.label}</strong> giá {formatPrice(combo.price)}: rẻ hơn mua lẻ {formatPrice(combo.saving)}
+        </button>
+      )}
+    </div>
   );
 }
 
@@ -124,6 +149,29 @@ function CopyRow({ label, value, copy }: { label: string; value: string; copy?: 
   );
 }
 
+// Two honest reasons to add something: the printed code's minimum, and the flat shipping fee up to 1 kg.
+function CartTips({ total, weight, onBrowse }: { total: number; weight: number; onBrowse: () => void }) {
+  const code = savedPromo();
+  return (
+    <div className="rounded-2xl bg-ayoya-amber/10 p-4 text-sm text-ayoya-brown space-y-2">
+      <p>
+        {code ? (
+          <>Mã <strong>{code}</strong> </>
+        ) : (
+          <>Có mã trên menu hoặc thư cảm ơn? Mã </>
+        )}
+        {total > PROMO_MIN_ORDER
+          ? <>giảm cho đơn này <strong>{formatPrice(discountFor(total))}</strong>.</>
+          : <>dùng được khi đơn trên {formatPrice(PROMO_MIN_ORDER)}: còn thiếu <strong>{formatPrice(PROMO_MIN_ORDER - total + 1000)}</strong>.</>}
+      </p>
+      {weight < 1000 && <p>Giỏ nặng khoảng {weight}g. Đơn đến 1kg chỉ chịu một mức phí ship, mua kèm không tốn thêm ship.</p>}
+      <Link to="/#products" onClick={onBrowse} className="inline-flex min-h-11 items-center font-bold underline underline-offset-4">
+        Thêm món bán chạy
+      </Link>
+    </div>
+  );
+}
+
 export default function CartDrawer() {
   const { items, isOpen, closeCart, totalPrice, totalWeightGrams, clearCart, checkoutIntent, clearCheckoutIntent } = useCart();
   const [step, setStep] = useState<Step>('cart');
@@ -141,6 +189,13 @@ export default function CartDrawer() {
 
   const startCheckout = () => {
     setPendingOrderCode(generateOrderCode());
+    // A code that arrived through the printed QR code is filled in already.
+    const saved = savedPromo();
+    if (saved && !appliedPromo) {
+      setAppliedPromo(saved);
+      setPromoInput(saved);
+      setPromoError('');
+    }
     setStep('checkout');
   };
 
@@ -195,7 +250,7 @@ export default function CartDrawer() {
   const selectedZone = SHIPPING_ZONES.find(z => z.id === zoneId);
   const shippingFee = selectedZone ? calcShippingFee(totalWeightGrams, selectedZone.id) : 0;
   const promoQualifies = appliedPromo !== null && totalPrice > PROMO_MIN_ORDER;
-  const promoDiscount = promoQualifies ? Math.min(Math.round(totalPrice * PROMO_DISCOUNT_RATE), PROMO_MAX_DISCOUNT) : 0;
+  const promoDiscount = promoQualifies ? discountFor(totalPrice) : 0;
   const discountedSubtotal = totalPrice - promoDiscount;
   const grandTotal = discountedSubtotal + shippingFee;
   const originalSubtotal = items.reduce((sum, item) => {
@@ -285,6 +340,7 @@ export default function CartDrawer() {
       });
       setStep('success');
       clearCart();
+      if (promoQualifies) forgetPromo();
     } catch {
       setError(`Chưa xác nhận được đơn hàng. Giỏ hàng vẫn được giữ lại. Vui lòng nhắn Zalo ${CONTACT_INFO.phone} kèm mã ${code} để kiểm tra trước khi đặt lại.`);
     } finally {
@@ -354,6 +410,7 @@ export default function CartDrawer() {
                   {items.map(item => (
                     <CartLine key={item.key} item={item} />
                   ))}
+                  <CartTips total={totalPrice} weight={totalWeightGrams} onBrowse={handleClose} />
                 </div>
               ))}
 

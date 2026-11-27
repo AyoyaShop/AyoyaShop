@@ -26,6 +26,10 @@ import { productMeta } from '../lib/pageMeta';
 import { toGaItem, trackShopEvent } from '../lib/analytics';
 import { calcOriginalPrice } from '../lib/pricing';
 import { thumb, photoSrcSet } from '../lib/thumb';
+import { combosOf, comboSaving } from '../lib/combo';
+
+// Below this, shipping (from 18.000đ) weighs heavily on the order.
+const SMALL_ORDER = 40000;
 
 function formatPrice(price: number): string {
   return `${price.toLocaleString('vi-VN')}đ`;
@@ -98,6 +102,7 @@ export default function ProductDetail() {
 
   const relatedProducts = findRelated(product.id);
   const category = CATEGORIES.find(c => c.id === product.category);
+  const bestCombo = [...combosOf(product.id)].sort((a, b) => b.saving - a.saving)[0];
 
   const photos = PRODUCT_GALLERIES[product.id] ?? [product.image];
   const photo = photos[photoIndex] ?? photos[0];
@@ -288,12 +293,35 @@ export default function ProductDetail() {
                       </>
                     )}
                     {formatPrice(v.price)}
+                    {comboSaving(product.id, v.label) > 0 && (
+                      <span className={`ml-1 font-bold ${activeLabel === v.label ? 'text-ayoya-amber' : 'text-ayoya-green'}`}>
+                        · lợi {formatPrice(comboSaving(product.id, v.label))}
+                      </span>
+                    )}
                   </button>
                 ))}
               </div>
             )}
 
             <div className="space-y-6">
+              {selectedVariant.price < SMALL_ORDER && (
+                <div className="rounded-2xl bg-ayoya-amber/10 p-4 text-sm text-ayoya-brown">
+                  <p>
+                    Đơn đến 1kg chỉ chịu một mức phí ship, nên mua một món nhỏ thì tiền ship dễ cao so với tiền hàng.
+                    {bestCombo ? ' Lấy combo sẽ lợi hơn.' : ' Mua kèm món khác trong cùng đơn sẽ lợi hơn.'}
+                  </p>
+                  {bestCombo ? (
+                    <button onClick={() => setSelectedLabel(bestCombo.label)} className="mt-1 min-h-11 text-left font-bold text-ayoya-green underline underline-offset-4">
+                      Chọn {bestCombo.label}: {formatPrice(bestCombo.price)}, lợi {formatPrice(bestCombo.saving)}
+                    </button>
+                  ) : (
+                    <Link to="/#products" className="mt-1 inline-flex min-h-11 items-center font-bold underline underline-offset-4">
+                      Xem 3 món bán chạy để mua kèm
+                    </Link>
+                  )}
+                </div>
+              )}
+
               <div ref={buyBoxRef} className="space-y-3">
                 <div className="flex items-center gap-3">
                   <span className="text-xs font-bold uppercase tracking-widest text-ayoya-brown/75">Số lượng</span>
@@ -349,12 +377,12 @@ export default function ProductDetail() {
               <p className="text-ayoya-brown/70 leading-relaxed">{product.description}</p>
 
               <Link
-                to="/#quiz"
+                to="/#nhu-cau"
                 className="flex items-center gap-3 p-4 bg-ayoya-amber/5 rounded-2xl border border-ayoya-amber/20 hover:bg-ayoya-amber/10 transition-colors"
               >
                 <HelpCircle size={20} className="text-ayoya-amber flex-shrink-0" />
                 <span className="text-sm text-ayoya-brown">
-                  Chưa chắc sản phẩm này phù hợp? <span className="font-bold underline">Trả lời 2 câu hỏi</span> để AYOYA gợi ý đúng món bạn cần.
+                  Chưa chắc sản phẩm này phù hợp? <span className="font-bold underline">Xem theo nhu cầu</span> để chọn đúng món bạn cần.
                 </span>
               </Link>
             </div>

@@ -25,19 +25,19 @@ export default function Hero() {
               <p className="text-xs font-bold tracking-[0.25em] uppercase text-ayoya-gold md:text-ayoya-amber mb-4">
                 Thảo mộc Đất Võ Bình Định
               </p>
-              <h1 className="text-[clamp(2.25rem,11vw,3rem)] md:text-6xl font-serif leading-[1.12] text-ayoya-brown md:text-white mb-5">
-                Nơi Khởi Sinh <br />
-                <span className="italic">Năng Lượng Sạch</span>
+              <h1 className="text-[clamp(2rem,9vw,2.75rem)] md:text-5xl font-serif leading-[1.15] text-ayoya-brown md:text-white mb-5">
+                Bài thảo mộc nhà võ, <br />
+                <span className="italic">dùng trong nhà bạn</span>
               </h1>
               <p className="text-base md:text-lg leading-relaxed text-ayoya-brown/85 md:text-white/90 mb-8">
-                Chúng tôi không chỉ bán sản phẩm, chúng tôi trao gửi niềm tin và sự bình an qua những báu vật thảo mộc cổ truyền.
+                Dầu xoa bóp, thảo dược xông nhà, xông tắm, nhang và nụ trầm. Đồng kiểm khi nhận, trả tiền khi nhận hàng.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
                 <a
                   href="#products"
                   className="inline-flex min-h-12 items-center justify-center px-8 rounded-full bg-ayoya-brown md:bg-ayoya-cream text-ayoya-cream md:text-ayoya-brown font-semibold uppercase tracking-widest text-sm hover:bg-ayoya-green hover:text-white transition-colors"
                 >
-                  Khám Phá Di Sản
+                  Xem món bán chạy
                 </a>
                 <a
                   href="https://zalo.me/0933458485"

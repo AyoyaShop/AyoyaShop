@@ -1,15 +1,10 @@
 import { useEffect } from 'react';
 import Hero from '../components/Hero';
-import FeaturedCategories from '../components/FeaturedCategories';
-import InteractiveTools from '../components/InteractiveTools';
-import CoreValues from '../components/CoreValues';
 import Products from '../components/Products';
-import ProductGrid from '../components/ProductGrid';
-import SimilarProductsComparison from '../components/SimilarProductsComparison';
+import NeedFinder from '../components/NeedFinder';
 import OriginStory from '../components/OriginStory';
 import SocialProof from '../components/SocialProof';
-import PurchaseAssurance from '../components/PurchaseAssurance';
-import Blogs from '../components/Blogs';
+import HomeFaq from '../components/HomeFaq';
 import NewsletterSignup from '../components/NewsletterSignup';
 import { applyDefaultSeo } from '../lib/seo';
 
@@ -21,16 +16,11 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <FeaturedCategories />
       <Products />
-      <ProductGrid />
+      <NeedFinder />
       <OriginStory />
       <SocialProof />
-      <InteractiveTools />
-      <SimilarProductsComparison />
-      <PurchaseAssurance />
-      <CoreValues />
-      <Blogs />
+      <HomeFaq />
       <NewsletterSignup />
     </>
   );
