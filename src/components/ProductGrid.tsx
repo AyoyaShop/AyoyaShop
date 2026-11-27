@@ -5,6 +5,7 @@ import { ShoppingCart, ArrowRight } from 'lucide-react';
 import { ALL_PRODUCTS, MORE_PRODUCTS, PRODUCT_RATINGS } from '../data';
 import { useCart } from '../context/CartContext';
 import { calcOriginalPrice } from '../lib/pricing';
+import SectionHeading from './SectionHeading';
 
 function formatPrice(price: number): string {
   return `${price.toLocaleString('vi-VN')}đ`;
@@ -21,15 +22,8 @@ export default function ProductGrid() {
 
   return (
     <section id="more-products" className="py-16 md:py-24 px-4 bg-white">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl font-serif text-ayoya-brown mb-4 underline underline-offset-8 decoration-ayoya-amber/30">
-            Được Mua <span className="italic">Nhiều</span>
-          </h2>
-          <p className="max-w-2xl mx-auto text-ayoya-brown/75 tracking-wider text-xs md:text-sm uppercase">
-            Thảo mộc & phong thủy nhiều lượt đánh giá trên hai sàn
-          </p>
-        </div>
+      <div className="max-w-6xl mx-auto">
+        <SectionHeading eyebrow="Nhiều lượt đánh giá trên hai sàn" title="Được Mua" emphasis="Nhiều" />
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {BEST_SELLERS.map(product => {
@@ -46,7 +40,7 @@ export default function ProductGrid() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="flex flex-col bg-ayoya-cream/20 rounded-3xl border border-ayoya-brown/5 overflow-hidden hover:modern-zen-shadow transition-shadow"
+                className="flex flex-col bg-ayoya-cream/20 rounded-2xl border border-ayoya-brown/10 overflow-hidden hover:modern-zen-shadow transition-shadow"
               >
                 <Link to={`/san-pham/${product.id}`} className="aspect-square overflow-hidden bg-ayoya-brown/5 block">
                   <img loading="lazy"
@@ -72,7 +66,7 @@ export default function ProductGrid() {
                       aria-label={`Chọn loại ${product.title}`}
                       value={selectedLabel}
                       onChange={e => setSelectedVariants(prev => ({ ...prev, [product.id]: e.target.value }))}
-                      className="mb-3 w-full text-xs px-2 py-1.5 rounded-lg border border-ayoya-brown/15 bg-white text-ayoya-brown"
+                      className="mb-3 w-full min-h-11 text-xs px-2 rounded-lg border border-ayoya-brown/15 bg-white text-ayoya-brown"
                     >
                       {variants.map(v => (
                         <option key={v.label} value={v.label}>
@@ -104,7 +98,7 @@ export default function ProductGrid() {
                           weightGrams: selectedVariant.weightGrams
                         })
                       }
-                      className="w-10 h-10 flex-shrink-0 rounded-full bg-ayoya-brown text-white flex items-center justify-center hover:bg-ayoya-brick transition-colors active:scale-95"
+                      className="w-11 h-11 flex-shrink-0 rounded-full bg-ayoya-brown text-white flex items-center justify-center hover:bg-ayoya-brick transition-colors active:scale-95"
                       aria-label={`Thêm ${product.title} vào giỏ hàng`}
                     >
                       <ShoppingCart size={15} />
@@ -125,53 +119,6 @@ export default function ProductGrid() {
           </Link>
         </div>
 
-        <motion.a
-          href="https://vn.shp.ee/dKiXxDRN"
-          target="_blank"
-          rel="noopener noreferrer"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          whileHover={{ y: -5 }}
-          className="relative mt-12 block w-full aspect-[21/9] md:aspect-[3/1] rounded-[32px] overflow-hidden group cursor-pointer shadow-xl"
-        >
-          <img loading="lazy"
-            src="https://res.cloudinary.com/dfb8mvzhc/image/upload/f_auto,q_auto,c_limit,w_1200/v1776451812/c%C3%A1c_sp_kh%C3%A1c_ky8zby.png"
-            alt="Các sản phẩm khác của Ayoya"
-            className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-ayoya-brown/40 group-hover:bg-ayoya-brown/50 transition-colors flex flex-col items-center justify-center text-white text-center p-6">
-            <h3 className="text-2xl md:text-4xl font-bold mb-2 tracking-tight">Các sản phẩm khác</h3>
-            <p className="text-xs md:text-xs opacity-90 mb-6 font-medium uppercase tracking-[0.2em]">Khám phá trọn bộ sưu tập Thảo mộc & Phong thủy</p>
-            <div className="flex items-center gap-2 px-8 py-3 bg-ayoya-cream text-ayoya-brown rounded-full text-xs font-bold uppercase tracking-widest group-hover:bg-white transition-all shadow-lg">
-              Xem đầy đủ tại Shopee <ArrowRight size={14} />
-            </div>
-          </div>
-        </motion.a>
-
-        <motion.a
-          href="https://vt.tiktok.com/ZS4qEo8dm/?page=TikTokShop"
-          target="_blank"
-          rel="noopener noreferrer"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          whileHover={{ y: -5 }}
-          className="relative mt-12 block w-full aspect-[21/9] md:aspect-[3/1] rounded-[32px] overflow-hidden group cursor-pointer shadow-xl"
-        >
-          <img loading="lazy"
-            src="https://res.cloudinary.com/dfb8mvzhc/image/upload/f_auto,q_auto,c_limit,w_1200/v1776453450/c%C3%A1c_sp_kh%C3%A1c_2_zrnefx.png"
-            alt="Các sản phẩm khác của Ayoya"
-            className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-ayoya-brown/40 group-hover:bg-ayoya-brown/50 transition-colors flex flex-col items-center justify-center text-white text-center p-6">
-            <h3 className="text-2xl md:text-4xl font-bold mb-2 tracking-tight">Thế Giới Thảo Mộc</h3>
-            <p className="text-xs md:text-xs opacity-90 mb-6 font-medium uppercase tracking-[0.2em]">Xem video thực tế & chốt đơn liền tay</p>
-            <div className="flex items-center gap-2 px-8 py-3 bg-ayoya-cream text-ayoya-brown rounded-full text-xs font-bold uppercase tracking-widest group-hover:bg-white transition-all shadow-lg">
-              Vào ngay TikTok Shop <ArrowRight size={14} />
-            </div>
-          </div>
-        </motion.a>
 
         <p className="mt-10 text-center text-xs text-ayoya-brown/70">
           Nội dung mang tính tham khảo theo kinh nghiệm dân gian — không thay thế tư vấn y tế chuyên môn.

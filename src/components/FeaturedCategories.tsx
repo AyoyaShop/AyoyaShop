@@ -1,17 +1,13 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { CATEGORIES, ALL_PRODUCTS } from '../data';
+import SectionHeading from './SectionHeading';
 
 export default function FeaturedCategories() {
   return (
     <section className="py-16 md:py-20 px-4 bg-white">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-serif text-ayoya-brown mb-4">
-            Khám phá theo <span className="italic">nhu cầu</span>
-          </h2>
-          <p className="text-ayoya-brown/75 tracking-wider text-xs md:text-sm uppercase">Chọn đúng nhóm sản phẩm bạn đang tìm</p>
-        </div>
+        <SectionHeading eyebrow="Chọn đúng nhóm bạn đang tìm" title="Khám phá theo" emphasis="nhu cầu" />
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
           {CATEGORIES.map((cat, idx) => {

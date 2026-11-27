@@ -1,110 +1,62 @@
 import { Link } from 'react-router-dom';
-import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
+import IllustrationTag from './IllustrationTag';
+
+const VIDEO = 'v1776477706/7737362006875_lxnlau';
 
 export default function OriginStory() {
   return (
-    <section id="about" className="py-24 bg-paper bg-ayoya-brown/5 relative overflow-hidden">
-      {/* Texture abstract element */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-ayoya-amber/5 rounded-full blur-[100px] -mr-48 -mt-48"></div>
-      
-      <div className="max-w-7xl mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-          <div className="space-y-12 order-2 lg:order-1">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <span className="text-ayoya-gold font-bold tracking-[0.4em] uppercase text-xs mb-4 block">Hành trình di sản</span>
-              <h2 className="text-4xl md:text-6xl font-serif text-ayoya-brown mb-8 leading-[1.1]">
-                Báu Vật Đất Võ <br />
-                <span className="italic">Gửi Trọn Niềm Tin</span>
-              </h2>
-              
-              <div className="prose prose-ayoya text-ayoya-brown/70 leading-relaxed space-y-6 max-w-lg">
-                <p className="font-medium text-ayoya-brown italic border-l-2 border-ayoya-amber pl-6 py-2">
-                  Tại sao lại là Rượu xoa bóp võ thuật cổ truyền Bình Định? 
-                </p>
-                <p>
-                  Câu chuyện bắt nguồn từ những lò võ truyền thống tại Bình Định. Sau những giờ luyện tập cường độ cao, các võ sư dùng bài thuốc xoa bóp bí truyền để phục hồi thể lực, thông kinh lạc và làm dịu các vết bầm.
-                </p>
-                <p>
-                  Chúng tôi kế thừa công thức ấy, kết hợp cùng quy trình "Tận tâm": từ việc trực tiếp chọn lựa từng vị thảo dược phơi khô dưới nắng giòn, đến khâu đóng gói tỉ mỉ như một món quà từ đất mẹ. Đó là cách AYOYA giữ giá trị "Chất lượng".
-                </p>
-              </div>
+    <section id="about" className="bg-ayoya-brown text-ayoya-cream py-16 md:py-24 px-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <figure className="relative mx-auto w-full max-w-md overflow-hidden rounded-2xl">
+            <img
+              loading="lazy"
+              src="/photos/binh-khi-700.webp"
+              alt="Minh họa giá binh khí gỗ tre trong võ đường"
+              className="w-full aspect-[3/4] object-cover"
+            />
+            <IllustrationTag />
+          </figure>
 
-              <div className="pt-8 flex flex-wrap gap-8">
-                <div className="flex flex-col">
-                  <span className="text-3xl font-serif text-ayoya-brown tracking-tighter italic">Bình Định</span>
-                  <span className="text-xs font-bold uppercase tracking-widest text-ayoya-brown/75">Gốc gác thương hiệu</span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-3xl font-serif text-ayoya-brown tracking-tighter italic">Tận Tâm</span>
-                  <span className="text-xs font-bold uppercase tracking-widest text-ayoya-brown/75">Quy trình thủ công</span>
-                </div>
-              </div>
-
-              <Link
-                to="/ve-chung-toi"
-                className="mt-8 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-ayoya-brown hover:text-ayoya-brick transition-colors"
-              >
-                Đọc câu chuyện đầy đủ <ArrowRight size={16} />
-              </Link>
-            </motion.div>
-          </div>
-
-          <div className="order-1 lg:order-2 grid grid-cols-2 gap-6 relative">
-            <motion.div 
-               initial={{ opacity: 0, scale: 0.9, y: 20 }}
-               whileInView={{ opacity: 1, scale: 1, y: 0 }}
-               viewport={{ once: true }}
-               className="space-y-6"
-            >
-              <div className="organic-border overflow-hidden aspect-[3/4] modern-zen-shadow bg-white p-2">
-                <img loading="lazy" 
-                  src="https://res.cloudinary.com/dfb8mvzhc/image/upload/f_auto,q_auto,c_limit,w_800/v1776444400/%C4%91%C3%B4ng_y_codzsc.jpg"
-                  alt="Thảo mộc tuyển chọn từ nguồn dược liệu sạch của AYOYA"
-                  className="w-full h-full object-cover rounded-[35px]"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-              <div className="px-4">
-                <h3 className="font-serif italic text-ayoya-brown">Thảo mộc tuyển chọn</h3>
-                <p className="text-xs uppercase text-ayoya-brown/75 mt-1">Nguồn dược liệu sạch</p>
-              </div>
-            </motion.div>
-
-            <motion.div 
-               initial={{ opacity: 0, scale: 0.9, y: -20 }}
-               whileInView={{ opacity: 1, scale: 1, y: 0 }}
-               transition={{ delay: 0.2 }}
-               viewport={{ once: true }}
-               className="space-y-6 mt-12"
-            >
-              <div className="organic-border overflow-hidden aspect-[3/4] modern-zen-shadow bg-white p-2">
-                <img loading="lazy" 
-                  src="https://res.cloudinary.com/dfb8mvzhc/image/upload/f_auto,q_auto,c_limit,w_800/v1776444643/%C4%91%C3%B3ng_g%C3%B3i_f1mam2.png"
-                  alt="Đóng gói tỉ mỉ sản phẩm AYOYA, gửi trọn tâm tình"
-                  className="w-full h-full object-cover rounded-[35px]"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-              <div className="px-4">
-                <h3 className="font-serif italic text-ayoya-brown">Đóng gói tỉ mỉ</h3>
-                <p className="text-xs uppercase text-ayoya-brown/75 mt-1">Gửi trọn tâm tình</p>
-              </div>
-            </motion.div>
-            
-            {/* Visual seal element */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full border-2 border-dashed border-ayoya-amber/30 flex items-center justify-center p-2">
-               <div className="w-full h-full rounded-full bg-ayoya-brick/10 flex flex-col items-center justify-center text-ayoya-brick leading-none">
-                                <span className="text-[16px] font-serif italic">Làm</span>
-                  <span className="text-xs font-bold tracking-tighter">THỦ CÔNG</span>
-               </div>
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-ayoya-amber mb-3">Hành trình di sản</p>
+            <h2 className="text-3xl md:text-5xl font-serif leading-tight mb-6">
+              Báu Vật Đất Võ <br />
+              <span className="italic">Gửi Trọn Niềm Tin</span>
+            </h2>
+            <p className="border-l-2 border-ayoya-amber pl-5 italic mb-5">
+              Tại sao lại là Rượu xoa bóp võ thuật cổ truyền Bình Định?
+            </p>
+            <div className="space-y-4 leading-relaxed text-ayoya-cream/85">
+              <p>
+                Câu chuyện bắt nguồn từ những lò võ truyền thống tại Bình Định. Sau những giờ luyện tập cường độ cao, các võ sư
+                dùng bài thuốc xoa bóp bí truyền để phục hồi thể lực, thông kinh lạc và làm dịu các vết bầm.
+              </p>
+              <p>
+                Chúng tôi kế thừa công thức ấy, kết hợp cùng quy trình "Tận tâm": từ việc trực tiếp chọn lựa từng vị thảo dược
+                phơi khô dưới nắng giòn, đến khâu đóng gói tỉ mỉ như một món quà từ đất mẹ. Đó là cách AYOYA giữ giá trị "Chất lượng".
+              </p>
             </div>
+            <Link
+              to="/ve-chung-toi"
+              className="mt-6 inline-flex min-h-11 items-center gap-2 text-sm font-bold uppercase tracking-widest text-ayoya-amber hover:text-white transition-colors"
+            >
+              Đọc câu chuyện đầy đủ <ArrowRight size={16} />
+            </Link>
           </div>
         </div>
+
+        <video
+          className="mt-12 w-full max-w-4xl mx-auto aspect-video rounded-2xl object-cover bg-black"
+          controls
+          playsInline
+          preload="none"
+          poster={`https://res.cloudinary.com/dfb8mvzhc/video/upload/so_2,q_auto,w_720,c_limit/${VIDEO}.jpg`}
+        >
+          <source src={`https://res.cloudinary.com/dfb8mvzhc/video/upload/q_auto:eco,w_720,c_limit/${VIDEO}.mp4`} />
+          Trình duyệt của bạn không hỗ trợ xem video.
+        </video>
       </div>
     </section>
   );

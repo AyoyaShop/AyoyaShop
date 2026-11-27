@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { getProductById } from '../data';
 import { calcOriginalPrice } from '../lib/pricing';
+import SectionHeading from './SectionHeading';
 
 function formatPrice(price: number): string {
   return `${price.toLocaleString('vi-VN')}đ`;
@@ -23,14 +24,7 @@ export default function SimilarProductsComparison() {
   return (
     <section className="py-16 md:py-24 px-4 bg-white">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-serif text-ayoya-brown mb-4 underline underline-offset-8 decoration-ayoya-amber/30">
-            Phân biệt <span className="italic">3 dòng thảo dược xông</span>
-          </h2>
-          <p className="max-w-2xl mx-auto text-ayoya-brown/75 tracking-wider text-xs md:text-sm uppercase">
-            Chọn đúng sản phẩm cho đúng nhu cầu
-          </p>
-        </div>
+        <SectionHeading eyebrow="Chọn đúng sản phẩm cho đúng nhu cầu" title="Phân biệt" emphasis="3 dòng thảo dược xông" />
 
         <div className="overflow-x-auto">
           <motion.table

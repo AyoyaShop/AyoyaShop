@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Calendar, HelpCircle, ChevronRight, RefreshCcw } from 'lucide-react';
+import { HelpCircle, ChevronRight, RefreshCcw } from 'lucide-react';
+import SectionHeading from './SectionHeading';
 import { QUIZ_QUESTIONS, QUIZ_RESULTS } from '../data';
 
 export default function InteractiveTools() {
@@ -29,64 +30,17 @@ export default function InteractiveTools() {
   };
 
   return (
-    <section id="quiz" className="py-24 bg-paper bg-ayoya-cream/40 scroll-mt-24 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-serif text-ayoya-brown mb-4">Giá Trị <span className="italic">Trao Tặng</span></h2>
-          <p className="text-ayoya-brown/75 tracking-[0.2em] uppercase text-xs font-bold">Mỏ neo năng lượng cho gia chủ</p>
-        </div>
+    <section id="quiz" className="py-16 md:py-24 bg-paper bg-ayoya-cream/40 scroll-mt-24 overflow-hidden">
+      <div className="max-w-2xl mx-auto px-4">
+        <SectionHeading eyebrow="Trắc nghiệm 30 giây" title="Chọn Đúng" emphasis="Sản Phẩm" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Lịch Tẩy Uế */}
-          <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="bg-white p-10 rounded-[40px] modern-zen-shadow border border-ayoya-brown/5 h-full"
-          >
-            <div className="flex items-center gap-4 mb-8">
-              <div className="w-12 h-12 rounded-full bg-ayoya-cream flex items-center justify-center text-ayoya-brown">
-                <Calendar size={24} strokeWidth={1.5} />
-              </div>
-              <h3 className="text-2xl font-serif">Lịch Tẩy Uế & Xông Nhà</h3>
-            </div>
-            
-            <p className="text-ayoya-brown/70 mb-8 leading-relaxed">
-              Dựa trên âm lịch và phong thủy truyền thống, chúng tôi gợi ý những ngày "vàng" 
-              để bạn bao sái ban thờ và thanh tẩy không gian sống trong tháng này.
-            </p>
-
-            <div className="space-y-4">
-              {[
-                { day: 'Mùng 1 & Rằm', title: 'Thanh tẩy nhẹ nhàng', text: 'Thích hợp lau dọn ban thờ, thắp nhang trầm sạch.' },
-                { day: 'Mùng 2 & 16 Âm Lịch', title: 'Tẩy uế gia đạo', text: 'Theo quan niệm dân gian, đây là ngày hợp để xông thảo mộc 38 vị.' },
-              ].map((item, idx) => (
-                <div key={idx} className="flex gap-6 p-6 rounded-2xl bg-ayoya-cream/20 border border-ayoya-brown/5">
-                  <div className="text-ayoya-gold font-serif text-lg leading-tight w-20 flex-shrink-0">
-                    {item.day}
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-sm uppercase tracking-wider mb-1">{item.title}</h3>
-                    <p className="text-xs text-ayoya-brown/75 leading-normal">{item.text}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <a 
-  href="/phong-thuy-chuyen-sau-ve-thanh-tay-khong-gian.pdf" 
-  download="Phong-Thuy-Chuyen-Sau-Ayoya.pdf"
-  className="mt-8 block text-center w-full py-4 border border-ayoya-brown/10 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-ayoya-brown hover:text-white transition-all cursor-pointer"
->
-  Tải Phong Thủy Chuyên Sâu (PDF)
-</a>
-          </motion.div>
-
+        <div>
           {/* Quiz Tương Tác */}
           <motion.div 
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-ayoya-brown p-10 rounded-[40px] text-ayoya-cream h-full relative overflow-hidden"
+            className="bg-ayoya-brown p-6 md:p-10 rounded-2xl text-ayoya-cream relative overflow-hidden"
           >
             <div className="absolute top-0 right-0 p-8 opacity-10">
               <HelpCircle size={120} />
@@ -156,6 +110,14 @@ export default function InteractiveTools() {
             </div>
           </motion.div>
         </div>
+
+        <a
+          href="/phong-thuy-chuyen-sau-ve-thanh-tay-khong-gian.pdf"
+          download="Phong-Thuy-Chuyen-Sau-Ayoya.pdf"
+          className="mt-4 flex min-h-11 items-center justify-center text-sm text-ayoya-brown underline underline-offset-4"
+        >
+          Tải tài liệu phong thủy chuyên sâu (PDF)
+        </a>
       </div>
     </section>
   );

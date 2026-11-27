@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { PRODUCT_RATINGS, REVIEW_SUMMARY, SHOPEE_LINK, TIKTOK_LINK, getProductById } from '../data';
+import SectionHeading from './SectionHeading';
 
 const TOP_REVIEWED = Object.entries(PRODUCT_RATINGS)
   .sort(([, a], [, b]) => b.reviewCount - a.reviewCount)
@@ -23,17 +24,13 @@ const SUMMARY_TILES = [
 
 export default function SocialProof() {
   return (
-    <section className="py-24 bg-white overflow-hidden">
+    <section className="py-16 md:py-24 bg-white overflow-hidden">
       <div className="max-w-5xl mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-serif text-ayoya-brown mb-6 underline underline-offset-8 decoration-ayoya-amber/30">
-            Khách Hàng <span className="italic">Đánh Giá</span>
-          </h2>
-          <p className="max-w-2xl mx-auto text-ayoya-brown/70 text-sm">
-            Số liệu từ gian hàng Ayoya trên TikTok Shop và Shopee. Riêng Shopee, {formatNumber(REVIEW_SUMMARY.shopeeFiveStar)} trong{' '}
-            {formatNumber(REVIEW_SUMMARY.shopeeReviews)} lượt đánh giá là 5 sao.
-          </p>
-        </div>
+        <SectionHeading title="Khách Hàng" emphasis="Đánh Giá" />
+        <p className="max-w-2xl mx-auto -mt-6 mb-10 text-center text-sm text-ayoya-brown/80">
+          Số liệu từ gian hàng Ayoya trên TikTok Shop và Shopee. Riêng Shopee, {formatNumber(REVIEW_SUMMARY.shopeeFiveStar)} trong{' '}
+          {formatNumber(REVIEW_SUMMARY.shopeeReviews)} lượt đánh giá là 5 sao.
+        </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10 text-center">
           {SUMMARY_TILES.map(tile => (

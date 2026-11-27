@@ -8,7 +8,7 @@ export default function TrustBadges() {
   ];
 
   return (
-    <div className="flex flex-wrap justify-center gap-8 py-6 border-y border-ayoya-brown/5 text-sm text-ayoya-brown/80">
+    <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 py-5 border-b border-ayoya-brown/5 text-sm text-ayoya-brown/80">
       {badges.map((Badge, idx) => (
         <div key={idx} className="flex items-center gap-2">
           <Badge.icon size={16} strokeWidth={1.5} className="text-ayoya-green" />

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { PackageCheck, RefreshCcw, Wallet, MessageCircle } from 'lucide-react';
 import { CONTACT_INFO } from '../data';
+import SectionHeading from './SectionHeading';
 
 // Every item here must stay backed by a policy page.
 const ITEMS = [
@@ -32,11 +33,9 @@ const ITEMS = [
 
 export default function PurchaseAssurance() {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-16 md:py-24 bg-white">
       <div className="max-w-5xl mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-serif text-ayoya-brown text-center mb-12 underline underline-offset-8 decoration-ayoya-amber/30">
-          Mua Hàng <span className="italic">Yên Tâm</span>
-        </h2>
+        <SectionHeading title="Mua Hàng" emphasis="Yên Tâm" />
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {ITEMS.map(({ icon: Icon, title, text, link }) => (
             <div key={title} className="p-6 rounded-3xl bg-ayoya-cream/30 border border-ayoya-brown/10">

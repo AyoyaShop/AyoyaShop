@@ -1,108 +1,13 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'motion/react';
-import { ShoppingCart, CheckCircle2, Play, X, Volume2, VolumeX } from 'lucide-react';
+import { ShoppingCart, Play, ArrowRight } from 'lucide-react';
 import { PRODUCTS } from '../data';
 import { useCart } from '../context/CartContext';
 import { calcOriginalPrice } from '../lib/pricing';
+import SectionHeading from './SectionHeading';
 
 function formatPrice(price: number): string {
   return `${price.toLocaleString('vi-VN')}đ`;
-}
-
-interface ProductMediaProps {
-  image: string;
-  video: string;
-  title: string;
-  idx: number;
-}
-
-function ProductMedia({ image, video, title, idx }: ProductMediaProps) {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [isMuted, setIsMuted] = useState(true);
-
-  return (
-    <motion.div 
-        initial={{ opacity: 0, scale: 0.95 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true }}
-      className="flex-1 w-full max-w-2xl mx-auto lg:max-w-none"
-    >
-      <div className="relative group">
-        <div className="absolute -inset-2 sm:-inset-4 bg-ayoya-brown/5 rounded-[40px] transform group-hover:scale-[1.02] transition-transform"></div>
-        <div className="relative overflow-hidden organic-border aspect-[5/6] sm:aspect-[16/10] lg:aspect-square bg-ayoya-brown/10">
-          <AnimatePresence mode="wait">
-            {!isPlaying ? (
-              <motion.div
-                key="image"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="w-full h-full"
-              >
-                <img loading="lazy" 
-                  src={image} 
-                  alt={title}
-                  referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
-                />
-                <button 
-                  onClick={() => setIsPlaying(true)}
-                  className="absolute inset-0 flex items-center justify-center group/btn"
-                >
-                  <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white transform group-hover/btn:scale-110 transition-all duration-500">
-                    <Play size={32} fill="white" className="ml-1" />
-                  </div>
-                  <div className="absolute bottom-8 left-1/2 -translate-x-1/2 px-4 py-2 bg-black/40 backdrop-blur-sm rounded-full text-xs text-white font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
-                    Xem Video Thực Tế
-                  </div>
-                </button>
-              </motion.div>
-            ) : (
-              <motion.div
-                key="video"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="w-full h-full relative"
-              >
-                <video 
-                  src={video}
-                  autoPlay
-                  loop
-                  muted={isMuted}
-                  playsInline
-                  className="w-full h-full object-cover"
-                />
-                
-                {/* Video Controls Overlay */}
-                <div className="absolute inset-x-0 top-0 p-6 flex justify-between items-start bg-gradient-to-b from-black/40 to-transparent">
-                  <span className="text-white text-xs font-bold uppercase tracking-widest">
-                    Đang xem: Quy trình di sản
-                  </span>
-                  <button 
-                    onClick={() => setIsPlaying(false)}
-                    className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-white/40 transition-colors"
-                  >
-                    <X size={16} />
-                  </button>
-                </div>
-
-                <div className="absolute bottom-6 right-6 flex gap-3">
-                  <button 
-                    onClick={() => setIsMuted(!isMuted)}
-                    className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-white/40 transition-colors"
-                  >
-                    {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
-                  </button>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-      </div>
-    </motion.div>
-  );
 }
 
 export default function Products() {
@@ -110,151 +15,94 @@ export default function Products() {
   const [selectedVariants, setSelectedVariants] = useState<Record<string, string>>({});
 
   return (
-    <section id="products" className="py-16 md:py-24 px-4 bg-paper bg-ayoya-cream/30">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16 md:mb-20">
-          <h2 className="text-3xl md:text-5xl font-serif text-ayoya-brown mb-6 underline underline-offset-8 decoration-ayoya-amber/30">
-            Sản Phẩm <span className="italic">Di Sản</span>
-          </h2>
-          <p className="max-w-2xl mx-auto text-ayoya-brown/75 tracking-wider text-xs md:text-sm uppercase">
-            Tuyển chọn khắt khe - Chế biến tỉ mỉ - Gửi trọn tâm tình
-          </p>
-        </div>
+    <section id="products" className="py-16 md:py-24 px-4 bg-paper bg-ayoya-cream/40 scroll-mt-20">
+      <div className="max-w-6xl mx-auto">
+        <SectionHeading eyebrow="Tuyển chọn khắt khe - Chế biến tỉ mỉ" title="Sản Phẩm" emphasis="Di Sản" />
 
-        <div className="space-y-20 md:space-y-32">
-          {PRODUCTS.map((product, idx) => {
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {PRODUCTS.map(product => {
             const variants = [
               { label: product.priceUnit, price: product.price, weightGrams: product.weightGrams },
               ...product.priceOptions
             ];
             const selectedLabel = selectedVariants[product.id] ?? variants[0].label;
-            const selectedVariant = variants.find(v => v.label === selectedLabel) ?? variants[0];
+            const selected = variants.find(v => v.label === selectedLabel) ?? variants[0];
 
             return (
-            <div
-              key={product.id}
-              id={product.id}
-              className={`flex flex-col lg:flex-row items-center gap-10 md:gap-16 scroll-mt-28 ${
-                idx % 2 === 1 ? 'lg:flex-row-reverse' : ''
-              }`}
-            >
-              {/* Media Part */}
-              <ProductMedia 
-                image={product.image} 
-                video={product.video || ''} 
-                title={product.title} 
-                idx={idx} 
-              />
-
-              {/* Content Part */}
-              <motion.div 
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="flex-1 max-w-xl w-full"
+              <article
+                key={product.id}
+                id={product.id}
+                className="flex flex-col overflow-hidden rounded-2xl bg-white border border-ayoya-brown/10 modern-zen-shadow scroll-mt-28"
               >
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {product.badges.map(badge => (
-                    <span key={badge} className="px-3 py-1 bg-ayoya-green/5 text-ayoya-green text-xs font-bold uppercase tracking-widest rounded-full">
-                      {badge}
+                <Link to={`/san-pham/${product.id}`} className="relative block aspect-square overflow-hidden bg-ayoya-brown/5">
+                  <img
+                    loading="lazy"
+                    src={product.image}
+                    alt={product.title}
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                  {product.video && (
+                    <span className="absolute bottom-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-black/55 px-3 py-1 text-xs text-white">
+                      <Play size={12} fill="currentColor" /> Có video
                     </span>
-                  ))}
-                </div>
-                
-                <Link to={`/san-pham/${product.id}`}>
-                  <h3 className="text-3xl md:text-4xl font-serif text-ayoya-brown mb-2 hover:text-ayoya-brick transition-colors">
-                    {product.title}
-                  </h3>
+                  )}
                 </Link>
-                <p className="text-ayoya-gold font-serif italic text-lg mb-6">{product.subtitle}</p>
 
-                <div className="mb-6">
-                  <span className="block text-sm text-ayoya-brown/75 line-through">{formatPrice(calcOriginalPrice(product.price))}</span>
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-3xl font-serif font-bold text-ayoya-brown">{formatPrice(product.price)}</span>
-                    <span className="text-sm text-ayoya-brown/75">/ {product.priceUnit}</span>
-                  </div>
-                  {product.priceOptions.length > 0 && (
-                    <div className="mt-2 flex flex-wrap gap-x-6 gap-y-1 text-xs text-ayoya-brown/75">
-                      {product.priceOptions.map(opt => (
-                        <span key={opt.label}>
-                          {opt.label}:{' '}
-                          <span className="text-ayoya-brown/75 line-through">{formatPrice(calcOriginalPrice(opt.price))}</span>{' '}
-                          <strong className="text-ayoya-brown">{formatPrice(opt.price)}</strong>
-                        </span>
+                <div className="flex flex-1 flex-col p-5">
+                  <Link to={`/san-pham/${product.id}`}>
+                    <h3 className="text-xl font-serif leading-snug text-ayoya-brown hover:text-ayoya-brick transition-colors">
+                      {product.title}
+                    </h3>
+                  </Link>
+                  <p className="mt-1 mb-4 text-sm italic text-ayoya-gold">{product.subtitle}</p>
+
+                  <div className="mt-auto">
+                    <div className="flex items-baseline gap-2 mb-3">
+                      <span className="text-2xl font-serif font-bold text-ayoya-brown">{formatPrice(selected.price)}</span>
+                      <span className="text-sm text-ayoya-brown/75 line-through">{formatPrice(calcOriginalPrice(selected.price))}</span>
+                    </div>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {variants.map(v => (
+                        <button
+                          key={v.label}
+                          onClick={() => setSelectedVariants(prev => ({ ...prev, [product.id]: v.label }))}
+                          aria-pressed={selected.label === v.label}
+                          className={`min-h-11 rounded-lg border px-3 text-xs font-medium transition-colors ${
+                            selected.label === v.label
+                              ? 'bg-ayoya-brown text-white border-ayoya-brown'
+                              : 'bg-white text-ayoya-brown border-ayoya-brown/20 hover:border-ayoya-brown/50'
+                          }`}
+                        >
+                          {v.label}
+                        </button>
                       ))}
                     </div>
-                  )}
-                </div>
-
-                <div className="space-y-6">
-                  <div className="p-6 bg-white rounded-2xl modern-zen-shadow border-l-4 border-ayoya-amber">
-                    <p className="text-ayoya-brown/80 leading-relaxed italic">
-                      "&nbsp;{product.benefits}&nbsp;"
-                    </p>
-                  </div>
-                  
-                  <p className="text-ayoya-brown/70 leading-relaxed">
-                    {product.description}
-                  </p>
-
-                  <ul className="space-y-3">
-                    <li className="flex items-center gap-3 text-sm text-ayoya-green font-medium">
-                      <CheckCircle2 size={18} />
-                      Sản phẩm có bán tại gian hàng Ayoya trên TikTok Shop và Shopee.
-                    </li>
-                  </ul>
-
-                  <div className="pt-8">
-                    {variants.length > 1 && (
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {variants.map(v => (
-                          <button
-                            key={v.label}
-                            onClick={() => setSelectedVariants(prev => ({ ...prev, [product.id]: v.label }))}
-                            className={`px-4 py-2 rounded-full text-xs font-medium border transition-all ${
-                              selectedLabel === v.label
-                                ? 'bg-ayoya-brown text-white border-ayoya-brown'
-                                : 'bg-white text-ayoya-brown border-ayoya-brown/15 hover:border-ayoya-brown/40'
-                            }`}
-                          >
-                            {v.label} · {formatPrice(v.price)}
-                          </button>
-                        ))}
-                      </div>
-                    )}
                     <button
                       onClick={() =>
                         addItem({
-                          key: `${product.id}::${selectedVariant.label}`,
+                          key: `${product.id}::${selected.label}`,
                           productId: product.id,
                           title: product.title,
                           image: product.image,
-                          variantLabel: variants.length > 1 ? selectedVariant.label : '',
-                          unitPrice: selectedVariant.price,
-                          weightGrams: selectedVariant.weightGrams
+                          variantLabel: variants.length > 1 ? selected.label : '',
+                          unitPrice: selected.price,
+                          weightGrams: selected.weightGrams
                         })
                       }
-                      className="w-full flex items-center justify-center gap-3 px-8 py-5 bg-ayoya-brown text-white rounded-full font-bold uppercase tracking-widest hover:bg-ayoya-brick transition-all shadow-lg"
+                      className="flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-ayoya-brown text-sm font-bold uppercase tracking-widest text-white hover:bg-ayoya-brick transition-colors"
                     >
-                      Thêm vào giỏ hàng
-                      <ShoppingCart size={18} />
+                      Thêm vào giỏ <ShoppingCart size={16} />
                     </button>
-
-                    <div className="mt-4 flex flex-wrap gap-4 justify-center md:justify-start">
-                       <div className="flex items-center gap-1 text-xs font-bold uppercase tracking-widest text-ayoya-green bg-ayoya-green/5 px-3 py-1 rounded-full">
-                          <CheckCircle2 size={10} />
-                          Hoàn tiền theo chính sách
-                       </div>
-                       <div className="flex items-center gap-1 text-xs font-bold uppercase tracking-widest text-ayoya-green bg-ayoya-green/5 px-3 py-1 rounded-full">
-                          <CheckCircle2 size={10} />
-                          Đồng kiểm
-                       </div>
-                    </div>
+                    <Link
+                      to={`/san-pham/${product.id}`}
+                      className="mt-1 flex min-h-11 items-center justify-center gap-1 text-sm text-ayoya-brown underline underline-offset-4"
+                    >
+                      Xem chi tiết <ArrowRight size={14} />
+                    </Link>
                   </div>
                 </div>
-              </motion.div>
-            </div>
+              </article>
             );
           })}
         </div>
@@ -262,4 +110,3 @@ export default function Products() {
     </section>
   );
 }
-

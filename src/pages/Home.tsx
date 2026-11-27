@@ -22,14 +22,14 @@ export default function Home() {
     <>
       <Hero />
       <FeaturedCategories />
-      <InteractiveTools />
-      <CoreValues />
       <Products />
       <ProductGrid />
-      <SimilarProductsComparison />
       <OriginStory />
       <SocialProof />
+      <InteractiveTools />
+      <SimilarProductsComparison />
       <PurchaseAssurance />
+      <CoreValues />
       <Blogs />
       <NewsletterSignup />
     </>
