@@ -101,6 +101,13 @@ export const REVIEW_SUMMARY = {
 
 // weightGrams on products is the weight the carrier bills: for bulky packs that is
 // length x width x height (cm) / 6000, as declared on the TikTok Shop listing, not the scale weight.
+// Weight added once to an order that contains the product, whatever the quantity: the packing box.
+export const ORDER_BOX_GRAMS: Record<string, number> = { 'ngam-chan-moc-an': 100 };
+
+export function boxWeight(productIds: string[]): number {
+  return Object.entries(ORDER_BOX_GRAMS).reduce((sum, [id, grams]) => sum + (productIds.includes(id) ? grams : 0), 0);
+}
+
 export function calcShippingFee(weightGrams: number, zoneId: string): number {
   const zone = SHIPPING_ZONES.find(z => z.id === zoneId) ?? SHIPPING_ZONES[0];
   const kg = weightGrams / 1000;
@@ -246,10 +253,10 @@ export const PRODUCTS = [
     badges: ['Bí truyền', 'Cốt rượu lâu năm'],
     price: 79000,
     priceUnit: 'Chai 100ml',
-    weightGrams: 265,
+    weightGrams: 290,
     priceOptions: [
-      { label: '2 Chai 100ml', price: 153000, weightGrams: 570 },
-      { label: 'Chai 500ml', price: 370000, weightGrams: 650 }
+      { label: '2 Chai 100ml', price: 153000, weightGrams: 520 },
+      { label: 'Chai 500ml', price: 370000, weightGrams: 610 }
     ]
   },
   {
@@ -378,11 +385,11 @@ export const MORE_PRODUCTS = [
     image: '/products/ngam-chan-2.webp',
     price: 8000,
     priceUnit: 'túi lẻ (35g)',
-    weightGrams: 50,
+    weightGrams: 35,
     priceOptions: [
-      { label: '10 túi/bịch', price: 75000, weightGrams: 400 },
-      { label: '15 túi/bịch', price: 105000, weightGrams: 580 },
-      { label: 'Combo 2 bịch (30 túi)', price: 200000, weightGrams: 950 }
+      { label: '10 túi/bịch', price: 75000, weightGrams: 350 },
+      { label: '15 túi/bịch', price: 105000, weightGrams: 525 },
+      { label: 'Combo 2 bịch (30 túi)', price: 200000, weightGrams: 1050 }
     ]
   },
   {

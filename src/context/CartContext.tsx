@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
-import { getProductById } from '../data';
+import { boxWeight, getProductById } from '../data';
 import { toGaItem, trackShopEvent } from '../lib/analytics';
 
 export interface CartItem {
@@ -131,7 +131,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   const totalItems = items.reduce((sum, i) => sum + i.quantity, 0);
   const totalPrice = items.reduce((sum, i) => sum + i.quantity * i.unitPrice, 0);
-  const totalWeightGrams = items.reduce((sum, i) => sum + i.quantity * i.weightGrams, 0);
+  const totalWeightGrams = items.reduce((sum, i) => sum + i.quantity * i.weightGrams, 0) + boxWeight(items.map(i => i.productId));
 
   return (
     <CartContext.Provider
