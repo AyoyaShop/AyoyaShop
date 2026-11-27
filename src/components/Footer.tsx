@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Instagram, Facebook, ShoppingBag } from 'lucide-react';
-import { SHOPEE_LINK, TIKTOK_LINK, CONTACT_INFO } from '../data';
+import { SHOPEE_LINK, CONTACT_INFO } from '../data';
+import TikTokShopLink from './TikTokShopLink';
 
 export default function Footer() {
   return (
@@ -28,9 +29,9 @@ export default function Footer() {
               >
                 <Instagram size={18} />
               </a>
-              <a href={TIKTOK_LINK} aria-label="Gian hàng TikTok Shop" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-ayoya-cream/20 flex items-center justify-center hover:bg-ayoya-cream hover:text-ayoya-brown transition-all">
+              <TikTokShopLink label="Gian hàng TikTok Shop" className="w-10 h-10 rounded-full border border-ayoya-cream/20 flex items-center justify-center hover:bg-ayoya-cream hover:text-ayoya-brown transition-all">
                 <span className="text-xs font-black italic">TT</span>
-              </a>
+              </TikTokShopLink>
             </div>
             
             <div className="mt-8 flex flex-col gap-3">
@@ -40,10 +41,10 @@ export default function Footer() {
                   <ShoppingBag size={14} />
                   Shopee
                 </a>
-                <a href={TIKTOK_LINK} aria-label="Gian hàng TikTok Shop" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 border border-ayoya-amber/30 rounded-lg text-xs hover:bg-ayoya-amber/10 transition-colors">
+                <TikTokShopLink label="Gian hàng TikTok Shop" className="flex items-center gap-2 px-4 py-2 border border-ayoya-amber/30 rounded-lg text-xs hover:bg-ayoya-amber/10 transition-colors">
                   <span className="font-black italic">T</span>
                   TikTok Shop
-                </a>
+                </TikTokShopLink>
               </div>
             </div>
           </div>

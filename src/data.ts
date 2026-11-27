@@ -1,5 +1,6 @@
 export const SHOPEE_LINK = 'https://shopee.vn/kiandli';
 export const TIKTOK_LINK = 'https://vt.tiktok.com/ZS4qEo8dm/?page=TikTokShop';
+export const TIKTOK_PROFILE = 'https://www.tiktok.com/@ayoyashop';
 
 export const CONTACT_INFO = {
   address: '6A/3 Nguyễn Du, Phường Bình Hòa, TP.HCM',

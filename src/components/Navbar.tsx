@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ShoppingCart, Store, Menu, Phone, X } from 'lucide-react';
 import { useCart } from '../context/CartContext';
+import TikTokShopLink from './TikTokShopLink';
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -27,17 +28,14 @@ export default function Navbar() {
               <Menu size={26} strokeWidth={1.5} />
             </button>
 
-            <a
-              href="https://vt.tiktok.com/ZS4qEo8dm/?page=TikTokShop"
-              target="_blank"
-              rel="noopener noreferrer"
+            <TikTokShopLink
               className="flex flex-col items-center gap-1 lg:hidden cursor-pointer hover:opacity-80 transition-opacity"
             >
               <div className="w-8 h-8 rounded-lg bg-ayoya-brown text-white flex items-center justify-center shadow-sm">
                 <Store size={15} />
               </div>
               <span className="text-[10px] text-ayoya-brown font-bold uppercase whitespace-nowrap">TikTok<span className="hidden sm:inline"> Shop</span></span>
-            </a>
+            </TikTokShopLink>
 
             <div className="hidden lg:flex items-center gap-5 text-sm font-medium tracking-wide uppercase whitespace-nowrap">
               <Link to="/san-pham" className="hover:text-ayoya-amber transition-colors">Sản phẩm</Link>

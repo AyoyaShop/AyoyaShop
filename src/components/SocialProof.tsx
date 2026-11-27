@@ -1,8 +1,9 @@
 import { motion } from 'motion/react';
 import { Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { PRODUCT_RATINGS, REVIEW_SUMMARY, SHOPEE_LINK, TIKTOK_LINK, getProductById } from '../data';
+import { PRODUCT_RATINGS, REVIEW_SUMMARY, SHOPEE_LINK, getProductById } from '../data';
 import SectionHeading from './SectionHeading';
+import TikTokShopLink from './TikTokShopLink';
 import { thumb } from '../lib/thumb';
 
 const TOP_REVIEWED = Object.entries(PRODUCT_RATINGS)
@@ -69,14 +70,11 @@ export default function SocialProof() {
         </div>
 
         <div className="flex flex-col sm:flex-row justify-center gap-3 mt-10">
-          <a
-            href={TIKTOK_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
+          <TikTokShopLink
             className="px-8 py-4 rounded-full bg-ayoya-brown text-white text-center text-xs font-bold uppercase tracking-widest hover:bg-ayoya-brick transition-colors"
           >
             Đọc đánh giá trên TikTok Shop
-          </a>
+          </TikTokShopLink>
           <a
             href={SHOPEE_LINK}
             target="_blank"

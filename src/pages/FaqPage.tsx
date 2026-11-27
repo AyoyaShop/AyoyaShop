@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
-import { SHOPEE_LINK, TIKTOK_LINK, CONTACT_INFO } from '../data';
+import { SHOPEE_LINK, CONTACT_INFO } from '../data';
+import TikTokShopLink from '../components/TikTokShopLink';
 import { applySeo } from '../lib/seo';
 import { FAQ_META } from '../lib/pageMeta';
 
@@ -76,9 +77,9 @@ export default function FaqPage() {
                           gian hàng Shopee
                         </a>{' '}
                         hoặc{' '}
-                        <a href={TIKTOK_LINK} target="_blank" rel="noopener noreferrer" className="text-ayoya-brick underline">
+                        <TikTokShopLink className="text-ayoya-brick underline">
                           TikTok Shop
-                        </a>{' '}
+                        </TikTokShopLink>{' '}
                         chính thức của AYOYA.
                       </>
                     ) : (
