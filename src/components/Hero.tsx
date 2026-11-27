@@ -9,7 +9,7 @@ export default function Hero() {
             <source media="(min-width: 768px)" srcSet="/photos/san-tap-900.webp 900w, /photos/san-tap-1672.webp 1672w" sizes="100vw" />
             <img
               src="/photos/truyen-day-800.webp"
-              srcSet="/photos/truyen-day-800.webp 800w, /photos/truyen-day-1448.webp 1448w"
+              srcSet="/photos/truyen-day-640.webp 640w, /photos/truyen-day-800.webp 800w, /photos/truyen-day-1448.webp 1448w"
               sizes="100vw"
               fetchPriority="high"
               alt="Lò võ Bình Định: người thầy chỉ dạy học trò"

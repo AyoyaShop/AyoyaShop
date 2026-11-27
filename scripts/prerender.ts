@@ -23,7 +23,8 @@ function renderHead(template: string, meta: PageMeta): string {
     ['name="twitter:description"', meta.description],
     ['name="twitter:image"', meta.image]
   ];
-  let html = replaceOnce(template, /(<title>)[\s\S]*?(<\/title>)/, escapeHtml(meta.title));
+  const withoutHomePreload = template.replace(/\n\s*<link rel="preload"[^>]*data-home-preload[^>]*>/g, '');
+  let html = replaceOnce(withoutHomePreload, /(<title>)[\s\S]*?(<\/title>)/, escapeHtml(meta.title));
   html = replaceOnce(html, /(<link rel="canonical" href=")[^"]*(")/, escapeHtml(meta.url));
   for (const [attr, value] of tags) {
     html = replaceOnce(html, new RegExp(`(<meta\\s+${attr}\\s+content=")[^"]*(")`), escapeHtml(value));
