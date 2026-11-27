@@ -68,17 +68,26 @@ function loadCart(): CartItem[] {
 }
 
 export function CartProvider({ children }: { children: ReactNode }) {
-  const [items, setItems] = useState<CartItem[]>(loadCart);
+  const [items, setItems] = useState<CartItem[]>([]);
+  // Pages are pre-rendered with an empty cart; the saved one is read after the first paint.
+  const [loaded, setLoaded] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [checkoutIntent, setCheckoutIntent] = useState(false);
 
   useEffect(() => {
+    const saved = loadCart();
+    if (saved.length) setItems(current => (current.length ? current : saved));
+    setLoaded(true);
+  }, []);
+
+  useEffect(() => {
+    if (!loaded) return;
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(items.map(({ key, quantity }) => ({ key, quantity }))));
     } catch {
       // Storage can be unavailable (private mode, in-app browsers); the cart still works in memory.
     }
-  }, [items]);
+  }, [items, loaded]);
 
   const addItem: CartContextValue['addItem'] = (item, quantity = 1) => {
     setItems(prev => {

@@ -21,7 +21,7 @@ import { applySeo } from '../lib/seo';
 import { productMeta } from '../lib/pageMeta';
 import { toGaItem, trackShopEvent } from '../lib/analytics';
 import { calcOriginalPrice } from '../lib/pricing';
-import { thumb } from '../lib/thumb';
+import { thumb, photoSrcSet } from '../lib/thumb';
 
 function formatPrice(price: number): string {
   return `${price.toLocaleString('vi-VN')}đ`;
@@ -112,14 +112,17 @@ export default function ProductDetail() {
             <div className="relative group">
               <div className="absolute -inset-2 sm:-inset-4 bg-ayoya-brown/5 rounded-[40px]" />
               <div className="relative overflow-hidden organic-border aspect-square bg-ayoya-brown/10">
-                <AnimatePresence mode="wait">
+                <AnimatePresence mode="wait" initial={false}>
                   {!isPlaying ? (
                     <motion.div key="image" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="w-full h-full">
                       {product.video ? (
                         <>
                           <img
                             src={photo}
+                            srcSet={photoSrcSet(photo)}
+                            sizes="(min-width: 1024px) 50vw, 100vw"
                             alt={photoAlt}
+                            fetchPriority="high"
                             referrerPolicy="no-referrer"
                             className="w-full h-full object-cover"
                           />
@@ -159,7 +162,10 @@ export default function ProductDetail() {
                         >
                           <img
                             src={photo}
+                            srcSet={photoSrcSet(photo)}
+                            sizes="(min-width: 1024px) 50vw, 100vw"
                             alt={photoAlt}
+                            fetchPriority="high"
                             referrerPolicy="no-referrer"
                             className="w-full h-full object-cover"
                           />
@@ -207,7 +213,7 @@ export default function ProductDetail() {
                         : 'border-transparent opacity-70 hover:opacity-100'
                     }`}
                   >
-                    <img src={thumb(src)} alt="" loading="lazy" className="w-full h-full object-cover" />
+                    <img src={thumb(src)} alt="" loading="lazy" fetchPriority="low" className="w-full h-full object-cover" />
                   </button>
                 ))}
               </div>

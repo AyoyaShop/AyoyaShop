@@ -12,7 +12,7 @@ export default function Navbar() {
   return (
     <>
       <motion.nav
-        initial={{ y: -100 }}
+        initial={false}
         animate={{ y: 0 }}
         className="fixed top-0 left-0 right-0 z-50 bg-ayoya-cream/90 backdrop-blur-md border-b border-ayoya-brown/10"
       >

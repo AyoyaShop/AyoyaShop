@@ -1,6 +1,8 @@
 import fs from 'fs';
 import path from 'path';
-import type { Plugin } from 'vite';
+import react from '@vitejs/plugin-react';
+import { createServer, type Plugin } from 'vite';
+import { ALL_PRODUCTS, PRODUCT_GALLERIES } from '../src/data';
 import { allPageMeta, type PageMeta } from '../src/lib/pageMeta';
 
 const escapeHtml = (s: string) =>
@@ -23,9 +25,7 @@ function renderHead(template: string, meta: PageMeta): string {
     ['name="twitter:description"', meta.description],
     ['name="twitter:image"', meta.image]
   ];
-  const withoutHomePreload = template
-    .replace(/\n\s*<link rel="preload"[^>]*data-home-preload[^>]*>/g, '')
-    .replace(/<!--home-shell-->[\s\S]*?<!--\/home-shell-->/, '');
+  const withoutHomePreload = template.replace(/\n\s*<link rel="preload"[^>]*data-home-preload[^>]*>/g, '');
   let html = replaceOnce(withoutHomePreload, /(<title>)[\s\S]*?(<\/title>)/, escapeHtml(meta.title));
   html = replaceOnce(html, /(<link rel="canonical" href=")[^"]*(")/, escapeHtml(meta.url));
   for (const [attr, value] of tags) {
@@ -41,21 +41,75 @@ function renderHead(template: string, meta: PageMeta): string {
   return html;
 }
 
-// GitHub Pages only answers 200 for real files, so every route gets its own `<route>.html`.
+// Puts the rendered page inside #root, in place of the placeholder used by the dev server.
+function withBody(html: string, route: string, body: string): string {
+  const pattern = /<div id="root"><!--home-shell-->[\s\S]*?<!--\/home-shell--><\/div>/;
+  if (!pattern.test(html)) throw new Error('prerender: #root placeholder not found in index.html');
+  return html.replace(pattern, () => `<div id="root" data-ssr="${route}">${body}</div>`);
+}
+
+// The stylesheet is small enough to travel inside the page, which saves a blocking request.
+function inlineCss(html: string, outDir: string): string {
+  const pattern = /<link rel="stylesheet" crossorigin href="(\/assets\/[^"]+\.css)">/;
+  const match = html.match(pattern);
+  if (!match) throw new Error('prerender: built stylesheet link not found');
+  const css = fs.readFileSync(path.join(outDir, match[1]), 'utf8').trim();
+  return html.replace(pattern, () => `<style>${css}</style>`);
+}
+
+// The page is already readable without it, so the script waits behind the photos on a slow network.
+function lowerScriptPriority(html: string): string {
+  return replaceOnce(html, /(<script type="module")()/, ' fetchpriority="low"');
+}
+
+// A product photo without its smaller copies would show as a broken image on phones, so stop the build.
+function checkPhotoCopies(publicDir: string) {
+  const photos = new Set([...ALL_PRODUCTS.map(p => p.image), ...Object.values(PRODUCT_GALLERIES).flat()]);
+  const missing = [...photos]
+    .filter(src => src.startsWith('/products/'))
+    .flatMap(src => ['thumbs', 'mid'].map(dir => `products/${dir}/${path.parse(src).name}.webp`).concat(src.slice(1)))
+    .filter(file => !fs.existsSync(path.join(publicDir, file)));
+  if (missing.length) throw new Error(`prerender: missing photo files in public/: ${missing.join(', ')}`);
+}
+
+// GitHub Pages only answers 200 for real files, so every route gets its own `<route>.html`,
+// already filled with its content so it shows before any script has run.
 export function prerenderRoutes(): Plugin {
   let outDir = 'dist';
+  let root = process.cwd();
   return {
     name: 'ayoya-prerender-routes',
     apply: 'build',
     configResolved(config) {
+      root = config.root;
       outDir = path.resolve(config.root, config.build.outDir);
     },
-    closeBundle() {
-      const template = fs.readFileSync(path.join(outDir, 'index.html'), 'utf8');
-      for (const meta of allPageMeta()) {
-        const file = path.join(outDir, `${meta.path}.html`);
-        fs.mkdirSync(path.dirname(file), { recursive: true });
-        fs.writeFileSync(file, renderHead(template, meta));
+    async closeBundle() {
+      checkPhotoCopies(path.join(root, 'public'));
+      const indexFile = path.join(outDir, 'index.html');
+      const template = lowerScriptPriority(inlineCss(fs.readFileSync(indexFile, 'utf8'), outDir));
+      const server = await createServer({
+        configFile: false,
+        root,
+        mode: 'production',
+        logLevel: 'error',
+        appType: 'custom',
+        plugins: [react()],
+        // The router's Node build is CommonJS; leaving out the "node" condition selects its ES module build.
+        ssr: { noExternal: ['react-router-dom', 'react-router'], resolve: { conditions: ['module', 'import', 'production'] } },
+        server: { middlewareMode: true, hmr: false, watch: null },
+        optimizeDeps: { noDiscovery: true, include: [] }
+      });
+      try {
+        const { render } = (await server.ssrLoadModule('/src/entry-server.tsx')) as { render: (url: string) => string };
+        for (const meta of allPageMeta()) {
+          const file = path.join(outDir, `${meta.path}.html`);
+          fs.mkdirSync(path.dirname(file), { recursive: true });
+          fs.writeFileSync(file, withBody(renderHead(template, meta), meta.path, render(meta.path)));
+        }
+        fs.writeFileSync(indexFile, withBody(template, '/', render('/')));
+      } finally {
+        await server.close();
       }
     }
   };

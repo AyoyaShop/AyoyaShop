@@ -27,6 +27,7 @@ export default function FeaturedCategories() {
                   className="group relative block aspect-[4/5] rounded-3xl overflow-hidden modern-zen-shadow"
                 >
                   <img loading="lazy"
+                    fetchPriority="low"
                     src={thumb(sample.image)}
                     alt={cat.label}
                     referrerPolicy="no-referrer"

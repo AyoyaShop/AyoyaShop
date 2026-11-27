@@ -28,6 +28,7 @@ export default function CardPhoto({ productId, image, alt }: Props) {
     >
       <img
         loading="lazy"
+        fetchPriority="low"
         src={thumb(image)}
         alt={alt}
         referrerPolicy="no-referrer"

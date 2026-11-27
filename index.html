@@ -64,10 +64,13 @@
         window.gtag = function () { window.dataLayer.push(arguments); };
         window.gtag('js', new Date());
         window.gtag('config', 'G-CN8PD3LDZ9');
-        var ga = document.createElement('script');
-        ga.async = true;
-        ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-CN8PD3LDZ9';
-        document.head.appendChild(ga);
+        // Events wait in dataLayer; the Analytics file itself loads after the page has finished loading.
+        window.addEventListener('load', function () {
+          var ga = document.createElement('script');
+          ga.async = true;
+          ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-CN8PD3LDZ9';
+          document.head.appendChild(ga);
+        });
       }
     </script>
   </head>
@@ -96,6 +99,17 @@
         </picture>
       </div>
     <!--/home-shell--></div>
+    <script>
+      // Pre-built markup is only valid for its own address; drop it otherwise (404 redirect, category filter).
+      (function (r) {
+        if (!r.dataset.ssr) return;
+        var path = location.pathname.replace(/(.)\/$/, '$1');
+        if (r.dataset.ssr !== path || /[?&]cat=/.test(location.search)) {
+          r.innerHTML = '';
+          r.removeAttribute('data-ssr');
+        }
+      })(document.getElementById('root'));
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

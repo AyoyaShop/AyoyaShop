@@ -17,9 +17,9 @@ import ContactPage from './pages/ContactPage';
 import PolicyPage from './pages/PolicyPage';
 import ScrollToHash from './components/ScrollToHash';
 
-export default function App() {
+// The router is chosen by the caller: the browser's here, a static one when pages are pre-rendered.
+export function AppLayout() {
   return (
-    <BrowserRouter>
       <div className="min-h-screen">
         <ScrollToHash />
         <Navbar />
@@ -38,6 +38,13 @@ export default function App() {
         <Chatbot />
         <CartDrawer />
       </div>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AppLayout />
     </BrowserRouter>
   );
 }
