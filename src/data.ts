@@ -108,6 +108,15 @@ export function calcShippingFee(weightGrams: number, zoneId: string): number {
   return zone.tier3 + extraSteps * zone.extraPer500g;
 }
 
+// Extra photos shown on a product page; the first entry is the product's main image.
+export const PRODUCT_GALLERIES: Record<string, string[]> = {
+  'dau-vo': [
+    '/products/dau-xoa-bop-duoc-lieu.webp',
+    '/products/dau-xoa-bop-san-vo.webp',
+    '/products/dau-xoa-bop-cam-tay.webp'
+  ]
+};
+
 export const PRODUCTS = [
   {
     id: 'dau-vo',
@@ -124,7 +133,7 @@ export const PRODUCTS = [
     warnings:
       'Chỉ dùng ngoài da, KHÔNG ĐƯỢC UỐNG. Không dùng cho phụ nữ có thai, trẻ em dưới 30 tháng tuổi, trẻ có tiền sử co giật/động kinh. Không bôi lên mắt, niêm mạc, vết thương hở. Ngừng sử dụng nếu có dấu hiệu mẫn cảm. Để xa tầm tay trẻ em.',
     origin: 'Sản xuất tại Hoài Nhơn, Bình Định. Hạn sử dụng 36 tháng kể từ ngày sản xuất. Bảo quản nơi khô ráo, nhiệt độ dưới 30°C.',
-    image: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/f_auto,q_auto,c_limit,w_800/v1776438151/XOA_B%C3%93P_6_lfilv2.png',
+    image: '/products/dau-xoa-bop-duoc-lieu.webp',
     video: 'https://res.cloudinary.com/dfb8mvzhc/video/upload/q_auto:eco,w_720,c_limit/v1776437376/xoabop_leoaaz.mp4',
     cta: 'Trải nghiệm sự an yên',
     link: 'https://vn.shp.ee/GA43KvdT',

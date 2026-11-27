@@ -15,12 +15,13 @@ import {
   HelpCircle,
   Star
 } from 'lucide-react';
-import { ALL_PRODUCTS, getProductById, PRODUCT_RATINGS } from '../data';
+import { ALL_PRODUCTS, getProductById, PRODUCT_GALLERIES, PRODUCT_RATINGS } from '../data';
 import { useCart } from '../context/CartContext';
 import { applySeo } from '../lib/seo';
 import { productMeta } from '../lib/pageMeta';
 import { toGaItem, trackShopEvent } from '../lib/analytics';
 import { calcOriginalPrice } from '../lib/pricing';
+import { thumb } from '../lib/thumb';
 
 function formatPrice(price: number): string {
   return `${price.toLocaleString('vi-VN')}đ`;
@@ -34,6 +35,7 @@ export default function ProductDetail() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [photoIndex, setPhotoIndex] = useState(0);
   const [showStickyBar, setShowStickyBar] = useState(false);
   const buyBoxRef = useRef<HTMLDivElement>(null);
 
@@ -51,6 +53,7 @@ export default function ProductDetail() {
     setIsPlaying(false);
     setIsMuted(true);
     setLightboxOpen(false);
+    setPhotoIndex(0);
   }, [id]);
 
   useEffect(() => {
@@ -87,6 +90,11 @@ export default function ProductDetail() {
 
   const relatedProducts = ALL_PRODUCTS.filter(p => p.id !== product.id).slice(0, 4);
 
+  const photos = PRODUCT_GALLERIES[product.id] ?? [product.image];
+  const photo = photos[photoIndex] ?? photos[0];
+  const hasGallery = photos.length > 1;
+  const photoAlt = photoIndex === 0 ? product.title : `${product.title} - ảnh ${photoIndex + 1}`;
+
   return (
     <div className="pt-28 pb-24 px-4 bg-paper bg-ayoya-cream/30 min-h-screen">
       <div className="max-w-6xl mx-auto">
@@ -110,19 +118,31 @@ export default function ProductDetail() {
                       {product.video ? (
                         <>
                           <img
-                            src={product.image}
-                            alt={product.title}
+                            src={photo}
+                            alt={photoAlt}
                             referrerPolicy="no-referrer"
                             className="w-full h-full object-cover"
                           />
-                          <button
-                            onClick={() => setIsPlaying(true)}
-                            className="absolute inset-0 flex items-center justify-center group/btn"
-                          >
-                            <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white transform group-hover/btn:scale-110 transition-all duration-500">
-                              <Play size={32} fill="white" className="ml-1" />
-                            </div>
-                          </button>
+                          {hasGallery ? (
+                            // A corner button, so the bottle label in the middle stays readable
+                            <button
+                              onClick={() => setIsPlaying(true)}
+                              className="absolute bottom-4 left-4 flex items-center gap-2 h-11 pl-4 pr-5 rounded-full bg-black/55 backdrop-blur-md text-white text-sm font-bold hover:bg-black/70 transition-colors"
+                            >
+                              <Play size={16} fill="white" />
+                              Xem video
+                            </button>
+                          ) : (
+                            <button
+                              onClick={() => setIsPlaying(true)}
+                              className="absolute inset-0 flex items-center justify-center group/btn"
+                              aria-label="Xem video sản phẩm"
+                            >
+                              <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white transform group-hover/btn:scale-110 transition-all duration-500">
+                                <Play size={32} fill="white" className="ml-1" />
+                              </div>
+                            </button>
+                          )}
                           <button
                             onClick={() => setLightboxOpen(true)}
                             className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/30 backdrop-blur-md flex items-center justify-center text-white hover:bg-black/50 transition-colors"
@@ -138,8 +158,8 @@ export default function ProductDetail() {
                           aria-label="Phóng to ảnh"
                         >
                           <img
-                            src={product.image}
-                            alt={product.title}
+                            src={photo}
+                            alt={photoAlt}
                             referrerPolicy="no-referrer"
                             className="w-full h-full object-cover"
                           />
@@ -170,6 +190,28 @@ export default function ProductDetail() {
                 </AnimatePresence>
               </div>
             </div>
+            {hasGallery && (
+              <div className="relative mt-5 sm:mt-8 flex justify-center gap-3">
+                {photos.map((src, index) => (
+                  <button
+                    key={src}
+                    onClick={() => {
+                      setPhotoIndex(index);
+                      setIsPlaying(false);
+                    }}
+                    aria-label={`Xem ảnh ${index + 1}`}
+                    aria-pressed={!isPlaying && index === photoIndex}
+                    className={`w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 transition-all ${
+                      !isPlaying && index === photoIndex
+                        ? 'border-ayoya-brown'
+                        : 'border-transparent opacity-70 hover:opacity-100'
+                    }`}
+                  >
+                    <img src={thumb(src)} alt="" loading="lazy" className="w-full h-full object-cover" />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Content */}
@@ -393,8 +435,8 @@ export default function ProductDetail() {
               animate={{ scale: 1 }}
               exit={{ scale: 0.9 }}
               onClick={e => e.stopPropagation()}
-              src={product.image}
-              alt={product.title}
+              src={photo}
+              alt={photoAlt}
               referrerPolicy="no-referrer"
               className="max-w-full max-h-[85vh] rounded-2xl object-contain shadow-2xl"
             />
