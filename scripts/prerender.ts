@@ -4,6 +4,7 @@ import react from '@vitejs/plugin-react';
 import { createServer, type Plugin } from 'vite';
 import { ALL_PRODUCTS, PRODUCT_GALLERIES } from '../src/data';
 import { allPageMeta, type PageMeta } from '../src/lib/pageMeta';
+import { ORGANIZATION_JSON_LD, SITE_URL } from '../src/lib/seo';
 
 const escapeHtml = (s: string) =>
   s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -31,14 +32,40 @@ function renderHead(template: string, meta: PageMeta): string {
   for (const [attr, value] of tags) {
     html = replaceOnce(html, new RegExp(`(<meta\\s+${attr}\\s+content=")[^"]*(")`), escapeHtml(value));
   }
-  if (meta.jsonLd) {
-    html = replaceOnce(
-      html,
-      /(<script type="application\/ld\+json" id="seo-json-ld">)[\s\S]*?(<\/script>)/,
-      JSON.stringify(meta.jsonLd).replace(/</g, '\\u003c')
-    );
-  }
+  if (meta.jsonLd) html = withJsonLd(html, meta.jsonLd);
   return html;
+}
+
+function withJsonLd(html: string, data: object): string {
+  return replaceOnce(
+    html,
+    /(<script type="application\/ld\+json" id="seo-json-ld">)[\s\S]*?(<\/script>)/,
+    JSON.stringify(data).replace(/</g, '\\u003c')
+  );
+}
+
+// Built from the same page list, so a new product reaches the sitemap without extra work.
+function sitemap(): string {
+  const entry = (url: string, images: string[] = []) =>
+    [
+      '  <url>',
+      `    <loc>${url}</loc>`,
+      ...images.map(src => `    <image:image><image:loc>${escapeHtml(src)}</image:loc></image:image>`),
+      '  </url>'
+    ].join('\n');
+  const pages = allPageMeta().map(meta => {
+    const product = ALL_PRODUCTS.find(p => meta.path === `/san-pham/${p.id}`);
+    const photos = product ? (PRODUCT_GALLERIES[product.id] ?? [product.image]) : [];
+    return entry(meta.url, photos.map(src => (src.startsWith('/') ? `${SITE_URL}${src}` : src)));
+  });
+  return [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">',
+    entry(`${SITE_URL}/`),
+    ...pages,
+    '</urlset>',
+    ''
+  ].join('\n');
 }
 
 // Puts the rendered page inside #root, in place of the placeholder used by the dev server.
@@ -87,7 +114,7 @@ export function prerenderRoutes(): Plugin {
     async closeBundle() {
       checkPhotoCopies(path.join(root, 'public'));
       const indexFile = path.join(outDir, 'index.html');
-      const template = lowerScriptPriority(inlineCss(fs.readFileSync(indexFile, 'utf8'), outDir));
+      const template = withJsonLd(lowerScriptPriority(inlineCss(fs.readFileSync(indexFile, 'utf8'), outDir)), ORGANIZATION_JSON_LD);
       const server = await createServer({
         configFile: false,
         root,
@@ -108,6 +135,7 @@ export function prerenderRoutes(): Plugin {
           fs.writeFileSync(file, withBody(renderHead(template, meta), meta.path, render(meta.path)));
         }
         fs.writeFileSync(indexFile, withBody(template, '/', render('/')));
+        fs.writeFileSync(path.join(outDir, 'sitemap.xml'), sitemap());
       } finally {
         await server.close();
       }

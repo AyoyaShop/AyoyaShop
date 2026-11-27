@@ -1,4 +1,5 @@
-import { ALL_PRODUCTS, CONTACT_INFO } from '../data';
+import { ALL_PRODUCTS, CONTACT_INFO, PRODUCT_GALLERIES } from '../data';
+import { PRODUCT_SEO } from '../data/seoText';
 import { POLICIES, type Policy } from '../data/policies';
 import { DEFAULT_SEO, SITE_URL } from './seo';
 
@@ -48,22 +49,44 @@ export function policyMeta(policy: Policy): PageMeta {
 }
 
 export function productMeta(product: (typeof ALL_PRODUCTS)[number]): PageMeta {
-  const meta = page(`/san-pham/${product.id}`, product.title, product.description, product.image);
+  const seo = PRODUCT_SEO[product.id];
+  const meta = page(`/san-pham/${product.id}`, product.title, seo?.description ?? product.description, product.image);
+  const prices = [product.price, ...product.priceOptions.map(option => option.price)];
+  const offer = {
+    url: meta.url,
+    priceCurrency: 'VND',
+    availability: 'https://schema.org/InStock',
+    itemCondition: 'https://schema.org/NewCondition',
+    seller: { '@type': 'Organization', name: 'AYOYA Shop' }
+  };
+  // No aggregateRating: the stars shown on the site come from Shopee and TikTok Shop, which search
+  // engines do not accept as this site's own review data.
   return {
     ...meta,
     jsonLd: {
       '@context': 'https://schema.org',
-      '@type': 'Product',
-      name: product.title,
-      description: product.description,
-      image: meta.image,
-      offers: {
-        '@type': 'Offer',
-        url: meta.url,
-        priceCurrency: 'VND',
-        price: product.price,
-        availability: 'https://schema.org/InStock'
-      }
+      '@graph': [
+        {
+          '@type': 'Product',
+          name: product.title,
+          sku: product.id,
+          description: product.description,
+          image: (PRODUCT_GALLERIES[product.id] ?? [product.image]).map(absoluteUrl),
+          ...(seo?.brand && { brand: { '@type': 'Brand', name: seo.brand } }),
+          offers:
+            prices.length > 1
+              ? { '@type': 'AggregateOffer', lowPrice: Math.min(...prices), highPrice: Math.max(...prices), offerCount: prices.length, ...offer }
+              : { '@type': 'Offer', price: product.price, ...offer }
+        },
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Trang chủ', item: `${SITE_URL}/` },
+            { '@type': 'ListItem', position: 2, name: 'Sản phẩm', item: `${SITE_URL}/san-pham` },
+            { '@type': 'ListItem', position: 3, name: product.title, item: meta.url }
+          ]
+        }
+      ]
     }
   };
 }

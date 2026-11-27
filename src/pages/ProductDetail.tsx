@@ -346,7 +346,7 @@ export default function ProductDetail() {
               <div className="p-6 bg-white rounded-2xl border border-ayoya-brown/10">
                 <div className="flex items-center gap-2 mb-3 text-ayoya-brown">
                   <Sparkles size={18} className="text-ayoya-amber" />
-                  <h3 className="font-serif text-lg">Thành phần</h3>
+                  <h2 className="font-serif text-lg">Thành phần</h2>
                 </div>
                 <p className="text-sm text-ayoya-brown/70 leading-relaxed">{product.ingredients}</p>
               </div>
@@ -355,7 +355,7 @@ export default function ProductDetail() {
               <div className="p-6 bg-white rounded-2xl border border-ayoya-brown/10">
                 <div className="flex items-center gap-2 mb-3 text-ayoya-brown">
                   <CheckCircle2 size={18} className="text-ayoya-green" />
-                  <h3 className="font-serif text-lg">Hướng dẫn sử dụng</h3>
+                  <h2 className="font-serif text-lg">Hướng dẫn sử dụng</h2>
                 </div>
                 <p className="text-sm text-ayoya-brown/70 leading-relaxed">{product.usage}</p>
               </div>
@@ -364,7 +364,7 @@ export default function ProductDetail() {
               <div className="p-6 bg-white rounded-2xl border border-ayoya-brick/20">
                 <div className="flex items-center gap-2 mb-3 text-ayoya-brick">
                   <AlertTriangle size={18} />
-                  <h3 className="font-serif text-lg">Lưu ý & Cảnh báo</h3>
+                  <h2 className="font-serif text-lg">Lưu ý & Cảnh báo</h2>
                 </div>
                 <p className="text-sm text-ayoya-brown/70 leading-relaxed">{product.warnings}</p>
               </div>
@@ -373,7 +373,7 @@ export default function ProductDetail() {
               <div className="p-6 bg-white rounded-2xl border border-ayoya-brown/10">
                 <div className="flex items-center gap-2 mb-3 text-ayoya-brown">
                   <CheckCircle2 size={18} className="text-ayoya-brown/75" />
-                  <h3 className="font-serif text-lg">Xuất xứ & Bảo quản</h3>
+                  <h2 className="font-serif text-lg">Xuất xứ & Bảo quản</h2>
                 </div>
                 <p className="text-sm text-ayoya-brown/70 leading-relaxed">{product.origin}</p>
               </div>

@@ -1,9 +1,11 @@
+import { CONTACT_INFO } from '../data';
+
 export const SITE_URL = 'https://ayoya.com.vn';
 
 export const DEFAULT_SEO = {
-  title: 'AYOYA Shop - Tinh Hoa Thảo Mộc & Lối Sống Tỉnh Thức',
+  title: 'AYOYA - Dầu Xoa Bóp Bình Định, Thảo Mộc Xông Nhà, Nhang Trầm',
   description:
-    'AYOYA - Thương hiệu cao cấp chuyên về các sản phẩm thảo mộc truyền thống, thanh tẩy không gian và hỗ trợ năng lượng phong thủy. Uy tín - Chất lượng - Tận tâm.',
+    'AYOYA Shop: dầu xoa bóp võ thuật cổ truyền Bình Định, thảo dược xông nhà, nhang và nụ trầm, nước lau bàn thờ, thảo mộc chăm sóc cơ thể. Đồng kiểm khi nhận hàng.',
   image: 'https://res.cloudinary.com/dfb8mvzhc/image/upload/v1776475858/chat_luong_tam_duc_final_kfwn1o.png',
   url: `${SITE_URL}/`
 };
@@ -55,19 +57,30 @@ export function applySeo(opts: { title: string; description: string; url: string
   if (opts.jsonLd) setJsonLd(opts.jsonLd);
 }
 
+// Who runs the shop, as search engines read it; also written into the static pages at build time.
+export const ORGANIZATION_JSON_LD = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'AYOYA Shop',
+  url: SITE_URL,
+  logo: DEFAULT_SEO.image,
+  email: CONTACT_INFO.email,
+  telephone: '+84933458485',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '6A/3 Nguyễn Du, Phường Bình Hòa',
+    addressLocality: 'TP. Hồ Chí Minh',
+    addressCountry: 'VN'
+  },
+  sameAs: [CONTACT_INFO.facebook, 'https://shopee.vn/kiandli', 'https://www.tiktok.com/@ayoyashop']
+};
+
 export function applyDefaultSeo() {
   applySeo({
     title: DEFAULT_SEO.title,
     description: DEFAULT_SEO.description,
     url: DEFAULT_SEO.url,
     image: DEFAULT_SEO.image,
-    jsonLd: {
-      '@context': 'https://schema.org',
-      '@type': 'Organization',
-      name: 'AYOYA Shop',
-      url: SITE_URL,
-      logo: DEFAULT_SEO.image,
-      sameAs: ['https://shopee.vn/kiandli', 'https://www.tiktok.com/@ayoyashop']
-    }
+    jsonLd: ORGANIZATION_JSON_LD
   });
 }
