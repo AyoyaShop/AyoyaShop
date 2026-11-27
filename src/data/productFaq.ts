@@ -4,7 +4,7 @@ export const PRODUCT_FAQ: Record<string, { question: string; answer: string }[]>
     {
       question: 'Dầu xoa bóp có nóng không?',
       answer:
-        'Dầu không nóng rát như các loại dầu nóng công nghiệp. Khi xoa bạn sẽ thấy ấm nhẹ lan dần, hơi the mát. Cảm nhận mỗi người mỗi khác, tùy cơ địa và vùng da. Shop không dùng chất tạo nóng nhân tạo. Bạn xoa kỹ 5 – 10 phút, ngày 2 – 3 lần tại chỗ nhức mỏi để thảo mộc ngâm trong rượu thấm dần.'
+        'Dầu không nóng rát như các loại dầu nóng công nghiệp. Khi xoa bạn sẽ thấy ấm nhẹ lan dần, hơi the mát. Độ ấm đến từ lá bạc hà, đại hồi, gừng khô ngâm cùng các thảo dược khác; lá bạc hà còn cho cảm giác the mát. Cảm nhận mỗi người mỗi khác, tùy cơ địa và vùng da. Shop không dùng chất tạo nóng nhân tạo. Bạn xoa kỹ 5 – 10 phút, ngày 2 – 3 lần tại chỗ nhức mỏi để thảo mộc ngâm trong rượu thấm dần.'
     },
     {
       question: 'Ai không nên dùng dầu?',

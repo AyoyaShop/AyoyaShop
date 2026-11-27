@@ -231,7 +231,7 @@ export const PRODUCTS = [
     description: 'Sản phẩm mang tính di sản, kế thừa tinh hoa võ học Bình Định. Kết hợp công thức bí truyền và cốt rượu lâu năm.',
     benefits: 'Hỗ trợ giảm cảm giác đau nhức, cảm giác ấm nhẹ lan tỏa, hơi the mát, giúp thư giãn cơ xương khớp.',
     ingredients:
-      'Lưu hội (Lô hội), Đại hoàng, Bạch chỉ, Nhị trà, Huyết kiệt, Hồng hoa, Tam nại (Địa liền), tá dược rượu vừa đủ (công thức cho chai 500ml).',
+      'Lưu hội (Lô hội), Đại hoàng, Bạch chỉ, Nhị trà, Huyết kiệt, Hồng hoa, Tam nại (Địa liền), Lá bạc hà, Đại hồi, Gừng khô, tá dược rượu vừa đủ (công thức cho chai 500ml).',
     usage:
       'Lắc đều chai trước khi dùng. Đổ một lượng dầu vừa đủ lên vùng da sạch và khô, thoa đều và xoa bóp nhẹ nhàng theo vòng tròn từ 5-10 phút tại vùng cần chăm sóc, ngày 2 – 3 lần.',
     warnings:
