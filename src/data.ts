@@ -321,7 +321,7 @@ export const MORE_PRODUCTS = [
     usage:
       'Chuẩn bị khay chịu nhiệt, đốt than cho hồng đều. Cho các loại gỗ, thảo dược có gai vào khay trước, sau đó rắc từng ít bột thơm lên, rắc thêm muối sống — chỉ thêm khi lớp trước đã cháy hết. Cầm khay xông di chuyển khắp nhà, chú trọng gầm giường, phòng ngủ, nhà vệ sinh, bếp. Mở cửa thông thoáng khi xông. Liệu trình đầy đủ gồm 4 gói, mỗi lần cách nhau 3-4 ngày.',
     warnings:
-      'Chỉ thêm bột khi lớp than trước đã cháy hết để tránh ngạt khói. Vật phẩm phong thủy đi kèm (Linh Phù, Rùa phong thủy) mang ý nghĩa theo quan niệm dân gian, không cam kết hiệu quả tuyệt đối hay kết quả tức thời.',
+      'Chỉ thêm bột khi lớp than trước đã cháy hết để tránh ngạt khói.',
     origin:
       'Nguyên liệu sạch, chọn lọc kỹ càng. Hạn sử dụng 12 tháng. Bảo quản nơi khô ráo, thoáng mát. Quà tặng kèm mỗi đơn: 1 Linh Phù, 1 Rùa phong thủy, nụ trầm hương, 1 cây than (10 viên) và khay xông.',
     subtitle: '',
@@ -548,7 +548,7 @@ export const MORE_PRODUCTS = [
     benefits: '',
     ingredients: '',
     usage: '',
-    warnings: 'Ý nghĩa mang tính biểu tượng văn hóa, không cam kết hiệu quả tâm linh cụ thể.',
+    warnings: '',
     origin: 'Quy cách: thẻ bài 7cm x 5.8cm, rùa 1.7cm x 1cm. Bảo quản nơi khô ráo, tránh va đập mạnh.',
     subtitle: '',
     video: '',
@@ -568,7 +568,7 @@ export const MORE_PRODUCTS = [
     benefits: '',
     ingredients: '',
     usage: '',
-    warnings: 'Ý nghĩa mang tính biểu tượng văn hóa, không cam kết hiệu quả tâm linh cụ thể.',
+    warnings: '',
     origin: 'Chất liệu thủy tinh trong suốt, ruột gạo/lúa mì/ngô/đậu/mè tự nhiên. Bảo quản nơi khô ráo, tránh va đập mạnh, tránh ánh nắng trực tiếp.',
     subtitle: '',
     video: '',
