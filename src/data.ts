@@ -1,4 +1,4 @@
-export const SHOPEE_LINK = 'https://vn.shp.ee/dKiXxDRN';
+export const SHOPEE_LINK = 'https://shopee.vn/kiandli';
 export const TIKTOK_LINK = 'https://vt.tiktok.com/ZS4qEo8dm/?page=TikTokShop';
 
 export const CONTACT_INFO = {

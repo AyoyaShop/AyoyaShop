@@ -67,7 +67,7 @@ export function applyDefaultSeo() {
       name: 'AYOYA Shop',
       url: SITE_URL,
       logo: DEFAULT_SEO.image,
-      sameAs: ['https://vn.shp.ee/dKiXxDRN', 'https://vt.tiktok.com/ZS4qEo8dm/?page=TikTokShop']
+      sameAs: ['https://shopee.vn/kiandli', 'https://www.tiktok.com/@ayoyashop']
     }
   });
 }
