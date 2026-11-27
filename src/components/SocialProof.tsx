@@ -1,89 +1,33 @@
-import { motion } from 'motion/react';
-import { Star } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { PRODUCT_RATINGS, REVIEW_SUMMARY, SHOPEE_LINK, getProductById } from '../data';
+import { REVIEW_SUMMARY } from '../data';
 import SectionHeading from './SectionHeading';
-import TikTokShopLink from './TikTokShopLink';
-import { thumb } from '../lib/thumb';
-
-const TOP_REVIEWED = Object.entries(PRODUCT_RATINGS)
-  .sort(([, a], [, b]) => b.reviewCount - a.reviewCount)
-  .slice(0, 4)
-  .flatMap(([id, rating]) => {
-    const product = getProductById(id);
-    return product ? [{ product, rating }] : [];
-  });
 
 const formatNumber = (n: number) => n.toLocaleString('vi-VN');
 
-const totalReviews = REVIEW_SUMMARY.tiktokReviews + REVIEW_SUMMARY.shopeeReviews;
-
-const SUMMARY_TILES = [
-  { value: REVIEW_SUMMARY.tiktokSold, label: 'sản phẩm đã bán trên TikTok Shop', asOf: REVIEW_SUMMARY.checkedAt },
-  { value: `${REVIEW_SUMMARY.shopRating}/5`, label: 'điểm đánh giá shop trên TikTok Shop và Shopee', asOf: REVIEW_SUMMARY.checkedAt },
-  { value: formatNumber(totalReviews), label: 'lượt đánh giá trên TikTok Shop và Shopee', asOf: REVIEW_SUMMARY.checkedAt }
+const TILES = [
+  { value: REVIEW_SUMMARY.tiktokSold, label: 'sản phẩm đã bán, riêng trên TikTok Shop' },
+  { value: `${REVIEW_SUMMARY.shopRating}/5`, label: 'điểm đánh giá gian hàng trên TikTok Shop và Shopee' },
+  {
+    value: formatNumber(REVIEW_SUMMARY.tiktokReviews + REVIEW_SUMMARY.shopeeReviews),
+    label: `lượt đánh giá: ${formatNumber(REVIEW_SUMMARY.tiktokReviews)} TikTok Shop + ${formatNumber(REVIEW_SUMMARY.shopeeReviews)} Shopee`
+  }
 ];
 
 export default function SocialProof() {
   return (
-    <section className="py-16 md:py-24 bg-white overflow-hidden">
-      <div className="max-w-5xl mx-auto px-4">
-        <SectionHeading title="Khách Hàng" emphasis="Đánh Giá" />
-        <p className="max-w-2xl mx-auto -mt-6 mb-10 text-center text-sm text-ayoya-brown/80">
-          Số liệu từ gian hàng Ayoya trên TikTok Shop và Shopee. Riêng Shopee, {formatNumber(REVIEW_SUMMARY.shopeeFiveStar)} trong{' '}
-          {formatNumber(REVIEW_SUMMARY.shopeeReviews)} lượt đánh giá là 5 sao.
-        </p>
-
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10 text-center">
-          {SUMMARY_TILES.map(tile => (
-            <div key={tile.label} className="p-6 bg-ayoya-cream/40 rounded-3xl border border-ayoya-brown/5">
-              <p className="text-4xl font-serif font-bold text-ayoya-brown">{tile.value}</p>
-              <p className="mt-2 text-sm text-ayoya-brown/70">{tile.label}</p>
-              <p className="mt-1 text-xs text-ayoya-brown/75">tính đến {tile.asOf}</p>
+    <section className="px-5 py-14 md:py-20">
+      <div className="mx-auto max-w-6xl">
+        <SectionHeading eyebrow="Số liệu từ gian hàng trên sàn" title="Khách hàng đánh giá" />
+        <div className="grid gap-4 text-center sm:grid-cols-3">
+          {TILES.map(tile => (
+            <div key={tile.label} className="rounded-2xl border border-ayoya-sand bg-ayoya-white px-4 py-6">
+              <p className="font-serif text-4xl font-bold text-ayoya-green">{tile.value}</p>
+              <p className="mt-2 text-sm text-ayoya-brown/75">{tile.label}</p>
             </div>
           ))}
         </div>
-
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          {TOP_REVIEWED.map(({ product, rating }, idx) => (
-            <motion.div
-              key={product.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <Link
-                to={`/san-pham/${product.id}`}
-                className="block h-full p-3 rounded-3xl border border-ayoya-brown/10 hover:border-ayoya-amber transition-colors"
-              >
-                <img loading="lazy" src={thumb(product.image)} alt={product.title} className="w-full aspect-square object-cover rounded-2xl mb-3" />
-                <p className="text-sm font-semibold text-ayoya-brown mb-2">{product.title}</p>
-                <p className="flex items-center gap-1 text-sm text-ayoya-brown">
-                  <Star size={14} className="text-ayoya-amber fill-ayoya-amber" />
-                  <span className="font-bold">{rating.stars.toFixed(1)}</span>
-                  <span className="text-ayoya-brown/70">· {formatNumber(rating.reviewCount)} lượt</span>
-                </p>
-              </Link>
-            </motion.div>
-          ))}
-        </div>
-
-        <div className="flex flex-col sm:flex-row justify-center gap-3 mt-10">
-          <TikTokShopLink
-            className="px-8 py-4 rounded-full bg-ayoya-brown text-white text-center text-xs font-bold uppercase tracking-widest hover:bg-ayoya-brick transition-colors"
-          >
-            Đọc đánh giá trên TikTok Shop
-          </TikTokShopLink>
-          <a
-            href={SHOPEE_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-8 py-4 rounded-full border border-ayoya-brown text-ayoya-brown text-center text-xs font-bold uppercase tracking-widest hover:bg-ayoya-brown/5 transition-colors"
-          >
-            Đọc đánh giá trên Shopee
-          </a>
-        </div>
+        <p className="mt-4 text-center text-xs text-ayoya-brown/70">
+          Ghi nhận ngày {REVIEW_SUMMARY.checkedAt}. Đây là đánh giá trên sàn, không phải đánh giá gửi tại website này.
+        </p>
       </div>
     </section>
   );

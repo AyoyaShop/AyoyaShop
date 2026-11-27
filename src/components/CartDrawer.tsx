@@ -9,6 +9,7 @@ import { toGaItem, trackShopEvent } from '../lib/analytics';
 import { generateOrderCode, isValidPhone, normalizePhone } from '../lib/order';
 import { thumb } from '../lib/thumb';
 import { combosOf } from '../lib/combo';
+import { GIFT_LINE, hasGift } from '../lib/gift';
 import { PROMO_CODES, PROMO_MIN_ORDER, forgetPromo, promoDiscount as discountFor, savedPromo } from '../lib/promo';
 
 function formatPrice(price: number): string {
@@ -165,7 +166,7 @@ function CartTips({ total, weight, onBrowse }: { total: number; weight: number; 
           : <>dùng được khi đơn trên {formatPrice(PROMO_MIN_ORDER)}: còn thiếu <strong>{formatPrice(PROMO_MIN_ORDER - total + 1000)}</strong>.</>}
       </p>
       {weight < 1000 && <p>Giỏ nặng khoảng {weight}g. Đơn đến 1kg chỉ chịu một mức phí ship, mua kèm không tốn thêm ship.</p>}
-      <Link to="/#products" onClick={onBrowse} className="inline-flex min-h-11 items-center font-bold underline underline-offset-4">
+      <Link to="/#thao-moc" onClick={onBrowse} className="inline-flex min-h-11 items-center font-bold underline underline-offset-4">
         Thêm món bán chạy
       </Link>
     </div>
@@ -297,7 +298,7 @@ export default function CartDrawer() {
       customerName: form.name.trim(),
       phone,
       address: form.address.trim(),
-      note: form.note.trim(),
+      note: [form.note.trim(), hasGift(items.map(i => i.productId)) ? GIFT_LINE : ''].filter(Boolean).join(' | '),
       shippingZone: selectedZone.label,
       paymentMethod: paymentMethod === 'cod' ? 'COD - Thanh toán khi nhận hàng' : 'Chuyển khoản ngân hàng',
       items: items.map(i => ({
@@ -336,7 +337,10 @@ export default function CartDrawer() {
         total: grandTotal,
         bank: paymentMethod === 'bank',
         phone,
-        lines: items.map(i => `${i.quantity} × ${i.title}${i.variantLabel ? ` (${i.variantLabel})` : ''}`)
+        lines: [
+          ...items.map(i => `${i.quantity} × ${i.title}${i.variantLabel ? ` (${i.variantLabel})` : ''}`),
+          ...(hasGift(items.map(i => i.productId)) ? [GIFT_LINE] : [])
+        ]
       });
       setStep('success');
       clearCart();
@@ -400,7 +404,7 @@ export default function CartDrawer() {
                   <Link
                     to="/san-pham"
                     onClick={handleClose}
-                    className="min-h-12 inline-flex items-center px-8 rounded-full bg-ayoya-brown text-white text-sm font-bold uppercase tracking-widest hover:bg-ayoya-brick transition-colors"
+                    className="min-h-12 inline-flex items-center px-8 rounded-full bg-ayoya-green text-white text-sm font-bold uppercase tracking-widest hover:bg-ayoya-brown transition-colors"
                   >
                     Xem sản phẩm
                   </Link>
@@ -410,6 +414,7 @@ export default function CartDrawer() {
                   {items.map(item => (
                     <CartLine key={item.key} item={item} />
                   ))}
+                  {hasGift(items.map(i => i.productId)) && <p className="text-sm font-semibold text-ayoya-wood">+ {GIFT_LINE}</p>}
                   <CartTips total={totalPrice} weight={totalWeightGrams} onBrowse={handleClose} />
                 </div>
               ))}
@@ -423,6 +428,7 @@ export default function CartDrawer() {
                       <CartLine key={item.key} item={item} />
                     ))}
                   </div>
+                  {hasGift(items.map(i => i.productId)) && <p className="mt-2 text-sm font-semibold text-ayoya-wood">+ {GIFT_LINE}</p>}
                 </div>
 
                 <div data-invalid={shown(fieldErrors.name)}>
@@ -506,7 +512,7 @@ export default function CartDrawer() {
                         aria-pressed={paymentMethod === id}
                         className={`py-3 rounded-xl border text-sm font-medium transition-all flex flex-col items-center gap-0.5 ${
                           paymentMethod === id
-                            ? 'border-ayoya-brown bg-ayoya-brown text-white'
+                            ? 'border-ayoya-green bg-ayoya-green text-white'
                             : 'border-ayoya-brown/15 bg-white text-ayoya-brown'
                         }`}
                       >
@@ -546,7 +552,7 @@ export default function CartDrawer() {
                     />
                     <button
                       onClick={handleApplyPromo}
-                      className="px-5 py-3 rounded-xl border border-ayoya-brown text-ayoya-brown text-xs font-bold uppercase tracking-widest hover:bg-ayoya-brown hover:text-white transition-all whitespace-nowrap"
+                      className="px-5 py-3 rounded-xl border border-ayoya-brown text-ayoya-brown text-xs font-bold uppercase tracking-widest hover:bg-ayoya-green hover:text-white transition-all whitespace-nowrap"
                     >
                       Áp dụng
                     </button>
@@ -633,7 +639,7 @@ export default function CartDrawer() {
                   <Link
                     to="/san-pham"
                     onClick={handleClose}
-                    className="min-h-12 flex items-center justify-center rounded-full bg-ayoya-brown text-white text-sm font-bold uppercase tracking-widest"
+                    className="min-h-12 flex items-center justify-center rounded-full bg-ayoya-green text-white text-sm font-bold uppercase tracking-widest"
                   >
                     Xem thêm sản phẩm
                   </Link>
@@ -655,7 +661,7 @@ export default function CartDrawer() {
               </div>
               <button
                 onClick={startCheckout}
-                className="w-full py-4 bg-ayoya-brown text-white rounded-full font-bold uppercase tracking-widest hover:bg-ayoya-brick transition-all"
+                className="w-full py-4 bg-ayoya-green text-white rounded-full font-bold uppercase tracking-widest hover:bg-ayoya-brown transition-all"
               >
                 Tiến hành đặt hàng
               </button>
@@ -678,7 +684,7 @@ export default function CartDrawer() {
                 <button
                   onClick={handleSubmit}
                   disabled={submitting}
-                  className="flex-1 py-4 bg-ayoya-brown text-white rounded-full font-bold uppercase tracking-wider text-sm hover:bg-ayoya-brick transition-all disabled:opacity-50 flex items-center justify-center gap-2"
+                  className="flex-1 py-4 bg-ayoya-green text-white rounded-full font-bold uppercase tracking-wider text-sm hover:bg-ayoya-brown transition-all disabled:opacity-50 flex items-center justify-center gap-2"
                 >
                   {submitting && <Loader2 size={16} className="animate-spin" />}
                   Đặt hàng · {formatPrice(grandTotal)}

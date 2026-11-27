@@ -1,6 +1,7 @@
 import { ALL_PRODUCTS, CONTACT_INFO, PRODUCT_GALLERIES } from '../data';
 import { PRODUCT_SEO } from '../data/seoText';
 import { POLICIES, type Policy } from '../data/policies';
+import { PILLARS, type Pillar } from '../data/pillars';
 import { DEFAULT_SEO, SITE_URL } from './seo';
 
 // Shared by the pages (runtime head tags) and scripts/prerender.ts (static HTML per route).
@@ -27,10 +28,21 @@ export const CATALOG_META = page(
 
 export const ABOUT_META = page(
   '/ve-chung-toi',
-  'Về chúng tôi',
-  'Câu chuyện AYOYA — từ lò võ cổ truyền Bình Định năm 1983 đến thương hiệu thảo mộc, phong thủy được hàng chục nghìn khách hàng tin dùng hôm nay.',
+  'Chuyện nhà võ: võ đường Hồng Khanh từ năm 1983',
+  'Câu chuyện AYOYA: từ bài thuốc xoa bóp của gia đình ở võ đường Hồng Khanh, Bình Định năm 1983 đến thảo mộc, trầm hương và phong thủy hôm nay.',
   '/products/nguyen-tuan-kiet-founder.jpg'
 );
+
+export const TET_META = page(
+  '/bo-qua-tet',
+  'Bộ quà Tết 2027: xông nhà, bàn thờ, biếu cha mẹ',
+  'Ba bộ quà Tết Đinh Mùi 2027 của AYOYA: Xông Nhà Đón Tết, Bàn Thờ Ngày Xuân, Biếu Cha Mẹ. Giá bằng mua lẻ, đồng kiểm khi nhận hàng.',
+  '/products/xong-nha-2.webp'
+);
+
+export function pillarMeta(pillar: Pillar): PageMeta {
+  return page(`/${pillar.slug}`, pillar.title, pillar.seoDescription, pillar.image);
+}
 
 export const FAQ_META = page(
   '/hoi-dap',
@@ -94,6 +106,8 @@ export function productMeta(product: (typeof ALL_PRODUCTS)[number]): PageMeta {
 export function allPageMeta(): PageMeta[] {
   return [
     CATALOG_META,
+    ...PILLARS.map(pillarMeta),
+    TET_META,
     ABOUT_META,
     FAQ_META,
     CONTACT_META,

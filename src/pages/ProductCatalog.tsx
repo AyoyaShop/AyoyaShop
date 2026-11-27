@@ -29,10 +29,10 @@ export default function ProductCatalog() {
   const visibleProducts = activeCategory === 'all' ? ALL_PRODUCTS : ALL_PRODUCTS.filter(p => p.category === activeCategory);
 
   return (
-    <div className="pt-28 pb-24 px-4 bg-paper bg-ayoya-cream/30 min-h-screen">
+    <div className="pt-32 lg:pt-28 pb-24 px-4 min-h-screen">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-10">
-          <h1 className="text-3xl md:text-5xl font-serif text-ayoya-brown mb-4 underline underline-offset-8 decoration-ayoya-amber/30">
+          <h1 className="text-3xl md:text-5xl font-serif text-ayoya-brown mb-4">
             Tất cả <span className="italic">sản phẩm</span>
           </h1>
           <p className="max-w-2xl mx-auto text-ayoya-brown/75 tracking-wider text-xs md:text-sm uppercase">
@@ -45,7 +45,7 @@ export default function ProductCatalog() {
             onClick={() => setActiveCategory('all')}
             className={`px-5 py-2 rounded-full text-xs font-bold uppercase tracking-widest border transition-all ${
               activeCategory === 'all'
-                ? 'bg-ayoya-brown text-white border-ayoya-brown'
+                ? 'bg-ayoya-green text-white border-ayoya-green'
                 : 'bg-white text-ayoya-brown border-ayoya-brown/15 hover:border-ayoya-brown/40'
             }`}
           >
@@ -57,7 +57,7 @@ export default function ProductCatalog() {
               onClick={() => setActiveCategory(cat.id)}
               className={`px-5 py-2 rounded-full text-xs font-bold uppercase tracking-widest border transition-all ${
                 activeCategory === cat.id
-                  ? 'bg-ayoya-brown text-white border-ayoya-brown'
+                  ? 'bg-ayoya-green text-white border-ayoya-green'
                   : 'bg-white text-ayoya-brown border-ayoya-brown/15 hover:border-ayoya-brown/40'
               }`}
             >
@@ -129,7 +129,7 @@ export default function ProductCatalog() {
                           weightGrams: selectedVariant.weightGrams
                         })
                       }
-                      className="w-10 h-10 flex-shrink-0 rounded-full bg-ayoya-brown text-white flex items-center justify-center hover:bg-ayoya-brick transition-colors active:scale-95"
+                      className="w-10 h-10 flex-shrink-0 rounded-full bg-ayoya-green text-white flex items-center justify-center hover:bg-ayoya-brown transition-colors active:scale-95"
                       aria-label={`Thêm ${product.title} vào giỏ hàng`}
                     >
                       <ShoppingCart size={15} />

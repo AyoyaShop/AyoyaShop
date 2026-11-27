@@ -1,12 +1,12 @@
-// One heading style for every homepage section.
-export default function SectionHeading({ eyebrow, title, emphasis }: { eyebrow?: string; title: string; emphasis?: string }) {
+import type { ReactNode } from 'react';
+
+// One heading style for every homepage section: a small label with a gold rule, then the title.
+export default function SectionHeading({ eyebrow, title, children }: { eyebrow?: string; title: string; children?: ReactNode }) {
   return (
-    <div className="text-center mb-10 md:mb-14">
-      {eyebrow && <p className="text-xs font-bold uppercase tracking-[0.25em] text-ayoya-gold mb-3">{eyebrow}</p>}
-      <h2 className="text-3xl md:text-4xl font-serif text-ayoya-brown">
-        {title} {emphasis && <span className="italic">{emphasis}</span>}
-      </h2>
-      <div className="mx-auto mt-4 h-px w-12 bg-ayoya-gold/60" />
+    <div className="mx-auto mb-9 max-w-2xl text-center">
+      {eyebrow && <p className="eyebrow justify-center">{eyebrow}</p>}
+      <h2 className="text-[clamp(1.75rem,3.4vw,2.5rem)] font-bold leading-tight">{title}</h2>
+      {children && <p className="mt-2 opacity-80">{children}</p>}
     </div>
   );
 }

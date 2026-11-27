@@ -1,91 +1,52 @@
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Instagram, Facebook, ShoppingBag } from 'lucide-react';
-import { SHOPEE_LINK, CONTACT_INFO } from '../data';
+import { SHOPEE_LINK, CONTACT_INFO, TIKTOK_PROFILE } from '../data';
+import { BRAND_DESCRIPTION, PILLARS } from '../data/pillars';
+import { POLICIES } from '../data/policies';
 import TikTokShopLink from './TikTokShopLink';
+
+const linkClass = 'block py-1.5 hover:underline underline-offset-4';
 
 export default function Footer() {
   return (
-    <footer className="pt-24 pb-12 bg-ayoya-brown text-ayoya-cream">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
-          <div className="lg:col-span-2">
-            <h2 className="text-4xl font-serif font-bold tracking-tighter mb-4">AYOYA</h2>
-            <p className="max-w-md text-ayoya-cream/70 leading-relaxed mb-8">
-              Chúng tôi kế thừa tinh hoa võ thuật và y học cổ truyền Bình Định, 
-              mang đến những giải pháp sức khỏe thuận tự nhiên và thanh tẩy năng lượng 
-              cho không gian sống của bạn.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <a href={CONTACT_INFO.facebook}
-                aria-label="Facebook Ayoya Shop" className="w-10 h-10 rounded-full border border-ayoya-cream/20 flex items-center justify-center hover:bg-ayoya-cream hover:text-ayoya-brown transition-all">
-                <Facebook size={18} />
-              </a>
-              <a
-                href={CONTACT_INFO.instagram}
-                aria-label="Instagram của AYOYA"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full border border-ayoya-cream/20 flex items-center justify-center hover:bg-ayoya-cream hover:text-ayoya-brown transition-all"
-              >
-                <Instagram size={18} />
-              </a>
-              <TikTokShopLink label="Gian hàng TikTok Shop" className="w-10 h-10 rounded-full border border-ayoya-cream/20 flex items-center justify-center hover:bg-ayoya-cream hover:text-ayoya-brown transition-all">
-                <span className="text-xs font-black italic">TT</span>
-              </TikTokShopLink>
-            </div>
-            
-            <div className="mt-8 flex flex-col gap-3">
-              <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-ayoya-amber">Ghé thăm gian hàng</h3>
-              <div className="flex gap-4">
-                <a href={SHOPEE_LINK} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 border border-ayoya-amber/30 rounded-lg text-xs hover:bg-ayoya-amber/10 transition-colors">
-                  <ShoppingBag size={14} />
-                  Shopee
-                </a>
-                <TikTokShopLink label="Gian hàng TikTok Shop" className="flex items-center gap-2 px-4 py-2 border border-ayoya-amber/30 rounded-lg text-xs hover:bg-ayoya-amber/10 transition-colors">
-                  <span className="font-black italic">T</span>
-                  TikTok Shop
-                </TikTokShopLink>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <h3 className="text-sm font-bold uppercase tracking-[0.2em] mb-8 text-ayoya-amber">Liên hệ</h3>
-            <div className="space-y-6">
-              <div className="flex items-start gap-4 text-ayoya-cream/70 hover:text-ayoya-cream transition-colors">
-                <MapPin size={20} className="mt-1 flex-shrink-0" />
-                <span className="text-sm">{CONTACT_INFO.address}</span>
-              </div>
-              <div className="flex items-center gap-4 text-ayoya-cream/70 hover:text-ayoya-cream transition-colors">
-                <Phone size={20} className="flex-shrink-0" />
-                <span className="text-sm">{CONTACT_INFO.phone}</span>
-              </div>
-              <div className="flex items-center gap-4 text-ayoya-cream/70 hover:text-ayoya-cream transition-colors">
-                <Mail size={20} className="flex-shrink-0" />
-                <span className="text-sm">{CONTACT_INFO.email}</span>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <h3 className="text-sm font-bold uppercase tracking-[0.2em] mb-8 text-ayoya-amber">Chính sách</h3>
-            <ul className="space-y-4 text-sm text-ayoya-cream/70">
-              <li><Link to="/chinh-sach/chinh-sach-bao-mat" className="hover:text-ayoya-cream transition-colors">Chính sách bảo mật</Link></li>
-              <li><Link to="/chinh-sach/chinh-sach-van-chuyen" className="hover:text-ayoya-cream transition-colors">Chính sách vận chuyển</Link></li>
-              <li><Link to="/chinh-sach/chinh-sach-doi-tra" className="hover:text-ayoya-cream transition-colors">Chính sách đổi trả</Link></li>
-              <li><Link to="/chinh-sach/huong-dan-thanh-toan" className="hover:text-ayoya-cream transition-colors">Hướng dẫn thanh toán</Link></li>
-            </ul>
-          </div>
+    <footer className="bg-ayoya-brown px-5 pt-14 pb-8 text-sm text-ayoya-sand">
+      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-8 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
+        <div className="col-span-2 lg:col-span-1">
+          <p className="mb-3 font-serif text-lg font-bold text-ayoya-cream">AYOYA</p>
+          <p className="leading-relaxed">{BRAND_DESCRIPTION}</p>
+          <p className="mt-3 leading-relaxed">{CONTACT_INFO.address}</p>
         </div>
 
-        <div className="pt-12 border-t border-ayoya-cream/10 flex flex-col md:flex-row justify-between items-center gap-6 text-xs font-bold uppercase tracking-[0.3em] text-ayoya-cream/75">
-          <p>© 2026 AYOYA SHOP. All rights reserved.</p>
-          <div className="flex gap-8">
-            <span>Website by AYOYA Developer</span>
-            <span>SEO Optimized</span>
-          </div>
+        <div>
+          <h3 className="mb-2 text-base font-bold text-ayoya-cream">Mua sắm</h3>
+          <Link to="/san-pham" className={linkClass}>Tất cả sản phẩm</Link>
+          {PILLARS.map(pillar => (
+            <Link key={pillar.slug} to={`/${pillar.slug}`} className={linkClass}>{pillar.title}</Link>
+          ))}
+          <Link to="/bo-qua-tet" className={linkClass}>Bộ quà Tết</Link>
+        </div>
+
+        <div>
+          <h3 className="mb-2 text-base font-bold text-ayoya-cream">Hỗ trợ</h3>
+          <Link to="/hoi-dap" className={linkClass}>Hỏi đáp</Link>
+          <Link to="/lien-he" className={linkClass}>Liên hệ</Link>
+          {POLICIES.map(policy => (
+            <Link key={policy.slug} to={`/chinh-sach/${policy.slug}`} className={linkClass}>{policy.title}</Link>
+          ))}
+        </div>
+
+        <div className="col-span-2 lg:col-span-1">
+          <h3 className="mb-2 text-base font-bold text-ayoya-cream">Kết nối</h3>
+          <a href={CONTACT_INFO.zaloHref} target="_blank" rel="noopener noreferrer" className={linkClass}>Zalo {CONTACT_INFO.phone}</a>
+          <a href={`mailto:${CONTACT_INFO.email}`} className={`${linkClass} break-all`}>{CONTACT_INFO.email}</a>
+          <a href={CONTACT_INFO.facebook} target="_blank" rel="noopener noreferrer" className={linkClass}>Facebook</a>
+          <a href={CONTACT_INFO.instagram} target="_blank" rel="noopener noreferrer" className={linkClass}>Instagram</a>
+          <a href={TIKTOK_PROFILE} target="_blank" rel="noopener noreferrer" className={linkClass}>TikTok</a>
+          <a href={SHOPEE_LINK} target="_blank" rel="noopener noreferrer" className={linkClass}>Gian hàng Shopee</a>
+          <TikTokShopLink label="Gian hàng TikTok Shop" className={`${linkClass} text-left cursor-pointer`}>Gian hàng TikTok Shop</TikTokShopLink>
         </div>
       </div>
+
+      <p className="mx-auto mt-10 max-w-6xl border-t border-ayoya-cream/15 pt-5 text-xs text-ayoya-sand/70">© 2026 AYOYA SHOP</p>
     </footer>
   );
 }

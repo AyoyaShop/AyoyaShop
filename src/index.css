@@ -4,12 +4,15 @@
   --font-serif: "Playfair Display", serif;
   --font-sans: "Be Vietnam Pro", sans-serif;
   
-  --color-ayoya-cream: #F5F5DC;
-  --color-ayoya-brown: #4B3621;
-  --color-ayoya-green: #2E473B;
-  --color-ayoya-amber: #FFBF00;
+  --color-ayoya-cream: #F5F0E6;
+  --color-ayoya-white: #FFFEFA;
+  --color-ayoya-sand: #E8DDCB;
+  --color-ayoya-brown: #292820; /* body text and the footer */
+  --color-ayoya-green: #405343; /* buttons and links */
+  --color-ayoya-wood: #49372B; /* incense areas */
+  --color-ayoya-amber: #B28A52; /* gold rules and accents only: too light for text on cream */
   --color-ayoya-brick: #A52A2A;
-  --color-ayoya-gold: #856100;
+  --color-ayoya-gold: #7A5A26; /* gold-brown text on light backgrounds */
 }
 
 @layer base {
@@ -41,11 +44,87 @@
   border-radius: 40px 10px 40px 10px;
 }
 
-.bg-paper {
-  background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
-}
+@layer components {
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 24px;
+    border-radius: 999px;
+    border: 1px solid var(--color-ayoya-green);
+    background: var(--color-ayoya-green);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(64, 83, 67, .25); }
+  .btn-ghost { background: transparent; color: var(--color-ayoya-green); }
+  .btn-light { background: var(--color-ayoya-cream); border-color: var(--color-ayoya-cream); color: var(--color-ayoya-brown); }
 
-.bg-wood {
-  background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    opacity: .85;
+  }
+  .eyebrow::before { content: ''; width: 34px; height: 2px; flex: none; background: var(--color-ayoya-amber); }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 20px;
+    border: 1px solid var(--color-ayoya-sand);
+    background: var(--color-ayoya-white);
+    color: var(--color-ayoya-brown);
+    transition: transform .25s, box-shadow .25s;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 18px 36px rgba(73, 55, 43, .14); }
+  @media (max-width: 767px) { .card .btn { padding: 0 8px; font-size: 13px; } }
+
+  /* three across on wide screens; on phones, swipe sideways */
+  .card-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+  @media (max-width: 767px) {
+    .card-row {
+      display: flex;
+      gap: 14px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+      scroll-snap-type: x mandatory;
+    }
+    .card-row > * { flex: 0 0 82%; scroll-snap-align: start; }
+  }
+
+  .agarwood { background: radial-gradient(ellipse at 50% 0%, #6a4a2e 0%, var(--color-ayoya-wood) 35%, #1f1a14 100%); }
+
+  /* the opening photo has no frame: it runs to the screen edge and melts into the page */
+  .hero { position: relative; margin: 0 auto; max-width: 1600px; padding-top: 112px; }
+  .hero-photo { height: min(104vw, 600px); }
+  .hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 78%;
+    -webkit-mask-image: linear-gradient(#000 90%, transparent);
+    mask-image: linear-gradient(#000 90%, transparent);
+  }
+  @media (min-width: 1024px) {
+    .hero { display: flex; align-items: center; padding-top: 80px; min-height: calc(80px + clamp(540px, 46vw, 740px)); }
+    .hero-photo { position: absolute; top: 80px; right: 0; bottom: 0; width: 58%; height: auto; }
+    .hero-photo img {
+      object-position: 50% 62%;
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 30%);
+      mask-image: linear-gradient(90deg, transparent, #000 30%);
+    }
+  }
 }
 

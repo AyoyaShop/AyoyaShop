@@ -1,61 +1,70 @@
-import TrustBadges from './TrustBadges';
+import { Link } from 'react-router-dom';
+import { Check, Leaf, Wind, Compass } from 'lucide-react';
+import { BRAND_DESCRIPTION, PILLARS } from '../data/pillars';
 
+const ICONS = { 'thao-moc': Leaf, 'tram-huong': Wind, 'phong-thuy': Compass };
+const PROMISES = ['Đồng kiểm khi nhận hàng', 'Trả tiền khi nhận hoặc chuyển khoản QR', 'Đổi trả trong 7 ngày nếu hàng lỗi'];
+
+// Opening screen: the slogan over a frameless photo, then the three product lines and the shop's promises.
 export default function Hero() {
   return (
-    <section className="pt-20">
-      <div className="relative md:h-[calc(100svh-80px)] md:min-h-[560px] md:max-h-[760px]">
-        <div className="relative md:absolute md:inset-0">
-          <picture>
-            <source media="(min-width: 768px)" srcSet="/photos/san-tap-900.webp 900w, /photos/san-tap-1672.webp 1672w" sizes="100vw" />
-            <img
-              src="/photos/truyen-day-800.webp"
-              srcSet="/photos/truyen-day-640.webp 640w, /photos/truyen-day-800.webp 800w, /photos/truyen-day-1448.webp 1448w"
-              sizes="100vw"
-              fetchPriority="high"
-              alt="Lò võ Bình Định: người thầy chỉ dạy học trò"
-              className="w-full aspect-[4/3] md:aspect-auto md:h-full object-cover"
-            />
-          </picture>
-          <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
+    <>
+      <section className="hero">
+        <div className="hero-photo">
+          <img
+            src="/products/mid/dau-xoa-bop-san-vo.webp"
+            srcSet="/products/mid/dau-xoa-bop-san-vo.webp 800w, /products/dau-xoa-bop-san-vo.webp 1200w"
+            sizes="(min-width: 1024px) 58vw, 100vw"
+            fetchPriority="high"
+            alt="Chai dầu xoa bóp võ thuật Bình Định trước sân tập võ"
+          />
         </div>
-
-        <div className="relative md:h-full md:flex md:items-center">
-          <div className="w-full max-w-6xl mx-auto px-5 py-8 md:py-0 text-center md:text-left">
-            <div className="md:max-w-lg">
-              <p className="text-xs font-bold tracking-[0.25em] uppercase text-ayoya-gold md:text-ayoya-amber mb-4">
-                Thảo mộc Đất Võ Bình Định
-              </p>
-              <h1 className="text-[clamp(2rem,9vw,2.75rem)] md:text-5xl font-serif leading-[1.15] text-ayoya-brown md:text-white mb-5">
-                Bài thảo mộc nhà võ, <br />
-                <span className="italic">dùng trong nhà bạn</span>
-              </h1>
-              <p className="text-base md:text-lg leading-relaxed text-ayoya-brown/85 md:text-white/90 mb-8">
-                Dầu xoa bóp, thảo dược xông nhà, xông tắm, nhang và nụ trầm. Đồng kiểm khi nhận, trả tiền khi nhận hàng.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
-                <a
-                  href="#products"
-                  className="inline-flex min-h-12 items-center justify-center px-8 rounded-full bg-ayoya-brown md:bg-ayoya-cream text-ayoya-cream md:text-ayoya-brown font-semibold uppercase tracking-widest text-sm hover:bg-ayoya-green hover:text-white transition-colors"
-                >
-                  Xem món bán chạy
-                </a>
-                <a
-                  href="https://zalo.me/0933458485"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex min-h-12 items-center justify-center px-8 rounded-full border border-ayoya-brown md:border-white text-ayoya-brown md:text-white font-semibold uppercase tracking-widest text-sm hover:bg-white/10 transition-colors"
-                >
-                  Chat Zalo Tư Vấn
-                </a>
-              </div>
+        <div className="relative mx-auto w-full max-w-6xl px-5">
+          <div className="max-w-[500px] pt-3 pb-6 lg:py-10">
+            <p className="eyebrow">Võ đường Hồng Khanh · Bình Định · từ 1983</p>
+            <h1 className="text-[clamp(2.1rem,4.2vw,3.5rem)] font-bold leading-[1.2]">
+              Tinh hoa y đạo –<em className="block font-medium text-ayoya-green">Hồn thiêng đất Võ</em>
+            </h1>
+            <p className="mt-4 mb-7">{BRAND_DESCRIPTION}</p>
+            <div className="flex flex-wrap gap-3">
+              <Link to="/san-pham" className="btn">
+                Khám phá sản phẩm
+              </Link>
+              <Link to="/bo-qua-tet" className="btn btn-ghost">
+                Bộ quà Tết
+              </Link>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="px-4">
-        <TrustBadges />
-      </div>
-    </section>
+      <nav aria-label="Ba dòng sản phẩm" className="border-b border-ayoya-sand bg-ayoya-white py-5">
+        <ul className="mx-auto grid max-w-6xl grid-cols-3 gap-2 px-3">
+          {PILLARS.map(pillar => {
+            const Icon = ICONS[pillar.slug];
+            return (
+              <li key={pillar.slug}>
+                <Link to={`/${pillar.slug}`} className="flex flex-col items-center gap-2 p-1 text-center md:flex-row md:justify-center md:gap-4 md:text-left">
+                  <Icon size={32} strokeWidth={1.4} className="flex-shrink-0 text-ayoya-green" />
+                  <span>
+                    <span className="block font-serif text-base md:text-lg font-bold text-ayoya-green">{pillar.title}</span>
+                    <span className="block text-[11px] md:text-[13px] leading-snug text-ayoya-brown/75">{pillar.tagline}</span>
+                  </span>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
+
+      <ul className="flex flex-col gap-1.5 bg-ayoya-green px-5 py-3 text-sm text-ayoya-cream md:flex-row md:flex-wrap md:justify-center md:gap-x-9">
+        {PROMISES.map(text => (
+          <li key={text} className="flex items-center gap-2">
+            <Check size={15} className="flex-shrink-0 text-[#e2c48f]" />
+            {text}
+          </li>
+        ))}
+      </ul>
+    </>
   );
 }

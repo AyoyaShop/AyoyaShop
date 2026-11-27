@@ -6,12 +6,11 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href="https://ayoya.com.vn/" />
     <!-- Home hero only; scripts/prerender.ts strips these from other routes. -->
-    <link rel="preload" as="image" imagesrcset="/photos/truyen-day-640.webp 640w, /photos/truyen-day-800.webp 800w, /photos/truyen-day-1448.webp 1448w" imagesizes="100vw" media="(max-width: 767px)" fetchpriority="high" data-home-preload />
-    <link rel="preload" as="image" imagesrcset="/photos/san-tap-900.webp 900w, /photos/san-tap-1672.webp 1672w" imagesizes="100vw" media="(min-width: 768px)" fetchpriority="high" data-home-preload />
+    <link rel="preload" as="image" imagesrcset="/products/mid/dau-xoa-bop-san-vo.webp 800w, /products/dau-xoa-bop-san-vo.webp 1200w" imagesizes="(min-width: 1024px) 58vw, 100vw" fetchpriority="high" data-home-preload />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,400&family=Playfair+Display:ital,wght@0,400..900;1,400..700&display=swap" media="print" onload="this.media='all'" />
-    <meta name="theme-color" content="#4B3621" />
+    <meta name="theme-color" content="#405343" />
 
     <title>AYOYA - Dầu Xoa Bóp Bình Định, Thảo Mộc Xông Nhà, Nhang Trầm</title>
     <meta
@@ -92,12 +91,7 @@
       })(window.location);
     </script>
     <div id="root"><!--home-shell-->
-      <div style="padding-top:80px">
-        <picture>
-          <source media="(max-width: 767px)" srcset="/photos/truyen-day-640.webp 640w, /photos/truyen-day-800.webp 800w, /photos/truyen-day-1448.webp 1448w" sizes="100vw" />
-          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover" />
-        </picture>
-      </div>
+      <div style="min-height:100vh"></div>
     <!--/home-shell--></div>
     <script>
       // Pre-built markup is only valid for its own address; drop it otherwise (404 redirect, category filter).

@@ -13,10 +13,10 @@ export default function ContactPage() {
   const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(CONTACT_INFO.address)}&output=embed`;
 
   return (
-    <div className="pt-28 pb-24 px-4 bg-paper bg-ayoya-cream/30 min-h-screen">
+    <div className="pt-32 lg:pt-28 pb-24 px-4 min-h-screen">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
-          <h1 className="text-3xl md:text-5xl font-serif text-ayoya-brown mb-4 underline underline-offset-8 decoration-ayoya-amber/30">
+          <h1 className="text-3xl md:text-5xl font-serif text-ayoya-brown mb-4">
             Liên hệ <span className="italic">AYOYA</span>
           </h1>
           <p className="text-ayoya-brown/75 tracking-wider text-xs md:text-sm uppercase">Chúng tôi luôn sẵn sàng lắng nghe bạn</p>

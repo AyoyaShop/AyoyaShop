@@ -19,7 +19,7 @@ export default function PolicyPage() {
   }
 
   return (
-    <div className="pt-28 pb-24 px-4 bg-paper bg-ayoya-cream/30 min-h-screen">
+    <div className="pt-32 lg:pt-28 pb-24 px-4 min-h-screen">
       <div className="max-w-3xl mx-auto">
         <h1 className="text-3xl md:text-4xl font-serif text-ayoya-brown mb-8 text-center">{policy.title}</h1>
 

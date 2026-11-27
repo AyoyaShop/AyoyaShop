@@ -1,142 +1,77 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { motion } from 'motion/react';
-import { ShoppingCart, Menu, Phone, X } from 'lucide-react';
+import { Link, NavLink } from 'react-router-dom';
+import { ShoppingCart, Phone } from 'lucide-react';
 import { useCart } from '../context/CartContext';
+import { CONTACT_INFO } from '../data';
 
+const MENU = [
+  ['/san-pham', 'Sản phẩm'],
+  ['/thao-moc', 'Thảo mộc'],
+  ['/tram-huong', 'Trầm hương'],
+  ['/phong-thuy', 'Phong thủy'],
+  ['/bo-qua-tet', 'Bộ quà Tết'],
+  ['/ve-chung-toi', 'Chuyện nhà võ']
+];
+
+// Wide screens show the menu beside the logo; phones get a second row that swipes sideways.
 export default function Navbar() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { openCart, totalItems } = useCart();
 
   return (
-    <>
-      <motion.nav
-        initial={false}
-        animate={{ y: 0 }}
-        className="fixed top-0 left-0 right-0 z-50 bg-ayoya-cream/90 backdrop-blur-md border-b border-ayoya-brown/10"
-      >
-        <div className="max-w-7xl mx-auto px-3 sm:px-4 h-20 grid grid-cols-[1fr_auto_1fr] items-center gap-2 sm:gap-4">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-ayoya-sand bg-ayoya-cream/95 backdrop-blur-md">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-3 sm:px-5 lg:h-20">
+        <Link to="/" className="flex flex-col items-center leading-none">
+          <span className="font-serif text-2xl lg:text-[28px] font-bold tracking-tight text-ayoya-green">AYOYA</span>
+          <span className="mt-1 hidden min-[360px]:block whitespace-nowrap text-[9px] font-medium uppercase tracking-[0.06em]">Thảo mộc &amp; Phong thủy</span>
+        </Link>
 
-          {/* === CỤM BÊN TRÁI === */}
-          <div className="flex items-center gap-3 sm:gap-4 lg:gap-6 min-w-0">
-            <button
-              onClick={() => setIsMobileMenuOpen(true)}
-              className="lg:hidden -m-2.5 p-2.5 text-ayoya-brown hover:text-ayoya-amber transition-colors"
-              aria-label="Mở menu"
+        <nav aria-label="Menu chính" className="hidden lg:flex items-center gap-6 whitespace-nowrap text-sm font-medium">
+          {MENU.map(([to, label]) => (
+            <NavLink
+              key={to}
+              to={to}
+              className={({ isActive }) =>
+                `underline-offset-[6px] decoration-ayoya-amber hover:text-ayoya-green hover:underline ${isActive ? 'text-ayoya-green underline' : ''}`
+              }
             >
-              <Menu size={26} strokeWidth={1.5} />
-            </button>
+              {label}
+            </NavLink>
+          ))}
+        </nav>
 
-            <div className="hidden lg:flex items-center gap-5 text-sm font-medium tracking-wide uppercase whitespace-nowrap">
-              <Link to="/san-pham" className="hover:text-ayoya-amber transition-colors">Sản phẩm</Link>
-              <Link to="/ve-chung-toi" className="hover:text-ayoya-amber transition-colors">Về chúng tôi</Link>
-              <Link to="/hoi-dap" className="hover:text-ayoya-amber transition-colors">Hỏi đáp</Link>
-              <Link to="/lien-he" className="hover:text-ayoya-amber transition-colors">Liên hệ</Link>
-            </div>
-          </div>
-
-          {/* === CỤM GIỮA: Logo === */}
-          <div className="flex flex-col items-center">
-            <Link to="/" className="flex flex-col items-center">
-              <span className="text-3xl font-serif font-bold tracking-tighter text-ayoya-brown">AYOYA</span>
-              <span className="hidden min-[360px]:block text-[9px] tracking-[0.04em] sm:tracking-[0.3em] uppercase opacity-80 -mt-1 text-ayoya-brown whitespace-nowrap">THẢO MỘC & PHONG THỦY</span>
-            </Link>
-          </div>
-
-          {/* === CỤM BÊN PHẢI === */}
-          <div className="flex items-center justify-end gap-3 sm:gap-4 lg:gap-6">
-            <a
-              href="tel:0933458485"
-              className="flex items-center gap-2 -m-2.5 p-2.5 md:m-0 md:p-0 text-ayoya-brown hover:text-ayoya-amber transition-colors cursor-pointer"
-              aria-label="Gọi điện 0933.458.485"
-            >
-              <Phone size={22} strokeWidth={1.5} />
-              <span className="hidden md:inline text-xs font-semibold">0933.458.485</span>
-            </a>
-
-            <button
-              onClick={openCart}
-              className="relative flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2 md:px-4 md:py-2 md:bg-ayoya-brown md:text-ayoya-cream md:rounded-full font-bold uppercase transition-all md:hover:bg-ayoya-green cursor-pointer"
-            >
-              <div className="relative w-8 h-8 rounded-lg bg-ayoya-brown text-white flex items-center justify-center shadow-sm md:hidden">
-                <ShoppingCart size={15} />
-                {totalItems > 0 && (
-                  <span className="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-ayoya-amber text-ayoya-brown text-[9px] font-bold flex items-center justify-center">
-                    {totalItems}
-                  </span>
-                )}
-              </div>
-              <span className="text-[10px] text-ayoya-brown md:hidden whitespace-nowrap">Giỏ hàng</span>
-              <span className="relative hidden md:block">
-                <ShoppingCart size={16} />
-                {totalItems > 0 && (
-                  <span className="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-ayoya-amber text-ayoya-brown text-[9px] font-bold flex items-center justify-center">
-                    {totalItems}
-                  </span>
-                )}
-              </span>
-              <span className="hidden md:inline text-xs tracking-widest">Mua hàng</span>
-            </button>
-          </div>
-
-        </div>
-      </motion.nav>
-
-      {/* === BẢNG MENU TRƯỢT TRÊN ĐIỆN THOẠI === */}
-      {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-[60] bg-ayoya-cream flex flex-col items-center justify-center lg:hidden">
-          
-          {/* Nút tắt Menu (Dấu X) */}
-          <button 
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="absolute top-6 right-6 text-ayoya-brown hover:text-red-700 transition-colors p-2"
+        <div className="flex items-center gap-2">
+          <a
+            href={CONTACT_INFO.phoneHref}
+            aria-label={`Gọi điện ${CONTACT_INFO.phone}`}
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-ayoya-sand bg-ayoya-white"
           >
-            <X size={36} strokeWidth={1.5} />
+            <Phone size={18} />
+          </a>
+          <button
+            onClick={openCart}
+            aria-label="Giỏ hàng"
+            className="flex h-11 items-center gap-2 rounded-full border border-ayoya-sand bg-ayoya-white px-4 text-sm font-semibold cursor-pointer"
+          >
+            <ShoppingCart size={17} />
+            <span className="whitespace-nowrap">Giỏ ({totalItems})</span>
           </button>
-
-          {/* Logo trong Menu để tăng nhận diện */}
-          <div className="mb-12 flex flex-col items-center">
-             <h2 className="text-4xl font-serif font-bold text-ayoya-brown">AYOYA</h2>
-             <div className="w-12 h-[1px] bg-ayoya-brown/30 mt-4"></div>
-          </div>
-
-          {/* Các đường link được đặt trong khung (Card UI) */}
-          <div className="flex flex-col items-center gap-5 w-full px-8 max-w-[320px]">
-            <Link
-              to="/san-pham"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="w-full py-4 bg-white rounded-2xl border border-ayoya-brown/10 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] text-ayoya-brown text-center text-lg font-bold tracking-widest uppercase active:scale-95 transition-all"
-            >
-              Sản phẩm
-            </Link>
-
-            <Link
-              to="/ve-chung-toi"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="w-full py-4 bg-white rounded-2xl border border-ayoya-brown/10 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] text-ayoya-brown text-center text-lg font-bold tracking-widest uppercase active:scale-95 transition-all"
-            >
-              Về chúng tôi
-            </Link>
-
-            <Link
-              to="/hoi-dap"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="w-full py-4 bg-white rounded-2xl border border-ayoya-brown/10 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] text-ayoya-brown text-center text-lg font-bold tracking-widest uppercase active:scale-95 transition-all"
-            >
-              Hỏi đáp
-            </Link>
-
-            <Link
-              to="/lien-he"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="w-full py-4 bg-white rounded-2xl border border-ayoya-brown/10 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] text-ayoya-brown text-center text-lg font-bold tracking-widest uppercase active:scale-95 transition-all"
-            >
-              Liên hệ
-            </Link>
-          </div>
-          
         </div>
-      )}
-    </>
+      </div>
+
+      <nav aria-label="Danh mục" className="flex h-12 items-center gap-2 overflow-x-auto px-3 lg:hidden">
+        {MENU.map(([to, label]) => (
+          <NavLink
+            key={to}
+            to={to}
+            className={({ isActive }) =>
+              `flex h-9 flex-shrink-0 items-center rounded-full border px-3.5 text-sm font-medium ${
+                isActive ? 'border-ayoya-green bg-ayoya-green text-white' : 'border-ayoya-sand bg-ayoya-white'
+              }`
+            }
+          >
+            {label}
+          </NavLink>
+        ))}
+      </nav>
+    </header>
   );
 }

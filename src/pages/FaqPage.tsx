@@ -55,10 +55,10 @@ export default function FaqPage() {
   }, []);
 
   return (
-    <div className="pt-28 pb-24 px-4 bg-paper bg-ayoya-cream/30 min-h-screen">
+    <div className="pt-32 lg:pt-28 pb-24 px-4 min-h-screen">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-12">
-          <h1 className="text-3xl md:text-5xl font-serif text-ayoya-brown mb-4 underline underline-offset-8 decoration-ayoya-amber/30">
+          <h1 className="text-3xl md:text-5xl font-serif text-ayoya-brown mb-4">
             Câu hỏi <span className="italic">thường gặp</span>
           </h1>
           <p className="text-ayoya-brown/75 tracking-wider text-xs md:text-sm uppercase">Mọi thắc mắc trước khi đặt hàng</p>

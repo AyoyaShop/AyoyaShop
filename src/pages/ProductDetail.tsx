@@ -28,6 +28,7 @@ import { calcOriginalPrice } from '../lib/pricing';
 import { thumb, photoSrcSet } from '../lib/thumb';
 import { combosOf, comboSaving } from '../lib/combo';
 import { PRODUCT_FAQ } from '../data/productFaq';
+import { GIFT_PRODUCT_IDS } from '../lib/gift';
 
 // Below this, shipping (from 18.000đ) weighs heavily on the order.
 const SMALL_ORDER = 40000;
@@ -111,7 +112,7 @@ export default function ProductDetail() {
   const photoAlt = photoIndex === 0 ? product.title : `${product.title} - ảnh ${photoIndex + 1}`;
 
   return (
-    <div className="pt-28 pb-24 px-4 bg-paper bg-ayoya-cream/30 min-h-screen">
+    <div className="pt-32 lg:pt-28 pb-24 px-4 min-h-screen">
       <div className="max-w-6xl mx-auto">
         <Link
           to={category ? `/san-pham?cat=${category.id}` : '/san-pham'}
@@ -281,7 +282,7 @@ export default function ProductDetail() {
                     onClick={() => setSelectedLabel(v.label)}
                     className={`px-4 py-2 rounded-full text-xs font-medium border transition-all ${
                       activeLabel === v.label
-                        ? 'bg-ayoya-brown text-white border-ayoya-brown'
+                        ? 'bg-ayoya-green text-white border-ayoya-green'
                         : 'bg-white text-ayoya-brown border-ayoya-brown/15 hover:border-ayoya-brown/40'
                     }`}
                   >
@@ -316,11 +317,15 @@ export default function ProductDetail() {
                       Chọn {bestCombo.label}: {formatPrice(bestCombo.price)}, lợi {formatPrice(bestCombo.saving)}
                     </button>
                   ) : (
-                    <Link to="/#products" className="mt-1 inline-flex min-h-11 items-center font-bold underline underline-offset-4">
+                    <Link to="/#thao-moc" className="mt-1 inline-flex min-h-11 items-center font-bold underline underline-offset-4">
                       Xem 3 món bán chạy để mua kèm
                     </Link>
                   )}
                 </div>
+              )}
+
+              {GIFT_PRODUCT_IDS.includes(product.id) && (
+                <p className="text-sm font-semibold text-ayoya-wood">Đơn có món này được tặng 1 thẻ rùa phong thủy.</p>
               )}
 
               <div ref={buyBoxRef} className="space-y-3">
@@ -348,7 +353,7 @@ export default function ProductDetail() {
                 <div className="flex flex-col sm:flex-row gap-3">
                   <button
                     onClick={() => buyNow(buildCartItem(), quantity)}
-                    className="flex-1 flex items-center justify-center gap-3 px-8 py-4 bg-ayoya-brown text-white rounded-full font-bold uppercase tracking-widest hover:bg-ayoya-brick transition-all shadow-lg"
+                    className="flex-1 flex items-center justify-center gap-3 px-8 py-4 bg-ayoya-green text-white rounded-full font-bold uppercase tracking-widest hover:bg-ayoya-brown transition-all shadow-lg"
                   >
                     Mua ngay
                   </button>
@@ -378,12 +383,12 @@ export default function ProductDetail() {
               <p className="text-ayoya-brown/70 leading-relaxed">{product.description}</p>
 
               <Link
-                to="/#nhu-cau"
+                to="/san-pham"
                 className="flex items-center gap-3 p-4 bg-ayoya-amber/5 rounded-2xl border border-ayoya-amber/20 hover:bg-ayoya-amber/10 transition-colors"
               >
                 <HelpCircle size={20} className="text-ayoya-amber flex-shrink-0" />
                 <span className="text-sm text-ayoya-brown">
-                  Chưa chắc sản phẩm này phù hợp? <span className="font-bold underline">Xem theo nhu cầu</span> để chọn đúng món bạn cần.
+                  Chưa chắc sản phẩm này phù hợp? <span className="font-bold underline">Xem tất cả sản phẩm</span> để chọn đúng món bạn cần.
                 </span>
               </Link>
             </div>
@@ -547,7 +552,7 @@ export default function ProductDetail() {
             </a>
             <button
               onClick={() => buyNow(buildCartItem(), quantity)}
-              className="flex-shrink-0 min-h-12 px-7 bg-ayoya-brown text-white rounded-full font-bold uppercase tracking-widest text-sm hover:bg-ayoya-brick transition-all"
+              className="flex-shrink-0 min-h-12 px-7 bg-ayoya-green text-white rounded-full font-bold uppercase tracking-widest text-sm hover:bg-ayoya-brown transition-all"
             >
               Mua ngay
             </button>

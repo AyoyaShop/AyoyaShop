@@ -1,8 +1,6 @@
 import { useEffect } from 'react';
 import Hero from '../components/Hero';
-import Products from '../components/Products';
-import NeedFinder from '../components/NeedFinder';
-import OriginStory from '../components/OriginStory';
+import HomeShowcase from '../components/HomeShowcase';
 import SocialProof from '../components/SocialProof';
 import HomeFaq from '../components/HomeFaq';
 import NewsletterSignup from '../components/NewsletterSignup';
@@ -16,9 +14,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Products />
-      <NeedFinder />
-      <OriginStory />
+      <HomeShowcase />
       <SocialProof />
       <HomeFaq />
       <NewsletterSignup />
