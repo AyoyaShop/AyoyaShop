@@ -20,6 +20,199 @@ export interface Article {
 
 export const ARTICLES: Article[] = [
   {
+    "slug": "vi-sao-can-xong-nha",
+    "title": "Vì sao cần xông nhà? Ý nghĩa phong thủy và những điều nên biết",
+    "seoTitle": "Vì sao cần xông nhà? Ý nghĩa và những điều cần biết",
+    "description": "Vì sao nhiều gia đình có thói quen xông nhà? Tìm hiểu ý nghĩa phong thủy, thời điểm phù hợp và lưu ý an toàn khi sử dụng trầm hương.",
+    "published": "2026-11-28",
+    "productIds": [
+      "tram-huong-xong-nha"
+    ],
+    "lead": "Chuyển về nhà mới, sửa lại nhà hay bước sang năm mới, nhiều gia đình nghĩ đến chuyện xông nhà. Người xem đó là nghi thức cầu bình an, người chỉ muốn nhà ấm cúng và đánh dấu một khởi đầu.",
+    "hero": {
+      "src": "/articles/vi-sao-can-xong-nha/goi-tram-huong-xong-nha-nhu-y-cat-tuong.webp",
+      "alt": "Gói Trầm Hương Xông Nhà Như Ý – Cát Tường của Ayoya Shop",
+      "width": 1280,
+      "height": 720
+    },
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Vậy vì sao nhiều nhà xông, nên xông lúc nào, và dùng trầm hương cần để ý gì? Bài này trả lời từng ý và giới thiệu gói Trầm Hương Xông Nhà Như Ý – Cát Tường."
+      },
+      {
+        "type": "h2",
+        "text": "1. Vì sao nhiều gia đình có thói quen xông nhà?"
+      },
+      {
+        "type": "p",
+        "text": "Xông nhà là tập tục dân gian, không bắt buộc với nhà nào. Người ta thường làm vì ba lẽ."
+      },
+      {
+        "type": "h3",
+        "text": "Theo quan niệm phong thủy"
+      },
+      {
+        "type": "p",
+        "text": "Nhà lâu ngày đóng kín, thiếu sáng, ít gió được coi là tích khí tù đọng, uế khí. Theo quan niệm này, hương trầm và thảo mộc giúp làm mới không gian, xua điều không may và đón vận tốt."
+      },
+      {
+        "type": "h3",
+        "text": "Trong sinh hoạt"
+      },
+      {
+        "type": "p",
+        "text": "Xông nhà thường đi cùng việc tổng vệ sinh, mở cửa đón nắng gió, và hương trầm quen thuộc làm không khí trang nghiêm, ấm cúng. Còn nhà có mùi ẩm mốc, mùi sơn hay thức ăn tồn đọng thì cần tìm đúng nguồn mùi mà xử lý và thông gió, khói trầm không thay được việc đó."
+      },
+      {
+        "type": "h3",
+        "text": "Về tinh thần"
+      },
+      {
+        "type": "img",
+        "src": "/articles/vi-sao-can-xong-nha/don-dep-mo-cua-truoc-khi-xong-nha.webp",
+        "alt": "Dọn dẹp và mở cửa đón nắng trước khi xông nhà",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "type": "p",
+        "text": "Sau một giai đoạn khó khăn, dọn nhà, xếp lại đồ đạc, mở cửa rồi làm một nghi thức hợp niềm tin của gia đình có thể là cái mốc để bắt đầu lại. Giá trị nằm ở lòng thành và sự chăm chút nơi ở, không ở chỗ đốt thật nhiều."
+      },
+      {
+        "type": "h2",
+        "text": "2. Khi nào nên xông nhà?"
+      },
+      {
+        "type": "li",
+        "text": "Chuyển về nhà mới."
+      },
+      {
+        "type": "li",
+        "text": "Khai trương cửa hàng, văn phòng."
+      },
+      {
+        "type": "li",
+        "text": "Cuối năm, sau khi tổng vệ sinh."
+      },
+      {
+        "type": "li",
+        "text": "Đầu năm mới."
+      },
+      {
+        "type": "li",
+        "text": "Sau khi sửa chữa nhà cửa và đã dọn sạch bụi."
+      },
+      {
+        "type": "p",
+        "text": "Đây là những dịp nhiều người chọn theo tập tục, không phải quy định. Muốn biết một năm nên xông ra sao cuối năm, xem [Cách xông nhà cuối năm](/bai-viet/cach-xong-nha-cuoi-nam)."
+      },
+      {
+        "type": "h2",
+        "text": "3. Gói Trầm Hương Xông Nhà Như Ý – Cát Tường có gì?"
+      },
+      {
+        "type": "img",
+        "src": "/articles/vi-sao-can-xong-nha/tram-huong-go-thom-va-thao-moc-xong-nha.webp",
+        "alt": "Trầm, gỗ thơm và thảo mộc dùng xông nhà",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "type": "p",
+        "text": "Mỗi gói có sẵn đồ để xông, khỏi phải mua rời:"
+      },
+      {
+        "type": "li",
+        "text": "1 Linh Phù và 1 rùa phong thủy."
+      },
+      {
+        "type": "li",
+        "text": "Nụ trầm hương."
+      },
+      {
+        "type": "li",
+        "text": "1 cây than 10 viên."
+      },
+      {
+        "type": "li",
+        "text": "Khay xông."
+      },
+      {
+        "type": "p",
+        "text": "Nguyên liệu gồm ba nhóm: bột thơm (trầm hương, bách xanh, đại hồi, sả, vỏ bưởi, quế...), thảo dược có gai theo dân gian (bạch tật lê, thương nhĩ tử, câu đằng, muối sống) và gỗ thơm (đàn hương, trầm gió, ngọc am...). Hạn sử dụng 12 tháng, giá 125.000đ một gói."
+      },
+      {
+        "type": "p",
+        "text": "[Xem Trầm Hương Xông Nhà Như Ý – Cát Tường](/san-pham/tram-huong-xong-nha)"
+      },
+      {
+        "type": "h2",
+        "text": "4. Cách xông theo hướng dẫn trên gói"
+      },
+      {
+        "type": "li",
+        "text": "Đặt khay chịu nhiệt ở chỗ vững, đốt than cho hồng đều."
+      },
+      {
+        "type": "li",
+        "text": "Cho gỗ và thảo dược có gai vào trước, rồi rắc từng ít bột thơm, rắc thêm muối sống. Lớp trước cháy hết mới thêm lớp sau để khỏi ngạt khói."
+      },
+      {
+        "type": "li",
+        "text": "Mở cửa cho thoáng, cầm khay đi khắp nhà, chú ý gầm giường, phòng ngủ, nhà vệ sinh, bếp."
+      },
+      {
+        "type": "li",
+        "text": "Liệu trình đủ là 4 gói, mỗi lần cách nhau 3 – 4 ngày."
+      },
+      {
+        "type": "p",
+        "text": "Than tắt giữa chừng thì xem [cách đốt than và nụ trầm](/bai-viet/dot-than-va-nu-tram-khong-bi-tat)."
+      },
+      {
+        "type": "h2",
+        "text": "5. An toàn khi xông nhà"
+      },
+      {
+        "type": "li",
+        "text": "Than cháy sinh khí CO không màu, không mùi. Mở hết cửa khi xông, không đốt trong phòng đóng kín, không đốt rồi đi ngủ hay ra khỏi nhà."
+      },
+      {
+        "type": "li",
+        "text": "Ai thấy nhức đầu, chóng mặt, buồn nôn, khó thở thì ra ngay chỗ thoáng; không đỡ thì đi khám."
+      },
+      {
+        "type": "li",
+        "text": "Người hen suyễn, dị ứng, bệnh hô hấp, phụ nữ mang thai và trẻ nhỏ nên tránh khói ([khuyến cáo về hương liệu của Hội Phổi Hoa Kỳ](https://www.lung.org/clean-air/indoor-air/indoor-air-pollutants/fragrances), tiếng Anh)."
+      },
+      {
+        "type": "li",
+        "text": "Để khay xa rèm, giấy, vải, đồ gỗ; không rời mắt khi còn lửa, đợi than nguội hẳn mới đổ."
+      },
+      {
+        "type": "li",
+        "text": "Ở căn hộ, chung cư, khói dễ làm hệ thống báo cháy kêu: nên dùng [thảo dược xông nhà](/san-pham/thao-moc-xong-nha) và xông bằng cách đun nước."
+      },
+      {
+        "type": "h2",
+        "text": "6. Có phải xông nhà mới được bình an, may mắn?"
+      },
+      {
+        "type": "p",
+        "text": "Không. Xông nhà là tập tục mang ý nghĩa văn hóa và tinh thần, ai thấy hợp thì làm. Một ngôi nhà đáng sống trước hết cần sạch, thoáng, an toàn và là nơi cả nhà được nghỉ ngơi, thương yêu nhau."
+      },
+      {
+        "type": "p",
+        "text": "Nếu muốn tìm đồ xông, bạn xem [gói trầm hương](/san-pham/tram-huong-xong-nha) và [gói thảo dược](/san-pham/thao-moc-xong-nha); giá và hướng dẫn cập nhật ở từng trang."
+      }
+    ],
+    "notes": [
+      "Người viết: Nguyễn Tuấn Kiệt, Ayoya Shop. Điện thoại/Zalo: 0933.458.485. Địa chỉ: 6A/3 Nguyễn Du, Phường Bình Hòa, TP.HCM.",
+      "Bài viết không thay thế tư vấn y tế hoặc hướng dẫn phòng cháy chữa cháy."
+    ]
+  },
+  {
     "slug": "dau-xoa-bop-binh-dinh-tang-cha-me",
     "title": "Dầu xoa bóp võ thuật cổ truyền Bình Định: món quà nhỏ dành tặng cha mẹ",
     "seoTitle": "Dầu xoa bóp võ thuật cổ truyền Bình Định: Quà tặng cha mẹ",
