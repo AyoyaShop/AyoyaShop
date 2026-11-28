@@ -49,7 +49,7 @@ export const TRACK_META = page(
 
 export const ARTICLES_META = page(
   '/bai-viet',
-  'Bài viết: xông nhà, bàn thờ và thảo mộc',
+  'Góc Kiến Thức: xông nhà, bàn thờ và thảo mộc',
   'Hướng dẫn của AYOYA Shop về xông nhà, thờ cúng và cách dùng thảo mộc, trầm hương trong gia đình.'
 );
 
@@ -76,7 +76,7 @@ export function articleMeta(article: Article): PageMeta {
           '@type': 'BreadcrumbList',
           itemListElement: [
             { '@type': 'ListItem', position: 1, name: 'Trang chủ', item: `${SITE_URL}/` },
-            { '@type': 'ListItem', position: 2, name: 'Bài viết', item: `${SITE_URL}/bai-viet` },
+            { '@type': 'ListItem', position: 2, name: 'Góc Kiến Thức', item: `${SITE_URL}/bai-viet` },
             { '@type': 'ListItem', position: 3, name: article.title, item: meta.url }
           ]
         }
