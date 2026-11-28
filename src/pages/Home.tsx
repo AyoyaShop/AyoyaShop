@@ -4,6 +4,7 @@ import HomeShowcase from '../components/HomeShowcase';
 import SocialProof from '../components/SocialProof';
 import TrackOrderBlock from '../components/TrackOrderBlock';
 import HomeFaq from '../components/HomeFaq';
+import HomeArticles from '../components/HomeArticles';
 import NewsletterSignup from '../components/NewsletterSignup';
 import { applyDefaultSeo } from '../lib/seo';
 
@@ -17,6 +18,7 @@ export default function Home() {
       <Hero />
       <HomeShowcase />
       <SocialProof />
+      <HomeArticles />
       <TrackOrderBlock />
       <HomeFaq />
       <NewsletterSignup />
