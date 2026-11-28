@@ -82,6 +82,11 @@ export const READING_LIST: { school: string; works: { title: string; by: string;
         "status": "buy"
       },
       {
+        "title": "Quốc Văn Chu Dịch Diễn Giải",
+        "by": "Phan Bội Châu",
+        "status": "quoc-van-chu-dich"
+      },
+      {
         "title": "Kinh Dịch",
         "by": "Ngô Tất Tố dịch",
         "status": "none"
@@ -157,6 +162,11 @@ export const READING_LIST: { school: string; works: { title: string; by: string;
         "status": "buy"
       },
       {
+        "title": "Nam Hoa Kinh",
+        "by": "Nhượng Tống dịch",
+        "status": "nam-hoa-kinh"
+      },
+      {
         "title": "Trang Tử và Nam Hoa Kinh",
         "by": "Nguyễn Duy Cần",
         "status": "buy"
@@ -166,6 +176,11 @@ export const READING_LIST: { school: string; works: { title: string; by: string;
   {
     "school": "Sử Việt",
     "works": [
+      {
+        "title": "Việt Nam Sử Lược",
+        "by": "Trần Trọng Kim",
+        "status": "viet-nam-su-luoc"
+      },
       {
         "title": "Đại Việt Sử Ký Toàn Thư",
         "by": "Bản dịch hiện hành",
@@ -206,6 +221,11 @@ export const READING_LIST: { school: string; works: { title: string; by: string;
   {
     "school": "Văn học và truyện cổ Việt Nam",
     "works": [
+      {
+        "title": "Cổ Học Tinh Hoa",
+        "by": "Nguyễn Văn Ngọc, Trần Lê Nhân",
+        "status": "co-hoc-tinh-hoa"
+      },
       {
         "title": "Truyện Kiều",
         "by": "Nguyễn Du; Văn Hòe chú giải",
@@ -947,6 +967,216 @@ export const BOOKS: Book[] = [
       "src": "/books/viet-nam-phat-giao-su-luoc.webp",
       "width": 478,
       "height": 720
+    }
+  },
+  {
+    "slug": "co-hoc-tinh-hoa",
+    "group": "kinh-dien",
+    "title": "Cổ Học Tinh Hoa",
+    "author": "Nguyễn Văn Ngọc, Trần Lê Nhân",
+    "printing": "Bản đánh máy",
+    "language": "Tiếng Việt",
+    "intro": "Hơn hai trăm câu chuyện xưa rút từ sách cổ Trung Hoa, mỗi chuyện kèm giải nghĩa và lời bàn để người đọc suy ngẫm.",
+    "files": [
+      {
+        "label": "Trọn cuốn",
+        "driveId": "17ddxKryXDP1or5hHoYgcdOnHWuXWWGMT",
+        "format": "PDF",
+        "bytes": 1020325,
+        "pages": 345
+      }
+    ]
+  },
+  {
+    "slug": "nam-hoa-kinh",
+    "group": "kinh-dien",
+    "title": "Nam Hoa Kinh",
+    "author": "Trang Tử; Nhượng Tống dịch",
+    "printing": "Tân Việt, in lần thứ hai",
+    "language": "Tiếng Việt",
+    "intro": "Sách Nam Hoa Kinh của Trang Tử qua bản dịch của Nhượng Tống, có bài tựa của Lâm Tây Trọng.",
+    "files": [
+      {
+        "label": "Trọn cuốn",
+        "driveId": "1qWk_KQGM8TZan1cb4kJsYqTR3XqPSze8",
+        "format": "PDF",
+        "bytes": 4790695,
+        "pages": 482
+      }
+    ],
+    "cover": {
+      "src": "/books/nam-hoa-kinh.webp",
+      "width": 480,
+      "height": 614
+    }
+  },
+  {
+    "slug": "quoc-van-chu-dich",
+    "group": "kinh-dien",
+    "title": "Quốc Văn Chu Dịch Diễn Giải",
+    "author": "Phan Bội Châu",
+    "printing": "Bản đánh máy",
+    "language": "Tiếng Việt",
+    "intro": "Phan Bội Châu dịch và diễn giải Kinh Dịch bằng quốc ngữ, đi qua 64 quẻ và các thiên truyện, có lời giới thiệu của Huỳnh Thúc Kháng. Bản lưu truyền còn thiếu vài chương.",
+    "files": [
+      {
+        "label": "Trọn cuốn",
+        "driveId": "1Shfrisc6SaWgXfzXS-FZ4ywRlAlr2B_D",
+        "format": "PDF",
+        "bytes": 4280453,
+        "pages": 554
+      }
+    ]
+  },
+  {
+    "slug": "viet-nam-su-luoc",
+    "group": "lich-su",
+    "title": "Việt Nam Sử Lược",
+    "author": "Trần Trọng Kim",
+    "printing": "Bản đánh máy",
+    "language": "Tiếng Việt",
+    "intro": "Bộ thông sử của Trần Trọng Kim, kể lịch sử nước ta từ thời Thượng Cổ, chia làm năm thời đại.",
+    "files": [
+      {
+        "label": "Trọn bộ",
+        "driveId": "1FjhIZqjT8zGZwyP3Fr5aJjetpsU5yHOJ",
+        "format": "PDF",
+        "bytes": 2108451,
+        "pages": 722
+      }
+    ]
+  },
+  {
+    "slug": "ngo-vuong-quyen",
+    "group": "lich-su",
+    "title": "Ngô Vương Quyền",
+    "author": "Trần Thanh Mại",
+    "printing": "Tân Việt, in lần thứ ba",
+    "language": "Tiếng Việt",
+    "intro": "Tiểu thuyết lịch sử về Ngô Quyền, trong tủ sách Những mảnh gương.",
+    "files": [
+      {
+        "label": "Trọn cuốn",
+        "driveId": "1WaeVIegYzM93b3O_-GVCr_Jjkw1idg1n",
+        "format": "PDF",
+        "bytes": 6849419,
+        "pages": 70
+      }
+    ],
+    "cover": {
+      "src": "/books/ngo-vuong-quyen.webp",
+      "width": 480,
+      "height": 680
+    }
+  },
+  {
+    "slug": "lich-an-nam-1890",
+    "group": "lich-su",
+    "title": "Lịch An Nam Trong Sáu Tỉnh Nam Kỳ",
+    "author": "Tòa Thông ngôn Nam Kỳ",
+    "printing": "Sài Gòn, 1890",
+    "language": "Tiếng Việt",
+    "intro": "Cuốn lịch năm Canh Dần 1890: ngày tháng, cách đổi giờ ta sang giờ Tây và nhiều điều lệ đương thời.",
+    "files": [
+      {
+        "label": "Trọn cuốn",
+        "driveId": "1Udmjpf9pPugHTKaujG4akDuiu8svBiuu",
+        "format": "PDF",
+        "bytes": 10759188,
+        "pages": 203
+      }
+    ],
+    "cover": {
+      "src": "/books/lich-an-nam-1890.webp",
+      "width": 480,
+      "height": 679
+    }
+  },
+  {
+    "slug": "giot-mau-chung-tinh",
+    "group": "van-hoc",
+    "title": "Giọt Máu Chung Tình",
+    "author": "Tân Dân Tử",
+    "printing": "Bản đánh máy",
+    "language": "Tiếng Việt",
+    "intro": "Tiểu thuyết lịch sử Nam Bộ về mối tình Võ Đông Sơ và Bạch Thu Hà thời Gia Long.",
+    "files": [
+      {
+        "label": "Trọn cuốn",
+        "driveId": "1gSOGb832sI1DIK8pDissGSWBlmXzv52J",
+        "format": "PDF",
+        "bytes": 1425631,
+        "pages": 171
+      }
+    ]
+  },
+  {
+    "slug": "tuc-ngu-co-ngu",
+    "group": "van-hoc",
+    "title": "Tục Ngữ, Cổ Ngữ, Gia Ngôn",
+    "author": "Huỳnh Tịnh Của",
+    "printing": "Bản đánh máy",
+    "language": "Tiếng Việt",
+    "intro": "Sưu tập tục ngữ và lời nói xưa xếp theo vần, có giải nghĩa; cuối sách thêm một số bài thơ.",
+    "files": [
+      {
+        "label": "Trọn cuốn",
+        "driveId": "1HeG9CxtpBaO1nQGL9sQylm-Ust9AHu9-",
+        "format": "PDF",
+        "bytes": 1010119,
+        "pages": 96
+      }
+    ],
+    "cover": {
+      "src": "/books/tuc-ngu-co-ngu.webp",
+      "width": 480,
+      "height": 622
+    }
+  },
+  {
+    "slug": "cung-oan-ngam-khuc",
+    "group": "van-hoc",
+    "title": "Cung Oán Ngâm Khúc",
+    "author": "Nguyễn Gia Thiều; Nordemann phiên âm",
+    "printing": "Huế, 1905",
+    "language": "Tiếng Việt, tiếng Pháp",
+    "intro": "Khúc ngâm của Ôn Như Hầu về nỗi lòng người cung nữ, do Edmond Nordemann phiên âm và dịch sang tiếng Pháp.",
+    "files": [
+      {
+        "label": "Trọn cuốn",
+        "driveId": "1xHBno289KFRd9wPsmLXPqNAqn_yn4JuA",
+        "format": "PDF",
+        "bytes": 612569,
+        "pages": 35
+      }
+    ],
+    "cover": {
+      "src": "/books/cung-oan-ngam-khuc.webp",
+      "width": 480,
+      "height": 718
+    }
+  },
+  {
+    "slug": "giac-mong-dem-he",
+    "group": "van-hoc",
+    "title": "Giấc Mộng Đêm Hè",
+    "author": "William Shakespeare; Nguyễn Giang dịch",
+    "printing": "Hà Nội, 1937",
+    "language": "Tiếng Việt",
+    "intro": "Vở hài kịch năm hồi của Shakespeare qua bản dịch của Nguyễn Giang, kèm tiểu sử tác giả.",
+    "files": [
+      {
+        "label": "Trọn cuốn",
+        "driveId": "1Ol4COyNsQA23s3fabnZOo4VvhjWUCoo5",
+        "format": "PDF",
+        "bytes": 2446922,
+        "pages": 111
+      }
+    ],
+    "cover": {
+      "src": "/books/giac-mong-dem-he.webp",
+      "width": 480,
+      "height": 694
     }
   }
 ];
