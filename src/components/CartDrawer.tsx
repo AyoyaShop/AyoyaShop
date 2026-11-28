@@ -298,7 +298,7 @@ export default function CartDrawer() {
       customerName: form.name.trim(),
       phone,
       address: form.address.trim(),
-      note: [form.note.trim(), hasGift(items.map(i => i.productId)) ? GIFT_LINE : ''].filter(Boolean).join(' | '),
+      note: [form.note.trim(), hasGift(items) ? GIFT_LINE : ''].filter(Boolean).join(' | '),
       shippingZone: selectedZone.label,
       paymentMethod: paymentMethod === 'cod' ? 'COD - Thanh toán khi nhận hàng' : 'Chuyển khoản ngân hàng',
       items: items.map(i => ({
@@ -356,7 +356,7 @@ export default function CartDrawer() {
         phone,
         lines: [
           ...items.map(i => `${i.quantity} × ${i.title}${i.variantLabel ? ` (${i.variantLabel})` : ''}`),
-          ...(hasGift(items.map(i => i.productId)) ? [GIFT_LINE] : [])
+          ...(hasGift(items) ? [GIFT_LINE] : [])
         ]
       });
       setStep('success');
@@ -433,7 +433,7 @@ export default function CartDrawer() {
                   {items.map(item => (
                     <CartLine key={item.key} item={item} />
                   ))}
-                  {hasGift(items.map(i => i.productId)) && <p className="text-sm font-semibold text-ayoya-wood">+ {GIFT_LINE}</p>}
+                  {hasGift(items) && <p className="text-sm font-semibold text-ayoya-wood">+ {GIFT_LINE}</p>}
                   <CartTips total={totalPrice} weight={totalWeightGrams} onBrowse={handleClose} />
                 </div>
               ))}
@@ -447,7 +447,7 @@ export default function CartDrawer() {
                       <CartLine key={item.key} item={item} />
                     ))}
                   </div>
-                  {hasGift(items.map(i => i.productId)) && <p className="mt-2 text-sm font-semibold text-ayoya-wood">+ {GIFT_LINE}</p>}
+                  {hasGift(items) && <p className="mt-2 text-sm font-semibold text-ayoya-wood">+ {GIFT_LINE}</p>}
                 </div>
 
                 <div data-invalid={shown(fieldErrors.name)}>

@@ -29,7 +29,7 @@ import { thumb, photoSrcSet } from '../lib/thumb';
 import { combosOf, comboSaving } from '../lib/combo';
 import { PRODUCT_FAQ } from '../data/productFaq';
 import { ARTICLES } from '../data/articles';
-import { GIFT_PRODUCT_IDS, ORDER_INSERTS, PACKAGE_EXTRAS } from '../lib/gift';
+import { GIFT_NOTE, ORDER_INSERTS, PACKAGE_EXTRAS } from '../lib/gift';
 
 // Below this, shipping (from 18.000đ) weighs heavily on the order.
 const SMALL_ORDER = 40000;
@@ -329,8 +329,8 @@ export default function ProductDetail() {
                 <p className="text-sm font-semibold text-ayoya-wood">Trong gói có sẵn: {PACKAGE_EXTRAS[product.id]}.</p>
               )}
               {ORDER_INSERTS[product.id] && <p className="text-sm text-ayoya-brown/80">{ORDER_INSERTS[product.id]}</p>}
-              {GIFT_PRODUCT_IDS.includes(product.id) && (
-                <p className="text-sm font-semibold text-ayoya-wood">Đơn có món này được tặng 1 thẻ rùa phong thủy, mỗi đơn một thẻ.</p>
+              {GIFT_NOTE[product.id] && (
+                <p className="text-sm font-semibold text-ayoya-wood">{GIFT_NOTE[product.id]}</p>
               )}
 
               <div ref={buyBoxRef} className="space-y-3">

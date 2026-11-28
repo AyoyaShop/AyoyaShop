@@ -3,7 +3,7 @@ import { PRODUCT_RATINGS, getProductById } from '../data';
 import { useCart } from '../context/CartContext';
 import { calcOriginalPrice } from '../lib/pricing';
 import { combosOf } from '../lib/combo';
-import { GIFT_LINE, GIFT_PRODUCT_IDS } from '../lib/gift';
+import { GIFT_BADGE } from '../lib/gift';
 import CardPhoto from './CardPhoto';
 
 function formatPrice(price: number): string {
@@ -33,9 +33,9 @@ export default function ProductCard({ id, featured = false }: { id: string; feat
     <article className="card">
       <Link to={`/san-pham/${id}`} className="relative block aspect-square overflow-hidden bg-ayoya-sand">
         <CardPhoto productId={id} image={product.image} alt={product.title} />
-        {GIFT_PRODUCT_IDS.includes(id) && (
+        {GIFT_BADGE[id] && (
           <span className="absolute left-3 bottom-3 right-3 w-fit rounded-full border border-ayoya-amber bg-ayoya-white px-3 py-0.5 text-xs font-semibold text-ayoya-wood">
-            {GIFT_LINE.replace(' 1 ', ' ')}
+            {GIFT_BADGE[id]}
           </span>
         )}
       </Link>

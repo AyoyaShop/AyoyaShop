@@ -265,6 +265,10 @@ export const ARTICLES: Article[] = [
       },
       {
         "type": "li",
+        "text": "Mỗi gói tặng kèm trà gừng. Mua từ 4 gói trở lên được tặng thêm 1 thẻ rùa phong thủy."
+      },
+      {
+        "type": "li",
         "text": "Một gói cho một lần xông và tắm; muốn dùng nhẹ hơn có thể chia 2 – 3 lần."
       },
       {

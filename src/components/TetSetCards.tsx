@@ -41,7 +41,7 @@ export default function TetSetCards({ headingLevel = 'h3' }: { headingLevel?: 'h
                     {item.text}
                   </li>
                 ))}
-                {hasGift(set.items.map(item => item.id)) && <li className="py-1.5 font-semibold text-ayoya-wood">{GIFT_LINE}</li>}
+                {hasGift(set.items.map(item => ({ productId: item.id, variantLabel: item.option }))) && <li className="py-1.5 font-semibold text-ayoya-wood">{GIFT_LINE}</li>}
               </ul>
               <p className="flex items-baseline gap-2">
                 <span className="text-xl font-bold">{formatPrice(total)}</span>
