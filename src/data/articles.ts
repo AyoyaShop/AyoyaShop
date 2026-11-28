@@ -20,6 +20,210 @@ export interface Article {
 
 export const ARTICLES: Article[] = [
   {
+    "slug": "lau-don-ban-tho-ngay-tet",
+    "title": "Lau dọn bàn thờ ngày Tết: cách bao sái đúng và an toàn",
+    "seoTitle": "Lau dọn bàn thờ ngày Tết: Cách bao sái đúng và an toàn",
+    "description": "Hướng dẫn lau dọn bàn thờ ngày Tết: thời điểm bao sái, chuẩn bị khăn lau, cách pha nước lau bàn thờ Cửu Vị Hương và lưu ý bảo vệ đồ thờ.",
+    "published": "2026-11-28",
+    "productIds": [
+      "nuoc-lau-ban-tho"
+    ],
+    "lead": "Cuối năm, nhiều gia đình lau dọn bàn thờ, còn gọi là bao sái, để nơi thờ cúng sạch sẽ, trang nghiêm trước khi đón năm mới.",
+    "hero": {
+      "src": "/articles/lau-don-ban-tho-ngay-tet/ban-tho-gia-tien-don-tet.webp",
+      "alt": "Bàn thờ gia tiên được lau dọn sạch sẽ trước ngày Tết",
+      "width": 1280,
+      "height": 720
+    },
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Việc này không chỉ là phủi bụi. Bạn cần để ý thứ tự làm, cách pha nước lau, độ ẩm của khăn và chất liệu từng món đồ để gỗ, đồng, sứ và lớp sơn không bị hỏng."
+      },
+      {
+        "type": "h2",
+        "text": "1. Khi nào nên lau dọn bàn thờ ngày Tết?"
+      },
+      {
+        "type": "p",
+        "text": "Nhiều nhà bao sái vào những ngày cuối năm, trước giao thừa. Không có một ngày bắt buộc cho mọi nhà: bạn chọn lúc hợp sinh hoạt và nếp nhà mình."
+      },
+      {
+        "type": "li",
+        "text": "Cuối năm: bao sái tổng thể, lau đồ thờ và khu vực quanh bàn thờ."
+      },
+      {
+        "type": "li",
+        "text": "Trước ngày lễ, ngày giỗ: lau nhẹ cho gọn gàng."
+      },
+      {
+        "type": "li",
+        "text": "Ngày thường: lau bụi khi cần, không phải lần nào cũng hạ hết đồ xuống."
+      },
+      {
+        "type": "h2",
+        "text": "2. Chuẩn bị trước khi bao sái bàn thờ"
+      },
+      {
+        "type": "img",
+        "src": "/articles/lau-don-ban-tho-ngay-tet/chai-nuoc-lau-ban-tho-cuu-vi-huong.webp",
+        "alt": "Chai nước lau bàn thờ Cửu Vị Hương 500ml",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "type": "li",
+        "text": "Một khăn mềm sạch để thấm nước lau và một khăn khô mềm để lau lại; khăn dùng riêng cho bàn thờ."
+      },
+      {
+        "type": "li",
+        "text": "Nước sạch hoặc nước lau chuyên dụng có hướng dẫn rõ ràng."
+      },
+      {
+        "type": "li",
+        "text": "Một khay hay mặt phẳng sạch để tạm đặt những món được phép di chuyển."
+      },
+      {
+        "type": "p",
+        "text": "[Nước Lau Bàn Thờ Cửu Vị Hương](/san-pham/nuoc-lau-ban-tho) chai 500ml gồm nước tinh khiết và tinh chất 9 loại thảo mộc: mùi già, quế, đại hồi, đinh hương, gừng, hương nhu, bạc hà, sả, vỏ bưởi. Không cồn, không chất tẩy công nghiệp. Giá 87.000đ."
+      },
+      {
+        "type": "h2",
+        "text": "3. Cách pha nước lau bàn thờ Cửu Vị Hương"
+      },
+      {
+        "type": "p",
+        "text": "Dùng nguyên chất, hoặc pha loãng với nước ấm theo tỷ lệ 1:3."
+      },
+      {
+        "type": "li",
+        "text": "Nguyên chất: cho một ít ra khăn mềm, thấm đều, đừng để khăn quá ướt."
+      },
+      {
+        "type": "li",
+        "text": "Pha 1:3: một phần nước lau với ba phần nước ấm, ví dụ 50ml nước lau với 150ml nước ấm; khuấy nhẹ rồi thấm khăn."
+      },
+      {
+        "type": "p",
+        "text": "Tỷ lệ 1:3 là của riêng sản phẩm này, không phải công thức chung cho mọi loại. Không pha thêm giấm, cồn, thuốc tẩy hay chất tẩy rửa khác."
+      },
+      {
+        "type": "h2",
+        "text": "4. Năm bước lau dọn bàn thờ ngày Tết"
+      },
+      {
+        "type": "h3",
+        "text": "Bước 1: Xin phép theo nếp nhà"
+      },
+      {
+        "type": "p",
+        "text": "Nhiều gia đình thắp nhang, khấn xin phép tổ tiên và các vị được thờ trước khi bao sái. Lời khấn và cách làm theo phong tục từng nhà."
+      },
+      {
+        "type": "h3",
+        "text": "Bước 2: Sắp xếp, hạ đồ thờ cho phù hợp"
+      },
+      {
+        "type": "p",
+        "text": "Xem món nào được di chuyển, hạ nhẹ tay và đặt lên khay sạch. Riêng bát hương, bài vị và những món có ý nghĩa thờ cúng riêng, nếu nhà có lệ không xê dịch thì giữ nguyên chỗ."
+      },
+      {
+        "type": "h3",
+        "text": "Bước 3: Lau từ trên xuống dưới"
+      },
+      {
+        "type": "p",
+        "text": "Lau chỗ cao trước, rồi đến đồ thờ, mặt bàn và cuối cùng là chân bàn, để bụi không rơi lại vào phần đã sạch. Không chà mạnh, không dùng vật cứng cạo vết bám."
+      },
+      {
+        "type": "h3",
+        "text": "Bước 4: Thấm nước lau vào khăn, không đổ lên đồ thờ"
+      },
+      {
+        "type": "img",
+        "src": "/articles/lau-don-ban-tho-ngay-tet/lau-ban-tho-bang-khan-mem.webp",
+        "alt": "Dùng khăn mềm thấm nước lau để vệ sinh bàn thờ",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "type": "p",
+        "text": "Cho nước lau vào khăn rồi mới lau. Làm vậy nước không chảy vào khe, mối nối và chỗ khó khô. Đồ gỗ sơn, đồ có lớp phủ và đồ đồng nên thử ở một góc khuất trước; thấy đổi màu hay xỉn thì dừng."
+      },
+      {
+        "type": "h3",
+        "text": "Bước 5: Lau khô rồi sắp lại"
+      },
+      {
+        "type": "p",
+        "text": "Dùng khăn khô lau hết phần ẩm, đợi đồ khô hẳn mới đặt về chỗ và sắp theo cách bày quen thuộc của gia đình."
+      },
+      {
+        "type": "h2",
+        "text": "5. Lưu ý theo từng chất liệu"
+      },
+      {
+        "type": "li",
+        "text": "Gỗ và gỗ sơn: khăn không quá ướt, không để nước đọng, không chà mạnh chỗ chạm khắc. Gỗ mộc hoặc lớp sơn đã xuống cấp thì hỏi thợ trước."
+      },
+      {
+        "type": "li",
+        "text": "Sơn son thếp vàng: lau rất nhẹ bằng khăn mềm, thử ở chỗ khuất; không dùng bàn chải cứng hay chất tẩy mài mòn."
+      },
+      {
+        "type": "li",
+        "text": "Đồ đồng: mỗi món một lớp hoàn thiện khác nhau, đừng mặc định nước lau nào cũng hợp; thử ở góc khuất."
+      },
+      {
+        "type": "li",
+        "text": "Đồ sứ, thủy tinh: lau nhẹ, đặt chắc tay để tránh va đập."
+      },
+      {
+        "type": "h2",
+        "text": "6. Bảo quản nước lau bàn thờ"
+      },
+      {
+        "type": "li",
+        "text": "Đậy kín sau khi dùng, để nơi khô ráo, thoáng mát, tránh nắng và nguồn nhiệt."
+      },
+      {
+        "type": "li",
+        "text": "Để xa tầm tay trẻ nhỏ."
+      },
+      {
+        "type": "li",
+        "text": "Thấy màu, mùi hay trạng thái khác thường thì không dùng."
+      },
+      {
+        "type": "li",
+        "text": "Hạn sử dụng 12 tháng kể từ ngày sản xuất."
+      },
+      {
+        "type": "h2",
+        "text": "7. Chuẩn bị bàn thờ đón Tết cùng Ayoya"
+      },
+      {
+        "type": "img",
+        "src": "/articles/lau-don-ban-tho-ngay-tet/bo-ban-tho-ngay-xuan.webp",
+        "alt": "Bộ Bàn Thờ Ngày Xuân gồm nhang trầm, nụ trầm và nước lau bàn thờ",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "type": "p",
+        "text": "Bạn có thể mua riêng [chai nước lau bàn thờ](/san-pham/nuoc-lau-ban-tho), hoặc lấy [bộ Bàn Thờ Ngày Xuân](/bo-qua-tet) giá 341.000đ, gồm một hộp nhang trầm, một hộp nụ trầm và một chai nước lau: lau dọn xong là có sẵn hương cho bàn thờ."
+      },
+      {
+        "type": "p",
+        "text": "Đọc thêm: [Chọn nhang bàn thờ](/bai-viet/chon-nhang-ban-tho) và [Cách đốt than xông và nụ trầm không bị tắt](/bai-viet/dot-than-va-nu-tram-khong-bi-tat)."
+      }
+    ],
+    "notes": [
+      "Người viết: Nguyễn Tuấn Kiệt, Ayoya Shop. Điện thoại/Zalo: 0933.458.485.",
+      "Bài viết hướng dẫn vệ sinh tham khảo; đồ thờ quý hoặc đã cũ nên hỏi thợ chuyên môn."
+    ]
+  },
+  {
     "slug": "chon-nhang-ban-tho",
     "title": "Chọn nhang bàn thờ: nên dùng nhang trầm hay nhang quế?",
     "seoTitle": "Chọn nhang bàn thờ: Nên thắp nhang trầm hay nhang quế?",
