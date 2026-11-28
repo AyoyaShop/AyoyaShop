@@ -8,6 +8,7 @@ import { ARTICLES_META } from '../lib/pageMeta';
 
 // Articles that walk through using something; the rest are background reading.
 const GUIDES = new Set([
+  'cach-su-dung-dau-goi-thao-duoc-moc-an',
   'cach-xong-nha-cuoi-nam',
   'mot-goi-xong-nha-dung-may-lan',
   'dot-than-va-nu-tram-khong-bi-tat',

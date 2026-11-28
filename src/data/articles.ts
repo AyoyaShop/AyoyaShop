@@ -20,6 +20,242 @@ export interface Article {
 
 export const ARTICLES: Article[] = [
   {
+    "slug": "cach-su-dung-dau-goi-thao-duoc-moc-an",
+    "title": "Cách sử dụng dầu gội thảo dược Mộc An dạng túi lọc đúng cách",
+    "seoTitle": "Cách sử dụng dầu gội thảo dược Mộc An dạng túi lọc",
+    "description": "Hướng dẫn cách sử dụng dầu gội thảo dược Mộc An: định lượng nước, cách đun hoặc hãm túi lọc, cách gội và lưu ý khi sử dụng.",
+    "published": "2026-11-28",
+    "productIds": [
+      "dau-goi-moc-an"
+    ],
+    "lead": "Muốn gội đầu bằng bồ kết và thảo mộc nhưng ngại mua từng loại, phơi, sơ chế rồi đun? Dầu gội thảo dược Mộc An đóng sẵn 11 loại thảo mộc vào từng túi lọc, nên việc chuẩn bị nước gội gọn hơn nhiều.",
+    "hero": {
+      "src": "/articles/cach-su-dung-dau-goi-thao-duoc-moc-an/dau-goi-thao-duoc-moc-an-dang-tui-loc.webp",
+      "alt": "Dầu gội thảo dược Mộc An dạng túi lọc với 11 thành phần thảo mộc",
+      "width": 1280,
+      "height": 720
+    },
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Cần đun hay chỉ hãm? Một túi dùng bao nhiêu nước? Có phải gội lại bằng dầu gội hay dùng dầu xả không? Bài này hướng dẫn từng bước."
+      },
+      {
+        "type": "h2",
+        "text": "1. Dầu gội thảo dược Mộc An có những thành phần nào?"
+      },
+      {
+        "type": "p",
+        "text": "Sản phẩm dạng túi lọc, gồm 11 loại thảo mộc:"
+      },
+      {
+        "type": "li",
+        "text": "Bồ kết tách hạt, nướng: nguyên liệu gội đầu quen thuộc của người Việt."
+      },
+      {
+        "type": "li",
+        "text": "Bồ hòn: loại quả có saponin tự nhiên, hay dùng trong công thức làm sạch từ thực vật."
+      },
+      {
+        "type": "li",
+        "text": "Lá neem (sầu đâu Ấn Độ), hà thủ ô, núc nác."
+      },
+      {
+        "type": "li",
+        "text": "Hương nhu, me rừng (amla), cỏ mần trầu."
+      },
+      {
+        "type": "li",
+        "text": "Sả, vỏ bưởi và quế, cho mùi thơm ấm."
+      },
+      {
+        "type": "p",
+        "text": "Sản phẩm làm thủ công, không chất bảo quản, không sulfate, không silicon. Xuất xứ Bình Dương, hạn sử dụng 12 tháng kể từ ngày sản xuất."
+      },
+      {
+        "type": "h2",
+        "text": "2. Cách dùng với 3 bước"
+      },
+      {
+        "type": "p",
+        "text": "Mỗi túi lọc 13g."
+      },
+      {
+        "type": "h3",
+        "text": "Bước 1: Đun hoặc hãm túi lọc"
+      },
+      {
+        "type": "li",
+        "text": "Đun: cho 1 túi vào khoảng 500ml nước, đun sôi 5 phút, tắt bếp chờ nguội bớt."
+      },
+      {
+        "type": "li",
+        "text": "Hãm: đặt 1 túi vào ca chịu nhiệt, đổ khoảng 500ml nước sôi, hãm khoảng 10 phút."
+      },
+      {
+        "type": "li",
+        "text": "Nhãn trên túi còn hướng dẫn thêm một quả chanh thái lát khi đun hoặc hãm. Bước này tùy bạn; da đầu nhạy cảm hay đang trầy xước thì không nên thêm."
+      },
+      {
+        "type": "img",
+        "src": "/articles/cach-su-dung-dau-goi-thao-duoc-moc-an/ham-tui-loc-dau-goi-voi-nuoc-soi.webp",
+        "alt": "Hãm túi lọc thảo dược Mộc An với nước sôi trong ca chịu nhiệt",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "type": "h3",
+        "text": "Bước 2: Pha nước gội và bóp nhẹ túi lọc"
+      },
+      {
+        "type": "li",
+        "text": "Đổ nước thảo mộc ra thau, thêm nước sạch cho còn khoảng 40 – 45°C."
+      },
+      {
+        "type": "li",
+        "text": "Bóp nhẹ túi lọc vài lần cho phần nước trong túi hòa ra."
+      },
+      {
+        "type": "li",
+        "text": "Thử bằng tay trước khi gội: nước ấm dễ chịu, không nóng rát. Nước quá nóng dễ làm tóc và da đầu khô."
+      },
+      {
+        "type": "img",
+        "src": "/articles/cach-su-dung-dau-goi-thao-duoc-moc-an/bop-tui-loc-trong-thau-nuoc-thao-moc.webp",
+        "alt": "Bóp nhẹ túi lọc trong thau nước thảo mộc",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "type": "h3",
+        "text": "Bước 3: Gội và massage da đầu"
+      },
+      {
+        "type": "li",
+        "text": "Làm ướt tóc, xối từ từ nước thảo mộc lên tóc và da đầu."
+      },
+      {
+        "type": "li",
+        "text": "Massage nhẹ bằng đầu ngón tay, không cào bằng móng."
+      },
+      {
+        "type": "li",
+        "text": "Tóc nhiều dầu, dày hoặc dài thì gội lần hai."
+      },
+      {
+        "type": "li",
+        "text": "Xả lại thật kỹ bằng nước mát, chừng 1 – 2 phút."
+      },
+      {
+        "type": "img",
+        "src": "/articles/cach-su-dung-dau-goi-thao-duoc-moc-an/massage-da-dau-khi-goi-nuoc-thao-moc.webp",
+        "alt": "Massage da đầu nhẹ nhàng khi gội bằng nước thảo mộc",
+        "width": 1280,
+        "height": 1024
+      },
+      {
+        "type": "p",
+        "text": "Tránh để nước gội vào mắt vì bồ kết có thể gây cay."
+      },
+      {
+        "type": "h2",
+        "text": "3. Có cần dùng thêm dầu gội khác hoặc dầu xả?"
+      },
+      {
+        "type": "p",
+        "text": "Dầu gội Mộc An ít bọt vì không dùng chất tạo bọt công nghiệp. Ít bọt không có nghĩa là chưa sạch."
+      },
+      {
+        "type": "li",
+        "text": "Tóc và da đầu đã sạch sau lần gội đầu: không cần gội thêm loại khác."
+      },
+      {
+        "type": "li",
+        "text": "Tóc nhiều dầu hoặc nhiều cặn bám: gội lại lần hai bằng nước thảo mộc."
+      },
+      {
+        "type": "li",
+        "text": "Tóc dài, khô, dễ rối: có thể dùng thêm dầu xả thiên nhiên."
+      },
+      {
+        "type": "h2",
+        "text": "4. Khi mới chuyển sang dầu gội thảo dược"
+      },
+      {
+        "type": "p",
+        "text": "Người mới chuyển từ dầu gội công nghiệp có thể thấy tóc hơi rít, hơi cứng hoặc gàu hiện nhiều hơn trong 2 – 3 tuần đầu. Bạn gội đều 2 – 3 lần mỗi tuần, thường sẽ đỡ dần. Không phải ai cũng gặp, và không phải khó chịu nào cũng là do tóc đang làm quen."
+      },
+      {
+        "type": "li",
+        "text": "Dùng đúng định lượng, xả kỹ để không sót cặn trên tóc."
+      },
+      {
+        "type": "li",
+        "text": "Ngứa nhiều, đỏ, rát hoặc nổi mẩn: ngưng dùng, rửa sạch; không đỡ thì đi khám da liễu."
+      },
+      {
+        "type": "li",
+        "text": "Dùng đúng cách nhiều lần mà tóc vẫn bết dính: có thể thảo mộc chưa hợp với bạn, nên ngưng và nhắn Zalo cho shop."
+      },
+      {
+        "type": "h2",
+        "text": "5. Dầu gội này có giảm rụng tóc, sạch gàu không?"
+      },
+      {
+        "type": "p",
+        "text": "Sản phẩm giúp làm sạch da đầu, loại bỏ dầu thừa và cặn bám. Đây không phải thuốc trị rụng tóc và shop không cam kết giảm rụng."
+      },
+      {
+        "type": "p",
+        "text": "Rụng tóc có thể do di truyền, nội tiết, thiếu chất, căng thẳng hoặc bệnh da đầu. Gàu và ngứa cũng có thể do viêm da tiết bã hay viêm da tiếp xúc, đổi dầu gội chưa chắc đã hết. Rụng nhiều kéo dài, có chỗ thưa bất thường hoặc da đầu viêm ngứa dai dẳng thì nên khám chuyên khoa da liễu."
+      },
+      {
+        "type": "h2",
+        "text": "6. Bảo quản túi lọc thế nào?"
+      },
+      {
+        "type": "li",
+        "text": "Để nơi khô ráo, thoáng mát; lấy xong đóng kín bao."
+      },
+      {
+        "type": "li",
+        "text": "Tránh chỗ ẩm ướt, gần nước hoặc nóng."
+      },
+      {
+        "type": "li",
+        "text": "Túi có dấu ẩm mốc, đổi mùi, đổi màu thì bỏ."
+      },
+      {
+        "type": "li",
+        "text": "Xem hạn sử dụng trên bao trước khi dùng."
+      },
+      {
+        "type": "h2",
+        "text": "7. Mua ở đâu?"
+      },
+      {
+        "type": "li",
+        "text": "Quy cách: bịch 30 túi lọc, mỗi túi 13g."
+      },
+      {
+        "type": "li",
+        "text": "Giá: 99.000đ một bịch."
+      },
+      {
+        "type": "p",
+        "text": "[Xem và đặt Dầu Gội Thảo Dược Mộc An](/san-pham/dau-goi-moc-an). Giá có thể thay đổi. Bạn được đồng kiểm khi nhận hàng; điều kiện đổi trả xem tại [chính sách đổi trả](/chinh-sach/chinh-sach-doi-tra)."
+      },
+      {
+        "type": "p",
+        "text": "Muốn chăm sóc cơ thể bằng thảo mộc, xem thêm [Thảo Dược Xông và Tắm Cơ Thể Mộc An](/san-pham/la-xong-moc-an)."
+      }
+    ],
+    "notes": [
+      "Người viết: Nguyễn Tuấn Kiệt, Ayoya Shop. Điện thoại/Zalo: 0933.458.485. Địa chỉ: 6A/3 Nguyễn Du, Phường Bình Hòa, TP.HCM.",
+      "Nội dung mang tính tham khảo, không thay thế tư vấn, chẩn đoán hoặc điều trị y tế."
+    ]
+  },
+  {
     "slug": "dau-xoa-bop-vo-thuat-binh-dinh-cho-nguoi-tap-the-thao",
     "title": "Dầu xoa bóp võ thuật cổ truyền Bình Định: cách dùng cho người tập võ và chơi thể thao",
     "seoTitle": "Dầu xoa bóp võ thuật Bình Định cho người tập thể thao",
