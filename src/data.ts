@@ -442,7 +442,7 @@ export const MORE_PRODUCTS = [
     category: 'tho-cung',
     noDiscount: false,
     title: 'Nụ Trầm Hương Cao Cấp',
-    description: 'Nụ trầm hương nguyên chất từ vùng nguyên liệu Tiên Phước, dùng xông phòng khách, phòng thờ, giúp không gian thư thái và dễ chịu hơn.',
+    description: 'Nụ trầm hương từ vùng nguyên liệu Tiên Phước, dùng xông phòng khách, phòng thờ, giúp không gian thư thái và dễ chịu hơn.',
     benefits: '',
     ingredients:
       '95% bột trầm hương kết hợp 5% vỏ cây bời lời tạo kết dính tự nhiên, không pha hóa chất hay nguyên liệu khác. Hộp 30 nụ.',

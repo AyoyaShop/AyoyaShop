@@ -40,7 +40,7 @@ export const PRODUCT_FAQ: Record<string, { question: string; answer: string }[]>
     {
       question: 'Nụ trầm hay tắt giữa chừng thì làm sao?',
       answer:
-        'Nụ làm từ bột trầm nguyên chất, không có phụ gia trợ cháy. Bạn châm đầu nụ đủ lâu cho cháy đỏ hồng, đến khi thấy khói đổ ngược xuống rồi mới đặt vào lư. Lỗ thông khí bên dưới lư phải thoáng, không bị tro cũ bít lại, vì thiếu không khí là nụ dễ tắt. Đã làm đúng mà vẫn không cháy, bạn nhắn Zalo để được đổi theo chính sách đổi trả.'
+        'Nụ làm từ 95% bột trầm hương và 5% vỏ cây bời lời, không có phụ gia trợ cháy. Bạn châm đầu nụ đủ lâu cho cháy đỏ hồng, đến khi thấy khói đổ ngược xuống rồi mới đặt vào lư. Lỗ thông khí bên dưới lư phải thoáng, không bị tro cũ bít lại, vì thiếu không khí là nụ dễ tắt. Đã làm đúng mà vẫn không cháy, bạn nhắn Zalo để được đổi theo chính sách đổi trả.'
     }
   ],
   'thao-moc-xong-nha': [
