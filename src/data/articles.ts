@@ -20,6 +20,229 @@ export interface Article {
 
 export const ARTICLES: Article[] = [
   {
+    "slug": "chon-nhang-ban-tho",
+    "title": "Chọn nhang bàn thờ: nên dùng nhang trầm hay nhang quế?",
+    "seoTitle": "Chọn nhang bàn thờ: Nên thắp nhang trầm hay nhang quế?",
+    "description": "So sánh nhang trầm, nhang quế cây và nhang quế bó An Mộc Hương về thành phần, mùi hương, quy cách, giá bán và cách bảo quản.",
+    "published": "2026-11-28",
+    "productIds": [
+      "nhang-tram-cao-cap",
+      "nhang-que",
+      "nhang-bo-que"
+    ],
+    "lead": "Chọn nhang bàn thờ là chọn mùi hương cả nhà thấy dễ chịu, rồi đến lượng khói, quy cách và túi tiền. Người thích hương trầm dịu, người quen mùi quế ấm, đậm.",
+    "hero": {
+      "src": "/articles/chon-nhang-ban-tho/so-sanh-ba-loai-nhang-ban-tho.webp",
+      "alt": "Ba loại nhang bàn thờ: nhang trầm hương, nhang quế cây và nhang quế dạng bó",
+      "width": 1280,
+      "height": 720
+    },
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Bài này so sánh ba loại nhang thương hiệu An Mộc Hương, sản xuất tại Long An: nhang trầm hương, nhang quế cây và nhang quế dạng bó."
+      },
+      {
+        "type": "h2",
+        "text": "1. So sánh nhanh ba loại nhang bàn thờ"
+      },
+      {
+        "type": "table",
+        "rows": [
+          [
+            "Tiêu chí",
+            "Trầm hương",
+            "Quế cây",
+            "Quế bó"
+          ],
+          [
+            "Nguyên liệu",
+            "Bột trầm hương",
+            "90% vỏ quế",
+            "90% vỏ và lá quế"
+          ],
+          [
+            "Mùi",
+            "Trầm dịu",
+            "Quế ấm",
+            "Quế đậm"
+          ],
+          [
+            "Quy cách",
+            "50 cây, 30cm",
+            "180 cây, 250g",
+            "180 cây, 250g"
+          ],
+          [
+            "Giá",
+            "95.000đ",
+            "109.000đ",
+            "67.000đ"
+          ],
+          [
+            "Mỗi cây",
+            "khoảng 1.900đ",
+            "khoảng 600đ",
+            "khoảng 370đ"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Cả ba đều kết dính bằng bời lời và dùng tăm tre. Giá là giá trên web lúc viết bài, có thể thay đổi."
+      },
+      {
+        "type": "h2",
+        "text": "2. Nên thắp nhang trầm hay nhang quế?"
+      },
+      {
+        "type": "p",
+        "text": "Không có một loại hợp cho mọi nhà. Bạn chọn theo mùi mình thích, thói quen thắp và không gian thờ."
+      },
+      {
+        "type": "h3",
+        "text": "Nhang trầm hương: cho người thích mùi trầm dịu"
+      },
+      {
+        "type": "img",
+        "src": "/articles/chon-nhang-ban-tho/nhang-tram-huong-an-moc-huong.webp",
+        "alt": "Hộp nhang trầm hương An Mộc Hương 50 cây",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "type": "p",
+        "text": "Làm từ bột trầm hương thiên nhiên, kết dính bằng keo bời lời, tăm tre. Mùi trầm đặc trưng, ít khói theo mô tả sản phẩm, được nhiều nhà thắp bàn thờ Phật, tổ tiên và những dịp trang nghiêm. Hộp 50 cây, dài 30cm, giá 95.000đ."
+      },
+      {
+        "type": "p",
+        "text": "[Xem Nhang Trầm Hương Cao Cấp](/san-pham/nhang-tram-cao-cap)"
+      },
+      {
+        "type": "h3",
+        "text": "Nhang quế cây: cho người thích mùi quế ấm"
+      },
+      {
+        "type": "img",
+        "src": "/articles/chon-nhang-ban-tho/nhang-que-cao-cap-an-moc-huong.webp",
+        "alt": "Hộp nhang quế cao cấp An Mộc Hương",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "type": "p",
+        "text": "Mùi quế ấm, quen thuộc, hợp thắp hằng ngày. Thành phần 90% vỏ quế, 10% keo bời lời và tăm tre. Hộp 180 cây, khối lượng 250g, giá 109.000đ, dễ cất trong hộp."
+      },
+      {
+        "type": "p",
+        "text": "[Xem Nhang Quế Cao Cấp](/san-pham/nhang-que)"
+      },
+      {
+        "type": "h3",
+        "text": "Nhang quế dạng bó: cho nhà thắp thường xuyên"
+      },
+      {
+        "type": "img",
+        "src": "/articles/chon-nhang-ban-tho/bo-nhang-que-an-moc-huong.webp",
+        "alt": "Bó nhang quế An Mộc Hương",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "type": "p",
+        "text": "Vỏ và lá quế nghiền mịn (90%), 10% keo bời lời và tăm tre, mùi quế đậm. Bó 180 cây, khối lượng 250g, giá 67.000đ, thấp nhất trong ba loại."
+      },
+      {
+        "type": "p",
+        "text": "[Xem Nhang Vỏ & Lá Quế Dạng Bó](/san-pham/nhang-bo-que)"
+      },
+      {
+        "type": "h2",
+        "text": "3. Gia đình nên chọn loại nào?"
+      },
+      {
+        "type": "li",
+        "text": "Thích hương trầm dịu: nhang trầm hương."
+      },
+      {
+        "type": "li",
+        "text": "Thích mùi quế ấm, muốn có hộp cất gọn: nhang quế cây."
+      },
+      {
+        "type": "li",
+        "text": "Thắp nhiều, muốn tiết kiệm: nhang quế dạng bó."
+      },
+      {
+        "type": "p",
+        "text": "Chưa quyết được thì chọn mùi mà người trong nhà dễ chịu nhất. Nếu dùng lư thác khói, bạn cần nụ chứ không phải nhang cây: xem [nụ trầm hương](/san-pham/nu-tram-huong) và [nụ quế](/san-pham/nu-que)."
+      },
+      {
+        "type": "h2",
+        "text": "4. Bảo quản nhang cho khỏi ẩm, giữ mùi"
+      },
+      {
+        "type": "li",
+        "text": "Để nơi khô ráo, tránh gần nhà tắm, bồn rửa, chỗ có hơi nước."
+      },
+      {
+        "type": "li",
+        "text": "Lấy xong đóng kín hộp, túi."
+      },
+      {
+        "type": "li",
+        "text": "Tránh nắng gắt và nguồn nhiệt."
+      },
+      {
+        "type": "li",
+        "text": "Không để lẫn với đồ có mùi mạnh."
+      },
+      {
+        "type": "h3",
+        "text": "Vì sao màu nhang nhạt dần?"
+      },
+      {
+        "type": "p",
+        "text": "Nhang không dùng chất giữ màu nên màu có thể nhạt theo thời gian. Đừng chỉ nhìn màu: kiểm tra thêm xem nhang có ẩm mốc, mùi lạ, cong gãy hay khó cháy không."
+      },
+      {
+        "type": "h2",
+        "text": "5. Lưu ý khi thắp nhang trong nhà và chung cư"
+      },
+      {
+        "type": "p",
+        "text": "Ít khói không có nghĩa là không phát thải. Bất cứ thứ gì đang cháy đều sinh khói và hạt bụi mịn, nên không thắp nhang trong phòng đóng kín hay phòng máy lạnh không thông gió."
+      },
+      {
+        "type": "li",
+        "text": "Thắp vừa đủ, cắm chân nhang chắc để tàn không rơi vào đồ dễ cháy."
+      },
+      {
+        "type": "li",
+        "text": "Đặt bát hương vững, xa rèm, giấy, vải."
+      },
+      {
+        "type": "li",
+        "text": "Mở cửa cho thoáng khi đang thắp."
+      },
+      {
+        "type": "li",
+        "text": "Không để trẻ nhỏ, thú cưng lại gần; không để nhang cháy mà không có người trông."
+      },
+      {
+        "type": "li",
+        "text": "Nhà có trẻ nhỏ, người già hay người nhạy với khói nên thắp ít hơn."
+      },
+      {
+        "type": "p",
+        "text": "Tham khảo: [Cơ quan Bảo vệ Môi trường Hoa Kỳ về bụi mịn trong nhà](https://www.epa.gov/indoor-air-quality-iaq/sources-indoor-particulate-matter-pm) và [Bộ Y tế Canada về không khí trong nhà](https://www.canada.ca/en/health-canada/services/healthy-home/guide.html) (tiếng Anh)."
+      }
+    ],
+    "notes": [
+      "Người viết: Nguyễn Tuấn Kiệt, Ayoya Shop. Điện thoại/Zalo: 0933.458.485.",
+      "Bài viết không thay thế tư vấn y tế chuyên môn."
+    ]
+  },
+  {
     "slug": "dot-than-va-nu-tram-khong-bi-tat",
     "title": "Cách đốt than xông và nụ trầm không bị tắt giữa chừng",
     "seoTitle": "Cách đốt than xông và nụ trầm không bị tắt giữa chừng",
