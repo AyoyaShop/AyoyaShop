@@ -21,6 +21,8 @@ import PromoNotice from './components/PromoNotice';
 import PillarPage from './pages/PillarPage';
 import TetSetsPage from './pages/TetSetsPage';
 import TrackOrderPage from './pages/TrackOrderPage';
+import ArticlesPage from './pages/ArticlesPage';
+import ArticlePage from './pages/ArticlePage';
 import { PILLARS } from './data/pillars';
 
 // The router is chosen by the caller: the browser's here, a static one when pages are pre-rendered.
@@ -41,6 +43,8 @@ export function AppLayout() {
             <Route path="/bo-qua-tet" element={<TetSetsPage />} />
             <Route path="/tra-cuu-don" element={<TrackOrderPage />} />
             <Route path="/ve-chung-toi" element={<AboutPage />} />
+            <Route path="/bai-viet" element={<ArticlesPage />} />
+            <Route path="/bai-viet/:slug" element={<ArticlePage />} />
             <Route path="/hoi-dap" element={<FaqPage />} />
             <Route path="/lien-he" element={<ContactPage />} />
             <Route path="/chinh-sach/:slug" element={<PolicyPage />} />

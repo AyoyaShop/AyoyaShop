@@ -28,6 +28,7 @@ import { calcOriginalPrice } from '../lib/pricing';
 import { thumb, photoSrcSet } from '../lib/thumb';
 import { combosOf, comboSaving } from '../lib/combo';
 import { PRODUCT_FAQ } from '../data/productFaq';
+import { ARTICLES } from '../data/articles';
 import { GIFT_PRODUCT_IDS, ORDER_INSERTS, PACKAGE_EXTRAS } from '../lib/gift';
 
 // Below this, shipping (from 18.000đ) weighs heavily on the order.
@@ -440,6 +441,14 @@ export default function ProductDetail() {
             )}
           </div>
         )}
+
+        {ARTICLES.filter(a => a.productIds.includes(product.id)).map(a => (
+          <p key={a.slug} className="mt-8 max-w-4xl mx-auto">
+            <Link to={`/bai-viet/${a.slug}`} className="inline-flex min-h-11 items-center font-bold text-ayoya-green underline underline-offset-4">
+              Xem hướng dẫn: {a.title}
+            </Link>
+          </p>
+        ))}
 
         {PRODUCT_FAQ[product.id] && (
           <div className="mt-12 max-w-4xl mx-auto">

@@ -2,6 +2,7 @@ import { ALL_PRODUCTS, CONTACT_INFO, PRODUCT_GALLERIES } from '../data';
 import { PRODUCT_SEO } from '../data/seoText';
 import { POLICIES, type Policy } from '../data/policies';
 import { PILLARS, type Pillar } from '../data/pillars';
+import { ARTICLES, type Article } from '../data/articles';
 import { DEFAULT_SEO, SITE_URL } from './seo';
 
 // Shared by the pages (runtime head tags) and scripts/prerender.ts (static HTML per route).
@@ -45,6 +46,44 @@ export const TRACK_META = page(
   'Tra cứu đơn hàng',
   'Xem trạng thái và mã vận đơn của đơn đã đặt trên ayoya.com.vn bằng mã đơn và số điện thoại.'
 );
+
+export const ARTICLES_META = page(
+  '/bai-viet',
+  'Bài viết: xông nhà, bàn thờ và thảo mộc',
+  'Hướng dẫn của AYOYA Shop về xông nhà, thờ cúng và cách dùng thảo mộc, trầm hương trong gia đình.'
+);
+
+export function articleMeta(article: Article): PageMeta {
+  const meta = page(`/bai-viet/${article.slug}`, article.seoTitle, article.description, article.hero.src);
+  const images = [article.hero.src, ...article.blocks.flatMap(block => (block.type === 'img' ? [block.src] : []))];
+  return {
+    ...meta,
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'BlogPosting',
+          headline: article.title,
+          description: article.description,
+          datePublished: article.published,
+          dateModified: article.published,
+          image: images.map(absoluteUrl),
+          mainEntityOfPage: meta.url,
+          author: { '@type': 'Person', name: 'Nguyễn Tuấn Kiệt' },
+          publisher: { '@type': 'Organization', name: 'AYOYA Shop', url: SITE_URL }
+        },
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Trang chủ', item: `${SITE_URL}/` },
+            { '@type': 'ListItem', position: 2, name: 'Bài viết', item: `${SITE_URL}/bai-viet` },
+            { '@type': 'ListItem', position: 3, name: article.title, item: meta.url }
+          ]
+        }
+      ]
+    }
+  };
+}
 
 export function pillarMeta(pillar: Pillar): PageMeta {
   return page(`/${pillar.slug}`, pillar.title, pillar.seoDescription, pillar.image);
@@ -116,6 +155,8 @@ export function allPageMeta(): PageMeta[] {
     TET_META,
     TRACK_META,
     ABOUT_META,
+    ARTICLES_META,
+    ...ARTICLES.map(articleMeta),
     FAQ_META,
     CONTACT_META,
     ...POLICIES.map(policyMeta),

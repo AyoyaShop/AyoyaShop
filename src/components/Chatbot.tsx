@@ -16,7 +16,7 @@ export default function Chatbot() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
   // The lookup page shows prices where the button would sit.
-  const hiddenOnPhone = onProductPage || pathname === '/tra-cuu-don' || (pathname === '/' && !scrolled);
+  const hiddenOnPhone = onProductPage || pathname.startsWith('/bai-viet') || pathname === '/tra-cuu-don' || (pathname === '/' && !scrolled);
   return (
     <div className={`fixed bottom-6 right-5 md:bottom-8 md:right-8 z-[100] ${hiddenOnPhone ? 'hidden md:block' : ''}`}>
       <motion.a
