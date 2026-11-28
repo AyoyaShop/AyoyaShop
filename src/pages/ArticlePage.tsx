@@ -55,7 +55,25 @@ function renderBlocks(blocks: ArticleBlock[]): ReactNode[] {
       return;
     }
     closeList();
-    if (block.type === 'img') out.push(<div key={i}><Photo image={block} /></div>);
+    if (block.type === 'table') {
+      const [head, ...rows] = block.rows;
+      out.push(
+        <div key={i} className="mb-5 overflow-x-auto rounded-xl border border-ayoya-sand bg-ayoya-white">
+          <table className="w-full text-left text-[13px] sm:text-sm">
+            <thead className="bg-ayoya-sand">
+              <tr>{head.map(cell => <th key={cell} scope="col" className="px-1.5 py-2 align-top font-bold sm:px-3">{cell}</th>)}</tr>
+            </thead>
+            <tbody>
+              {rows.map(row => (
+                <tr key={row[0]} className="border-t border-ayoya-sand">
+                  {row.map((cell, c) => <td key={c} className={`px-1.5 py-2 align-top sm:px-3 ${c === 0 ? 'font-semibold' : ''}`}>{cell}</td>)}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      );
+    } else if (block.type === 'img') out.push(<div key={i}><Photo image={block} /></div>);
     else if (block.type === 'h2') out.push(<h2 key={i} className="mt-10 mb-3 text-2xl font-bold">{block.text}</h2>);
     else if (block.type === 'h3') out.push(<h3 key={i} className="mt-6 mb-2 text-lg font-bold">{block.text}</h3>);
     else if (block.type === 'quote')
@@ -87,6 +105,7 @@ export default function ArticlePage() {
         </p>
         <h1 className="text-[clamp(1.75rem,3.6vw,2.5rem)] leading-tight font-bold">{article.title}</h1>
         <p className="mt-2 text-sm text-ayoya-brown/70">Đăng ngày {articleDate(article.published)}</p>
+        {article.lead && <p className="mt-4 text-lg">{rich(article.lead)}</p>}
         <Photo image={article.hero} eager />
         {renderBlocks(article.blocks)}
         <div className="mt-10 border-t border-ayoya-sand pt-4 text-sm text-ayoya-brown/70">

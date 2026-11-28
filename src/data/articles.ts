@@ -2,7 +2,8 @@
 // Text blocks may hold links written [label](address); addresses starting with "/" stay on the site.
 export type ArticleBlock =
   | { type: 'h2' | 'h3' | 'p' | 'li' | 'quote'; text: string }
-  | { type: 'img'; src: string; alt: string; width: number; height: number };
+  | { type: 'img'; src: string; alt: string; width: number; height: number }
+  | { type: 'table'; rows: string[][] }; // the first row is the header
 
 export interface Article {
   slug: string;
@@ -11,12 +12,378 @@ export interface Article {
   description: string;
   published: string; // YYYY-MM-DD
   productIds: string[]; // product pages that link to this article
+  lead?: string; // shown above the photo, for a question that should be answered at once
   hero: { src: string; alt: string; width: number; height: number };
   blocks: ArticleBlock[];
   notes: string[];
 }
 
 export const ARTICLES: Article[] = [
+  {
+    "slug": "mot-goi-xong-nha-dung-may-lan",
+    "title": "Một gói thảo dược xông nhà dùng được mấy lần?",
+    "seoTitle": "Một gói thảo dược xông nhà dùng được mấy lần? Giải đáp",
+    "description": "Một gói thảo dược xông nhà dùng được mấy lần? Xem cách dùng, bảo quản, giá gói lẻ và combo Như Ý – Cát Tường. Chọn đúng sản phẩm tại Ayoya Shop.",
+    "published": "2026-11-28",
+    "productIds": [
+      "thao-moc-xong-nha"
+    ],
+    "lead": "Một gói Thảo Dược Xông Nhà Như Ý – Cát Tường dùng cho một lần xông. Bạn dùng trọn gói cho mỗi lần, không chia nhỏ, để đủ định lượng của sản phẩm.",
+    "hero": {
+      "src": "/articles/mot-goi-xong-nha-dung-may-lan/mot-goi-thao-duoc-xong-nha-250g.webp",
+      "alt": "Một gói thảo dược xông nhà Như Ý – Cát Tường 250g",
+      "width": 1280,
+      "height": 853
+    },
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Vậy xông nhà mấy lần thì đủ? Nên mua gói lẻ hay combo? Mở túi rồi bảo quản thế nào? Bài này trả lời từng câu, và giúp bạn phân biệt gói xông nhà với gói xông tắm Mộc An để khỏi mua nhầm."
+      },
+      {
+        "type": "h2",
+        "text": "1. Một gói thảo dược xông nhà dùng được mấy lần?"
+      },
+      {
+        "type": "p",
+        "text": "Câu trả lời là một gói cho một lần xông. Mỗi gói 250g, phối từ 38 vị thảo mộc."
+      },
+      {
+        "type": "li",
+        "text": "Mỗi gói có sẵn 1 khay nhôm, 2 viên than, nụ trầm hương và 1 Phong Long Phù."
+      },
+      {
+        "type": "li",
+        "text": "Mỗi đơn tặng 1 thẻ rùa phong thủy, kèm 1 tờ hướng dẫn sử dụng và 1 menu, dù mua mấy gói."
+      },
+      {
+        "type": "p",
+        "text": "Một gói dùng một lần không có nghĩa là phải xông nhiều ngày liền. Xông bao nhiêu lần là tùy nhu cầu, nếp nhà và sinh hoạt của mỗi gia đình."
+      },
+      {
+        "type": "h2",
+        "text": "2. Xông nhà mấy lần thì đủ?"
+      },
+      {
+        "type": "p",
+        "text": "Không có số lần bắt buộc cho mọi nhà. Bạn chọn theo nhu cầu."
+      },
+      {
+        "type": "h3",
+        "text": "2.1. Xông theo liệu trình 4 gói"
+      },
+      {
+        "type": "p",
+        "text": "Shop khuyên dùng đủ liệu trình 4 gói, mỗi lần cách nhau 3 – 4 ngày: tổng cộng 4 gói cho 4 lần xông. Nếu không có nhu cầu xông nhiều lần, bạn không nhất thiết mua đủ 4 gói."
+      },
+      {
+        "type": "h3",
+        "text": "2.2. Xông theo dịp"
+      },
+      {
+        "type": "li",
+        "text": "Trước Tết: xông sau khi đã dọn dẹp xong."
+      },
+      {
+        "type": "li",
+        "text": "Khi về nhà mới: làm theo nếp của gia đình."
+      },
+      {
+        "type": "li",
+        "text": "Trước ngày khai trương: dọn sạch và để mặt bằng thơm mùi thảo mộc trước khi đón khách."
+      },
+      {
+        "type": "p",
+        "text": "Nếu chỉ làm một lần cho một dịp, một gói là đủ."
+      },
+      {
+        "type": "h2",
+        "text": "3. Bảo quản thảo dược xông nhà"
+      },
+      {
+        "type": "h3",
+        "text": "3.1. Khi chưa mở túi"
+      },
+      {
+        "type": "li",
+        "text": "Để nơi khô ráo, thoáng mát, tránh nắng chiếu trực tiếp."
+      },
+      {
+        "type": "li",
+        "text": "Không để gần bếp, nhà tắm hay chỗ ẩm."
+      },
+      {
+        "type": "li",
+        "text": "Không để cạnh đồ có mùi mạnh làm lẫn hương."
+      },
+      {
+        "type": "h3",
+        "text": "3.2. Khi đã mở túi"
+      },
+      {
+        "type": "li",
+        "text": "Gói kín miệng túi, hoặc cho vào túi zip, hộp kín."
+      },
+      {
+        "type": "li",
+        "text": "Đặt lại chỗ khô ráo, thoáng mát."
+      },
+      {
+        "type": "li",
+        "text": "Không dùng nếu thảo dược ẩm mốc, đổi khác hoặc có mùi lạ."
+      },
+      {
+        "type": "p",
+        "text": "Tốt nhất là dùng hết gói ngay khi mở."
+      },
+      {
+        "type": "h3",
+        "text": "3.3. Hạn sử dụng"
+      },
+      {
+        "type": "p",
+        "text": "Thảo Dược Xông Nhà Như Ý – Cát Tường có hạn sử dụng 12 tháng."
+      },
+      {
+        "type": "h2",
+        "text": "4. Nên mua gói lẻ hay combo?"
+      },
+      {
+        "type": "p",
+        "text": "Xông một lần thì gói lẻ là đủ. Nếu theo lịch 4 lần hoặc muốn để sẵn cho dịp khác, mua combo rẻ hơn."
+      },
+      {
+        "type": "img",
+        "src": "/articles/mot-goi-xong-nha-dung-may-lan/goi-le-va-combo-thao-duoc-xong-nha.webp",
+        "alt": "Các lựa chọn gói lẻ và combo thảo dược xông nhà của Ayoya Shop",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "type": "table",
+        "rows": [
+          [
+            "Loại",
+            "Giá bán",
+            "Trung bình mỗi gói",
+            "So với mua lẻ"
+          ],
+          [
+            "1 gói dùng thử",
+            "70.000đ",
+            "70.000đ",
+            "–"
+          ],
+          [
+            "Combo 3 gói",
+            "204.000đ",
+            "68.000đ",
+            "Tiết kiệm 6.000đ"
+          ],
+          [
+            "5 gói",
+            "325.000đ",
+            "65.000đ",
+            "Tiết kiệm 25.000đ"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Mỗi gói trong combo đều có đủ khay nhôm, 2 viên than, nụ trầm hương và Phong Long Phù. Thẻ rùa, tờ hướng dẫn và menu thì mỗi đơn một bản."
+      },
+      {
+        "type": "h3",
+        "text": "Nên chọn loại nào?"
+      },
+      {
+        "type": "li",
+        "text": "1 gói: dùng thử, hoặc chỉ xông một dịp."
+      },
+      {
+        "type": "li",
+        "text": "Combo 3 gói: nhà có nhu cầu xông hơn một lần."
+      },
+      {
+        "type": "li",
+        "text": "5 gói: đủ cho lịch 4 lần và còn một gói dự phòng."
+      },
+      {
+        "type": "p",
+        "text": "Chỉ nên mua số gói bạn dùng hết trong hạn sử dụng. Phí giao hàng tùy địa chỉ và khối lượng kiện, bạn xem tổng tiền ở bước đặt hàng."
+      },
+      {
+        "type": "p",
+        "text": "[Xem và đặt Thảo Dược Xông Nhà Như Ý – Cát Tường](/san-pham/thao-moc-xong-nha)"
+      },
+      {
+        "type": "h2",
+        "text": "5. Phân biệt gói xông nhà và gói xông tắm Mộc An"
+      },
+      {
+        "type": "p",
+        "text": "Các gói này đều là thảo mộc khô đóng túi nhưng dùng vào việc khác nhau, nên bạn đọc kỹ tên trước khi đặt."
+      },
+      {
+        "type": "img",
+        "src": "/articles/mot-goi-xong-nha-dung-may-lan/phan-biet-goi-xong-nha-va-xong-tam-moc-an.webp",
+        "alt": "Gói thảo dược xông nhà Như Ý – Cát Tường và gói xông tắm cơ thể Mộc An",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "type": "h3",
+        "text": "5.1. Thảo Dược Xông Nhà Như Ý – Cát Tường"
+      },
+      {
+        "type": "p",
+        "text": "Dùng để xông không gian nhà cửa. 38 vị thảo mộc, 250g một gói, hạn sử dụng 12 tháng, giá gói lẻ 70.000đ."
+      },
+      {
+        "type": "h3",
+        "text": "5.2. Trầm Hương Xông Nhà Như Ý – Cát Tường"
+      },
+      {
+        "type": "p",
+        "text": "Cũng để xông nhà, lấy trầm hương làm chủ đạo. Trong gói có sẵn 1 Linh Phù, 1 rùa phong thủy, nụ trầm hương, 1 cây than (10 viên) và khay xông. Giá 125.000đ, hạn sử dụng 12 tháng."
+      },
+      {
+        "type": "p",
+        "text": "Gói này xông trên than. Mở hết cửa khi xông; than cháy sinh khí CO nên không đốt trong phòng đóng kín. Ở căn hộ, chung cư dễ làm hệ thống báo cháy kêu, bạn nên dùng gói thảo dược và xông bằng cách đun nước."
+      },
+      {
+        "type": "p",
+        "text": "[Xem Trầm Hương Xông Nhà Như Ý – Cát Tường](/san-pham/tram-huong-xong-nha)"
+      },
+      {
+        "type": "h3",
+        "text": "5.3. Thảo Dược Xông & Tắm Cơ Thể Mộc An"
+      },
+      {
+        "type": "p",
+        "text": "Dùng để xông và tắm cơ thể, không phải để xông nhà. 21 vị thảo mộc, nấu cùng 5 – 6 lít nước. Giá gói lẻ 43.000đ, combo 3 gói 125.000đ, 4 gói 160.000đ."
+      },
+      {
+        "type": "li",
+        "text": "Một gói cho một lần xông và tắm; muốn dùng nhẹ hơn có thể chia 2 – 3 lần."
+      },
+      {
+        "type": "li",
+        "text": "Không xông quá 3 lần mỗi tuần, không xông khi vừa ăn no, đang say hoặc sốt cao."
+      },
+      {
+        "type": "li",
+        "text": "Phụ nữ mang thai hoặc sau sinh, người có bệnh nền nên hỏi người có chuyên môn trước."
+      },
+      {
+        "type": "li",
+        "text": "Hạn sử dụng 18 tháng; mở túi rồi nên dùng trong 3 tháng."
+      },
+      {
+        "type": "p",
+        "text": "[Xem Thảo Dược Xông & Tắm Cơ Thể Mộc An](/san-pham/la-xong-moc-an)"
+      },
+      {
+        "type": "h3",
+        "text": "5.4. So sánh nhanh"
+      },
+      {
+        "type": "table",
+        "rows": [
+          [
+            "Tiêu chí",
+            "Như Ý – Cát Tường",
+            "Trầm Hương Như Ý",
+            "Mộc An"
+          ],
+          [
+            "Dùng để",
+            "Xông nhà",
+            "Xông nhà",
+            "Xông và tắm"
+          ],
+          [
+            "Cách dùng",
+            "Trên than hoặc đun nước",
+            "Trên than",
+            "Nấu nước"
+          ],
+          [
+            "Giá lẻ",
+            "70.000đ",
+            "125.000đ",
+            "43.000đ"
+          ],
+          [
+            "Hạn dùng",
+            "12 tháng",
+            "12 tháng",
+            "18 tháng"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "6. Câu hỏi thường gặp"
+      },
+      {
+        "type": "h3",
+        "text": "Một gói xông nhà dùng được mấy lần?"
+      },
+      {
+        "type": "p",
+        "text": "Một gói cho một lần xông, dùng trọn gói."
+      },
+      {
+        "type": "h3",
+        "text": "Một liệu trình cần bao nhiêu gói?"
+      },
+      {
+        "type": "p",
+        "text": "4 gói, mỗi lần cách nhau 3 – 4 ngày. Đây là lịch shop khuyên dùng, không bắt buộc."
+      },
+      {
+        "type": "h3",
+        "text": "Mở túi rồi có để dành được không?"
+      },
+      {
+        "type": "p",
+        "text": "Được nếu gói kín và để nơi khô ráo, nhưng nên dùng sớm. Thảo dược ẩm mốc hay có mùi lạ thì bỏ."
+      },
+      {
+        "type": "h3",
+        "text": "Mua 5 gói có lợi không?"
+      },
+      {
+        "type": "p",
+        "text": "Trung bình còn 65.000đ một gói, rẻ hơn mua lẻ 70.000đ. Chỉ cần một lần thì mua gói lẻ."
+      },
+      {
+        "type": "h3",
+        "text": "Gói xông nhà dùng để xông tắm được không?"
+      },
+      {
+        "type": "p",
+        "text": "Không. Muốn xông và tắm cơ thể, bạn chọn gói Mộc An."
+      },
+      {
+        "type": "h2",
+        "text": "7. Kết luận"
+      },
+      {
+        "type": "p",
+        "text": "Một gói thảo dược xông nhà dùng cho một lần xông. Cần một dịp thì mua gói lẻ; theo lịch nhiều lần thì combo 3 gói hoặc 5 gói tiết kiệm hơn. Nhớ chọn đúng gói: xông nhà và xông tắm là hai sản phẩm khác nhau."
+      },
+      {
+        "type": "p",
+        "text": "Cách xông từng bước, giờ nên xông và bài khấn xem tại bài [Cách xông nhà cuối năm bằng thảo dược](/bai-viet/cach-xong-nha-cuoi-nam)."
+      }
+    ],
+    "notes": [
+      "Người viết: Nguyễn Tuấn Kiệt, Ayoya Shop. Điện thoại/Zalo: 0933.458.485. Địa chỉ: 6A/3 Nguyễn Du, Phường Bình Hòa, TP.HCM. Email: ayoyashop@gmail.com.",
+      "Bài viết không thay thế tư vấn y tế chuyên môn."
+    ]
+  },
   {
     "slug": "cach-xong-nha-cuoi-nam",
     "title": "Cách xông nhà cuối năm bằng thảo dược: hướng dẫn từng bước đón Tết",
