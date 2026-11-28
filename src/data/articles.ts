@@ -20,6 +20,203 @@ export interface Article {
 
 export const ARTICLES: Article[] = [
   {
+    "slug": "dau-xoa-bop-vo-thuat-binh-dinh-cho-nguoi-tap-the-thao",
+    "title": "Dầu xoa bóp võ thuật cổ truyền Bình Định: cách dùng cho người tập võ và chơi thể thao",
+    "seoTitle": "Dầu xoa bóp võ thuật Bình Định cho người tập thể thao",
+    "description": "Tìm hiểu dầu xoa bóp võ thuật cổ truyền Bình Định: thành phần, cách dùng, giá bán và lưu ý an toàn cho người tập võ, chơi thể thao.",
+    "published": "2026-11-28",
+    "productIds": [
+      "dau-vo"
+    ],
+    "lead": "Tập võ, chạy bộ, đá bóng, cầu lông hay tập tạ đều làm nhiều nhóm cơ hoạt động liên tục. Sau buổi tập, vai, lưng, bắp chân hay đùi căng mỏi là chuyện thường gặp.",
+    "hero": {
+      "src": "/articles/dau-xoa-bop-vo-thuat-binh-dinh-cho-nguoi-tap-the-thao/dau-xoa-bop-vo-thuat-cho-nguoi-tap-the-thao.webp",
+      "alt": "Chai dầu xoa bóp võ thuật cổ truyền Bình Định đặt cạnh găng tay tập võ",
+      "width": 1280,
+      "height": 720
+    },
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Ngoài nghỉ ngơi và giãn cơ, nhiều người có thói quen xoa bóp vùng cơ mỏi. Bài này nói rõ dùng dầu thế nào, và lúc nào tuyệt đối không nên xoa."
+      },
+      {
+        "type": "h2",
+        "text": "1. Xoa bóp sau tập giúp gì, và không thay được gì?"
+      },
+      {
+        "type": "p",
+        "text": "Thoa dầu rồi xoa nhẹ cho cảm giác ấm, hơi the mát và dễ chịu ở vùng da được chăm sóc, mỗi người cảm nhận một khác. Chỗ hay được chú ý:"
+      },
+      {
+        "type": "li",
+        "text": "Vai và lưng, khi tập võ, nâng tạ, chơi môn dùng tay."
+      },
+      {
+        "type": "li",
+        "text": "Bắp chân và đùi, khi chạy, nhảy, đá bóng."
+      },
+      {
+        "type": "li",
+        "text": "Cánh tay, cẳng tay, khi đấm, đỡ, đánh cầu."
+      },
+      {
+        "type": "p",
+        "text": "Dầu không thay cho khởi động, giãn cơ, nghỉ ngơi, và không phải cách chữa bong gân, rách cơ hay gãy xương."
+      },
+      {
+        "type": "h2",
+        "text": "2. Chai dầu có gì đáng chú ý?"
+      },
+      {
+        "type": "p",
+        "text": "Bài thuốc xoa bóp này được dùng ở võ đường Hồng Khanh của gia đình chúng tôi tại Bình Định từ năm 1983, sau những buổi luyện tập cường độ cao. Xem [Chuyện nhà võ](/ve-chung-toi)."
+      },
+      {
+        "type": "li",
+        "text": "Thành phần: lưu hội (lô hội), đại hoàng, bạch chỉ, nhị trà, huyết kiệt, hồng hoa, tam nại (địa liền), lá bạc hà, đại hồi, gừng khô, tá dược rượu vừa đủ (công thức ghi cho chai 500ml)."
+      },
+      {
+        "type": "li",
+        "text": "Sản xuất tại Hoài Nhơn, Bình Định."
+      },
+      {
+        "type": "li",
+        "text": "Chai 100ml gọn để mang theo; chai 500ml cho người dùng thường xuyên."
+      },
+      {
+        "type": "li",
+        "text": "Hạn sử dụng 36 tháng; bảo quản nơi khô ráo, dưới 30°C, xa tầm tay trẻ em."
+      },
+      {
+        "type": "h2",
+        "text": "3. Cách xoa bóp sau khi tập"
+      },
+      {
+        "type": "p",
+        "text": "Chỉ xoa trên vùng da lành, cơ căng mỏi bình thường. Chỗ sưng, nóng, đỏ, bầm hay đau nhiều sau va chạm thì không xoa."
+      },
+      {
+        "type": "img",
+        "src": "/articles/dau-xoa-bop-vo-thuat-binh-dinh-cho-nguoi-tap-the-thao/xoa-bop-bap-chan-sau-buoi-tap.webp",
+        "alt": "Xoa bóp nhẹ bắp chân sau buổi tập",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "type": "li",
+        "text": "Lau sạch, để da khô."
+      },
+      {
+        "type": "li",
+        "text": "Lắc đều chai."
+      },
+      {
+        "type": "li",
+        "text": "Đổ một ít ra tay rồi thoa lên vùng cần chăm sóc."
+      },
+      {
+        "type": "li",
+        "text": "Xoa vòng tròn nhẹ tay 5 – 10 phút, ngày 2 – 3 lần; không day ấn mạnh, thấy đau thêm thì dừng."
+      },
+      {
+        "type": "li",
+        "text": "Rửa tay bằng xà phòng."
+      },
+      {
+        "type": "p",
+        "text": "Da ngứa, rát, nổi mẩn thì ngưng dùng và rửa sạch."
+      },
+      {
+        "type": "h2",
+        "text": "4. Bị bầm, sưng đau sau va chạm: có xoa dầu không?"
+      },
+      {
+        "type": "p",
+        "text": "Không. Vừa bị đá trúng, ngã hay va mạnh thì cơ, khớp có thể đang tổn thương. Trong một hai ngày đầu:"
+      },
+      {
+        "type": "img",
+        "src": "/articles/dau-xoa-bop-vo-thuat-binh-dinh-cho-nguoi-tap-the-thao/tui-chuom-lanh-so-cuu-sau-va-cham.webp",
+        "alt": "Túi chườm lạnh bọc khăn để sơ cứu sau va chạm",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "type": "li",
+        "text": "Dừng tập, đừng cố chịu đau tập tiếp."
+      },
+      {
+        "type": "li",
+        "text": "Che chở chỗ đau, hạn chế cử động gây đau."
+      },
+      {
+        "type": "li",
+        "text": "Chườm lạnh bằng túi đá bọc khăn, mỗi lần khoảng 15 – 20 phút; không áp đá thẳng lên da."
+      },
+      {
+        "type": "li",
+        "text": "Băng ép nhẹ và kê cao chỗ đau."
+      },
+      {
+        "type": "li",
+        "text": "Không xoa bóp, day ấn và không bôi dầu làm ấm lên chỗ đang sưng bầm."
+      },
+      {
+        "type": "p",
+        "text": "Đau dữ dội, sưng to, bầm lan rộng, tay chân biến dạng, tê bì hoặc không đứng, không cầm nắm được thì đi cơ sở y tế ngay. Đọc thêm: [chấn thương dập cơ](https://orthoinfo.aaos.org/en/diseases--conditions/muscle-contusion-bruise/) của Viện Phẫu thuật Chỉnh hình Hoa Kỳ và [chấn thương thể thao](https://www.niams.nih.gov/health-topics/sports-injuries/diagnosis-treatment-and-steps-to-take) của Viện Khớp và Cơ Xương Hoa Kỳ (tiếng Anh)."
+      },
+      {
+        "type": "h2",
+        "text": "5. Ai không nên dùng?"
+      },
+      {
+        "type": "li",
+        "text": "Phụ nữ mang thai."
+      },
+      {
+        "type": "li",
+        "text": "Trẻ dưới 30 tháng tuổi."
+      },
+      {
+        "type": "li",
+        "text": "Người có tiền sử động kinh hoặc co giật."
+      },
+      {
+        "type": "p",
+        "text": "Chỉ dùng ngoài da, không uống; không thoa lên vết thương hở, da trầy, mắt, miệng, niêm mạc. Da nhạy cảm nên thử một ít ở mặt trong cánh tay trước."
+      },
+      {
+        "type": "h2",
+        "text": "6. Mua dầu xoa bóp ở đâu?"
+      },
+      {
+        "type": "li",
+        "text": "Chai 100ml: 79.000đ."
+      },
+      {
+        "type": "li",
+        "text": "2 chai 100ml: 153.000đ."
+      },
+      {
+        "type": "li",
+        "text": "Chai 500ml: 370.000đ."
+      },
+      {
+        "type": "p",
+        "text": "[Xem và đặt Dầu Xoa Bóp Võ Thuật Cổ Truyền Bình Định](/san-pham/dau-vo). Giá có thể thay đổi. Bạn được đồng kiểm khi nhận hàng; điều kiện đổi trả xem tại [chính sách đổi trả](/chinh-sach/chinh-sach-doi-tra)."
+      },
+      {
+        "type": "p",
+        "text": "Muốn biếu cha mẹ, xem bài [Dầu xoa bóp: món quà nhỏ dành tặng cha mẹ](/bai-viet/dau-xoa-bop-binh-dinh-tang-cha-me)."
+      }
+    ],
+    "notes": [
+      "Người viết: Nguyễn Tuấn Kiệt, Ayoya Shop. Điện thoại/Zalo: 0933.458.485. Địa chỉ: 6A/3 Nguyễn Du, Phường Bình Hòa, TP.HCM.",
+      "Nội dung không thay thế tư vấn, chẩn đoán hoặc điều trị y tế."
+    ]
+  },
+  {
     "slug": "vi-sao-can-xong-nha",
     "title": "Vì sao cần xông nhà? Ý nghĩa phong thủy và những điều nên biết",
     "seoTitle": "Vì sao cần xông nhà? Ý nghĩa và những điều cần biết",
