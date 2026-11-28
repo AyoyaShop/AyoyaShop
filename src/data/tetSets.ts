@@ -15,7 +15,7 @@ export const TET_SETS: TetSet[] = [
     name: 'Xông Nhà Đón Tết',
     note: 'Dọn nhà, xông nhà cuối năm',
     items: [
-      { id: 'thao-moc-xong-nha', text: '1 gói thảo dược xông nhà' },
+      { id: 'thao-moc-xong-nha', text: '1 gói thảo dược xông nhà (kèm khay, 2 viên than, nụ trầm, phù)' },
       { id: 'than-vien-xong-nha', text: '10 viên than' },
       { id: 'nuoc-lau-ban-tho', text: '1 chai nước lau bàn thờ' }
     ]

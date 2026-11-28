@@ -270,10 +270,10 @@ export const PRODUCTS = [
     ingredients:
       'Hơn 38 vị thảo mộc thiên nhiên: bột trầm hương, bách xanh, sả, vỏ bưởi, quế, đại hồi, thảo quả, kim ngân, bạch chỉ, hương nhu, ngải cứu, kinh giới, quế chi, cùng nhóm thảo mộc có gai theo phong thủy dân gian (bạch tật lê, câu đằng, thương nhĩ tử...) và các loại gỗ, lá thơm tự nhiên khác.',
     usage:
-      'Cách 1 (xông khói): đốt than chuyên dụng, rắc thảo dược lên khay, mang đi khắp nhà theo thứ tự từ trong ra ngoài. Cách 2 (xông hơi nước, phù hợp chung cư): cho 1 gói vào nồi với 2 – 3 lít nước, đậy nắp đun sôi; sau khi sôi 5 – 7 phút thì mang nồi xông quanh nhà, từ trong ra ngoài. Nên xông vào sáng sớm hoặc chiều tối, mở cửa thông thoáng khi xông.',
+      'Cách 1 (xông trên than, nên ưu tiên): đốt than cho đỏ hồng, đặt thảo dược cùng Phong Long Phù lên trên cho cháy tự nhiên, mang đi khắp nhà theo thứ tự từ trong ra ngoài. Cách 2 (đun nước, thường dùng cho căn hộ, chung cư để khói không làm hệ thống báo cháy kêu): lấy nụ trầm hương và Phong Long Phù ra đốt riêng; cho 1 gói vào nồi với 2 – 3 lít nước, đậy nắp đun sôi; sau khi sôi 5 – 7 phút thì mang nồi xông quanh nhà, từ trong ra ngoài. Nên xông vào sáng sớm hoặc chiều tối, mở cửa thông thoáng khi xông.',
     warnings:
       'Chỉ dùng để xông không gian, không dùng cho mục đích khác. Xông nơi thoáng khí, tránh hít trực tiếp khói đậm đặc trong thời gian dài. Để xa tầm tay trẻ em và vật liệu dễ cháy.',
-    origin: 'Nguyên liệu trầm hương thu hái tại Tiên Phước, Quảng Nam. Hạn sử dụng 12 tháng. Bảo quản nơi khô ráo, thoáng mát.',
+    origin: 'Khối lượng tịnh 250g/gói. Nguyên liệu trầm hương thu hái tại Tiên Phước, Quảng Nam. Hạn sử dụng 12 tháng. Bảo quản nơi khô ráo, thoáng mát.',
     image: '/products/xong-nha-2.webp',
     video: 'https://res.cloudinary.com/dfb8mvzhc/video/upload/q_auto:eco,w_720,c_limit/v1776440319/7736771989880_f9ltno.mp4',
     cta: 'Thanh tẩy không gian',

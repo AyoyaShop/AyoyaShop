@@ -215,7 +215,8 @@ export const POLICIES: Policy[] = [
         bullets: [
           'Mã in trên menu và thư cảm ơn: giảm 20%, tối đa 50.000đ, cho đơn trên 100.000đ tiền hàng.',
           'Mỗi số điện thoại dùng mã một lần. Đơn đã hủy hoặc hoàn không tính là đã dùng.',
-          'Đơn có thảo dược xông nhà Như Ý – Cát Tường hoặc thảo dược xông tắm Mộc An được tặng một thẻ rùa phong thủy, mỗi đơn một thẻ. Đơn đã có gói trầm hương xông nhà (trong gói có sẵn rùa) thì không tặng thêm.'
+          'Đơn có thảo dược xông nhà Như Ý – Cát Tường hoặc thảo dược xông tắm Mộc An được tặng một thẻ rùa phong thủy, mỗi đơn một thẻ. Đơn đã có gói trầm hương xông nhà (trong gói có sẵn rùa) thì không tặng thêm.',
+          'Mỗi gói thảo dược xông nhà Như Ý – Cát Tường có sẵn 1 khay nhôm, 2 viên than, nụ trầm hương và 1 Phong Long Phù: mua bao nhiêu gói được bấy nhiêu bộ. Tờ hướng dẫn sử dụng và menu mỗi đơn một bản.'
         ]
       },
       {
