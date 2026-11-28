@@ -16,6 +16,10 @@
 }
 
 @layer base {
+  /* Height of the fixed header, for bars that stick under it. */
+  :root { --header-height: 112px; }
+  @media (min-width: 1024px) { :root { --header-height: 80px; } }
+
   body {
     @apply font-sans bg-ayoya-cream text-ayoya-brown antialiased;
   }

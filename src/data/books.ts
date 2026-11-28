@@ -406,7 +406,7 @@ export const BOOKS: Book[] = [
     "slug": "co-loa",
     "group": "lich-su",
     "title": "Cổ Loa, kinh đô nước Âu Lạc (tiếng Pháp)",
-    "author": "G. Dumoutier",
+    "author": "Gustave Dumoutier",
     "printing": "",
     "language": "Tiếng Pháp",
     "intro": "Nghiên cứu lịch sử và khảo cổ về thành Cổ Loa, nguyên tác tiếng Pháp có tên Étude historique et archéologique sur Cổ Loa.",

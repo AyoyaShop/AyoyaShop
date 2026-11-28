@@ -73,7 +73,16 @@ export default function BookPage() {
           </div>
         </div>
 
-        <h2 className="mt-12 mb-4 text-xl font-bold">Cùng nhóm {group.title}</h2>
+        <nav aria-label="Nhóm sách" className="mt-10 flex flex-wrap items-center gap-2">
+          <span className="text-sm font-semibold">Xem nhóm khác:</span>
+          {BOOK_GROUPS.map(other => (
+            <Link key={other.id} to={`/thu-vien-sach#${other.id}`} className="rounded-full border border-ayoya-green px-4 py-2 text-sm font-semibold text-ayoya-green">
+              {other.title}
+            </Link>
+          ))}
+        </nav>
+
+        <h2 className="mt-10 mb-4 text-xl font-bold">Cùng nhóm {group.title}</h2>
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-5">
           {more.map(other => (
             <BookCard key={other.slug} book={other} />
