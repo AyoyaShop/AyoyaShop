@@ -20,6 +20,179 @@ export interface Article {
 
 export const ARTICLES: Article[] = [
   {
+    "slug": "dau-xoa-bop-binh-dinh-tang-cha-me",
+    "title": "Dầu xoa bóp võ thuật cổ truyền Bình Định: món quà nhỏ dành tặng cha mẹ",
+    "seoTitle": "Dầu xoa bóp võ thuật cổ truyền Bình Định: Quà tặng cha mẹ",
+    "description": "Tìm hiểu dầu xoa bóp võ thuật cổ truyền Bình Định 100ml: giá bán, cách dùng, lưu ý an toàn và gợi ý món quà thiết thực dành tặng cha mẹ.",
+    "published": "2026-11-28",
+    "productIds": [
+      "dau-vo"
+    ],
+    "lead": "Có những điều cha mẹ ít khi nói ra: bờ vai mỏi sau ngày làm việc, cái lưng nhức khi vận động nhiều. Con cái thường chỉ nhận ra khi về thăm nhà.",
+    "hero": {
+      "src": "/articles/dau-xoa-bop-binh-dinh-tang-cha-me/dau-xoa-bop-vo-thuat-binh-dinh-100ml.webp",
+      "alt": "Chai dầu xoa bóp võ thuật cổ truyền Bình Định đặt trên bàn gỗ",
+      "width": 1280,
+      "height": 720
+    },
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Một chai dầu đặt sẵn trên bàn để cha mẹ dùng khi cần, hay để con có dịp ngồi xuống xoa vai cho cha mẹ, là món quà nhỏ mà gần gũi. Bài này nói về chai dầu xoa bóp võ thuật cổ truyền Bình Định: có gì, dùng thế nào và ai không nên dùng."
+      },
+      {
+        "type": "h2",
+        "text": "1. Chuyện của chai dầu"
+      },
+      {
+        "type": "p",
+        "text": "Gia đình chúng tôi gắn bó với võ đường Hồng Khanh tại Bình Định từ năm 1983. Sau mỗi buổi luyện tập cường độ cao, người trong lò dùng bài thuốc xoa bóp của gia đình. Chai dầu hôm nay làm theo bài thuốc ấy. Xem thêm ở [Chuyện nhà võ](/ve-chung-toi)."
+      },
+      {
+        "type": "p",
+        "text": "Khi xoa, bạn thấy ấm nhẹ lan dần và hơi the mát, không nóng rát. Cảm nhận mỗi người mỗi khác. Dầu không phải thuốc trị đau nhức xương khớp và không thay việc đi khám."
+      },
+      {
+        "type": "h2",
+        "text": "2. Chai dầu gồm những gì?"
+      },
+      {
+        "type": "img",
+        "src": "/articles/dau-xoa-bop-binh-dinh-tang-cha-me/duoc-lieu-ngam-dau-xoa-bop.webp",
+        "alt": "Một số dược liệu dùng ngâm dầu xoa bóp",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "type": "li",
+        "text": "Thành phần: lưu hội (lô hội), đại hoàng, bạch chỉ, nhị trà, huyết kiệt, hồng hoa, tam nại (địa liền), lá bạc hà, đại hồi, gừng khô, tá dược rượu vừa đủ (công thức ghi cho chai 500ml)."
+      },
+      {
+        "type": "li",
+        "text": "Sản xuất tại Hoài Nhơn, Bình Định."
+      },
+      {
+        "type": "li",
+        "text": "Hạn sử dụng 36 tháng kể từ ngày sản xuất."
+      },
+      {
+        "type": "li",
+        "text": "Bảo quản nơi khô ráo, dưới 30°C, xa tầm tay trẻ em."
+      },
+      {
+        "type": "p",
+        "text": "Cha mẹ từng dị ứng với thành phần nào thì đọc kỹ nhãn trước khi mua."
+      },
+      {
+        "type": "h2",
+        "text": "3. Ai không nên dùng?"
+      },
+      {
+        "type": "li",
+        "text": "Phụ nữ mang thai."
+      },
+      {
+        "type": "li",
+        "text": "Trẻ dưới 30 tháng tuổi."
+      },
+      {
+        "type": "li",
+        "text": "Người có tiền sử động kinh hoặc co giật."
+      },
+      {
+        "type": "p",
+        "text": "Dầu chỉ xoa ngoài da, tuyệt đối không uống; không bôi lên vết thương hở, da trầy xước, mắt, miệng, niêm mạc."
+      },
+      {
+        "type": "p",
+        "text": "Cha mẹ loãng xương nặng, có bệnh mạch máu, rối loạn đông máu, đang uống thuốc chống đông hoặc nhiều bệnh nền thì nên hỏi nhân viên y tế trước khi xoa bóp."
+      },
+      {
+        "type": "h2",
+        "text": "4. Cách xoa bóp nhẹ nhàng cho cha mẹ"
+      },
+      {
+        "type": "img",
+        "src": "/articles/dau-xoa-bop-binh-dinh-tang-cha-me/con-xoa-bop-vai-cho-cha-me.webp",
+        "alt": "Con nhẹ nhàng xoa vai cho cha mẹ",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "type": "li",
+        "text": "Lắc đều chai trước khi dùng."
+      },
+      {
+        "type": "li",
+        "text": "Chọn vùng da sạch, khô, lành lặn, ví dụ vai hay lưng."
+      },
+      {
+        "type": "li",
+        "text": "Đổ một ít dầu, thoa đều rồi xoa vòng tròn nhẹ tay 5 – 10 phút, ngày 2 – 3 lần."
+      },
+      {
+        "type": "li",
+        "text": "Không ấn mạnh vào xương, khớp; không bẻ, vặn cổ hay lưng."
+      },
+      {
+        "type": "li",
+        "text": "Cha mẹ thấy đau thêm, rát hay khó chịu thì dừng."
+      },
+      {
+        "type": "li",
+        "text": "Xoa xong rửa tay bằng xà phòng."
+      },
+      {
+        "type": "p",
+        "text": "Da nhạy cảm nên thử một ít ở mặt trong cánh tay trước. Ngứa, rát, nổi mẩn thì ngưng dùng và rửa sạch."
+      },
+      {
+        "type": "h2",
+        "text": "5. Khi nào nên đi khám thay vì xoa dầu?"
+      },
+      {
+        "type": "p",
+        "text": "Đau kéo dài hoặc tăng dần, tê bì tay chân, khớp sưng nóng đỏ thì đưa cha mẹ đi khám. Một bên chân tự nhiên sưng, đau, nóng, đỏ thì tuyệt đối không xoa vào đó và cần đi khám sớm, vì có thể là vấn đề mạch máu nghiêm trọng."
+      },
+      {
+        "type": "p",
+        "text": "Đừng để việc xoa bóp làm chậm chuyện đi khám. Đọc thêm: [Massage trị liệu: điều cần biết](https://www.nccih.nih.gov/health/massage-therapy-what-you-need-to-know) của Viện Y tế Quốc gia Hoa Kỳ và [lưu ý xoa bóp cho người cao tuổi](https://www.elderly.gov.hk/english/healthy_ageing/personal_care/massage.html) của Dịch vụ Y tế Người cao tuổi Hồng Kông (tiếng Anh)."
+      },
+      {
+        "type": "h2",
+        "text": "6. Mua dầu xoa bóp ở đâu?"
+      },
+      {
+        "type": "li",
+        "text": "Chai 100ml: 79.000đ."
+      },
+      {
+        "type": "li",
+        "text": "2 chai 100ml: 153.000đ."
+      },
+      {
+        "type": "li",
+        "text": "Chai 500ml: 370.000đ."
+      },
+      {
+        "type": "p",
+        "text": "[Xem Dầu Xoa Bóp Võ Thuật Cổ Truyền Bình Định](/san-pham/dau-vo). Giá có thể thay đổi. Bạn được đồng kiểm khi nhận hàng, trả tiền khi nhận hoặc chuyển khoản; điều kiện đổi trả xem tại [chính sách đổi trả](/chinh-sach/chinh-sach-doi-tra)."
+      },
+      {
+        "type": "p",
+        "text": "Muốn biếu thêm món chăm đôi chân, xem bài [Quà Tết biếu cha mẹ](/bai-viet/qua-tet-bieu-cha-me); túi ngâm chân có những người không dùng được, bạn đọc kỹ trước."
+      },
+      {
+        "type": "p",
+        "text": "Một buổi tối ngồi bên cha mẹ, hỏi han vài câu rồi xoa nhẹ đôi vai, đôi khi là điều đáng quý nhất."
+      }
+    ],
+    "notes": [
+      "Người viết: Nguyễn Tuấn Kiệt, Ayoya Shop. Điện thoại/Zalo: 0933.458.485.",
+      "Nội dung không thay thế tư vấn, chẩn đoán hoặc điều trị y tế."
+    ]
+  },
+  {
     "slug": "qua-tet-bieu-cha-me",
     "title": "Quà Tết biếu cha mẹ: món quà chăm sóc thân tình và thiết thực",
     "seoTitle": "Quà Tết biếu cha mẹ: Chọn quà sức khỏe sao cho phù hợp?",
