@@ -17,7 +17,14 @@ export default function ArticlesPage() {
         <p className="mb-5 text-sm text-ayoya-brown/70">
           <Link to="/" className="underline underline-offset-4">Trang chủ</Link> / Cẩm Nang
         </p>
-        <h1 className="mb-8 text-[clamp(1.9rem,3.6vw,2.75rem)] font-bold">Cẩm Nang</h1>
+        <h1 className="mb-6 text-[clamp(1.9rem,3.6vw,2.75rem)] font-bold">Cẩm Nang</h1>
+        <Link to="/thu-vien-sach" className="card mb-8 flex flex-wrap items-center justify-between gap-3 p-5">
+          <span>
+            <span className="block font-serif text-xl font-bold">Thư Viện Sách</span>
+            <span className="text-sm text-ayoya-brown/75">Sách xưa về sử, văn học, truyện cổ, Phật giáo. Tải miễn phí.</span>
+          </span>
+          <span className="btn">Vào thư viện</span>
+        </Link>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {ARTICLES.map(article => (
             <ArticleCard key={article.slug} article={article} heading="h2" />

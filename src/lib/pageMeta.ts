@@ -3,6 +3,7 @@ import { PRODUCT_SEO } from '../data/seoText';
 import { POLICIES, type Policy } from '../data/policies';
 import { PILLARS, type Pillar } from '../data/pillars';
 import { ARTICLES, type Article } from '../data/articles';
+import { BOOKS, type Book } from '../data/books';
 import { DEFAULT_SEO, SITE_URL } from './seo';
 
 // Shared by the pages (runtime head tags) and scripts/prerender.ts (static HTML per route).
@@ -85,6 +86,42 @@ export function articleMeta(article: Article): PageMeta {
   };
 }
 
+export const LIBRARY_META = page(
+  '/thu-vien-sach',
+  'Thư Viện Sách: sách xưa tải miễn phí',
+  'Sách xưa về lịch sử, văn học, truyện cổ và Phật giáo, tải miễn phí từ AYOYA Shop, không cần đăng ký.'
+);
+
+export function bookMeta(book: Book): PageMeta {
+  const meta = page(`/thu-vien-sach/${book.slug}`, `${book.title} – tải sách miễn phí`, `${book.author}. ${book.intro}`, book.cover?.src);
+  return {
+    ...meta,
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'Book',
+          name: book.title,
+          author: { '@type': 'Person', name: book.author },
+          description: book.intro,
+          url: meta.url,
+          image: meta.image,
+          isAccessibleForFree: true
+        },
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Trang chủ', item: `${SITE_URL}/` },
+            { '@type': 'ListItem', position: 2, name: 'Cẩm Nang', item: `${SITE_URL}/bai-viet` },
+            { '@type': 'ListItem', position: 3, name: 'Thư Viện Sách', item: `${SITE_URL}/thu-vien-sach` },
+            { '@type': 'ListItem', position: 4, name: book.title, item: meta.url }
+          ]
+        }
+      ]
+    }
+  };
+}
+
 export function pillarMeta(pillar: Pillar): PageMeta {
   return page(`/${pillar.slug}`, pillar.title, pillar.seoDescription, pillar.image);
 }
@@ -157,6 +194,8 @@ export function allPageMeta(): PageMeta[] {
     ABOUT_META,
     ARTICLES_META,
     ...ARTICLES.map(articleMeta),
+    LIBRARY_META,
+    ...BOOKS.map(bookMeta),
     FAQ_META,
     CONTACT_META,
     ...POLICIES.map(policyMeta),

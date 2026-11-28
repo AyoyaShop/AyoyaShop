@@ -4,6 +4,7 @@ import react from '@vitejs/plugin-react';
 import { createServer, type Plugin } from 'vite';
 import { ALL_PRODUCTS, PRODUCT_GALLERIES } from '../src/data';
 import { ARTICLES } from '../src/data/articles';
+import { BOOKS } from '../src/data/books';
 import { allPageMeta, type PageMeta } from '../src/lib/pageMeta';
 import { ORGANIZATION_JSON_LD, SITE_URL } from '../src/lib/seo';
 
@@ -57,11 +58,14 @@ function sitemap(): string {
   const pages = allPageMeta().map(meta => {
     const product = ALL_PRODUCTS.find(p => meta.path === `/san-pham/${p.id}`);
     const article = ARTICLES.find(a => meta.path === `/bai-viet/${a.slug}`);
+    const book = BOOKS.find(b => meta.path === `/thu-vien-sach/${b.slug}`);
     const photos = product
       ? (PRODUCT_GALLERIES[product.id] ?? [product.image])
       : article
         ? [article.hero.src, ...article.blocks.flatMap(block => (block.type === 'img' ? [block.src] : []))]
-        : [];
+        : book?.cover
+          ? [book.cover.src]
+          : [];
     return entry(meta.url, photos.map(src => (src.startsWith('/') ? `${SITE_URL}${src}` : src)));
   });
   return [

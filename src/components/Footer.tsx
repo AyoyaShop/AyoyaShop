@@ -29,6 +29,7 @@ export default function Footer() {
           <h3 className="mb-2 text-base font-bold text-ayoya-cream">Hỗ trợ</h3>
           <Link to="/tra-cuu-don" className={linkClass}>Tra cứu đơn</Link>
           <Link to="/bai-viet" className={linkClass}>Cẩm Nang</Link>
+          <Link to="/thu-vien-sach" className={linkClass}>Thư Viện Sách</Link>
           <Link to="/hoi-dap" className={linkClass}>Hỏi đáp</Link>
           <Link to="/lien-he" className={linkClass}>Liên hệ</Link>
           {POLICIES.map(policy => (
