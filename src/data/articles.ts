@@ -20,6 +20,299 @@ export interface Article {
 
 export const ARTICLES: Article[] = [
   {
+    "slug": "dot-than-va-nu-tram-khong-bi-tat",
+    "title": "Cách đốt than xông và nụ trầm không bị tắt giữa chừng",
+    "seoTitle": "Cách đốt than xông và nụ trầm không bị tắt giữa chừng",
+    "description": "Hướng dẫn mồi than xông, đốt nụ trầm thác khói không bị tắt, cách bảo quản chống ẩm và chính sách hỗ trợ đổi trả 7 ngày tại Ayoya Shop.",
+    "published": "2026-11-28",
+    "productIds": [
+      "than-vien-xong-nha",
+      "nu-tram-huong",
+      "nu-que"
+    ],
+    "lead": "Than vừa châm đã tắt, nụ trầm cháy nửa chừng rồi ngừng khói: thường là do mồi chưa đủ lửa, lỗ thông khí của lư bị bít, hoặc than, nụ đã hút ẩm.",
+    "hero": {
+      "src": "/articles/dot-than-va-nu-tram-khong-bi-tat/than-vien-va-nu-tram-canh-lu-thac-khoi.webp",
+      "alt": "Than viên xông nhà và nụ trầm hương đặt cạnh lư thác khói",
+      "width": 1280,
+      "height": 853
+    },
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Bài này hướng dẫn từng bước cách đốt than xông và nụ trầm, cách cất giữ, và cần làm gì nếu đã làm đúng mà vẫn không cháy."
+      },
+      {
+        "type": "h2",
+        "text": "1. Cách đốt than xông cho bén lửa đều"
+      },
+      {
+        "type": "p",
+        "text": "Viên than cần đủ nhiệt trước khi dùng. Chỉ nóng một góc thì than dễ tắt ngay khi đặt vào khay hoặc khi bỏ thảo dược lên."
+      },
+      {
+        "type": "h3",
+        "text": "Bước 1: Chuẩn bị"
+      },
+      {
+        "type": "li",
+        "text": "[Than viên tròn xông nhà](/san-pham/than-vien-xong-nha). Mỗi gói thảo dược xông nhà đã kèm sẵn 1 khay nhôm và 2 viên than."
+      },
+      {
+        "type": "li",
+        "text": "Kẹp gắp than, đồ khò."
+      },
+      {
+        "type": "li",
+        "text": "Khay chịu nhiệt đặt trên đế chắc chắn, xa rèm, giấy, vải và đồ gỗ."
+      },
+      {
+        "type": "h3",
+        "text": "Bước 2: Mồi than"
+      },
+      {
+        "type": "img",
+        "src": "/articles/dot-than-va-nu-tram-khong-bi-tat/moi-than-xong-do-hong.webp",
+        "alt": "Viên than xông được giữ bằng kẹp và khò cho đỏ hồng",
+        "width": 1280,
+        "height": 853
+      },
+      {
+        "type": "p",
+        "text": "Kẹp viên than, khò đều toàn mặt khoảng 40 – 60 giây đến khi đỏ hồng. Thời gian tùy viên than khô hay ẩm, nên nhìn màu than là chính. Không dùng tay chạm vào than đang cháy hoặc còn nóng."
+      },
+      {
+        "type": "h3",
+        "text": "Bước 3: Đợi than cháy ổn định"
+      },
+      {
+        "type": "p",
+        "text": "Đặt than vào khay, đợi cháy đều rồi mới làm bước tiếp theo."
+      },
+      {
+        "type": "h3",
+        "text": "Bước 4: Bỏ thảo dược từng ít một"
+      },
+      {
+        "type": "p",
+        "text": "Rắc từng lượng nhỏ lên mặt than. Phủ kín một lúc làm than thiếu khí, nguội nhanh và tắt."
+      },
+      {
+        "type": "h2",
+        "text": "2. Cách đốt nụ trầm trên lư thác khói"
+      },
+      {
+        "type": "p",
+        "text": "[Nụ trầm hương cao cấp](/san-pham/nu-tram-huong) gồm 95% bột trầm hương và 5% vỏ cây bời lời để kết dính, không pha hóa chất. Vì vậy bước mồi lửa và luồng khí rất quan trọng. [Nụ quế](/san-pham/nu-que) đốt theo cách tương tự."
+      },
+      {
+        "type": "h3",
+        "text": "Bước 1: Xem nụ và lư"
+      },
+      {
+        "type": "li",
+        "text": "Nụ không bị mềm, ẩm, méo hay vỡ đầu."
+      },
+      {
+        "type": "li",
+        "text": "Lỗ thông khí dưới lư không bị tro cũ hoặc bụi bít."
+      },
+      {
+        "type": "li",
+        "text": "Lư đặt trên mặt phẳng vững."
+      },
+      {
+        "type": "h3",
+        "text": "Bước 2: Mồi ở đầu nụ"
+      },
+      {
+        "type": "p",
+        "text": "Dùng bật lửa đốt đầu nụ cho cháy đỏ hồng một đoạn không quá ngắn, đến khi có khói ngược phát ra. Đừng vội đặt lên lư khi mới châm."
+      },
+      {
+        "type": "h3",
+        "text": "Bước 3: Đặt nụ đúng chỗ"
+      },
+      {
+        "type": "img",
+        "src": "/articles/dot-than-va-nu-tram-khong-bi-tat/nu-tram-huong-tren-lu-thac-khoi.webp",
+        "alt": "Nụ trầm hương đang cháy trên lư thác khói, khói chảy xuống",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "type": "p",
+        "text": "Đặt nụ vào đúng vị trí trên đỉnh lư thác khói. Khói đi qua lỗ trong nụ và lư rồi chảy xuống, nên cần loại lư dành cho nụ thác khói và các lỗ dẫn không bị tắc."
+      },
+      {
+        "type": "h3",
+        "text": "Bước 4: Giữ lỗ thông khí thoáng"
+      },
+      {
+        "type": "p",
+        "text": "Đợi lư nguội rồi dọn tro ở lỗ thông khí, đường dẫn khói và chỗ đặt nụ. Không cạy mạnh bằng vật nhọn để khỏi hỏng lư."
+      },
+      {
+        "type": "h2",
+        "text": "3. Vì sao than xông và nụ trầm bị tắt giữa chừng?"
+      },
+      {
+        "type": "table",
+        "rows": [
+          [
+            "Nguyên nhân",
+            "Thường thấy",
+            "Cách xử lý"
+          ],
+          [
+            "Mồi chưa đủ",
+            "Đỏ một chỗ rồi tắt",
+            "Mồi lại cho đỏ đều"
+          ],
+          [
+            "Bị ẩm",
+            "Khó bén lửa, cháy yếu",
+            "Kiểm tra chỗ cất, để khô"
+          ],
+          [
+            "Phủ nhiều thảo dược",
+            "Than nguội nhanh",
+            "Bỏ từng ít một"
+          ],
+          [
+            "Lỗ khí bị tắc",
+            "Nụ tắt, khói không chảy xuống",
+            "Dọn tro, thông lỗ"
+          ],
+          [
+            "Lư không hợp",
+            "Nụ cháy mà không thành thác",
+            "Dùng lư cho nụ thác khói"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Không phải lần tắt nào cũng do người đốt. Đã kiểm tra đủ mà vẫn không cháy, bạn nhắn shop."
+      },
+      {
+        "type": "h2",
+        "text": "4. Bảo quản than và nụ trầm cho khỏi ẩm"
+      },
+      {
+        "type": "img",
+        "src": "/articles/dot-than-va-nu-tram-khong-bi-tat/bao-quan-than-va-nu-tram.webp",
+        "alt": "Than xông và nụ trầm cất kín ở chỗ khô ráo",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "type": "li",
+        "text": "Lấy xong thì đóng kín: cho vào túi zip hoặc hộp kín."
+      },
+      {
+        "type": "li",
+        "text": "Để nơi khô, không đặt sát nền nhà, bồn rửa hay nhà tắm."
+      },
+      {
+        "type": "li",
+        "text": "Tránh nắng gắt và không để sát bếp."
+      },
+      {
+        "type": "li",
+        "text": "Cất riêng viên đã ẩm, đừng trộn với viên còn khô."
+      },
+      {
+        "type": "li",
+        "text": "Thấy ẩm, mốc, biến dạng hay mùi lạ thì không dùng."
+      },
+      {
+        "type": "h2",
+        "text": "5. An toàn khi đốt than và nụ trầm"
+      },
+      {
+        "type": "h3",
+        "text": "Với than xông"
+      },
+      {
+        "type": "li",
+        "text": "Than cháy sinh khí CO không màu, không mùi. Khi đốt phải mở hết cửa, không đốt trong phòng đóng kín, không đốt rồi đi ngủ."
+      },
+      {
+        "type": "li",
+        "text": "Ai thấy nhức đầu, chóng mặt, buồn nôn thì ra ngay chỗ thoáng; không đỡ thì đi khám."
+      },
+      {
+        "type": "li",
+        "text": "Ở căn hộ, chung cư, khói dễ làm hệ thống báo cháy kêu: thảo dược xông nhà nên chuyển sang cách đun nước."
+      },
+      {
+        "type": "li",
+        "text": "Dùng kẹp và khay chịu nhiệt, không để than cháy mà không có người trông; đợi nguội hẳn mới đổ."
+      },
+      {
+        "type": "h3",
+        "text": "Với nụ trầm"
+      },
+      {
+        "type": "li",
+        "text": "Đặt lư vững, xa rèm, giấy, vải; để xa trẻ em và thú cưng."
+      },
+      {
+        "type": "li",
+        "text": "Không rời mắt khi nụ đang cháy, không đốt khi đi ngủ hay sắp ra khỏi nhà."
+      },
+      {
+        "type": "li",
+        "text": "Giữ phòng thoáng; khó chịu với khói thì tắt và mở cửa."
+      },
+      {
+        "type": "h2",
+        "text": "6. Đốt đúng mà vẫn không cháy thì sao?"
+      },
+      {
+        "type": "p",
+        "text": "Than hoặc nụ không cháy dù đã đốt đúng hướng dẫn được hỗ trợ đổi trả trong 7 ngày kể từ ngày nhận hàng. Trường hợp này không cần còn nguyên như chưa dùng."
+      },
+      {
+        "type": "li",
+        "text": "Nhắn Zalo hoặc gọi 0933.458.485."
+      },
+      {
+        "type": "li",
+        "text": "Gửi video mở hộp quay rõ mã vận đơn, cùng ảnh hoặc video lúc nụ, than không cháy."
+      },
+      {
+        "type": "li",
+        "text": "Shop xác nhận rồi gửi hàng mới hoặc hoàn tiền."
+      },
+      {
+        "type": "p",
+        "text": "Điều kiện đầy đủ xem tại [chính sách đổi trả](/chinh-sach/chinh-sach-doi-tra)."
+      },
+      {
+        "type": "h2",
+        "text": "7. Sản phẩm trong bài"
+      },
+      {
+        "type": "li",
+        "text": "[Than Viên Tròn Xông Nhà](/san-pham/than-vien-xong-nha): 25.000đ gói 10 viên."
+      },
+      {
+        "type": "li",
+        "text": "[Nụ Trầm Hương Cao Cấp](/san-pham/nu-tram-huong): 159.000đ hộp 30 nụ."
+      },
+      {
+        "type": "p",
+        "text": "Cách xông nhà từng bước xem tại bài [Cách xông nhà cuối năm bằng thảo dược](/bai-viet/cach-xong-nha-cuoi-nam)."
+      }
+    ],
+    "notes": [
+      "Người viết: Nguyễn Tuấn Kiệt, Ayoya Shop. Điện thoại/Zalo: 0933.458.485.",
+      "Bài viết hướng dẫn cách dùng và cất giữ sản phẩm, không thay thế tư vấn y tế hoặc hướng dẫn phòng cháy chữa cháy."
+    ]
+  },
+  {
     "slug": "mot-goi-xong-nha-dung-may-lan",
     "title": "Một gói thảo dược xông nhà dùng được mấy lần?",
     "seoTitle": "Một gói thảo dược xông nhà dùng được mấy lần? Giải đáp",
