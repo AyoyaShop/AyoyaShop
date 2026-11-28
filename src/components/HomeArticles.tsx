@@ -11,7 +11,7 @@ export default function HomeArticles() {
   return (
     <section id="bai-viet" className="px-5 py-16">
       <div className="mx-auto max-w-6xl">
-        <SectionHeading eyebrow="Góc Kiến Thức" title="Hướng dẫn dùng cho đúng" />
+        <SectionHeading eyebrow="Cẩm Nang" title="Hướng dẫn dùng cho đúng" />
         <div className={single ? 'mx-auto max-w-4xl' : 'grid gap-6 sm:grid-cols-2 lg:grid-cols-3'}>
           {latest.map(article => (
             <ArticleCard key={article.slug} article={article} heading="h3" wide={single} />

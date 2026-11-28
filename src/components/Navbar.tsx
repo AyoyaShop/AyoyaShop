@@ -9,7 +9,7 @@ const MENU = [
   ['/tram-huong', 'Trầm hương'],
   ['/phong-thuy', 'Phong thủy'],
   ['/bo-qua-tet', 'Bộ quà Tết'],
-  ['/bai-viet', 'Góc Kiến Thức'],
+  ['/bai-viet', 'Cẩm Nang'],
   ['/ve-chung-toi', 'Chuyện nhà võ']
 ];
 
@@ -19,13 +19,13 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-ayoya-sand bg-ayoya-cream/95 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-6xl xl:max-w-7xl items-center justify-between gap-3 px-3 sm:px-5 lg:h-20">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-3 sm:px-5 lg:h-20">
         <Link to="/" className="flex flex-col items-center leading-none">
           <span className="font-serif text-2xl lg:text-[28px] font-bold tracking-tight text-ayoya-green">AYOYA</span>
           <span className="mt-1 hidden min-[375px]:block whitespace-nowrap text-[9px] font-medium uppercase tracking-[0.06em]">Thảo mộc &amp; Phong thủy</span>
         </Link>
 
-        <nav aria-label="Menu chính" className="hidden lg:flex items-center gap-2.5 xl:gap-4 whitespace-nowrap text-[13px] xl:text-sm font-medium">
+        <nav aria-label="Menu chính" className="hidden lg:flex items-center gap-2.5 xl:gap-4 whitespace-nowrap text-sm font-medium">
           {MENU.map(([to, label]) => (
             <NavLink
               key={to}

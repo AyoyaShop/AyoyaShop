@@ -83,7 +83,7 @@ export default function ArticlePage() {
       <div className="mx-auto max-w-3xl leading-relaxed">
         <p className="mb-5 text-sm text-ayoya-brown/70">
           <Link to="/" className="underline underline-offset-4">Trang chủ</Link> /{' '}
-          <Link to="/bai-viet" className="underline underline-offset-4">Góc Kiến Thức</Link>
+          <Link to="/bai-viet" className="underline underline-offset-4">Cẩm Nang</Link>
         </p>
         <h1 className="text-[clamp(1.75rem,3.6vw,2.5rem)] leading-tight font-bold">{article.title}</h1>
         <p className="mt-2 text-sm text-ayoya-brown/70">Đăng ngày {articleDate(article.published)}</p>

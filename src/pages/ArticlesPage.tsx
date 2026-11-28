@@ -15,9 +15,9 @@ export default function ArticlesPage() {
     <div className="px-5 pt-32 pb-20 lg:pt-28">
       <div className="mx-auto max-w-6xl">
         <p className="mb-5 text-sm text-ayoya-brown/70">
-          <Link to="/" className="underline underline-offset-4">Trang chủ</Link> / Góc Kiến Thức
+          <Link to="/" className="underline underline-offset-4">Trang chủ</Link> / Cẩm Nang
         </p>
-        <h1 className="mb-8 text-[clamp(1.9rem,3.6vw,2.75rem)] font-bold">Góc Kiến Thức</h1>
+        <h1 className="mb-8 text-[clamp(1.9rem,3.6vw,2.75rem)] font-bold">Cẩm Nang</h1>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {ARTICLES.map(article => (
             <ArticleCard key={article.slug} article={article} heading="h2" />
