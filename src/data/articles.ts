@@ -20,6 +20,199 @@ export interface Article {
 
 export const ARTICLES: Article[] = [
   {
+    "slug": "qua-tet-bieu-cha-me",
+    "title": "Quà Tết biếu cha mẹ: món quà chăm sóc thân tình và thiết thực",
+    "seoTitle": "Quà Tết biếu cha mẹ: Chọn quà sức khỏe sao cho phù hợp?",
+    "description": "Gợi ý quà Tết biếu cha mẹ gồm dầu xoa bóp và túi ngâm chân thảo dược. Xem thành phần, cách dùng và những lưu ý an toàn cho người lớn tuổi.",
+    "published": "2026-11-28",
+    "productIds": [
+      "dau-vo",
+      "ngam-chan-moc-an"
+    ],
+    "lead": "Tết là dịp con cháu bày tỏ lòng biết ơn. Quà ý nghĩa không cần đắt: món cha mẹ dùng được trong sinh hoạt hằng ngày thường được nhớ lâu.",
+    "hero": {
+      "src": "/articles/qua-tet-bieu-cha-me/bo-qua-tet-bieu-cha-me.webp",
+      "alt": "Bộ quà Tết Biếu Cha Mẹ gồm hai chai dầu xoa bóp và bịch thảo dược ngâm chân",
+      "width": 1280,
+      "height": 720
+    },
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Nếu muốn biếu theo hướng chăm sóc cơ thể, bạn có thể xem [bộ quà Biếu Cha Mẹ](/bo-qua-tet) gồm 2 chai dầu xoa bóp 100ml và 10 túi thảo dược ngâm chân. Trước khi mua, hãy đọc phần ai không nên dùng ở dưới."
+      },
+      {
+        "type": "h2",
+        "text": "1. Bộ quà Biếu Cha Mẹ gồm những gì?"
+      },
+      {
+        "type": "li",
+        "text": "2 chai [Dầu Xoa Bóp Võ Thuật Cổ Truyền Bình Định](/san-pham/dau-vo), 100ml một chai, dùng xoa ngoài da."
+      },
+      {
+        "type": "li",
+        "text": "10 túi lọc [Thảo Dược Ngâm Chân Mộc An](/san-pham/ngam-chan-moc-an), pha nước ngâm chân."
+      },
+      {
+        "type": "p",
+        "text": "Giá bộ 228.000đ, đúng bằng giá mua lẻ. Khách có mã in trên menu hoặc thư cảm ơn của shop thì còn 182.400đ; mỗi số điện thoại dùng mã một lần."
+      },
+      {
+        "type": "img",
+        "src": "/articles/qua-tet-bieu-cha-me/bich-thao-duoc-ngam-chan-moc-an.webp",
+        "alt": "Bịch thảo dược ngâm chân Mộc An 10 túi lọc",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "type": "h2",
+        "text": "2. Trước khi biếu: cha mẹ có dùng được không?"
+      },
+      {
+        "type": "p",
+        "text": "Đồ dùng trên cơ thể thì hợp người quan trọng hơn món nhiều hay ít. Bạn nên hỏi thăm bệnh nền và tình trạng sức khỏe của cha mẹ trước."
+      },
+      {
+        "type": "h3",
+        "text": "Không dùng túi ngâm chân cho"
+      },
+      {
+        "type": "li",
+        "text": "Người mắc tiểu đường."
+      },
+      {
+        "type": "li",
+        "text": "Người bị giãn tĩnh mạch."
+      },
+      {
+        "type": "li",
+        "text": "Người có vết thương hở ở chân."
+      },
+      {
+        "type": "li",
+        "text": "Phụ nữ mang thai."
+      },
+      {
+        "type": "li",
+        "text": "Người vừa ăn no."
+      },
+      {
+        "type": "p",
+        "text": "Người tiểu đường có thể bị giảm cảm giác ở bàn chân nên không biết nước quá nóng hay chân đang trầy. [Viện Đái tháo đường và Bệnh thận Hoa Kỳ (NIDDK)](https://www.niddk.nih.gov/health-information/diabetes/overview/preventing-problems/foot-problems) khuyên họ không ngâm chân. Với người giãn tĩnh mạch, [hướng dẫn của Anh (NICE)](https://www.nice.org.uk/guidance/cg168/ifp/chapter/information-about-varicose-veins) khuyên tránh những thứ làm triệu chứng nặng thêm, trong đó có tắm nước nóng (hai trang đều bằng tiếng Anh). Người có bệnh tuần hoàn nên hỏi nhân viên y tế trước."
+      },
+      {
+        "type": "h3",
+        "text": "Không dùng dầu xoa bóp cho"
+      },
+      {
+        "type": "li",
+        "text": "Phụ nữ mang thai."
+      },
+      {
+        "type": "li",
+        "text": "Trẻ dưới 30 tháng tuổi."
+      },
+      {
+        "type": "li",
+        "text": "Người có tiền sử động kinh hoặc co giật."
+      },
+      {
+        "type": "p",
+        "text": "Dầu chỉ xoa ngoài da, tuyệt đối không uống; không bôi lên vết thương hở, mắt, miệng, niêm mạc. Da nhạy cảm nên thử một ít ở mặt trong cánh tay."
+      },
+      {
+        "type": "p",
+        "text": "Nếu cha mẹ thuộc một trong các nhóm trên, bạn nên chọn món quà khác thay vì cố dùng đủ cả bộ."
+      },
+      {
+        "type": "h2",
+        "text": "3. Cách ngâm chân bằng túi thảo dược"
+      },
+      {
+        "type": "p",
+        "text": "Chỉ áp dụng cho người không thuộc nhóm nêu trên."
+      },
+      {
+        "type": "img",
+        "src": "/articles/qua-tet-bieu-cha-me/chau-nuoc-ngam-chan-thao-duoc.webp",
+        "alt": "Chậu nước ngâm chân với túi thảo dược, nhiệt kế và khăn khô",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "type": "li",
+        "text": "Cho 1 túi lọc vào chậu, thêm 1 – 2 lít nước sôi, đợi khoảng 5 phút."
+      },
+      {
+        "type": "li",
+        "text": "Pha thêm nước mát cho còn khoảng 38 – 42°C, đo bằng nhiệt kế. Đừng để người giảm cảm giác nóng lạnh tự ước chừng."
+      },
+      {
+        "type": "li",
+        "text": "Ngâm 15 – 20 phút, xoa nhẹ lòng bàn chân. Thấy nóng rát hay khó chịu thì nhấc chân ra."
+      },
+      {
+        "type": "li",
+        "text": "Lau khô bằng khăn mềm, nhất là các kẽ ngón; không cần rửa lại."
+      },
+      {
+        "type": "h2",
+        "text": "4. Cách dùng dầu xoa bóp"
+      },
+      {
+        "type": "img",
+        "src": "/articles/qua-tet-bieu-cha-me/chai-dau-xoa-bop-vo-thuat-binh-dinh.webp",
+        "alt": "Chai dầu xoa bóp võ thuật cổ truyền Bình Định",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "type": "li",
+        "text": "Lắc đều chai."
+      },
+      {
+        "type": "li",
+        "text": "Đổ một ít lên vùng da sạch, khô."
+      },
+      {
+        "type": "li",
+        "text": "Xoa nhẹ theo vòng tròn 5 – 10 phút, ngày 2 – 3 lần."
+      },
+      {
+        "type": "li",
+        "text": "Xoa xong rửa tay, tránh để dầu dính vào mắt, miệng."
+      },
+      {
+        "type": "p",
+        "text": "Khi xoa thường thấy ấm nhẹ, hơi the mát; mỗi người cảm nhận một khác. Da ngứa, rát, nổi mẩn thì ngưng dùng và rửa sạch bằng nước."
+      },
+      {
+        "type": "h2",
+        "text": "5. Khi nào nên đi khám?"
+      },
+      {
+        "type": "p",
+        "text": "Dầu và túi ngâm không thay thuốc, cũng không thay việc đi khám. Đau nhức kéo dài hoặc tăng dần, tê bì thường xuyên, chân sưng, da nóng đỏ thì nên đưa cha mẹ đến cơ sở y tế. Người tiểu đường thấy chân loét, nứt, phồng rộp, sưng hay đỏ thì đi khám, đừng tự ngâm hay xoa."
+      },
+      {
+        "type": "h2",
+        "text": "6. Mua bộ quà Biếu Cha Mẹ ở đâu?"
+      },
+      {
+        "type": "p",
+        "text": "Đặt tại trang [Bộ quà Tết](/bo-qua-tet). Bạn được đồng kiểm khi nhận hàng, trả tiền khi nhận hoặc chuyển khoản; điều kiện đổi trả xem tại [chính sách đổi trả](/chinh-sach/chinh-sach-doi-tra)."
+      },
+      {
+        "type": "p",
+        "text": "Chọn món hợp sức khỏe và thói quen của cha mẹ, sự chăm sóc bắt đầu từ những điều giản dị mỗi ngày."
+      }
+    ],
+    "notes": [
+      "Người viết: Nguyễn Tuấn Kiệt, Ayoya Shop. Điện thoại/Zalo: 0933.458.485.",
+      "Nội dung không thay thế tư vấn, chẩn đoán hoặc điều trị y tế."
+    ]
+  },
+  {
     "slug": "lau-don-ban-tho-ngay-tet",
     "title": "Lau dọn bàn thờ ngày Tết: cách bao sái đúng và an toàn",
     "seoTitle": "Lau dọn bàn thờ ngày Tết: Cách bao sái đúng và an toàn",
