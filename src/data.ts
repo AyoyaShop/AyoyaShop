@@ -352,7 +352,7 @@ export const MORE_PRODUCTS = [
     ingredients:
       'Nước tinh khiết + tinh chất 9 loại thảo mộc: mùi già, quế, đại hồi, đinh hương, gừng, hương nhu, bạc hà, sả, vỏ bưởi. Không cồn, không chất tẩy công nghiệp.',
     usage:
-      'Dùng nguyên chất hoặc pha loãng theo tỷ lệ 1:3 với nước ấm. Dùng khăn mềm sạch (riêng cho bàn thờ) thấm dung dịch, lau nhẹ nhàng lên đồ thờ cúng, sau đó lau khô lại để không còn ẩm ướt. Nên vệ sinh 1-2 lần/tuần hoặc trước các dịp lễ, mùng 1, rằm, bao sái cuối năm.',
+      'Dùng nguyên chất hoặc pha loãng theo tỷ lệ 1:3 với nước ấm. Dùng khăn mềm sạch (riêng cho bàn thờ) thấm dung dịch, lau nhẹ nhàng lên đồ thờ cúng, sau đó lau khô lại để không còn ẩm ướt. Lau khi cần, ví dụ khi thấy bụi, trước các dịp lễ, ngày giỗ và bao sái cuối năm; không cần theo lịch cố định.',
     warnings: '',
     origin:
       'Nguyên liệu sạch, nguồn gốc thiên nhiên từ thực vật. Hạn sử dụng 12 tháng kể từ ngày sản xuất. Bảo quản nơi khô ráo, thoáng mát.',
@@ -465,7 +465,7 @@ export const MORE_PRODUCTS = [
     category: 'tho-cung',
     noDiscount: false,
     title: 'Nhang Quế Cao Cấp',
-    description: '90% vỏ và lá quế tự nhiên kết hợp keo bời lời, ít khói, mùi quế ấm áp, phù hợp thắp bàn thờ và không gian căn hộ kín.',
+    description: '90% vỏ quế tự nhiên kết hợp keo bời lời, ít khói, mùi quế ấm áp, phù hợp thắp bàn thờ và không gian căn hộ.',
     benefits: '',
     ingredients: '90% vỏ quế, 10% keo bời lời và tăm tre tự nhiên, hương thơm quế ấm áp đặc trưng.',
     usage:
@@ -489,7 +489,7 @@ export const MORE_PRODUCTS = [
     title: 'Nhang Vỏ & Lá Quế Dạng Bó',
     description: 'Vỏ và lá quế rừng nghiền mịn kết dính tự nhiên, mùi thơm đậm đà, phù hợp nhu cầu thờ cúng hàng ngày với chi phí tiết kiệm.',
     benefits: '',
-    ingredients: '90% vỏ và lá quế, 10% keo bời lời và tăm tre tự nhiên, hương thơm đậm đà từ lá quế.',
+    ingredients: '90% vỏ và lá quế, 10% keo bời lời và tăm tre tự nhiên, hương thơm đậm đà từ lá quế. Mỗi bó 180 cây, khối lượng 250g.',
     usage:
       'Thắp bàn thờ Phật, tổ tiên; hỗ trợ thanh lọc không khí; làm ấm không gian, phù hợp dùng khi yoga, thiền định; ít khói, thích hợp dùng ở văn phòng, căn hộ chung cư.',
     warnings:
@@ -509,7 +509,7 @@ export const MORE_PRODUCTS = [
     category: 'tho-cung',
     noDiscount: false,
     title: 'Nhang Trầm Hương Cao Cấp',
-    description: 'Bột trầm hương thiên nhiên kết dính từ vỏ cây bời lời, tăm tre tự nhiên. Ít khói, phù hợp thắp bàn thờ Phật, tổ tiên và không gian văn phòng kín.',
+    description: 'Bột trầm hương thiên nhiên kết dính từ vỏ cây bời lời, tăm tre tự nhiên. Ít khói, phù hợp thắp bàn thờ Phật, tổ tiên và không gian văn phòng.',
     benefits: '',
     ingredients: 'Bột trầm hương tự nhiên, keo bời lời tạo kết dính, tăm tre tự nhiên. Hộp 50 cây, dài 30cm.',
     usage:

@@ -34,7 +34,7 @@ export const PRODUCT_SEO: Record<string, { description: string; brand?: string }
     brand: 'An Mộc Hương'
   },
   'nhang-que': {
-    description: 'Nhang quế cao cấp: 90% vỏ và lá quế kết hợp keo bời lời, ít khói, mùi quế ấm, hợp bàn thờ và căn hộ. Sản xuất tại Long An.',
+    description: 'Nhang quế cao cấp: 90% vỏ quế kết hợp keo bời lời, ít khói, mùi quế ấm, hợp bàn thờ và căn hộ. Sản xuất tại Long An.',
     brand: 'An Mộc Hương'
   },
   'nhang-bo-que': {
